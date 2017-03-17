@@ -1,0 +1,66 @@
+<?php
+
+
+//************************************************************************
+//		Affichage des commentaires
+//************************************************************************
+function compteur_concordancier($motcle)
+	{
+
+	global $compteurcon;
+	$requete = 'SELECT * FROM ressources';
+	$recup2 = mysql_query($requete);
+		while ($data = mysql_fetch_assoc($recup2))
+			{
+				if (strpos($data['Transcription'],$motcle)>0)
+					{
+
+
+					$fichier = 'ressources/'.$data['id'].'.srt'; // fichier
+					if (file_exists($fichier))
+						{
+
+						$lignes = file($fichier);
+						$lignes=str_replace("Ã´","ô",$lignes);
+						$lignes=str_replace("Ã©","é",$lignes);
+						$lignes=str_replace("Ã","à",$lignes);
+						$lignes=str_replace("à¨","è",$lignes);
+						$lignes=str_replace("àª","ê",$lignes);
+						$lignes=str_replace("à§","ç",$lignes);
+						$lignes=str_replace("à»","û",$lignes);
+						$lignes=str_replace("à¢","â",$lignes);
+						$lignes=str_replace(chr(13),"",$lignes);
+						$lignes=str_replace(chr(10),"",$lignes);
+						$lignes=str_replace("  "," ",$lignes);
+						$lignes=str_replace("à ","à",$lignes);
+						$lignes=str_replace("à¹","ù",$lignes);
+						$lignes=str_replace("ù ","ù",$lignes);
+
+						foreach($lignes as $ligne_num => $ligne)
+							{
+
+								$position = strpos($ligne,$motcle);
+								if ($position>-1) 
+									{
+
+									$compteurcon=$compteurcon+1;
+echo "toto=".$compteurcon;
+
+									}
+
+							}
+
+
+
+						}
+
+
+
+
+				}
+
+			}
+	}
+
+
+?>

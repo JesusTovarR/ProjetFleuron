@@ -1,0 +1,117 @@
+/* --------------------------------------------------------------- */ 
+/*             		   	 Styles          	    	   */ 
+/* --------------------------------------------------------------- */ 
+/*                 Codes par : 			                  */ 
+/*            Steven DUDA / n° de tél. 06 63 10 33 21              */ 
+/*           		 steven.duda@wanadoo.fr		           */ 
+/* --------------------------------------------------------------- */ 
+
+/* BODY - Font principal */ 
+body { font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular}
+
+a:hover { font-decoration: none;text-decoration:none }
+a:link { font-decoration: none;text-decoration:none }
+a:visited { font-decoration: none;text-decoration:none }
+
+H1 { color: #A13926; font-weight: bolder; font-size: 16pt; font-decoration: none;vertical-align:text-bottom; letter-spacing: 1;text-decoration:none }
+
+/* Texte par défaut */ 
+.Texte_default { font-weight: normal; font-size: 12pt; color: #252525; letter-spacing: normal}
+
+/* Texte par défaut Gras */ 
+.Texte_defaultGras { font-weight: bolder; font-size: 12pt; color: #252525; letter-spacing: normal}
+
+/* Texte note  8pt */ 
+.Texte_note{ font-weight: normal; font-size: 9pt; color: #696969; letter-spacing: normal}
+
+/* Titre */ 
+.titre { font-weight: normal; font-size: 13pt; color: white; letter-spacing: normal}
+
+/* Titre */ 
+.titreoffline { font-weight: normal; font-size: 13pt; color: #696969; letter-spacing: normal}
+
+/* Titre des pages admin */ 
+.titre_admin { font-weight: bolder; font-size: 14pt; color: #252525; letter-spacing: normal}
+
+
+/* Titre */ 
+.titreaccueil { font-weight: normal; font-size: 14pt; color: #252525; letter-spacing: normal}
+
+/* Texte blanc Menu/Lien */ 
+.Texte_menu { font-weight: normal; font-size: 12pt; color: white; letter-spacing: normal}
+
+
+/* Message */ 
+.message { font-weight: bolder; font-size: 12pt; color:  #252525; letter-spacing: normal}
+
+/* Texte info  8pt (date.) */ 
+.Texte_info8{ font-weight: normal; font-size: 8pt; color: #F5DCDC; letter-spacing: normal}
+
+/* Texte info  10pt (lien,utilisateur/motde passe /etc.) */ 
+.Texte_info10{ font-weight: normal; font-size: 10pt; color: #F5DCDC; letter-spacing: normal}
+
+/* Texte info  12pt (utilisateur/motde passe /etc.) */ 
+.Texte_info12{ font-weight: normal; font-size: 12pt; color: #F5DCDC; letter-spacing: normal}
+
+/* List d'éléments */ 
+.list{ font-weight: normal; font-size: 10pt; color: #252525; letter-spacing: normal}
+
+/* Texte Conseil */ 
+.conseil { font-weight: normal; font-size: 10pt; color: #252525; letter-spacing: normal}
+
+
+div#soustitre {
+	width:460px;
+	height:100px;
+	background-color:#E5E4DF;
+	color:#252525;
+	font: 12pt Arial;
+	font-weight: bolder;
+	padding: 10px;
+	}
+
+div#soustitre380 {
+	width:320px;
+	height:100px;
+	background-color:#E5E4DF;
+	color:#252525;
+	font: 10pt Arial;
+	font-weight: bolder;
+	padding: 10px;
+	}
+
+.stbutton {
+	width:200px;
+	height:30px;
+	background-color:#371111;
+	color:white;
+	font: 12pt Arial;
+	padding: 0px;
+	border-radius: 0px;
+	border: 0px;
+	cursor:pointer;
+	}
+
+.stbuttonImp {
+	width:100px;
+	height:26px;
+	background-color:#371111;
+	color:white;
+	font: 12pt Arial;
+	padding: 0px;
+	border-radius: 0px;
+	border: 0px;
+	cursor:pointer;
+	}
+
+.stbuttonpublierST {
+	width:90px;
+	height:24px;
+	background-color:#371111;
+	color:white;
+	font: 10pt Arial;
+	padding: 0px;
+	border-radius: 0px;
+	border: 0px;
+	cursor:pointer;
+	}
