@@ -191,21 +191,5 @@ function page_modification($val)
     }
 }
 
-function categorie($val)
-{
-
-
-    global $lg; // récupération variable langue
-
-    $requete='SELECT '.$val.' FROM categorie_ressources WHERE code="'.$lg.'" && status=1';
-    $recup = mysql_query($requete);
-
-    if ($data = mysql_fetch_assoc($recup))
-    {
-        return $data[$val];
-
-    }
-}
-
 
 ?>

@@ -3,7 +3,7 @@
 <br>
 <?php
 
-$categorie=$_GET['categoria'];
+$categorie=$_GET['categorie'];
 if($categorie==1){
     $requete2='SELECT * FROM accueil_contenu WHERE id_user='.$_SESSION['id'];
     $codes = mysql_query($requete2);
@@ -13,9 +13,9 @@ if($categorie==1){
     $codes = mysql_query($requete2);
     $nom_table="conseils_contenu";
 }else if($categorie==3){
-    $requete2='SELECT * FROM conseils_contenu WHERE id_user='.$_SESSION['id'];
+    $requete2='SELECT * FROM menu WHERE id_user='.$_SESSION['id'];
     $codes = mysql_query($requete2);
-    $nom_table="conseils_contenu";
+    $nom_table="menu";
 }else{
     echo "error";
 }

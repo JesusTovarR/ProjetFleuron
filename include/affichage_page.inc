@@ -54,7 +54,7 @@ function affichage_contact()
     global $lg; // récupération variables de connexion
 
 
-    $requete2 = 'SELECT content FROM contact WHERE code="'.$lg.'" && status=1';
+    $requete2 = 'SELECT content FROM contact_contenu WHERE code="'.$lg.'" && status=1';
     $recup = mysql_query($requete2);
     while ($data = mysql_fetch_assoc($recup))
     {

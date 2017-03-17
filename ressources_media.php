@@ -458,7 +458,8 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 		<script type="text/javascript" src="scripts/jquery.subtitle.js" charset="utf-8"></script>
 		<!-- ***********************************************************************  -->
 		<link href="styles/styles.css" rel="styleSheet" type="text/css">
-		<?php include('include/style_onglet.inc');  // header ?>
+		<?php include('include/style_onglet.inc');  // header ?>
+
 	</head>
 
 	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="white" onload="TabClick(0);">
@@ -597,14 +598,15 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 <!-- *********************** Affichage du media de la ressource********************** -->
 <!-- ******************************************************************************** -->
 								<div id="Content" name="Content" align="center">
-
+
+
 
 	<?php if ($typemedia=="audio") { ?>
 <!-- ----------------------------------------------------------------------- -->
 <!--                         Affichage du media AUDIO                        -->
 <!-- ----------------------------------------------------------------------- -->
 	<!-- Vérification et affichage vignette -->
-		<?php if ($vignette=="") { ?> 
+		<?php if ($vignette=="") { ?>
 			<img src="visuel/pictos/hp_160.png">
 		<?php } else { ?>
 			<img src="ressources/<?php echo $vignette?>" width="200">
@@ -654,7 +656,8 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 				Erreur!!! Changer de navigateur!!!
 			</video>
 
-<?php if ($soustitre>0) { ?>
+<?php if ($soustitre>0) { ?>
+
 	<!-- Sous-titres-->
 			<div id="subtitres">
 				<button id="buton1" class="stbutton" ><?php echo versionlinguistique(108) //Afficher les sous-titres ?></button>
