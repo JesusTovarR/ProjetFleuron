@@ -6,41 +6,21 @@ include('include/open_connectionBase.inc'); // connection à la base MYSQL
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
-//$categorie=$_GET["categorie"];
+$categorie=$_GET["categorie"];
 $idressource=$_GET["idressource"];
-//$idprofil=$_GET["idprofil"];
-if (isset($_SESSION['retour'])) {
-	$retour=$_GET["retour"];
-} else {
-	if (isset($_SESSION['pageencours'])) {
-		$retour=$_GET["pageencours"];
-	} else {
-		$retour="";
-	}
+$idprofil=$_GET["idprofil"];
+$retour=$_GET["retour"];
+if ($retour=="") {
+$retour=$_GET["pageencours"];
 }
 
-if (isset($_SESSION['derpos'])) {
-	$derpos=$_GET["derpos"];
-} else {
-	$derpos="";
-}
+$derpos=$_GET["derpos"];
 
-if (isset($_SESSION['refpage'])) {
-	$refpage=$_GET["refpage"];
-} else {
-	$refpage="";
-}
+$refpage=$_GET["refpage"];
 
-if (isset($_SESSION['refpage'])) {
-	$timecode=$_GET["timecode"];
-	$timecode=str_replace(",",".",$timecode);
-	$offstetimecode = "#t=".$timecode;
-} else {
-	$timecode="";
-	$offstetimecode = "";
-}
-
-
+$timecode=$_GET["timecode"];
+$timecode=str_replace(",",".",$timecode);
+$offstetimecode = "#t=".$timecode;
 
 // Récupérer les informations de la ressource (table RESSOURCES)
 include('include/Recup_infosRessource.inc');

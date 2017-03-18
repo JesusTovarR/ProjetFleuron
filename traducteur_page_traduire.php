@@ -25,7 +25,11 @@ function edition_page()
 			$_SESSION['colonnes'][$count]=$cle;
 			echo '<tr>';
 			echo '<td align="center">';
-			echo '<textarea name="value'.$count.'" cols="60" rows="40">'.$value.'</textarea>';
+			if($_POST['formulaire']==1){
+				echo '<textarea name="value'.$count.'" cols="110" rows="25">'.$value.'</textarea>';
+			}else if($_POST['formulaire']==2){
+				echo '<textarea name="value'.$count.'" cols="60" rows="2">'.$value.'</textarea>';
+			}
 			echo '</td>';
 			echo '</tr>';
 			$count=$count+1;
@@ -46,7 +50,8 @@ function edition_page()
 	<head>
 		<?php include('include/head.inc');  // header ?>
 		<?php include('include/alexandria.inc');  // dictionnaire alexandria ?>
-		<?php include('include/traitementtexte.inc'); // Traitement de texte TinyMCE');  ?>
+
+		<?php if($_POST['formulaire']==1){include('include/traitementtexte.inc');} // Traitement de texte TinyMCE');  ?>
 		<link href="styles/styles.css" rel="styleSheet" type="text/css">
 	</head>
 
@@ -97,7 +102,7 @@ function edition_page()
 									<br>
 									<form name="FormName" action="traducteur_update.php" method="post">
 										<table border="0" cellpadding="0" cellspacing="5" width="600">
-											<?php edition_page() ?>
+											<?php edition_page()?>
 										</table>
 										<input type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->
 									</form>

@@ -10,11 +10,10 @@ $nb_col= count($_SESSION['colonnes']);
             $col="".$_SESSION['colonnes'][$i];
             $val=$col.'=\''.$_POST['value'.$i.''].'\'';
         }else{
-            $col=", ".$_SESSION['colonnes'][$i];
+            $col=$_SESSION['colonnes'][$i];
             $val=$val.', '.$col.'=\''.$_POST['value'.$i.''].'\'';
         }
     }
-    echo $val;
 
 $requete = 'UPDATE '.$_POST['table'].' SET '.$val.' WHERE id='.$_POST['code_id'].' AND id_user='.$_SESSION['id'].' AND code="'.$_POST['code_lg'].'"';
 

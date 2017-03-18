@@ -12,6 +12,13 @@ if (isset($_GET["action"])) {
 	$action=$_GET["action"]; // Variable permettant l'affichage de message suite à l'action d'édition de la page
 }
 
+if (isset($_GET["message"])) {
+	$message=$_GET["message"]; // Variable permettant l'affichage de message suite à l'action d'édition de la page
+}else{
+	$message=0;
+}
+
+
 ?>
 
 <html>
@@ -61,15 +68,18 @@ if (isset($_GET["action"])) {
 											<span class="titre">Titre<!--Cambiar--></span>
 										</td>
 									</tr>
+
 								</table>
+<?php if($message==1){?>
 <br>
-<span class="texte_default"><?php echo versionlinguistique(36); //Choisir une catégorie ?></span>
+<span class="texte_default">Idioma agregado</span>
 <br>
+<?php
+$message=0;}?>
 <div align="right">
 </div>
 
 				<p>
-					<?php include('include/traducteur_ajouter_traduction.inc');  ?>
 					<?php include('include/traducteur_accueil_contenu.inc');  ?>
 				</p>
 
@@ -96,6 +106,13 @@ if (isset($_GET["action"])) {
 											</td>
 									</tr>
 				<?php } ?>
+									<tr>
+										<td align="right">
+<!-- Module d'affichage du formulaire pour ajouter une langue  -->
+<?php //include('include/traducteur_ajouter_traduction.inc');  ?>
+<?php ajouter_langue();  ?>
+										</td>
+									</tr>
 									<tr>
 										<td align="right">
 <!-- Module d'affichage du formulaire de recherche  -->
