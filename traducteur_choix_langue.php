@@ -72,10 +72,16 @@ if (isset($_GET["message"])) {
 								</table>
 <?php if($message==1){?>
 <br>
-<span class="texte_default">Idioma agregado</span>
+<span class="texte_default">Idioma agregado</span><!--Cambiar-->
 <br>
 <?php
 $message=0;}?>
+<?php if($message==2){?>
+	<br>
+	<span class="texte_default">El idioma ya existe</span><!--Cambiar-->
+	<br>
+	<?php
+	$message=0;}?>
 <div align="right">
 </div>
 
