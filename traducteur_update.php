@@ -14,6 +14,9 @@ $nb_col= count($_SESSION['colonnes']);
             $val=$val.', '.$col.'=\''.$_POST['value'.$i.''].'\'';
         }
     }
+echo $col;
+echo $val;
+die();
 
 $requete = 'UPDATE '.$_POST['table'].' SET '.$val.' WHERE id='.$_POST['code_id'].' AND id_user='.$_SESSION['id'].' AND code="'.$_POST['code_lg'].'"';
 

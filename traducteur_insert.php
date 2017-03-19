@@ -29,14 +29,16 @@ $nb_col= count($tables);
             $col="";
             $val="";
             foreach ($data as $cle => $value){
+
                 if($cle!="id"&&$cle!="code"&&$cle!="status"&&$cle!="id_user"){
                     $count=$count+1;
                     if ($count==1) {
+                        // Replacer les '
                         $col ="".$cle;
-                        $val ='\''.$value.'\'';
+                        $val ='\''.addslashes($value).'\'';
                     } else {
                         $col = $col.", ".$cle;
-                        $val =$val.', \''.$value.'\'';
+                        $val =$val.', \''.addslashes($value).'\'';
                     }
                 }
 
@@ -44,9 +46,6 @@ $nb_col= count($tables);
 
             $requete2='INSERT INTO '.$tables[$i].' ('.$col.', code, status, id_user) VALUES ( '.$val.', \''.$_POST['lg'].'\', 0, '.$_SESSION['id'].')';
             $exec = mysql_query($requete2);
-            echo $requete2;
-            var_dump($exec);
-            die();
         }
     }
 
