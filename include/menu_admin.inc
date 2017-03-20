@@ -1,5 +1,5 @@
 <?php 
-if ($_SESSION['niveau']>5){ // Affichage menu Administration ?>
+if ($_SESSION['niveau']>=50){ // Affichage menu Administration ?>
 
 <?php 
 
@@ -79,7 +79,7 @@ $nbversionlinguistique = $nbversionlinguistique_array['total'];
 											</table>
 										</td>
 									</tr>
-<?php if ($_SESSION['niveau']>5) { ?>
+<?php if ($_SESSION['niveau']>=50) { ?>
 									<tr>
 										<td>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
@@ -90,7 +90,7 @@ $nbversionlinguistique = $nbversionlinguistique_array['total'];
 										</td>
 									</tr>
 <?php } ?>
-<?php if ($_SESSION['niveau']>5) { ?>
+<?php if ($_SESSION['niveau']>=50) { ?>
 									<tr>
 										<td>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">

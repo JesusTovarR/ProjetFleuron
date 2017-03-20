@@ -2,7 +2,7 @@
 /*             		   	 Styles          	    	   */ 
 /* --------------------------------------------------------------- */ 
 /*                 Codes par : 			                  */ 
-/*            Steven DUDA / n° de tél. 06 63 10 33 21              */ 
+/*            Steven DUDA / nï¿½ de tï¿½l. 06 63 10 33 21              */ 
 /*           		 steven.duda@wanadoo.fr		           */ 
 /* --------------------------------------------------------------- */ 
 
@@ -15,10 +15,10 @@ a:visited { font-decoration: none;text-decoration:none }
 
 H1 { color: #A13926; font-weight: bolder; font-size: 16pt; font-decoration: none;vertical-align:text-bottom; letter-spacing: 1;text-decoration:none }
 
-/* Texte par défaut */ 
+/* Texte par dï¿½faut */ 
 .Texte_default { font-weight: normal; font-size: 12pt; color: #252525; letter-spacing: normal}
 
-/* Texte par défaut Gras */ 
+/* Texte par dï¿½faut Gras */ 
 .Texte_defaultGras { font-weight: bolder; font-size: 12pt; color: #252525; letter-spacing: normal}
 
 /* Texte note  8pt */ 
@@ -53,7 +53,7 @@ H1 { color: #A13926; font-weight: bolder; font-size: 16pt; font-decoration: none
 /* Texte info  12pt (utilisateur/motde passe /etc.) */ 
 .Texte_info12{ font-weight: normal; font-size: 12pt; color: #F5DCDC; letter-spacing: normal}
 
-/* List d'éléments */ 
+/* List d'ï¿½lï¿½ments */ 
 .list{ font-weight: normal; font-size: 10pt; color: #252525; letter-spacing: normal}
 
 /* Texte Conseil */ 
@@ -115,3 +115,11 @@ div#soustitre380 {
 	border: 0px;
 	cursor:pointer;
 	}
+
+.menu{
+	display:none;
+}
+
+.menu:hover{
+	display:block;
+}

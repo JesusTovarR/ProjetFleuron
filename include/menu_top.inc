@@ -11,10 +11,9 @@
 								<td align="center" valign="middle"><a href="inscription.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("signin")// S'inscrire ?></span></a></td>
 							<?php } ?>
 							<td align="center" valign="middle"><a href="contact.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("contact")// Contact ?></span></a></td>
-							<?php if ($_SESSION['niveau']>20) { ?>
+							<?php if ($_SESSION['niveau']>=20) { ?>
 								<td align="center" valign="middle"><a href="traducteur.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("translator")// Traducteur ?></span></a></td>
-							<?php } else { ?>
-							<?php } ?>
+							<?php }?>
 							<?php if ($_SESSION['niveau']>0) { ?>
 								<td align="center" valign="middle"><a href="deconnexion.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("logout")// d�connexion ?></span></a></td>
 							<?php } else { ?>

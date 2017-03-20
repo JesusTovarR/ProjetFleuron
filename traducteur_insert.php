@@ -16,7 +16,8 @@ $tables= array(
     11 => 'tableau_du_bord',
     12 => 'affichage_ressource',
     13 => 'content',
-    13 => 'page_edit'
+    14 => 'page_edit',
+    15 => 'categorie_traduction'
     );
 
 $nb_col= count($tables);
@@ -24,15 +25,13 @@ $nb_col= count($tables);
     $val="";
     for($i=1; $i<=$nb_col; $i++){
 
-        $requete='SELECT code FROM '.$tables[$i].' WHERE id_user='.$_SESSION['id'].' AND code='.$_POST['lg'];
-        $validation= mysql_query($requete);
-        if ($data = mysql_fetch_assoc($recup))
-        {
-
-        }
-        var_dump($validation);
-        die();
-        if($validation==false){
+        $requete='SELECT code FROM '.$tables[$i].' WHERE id_user='.$_SESSION['id'].' AND code="'.$_POST['lg'].'"';
+        $resultat= mysql_query($requete);
+        if($validation = mysql_fetch_assoc($resultat)){
+            include('include/close_connectionBase.inc');
+            header('Location: traducteur_choix_langue.php?categorie=' . $_GET['categorie'] . '&message=2'); // redirection
+            die();
+        }else{
             $requete2='SELECT * FROM '.$tables[$i].' WHERE code="fr" AND status=1';
             $recup = mysql_query($requete2);
             if ($data = mysql_fetch_assoc($recup))
@@ -59,10 +58,6 @@ $nb_col= count($tables);
             }
             $requete3='INSERT INTO '.$tables[$i].' ('.$col.', code, status, id_user) VALUES ( '.$val.', \''.$_POST['lg'].'\', 0, '.$_SESSION['id'].')';
             $exec = mysql_query($requete3);
-        }else{
-            include('include/close_connectionBase.inc');
-            header('Location: traducteur_choix_langue.php?categorie=' . $_GET['categorie'] . '&message=2'); // redirection
-            die();
         }
     }
     include('include/close_connectionBase.inc');

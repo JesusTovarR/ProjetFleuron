@@ -15,10 +15,70 @@ if($categorie==1){
     $nom_table="conseils_contenu";
     $formulaire=1;
 }else if($categorie==3){
-    $requete2='SELECT * FROM menu WHERE id_user='.$_SESSION['id'];
+    $requete2='SELECT * FROM contact_contenu WHERE id_user='.$_SESSION['id'];
     $codes = mysql_query($requete2);
-    $nom_table="menu";
-    $formulaire=2;
+    $nom_table="contact_contenu";
+    $formulaire=1;
+}else if($categorie==4){
+	$requete2='SELECT * FROM menu WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="menu";
+	$formulaire=2;
+}else if($categorie==5){
+	$requete2='SELECT * FROM choix_langue WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="choix_langue";
+	$formulaire=2;
+}else if($categorie==6){
+	$requete2='SELECT * FROM conseils WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="conseils";
+	$formulaire=2;
+}else if($categorie==7){
+	$requete2='SELECT * FROM dernier_media WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="dernier_media";
+	$formulaire=2;
+}else if($categorie==8){
+	$requete2='SELECT * FROM login WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="login";
+	$formulaire=2;
+}else if($categorie==9){
+	$requete2='SELECT * FROM menu_admin WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="menu_admin";
+	$formulaire=2;
+}else if($categorie==10){
+	$requete2='SELECT * FROM moteur_de_recherche WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="moteur_de_recherche";
+	$formulaire=2;
+}else if($categorie==11){
+	$requete2='SELECT * FROM tableau_du_bord WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="tableau_du_bord";
+	$formulaire=2;
+}else if($categorie==12){
+	$requete2='SELECT * FROM affichage_ressource WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="affichage_ressource";
+	$formulaire=2;
+}else if($categorie==13){
+	$requete2='SELECT * FROM content WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="content";
+	$formulaire=2;
+}else if($categorie==14){
+	$requete2='SELECT * FROM page_edit WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="page_edit";
+	$formulaire=2;
+}else if($categorie==15){
+	$requete2='SELECT * FROM categorie_traduction WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="categorie_traduction";
+	$formulaire=2;
 }else{
     echo "error";
 }

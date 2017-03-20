@@ -58,7 +58,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 									</tr>
 								</table><br>
 <div align="right">
-<?php  if ($_SESSION['niveau']>5) { // Bouton édition page ?>
+<?php  if ($_SESSION['niveau']>=50) { // Bouton édition page ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 												<tr>
 													<td align="center"><a href="page_edit.php?lg=<?php echo $lg ?>&id=3&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(47) //Editer ?></span></a></td>
@@ -71,7 +71,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 					<?php affichage_contact() ?>
 				</p>
 <div align="right">
-<?php  if ($_SESSION['niveau']>5) { // Bouton édition page ?>
+<?php  if ($_SESSION['niveau']>=50) { // Bouton édition page ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 												<tr>
 													<td align="center"><a href="page_edit.php?lg=<?php echo $lg ?>&id=3&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(47) //Editer ?></span></a></td>

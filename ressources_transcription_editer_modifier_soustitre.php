@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -26,7 +26,7 @@ if (isset($_SESSION['refpage'])) {
 	$refpage="";
 }
 
-// Récupérer les informations de la ressource (table RESSOURCES)
+// Rï¿½cupï¿½rer les informations de la ressource (table RESSOURCES)
 include('include/Recup_infosRessource.inc');
 
 $soustitre=0;
@@ -50,31 +50,31 @@ function affichage_transcription($idressource)
 		if (file_exists($fichier)) {
 
 			$lignes = file($fichier);
-			$lignes=str_replace("Ã´","ô",$lignes);
-			$lignes=str_replace("Ã©","é",$lignes);
-			$lignes=str_replace("Ã","à",$lignes);
-			$lignes=str_replace("à¨","è",$lignes);
-			$lignes=str_replace("àª","ê",$lignes);
-			$lignes=str_replace("à§","ç",$lignes);
-			$lignes=str_replace("à»","û",$lignes);
-			$lignes=str_replace("à¢","â",$lignes);
+			$lignes=str_replace("Ã´","ï¿½",$lignes);
+			$lignes=str_replace("Ã©","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
 			$lignes=str_replace(chr(13),"",$lignes);
 			$lignes=str_replace(chr(10),"",$lignes);
-			$lignes=str_replace("  "," ",$lignes);
-			$lignes=str_replace("à ","à",$lignes);
-			$lignes=str_replace("â ","â",$lignes);
-			$lignes=str_replace("à¹","ù",$lignes);
-			$lignes=str_replace("ù ","ù",$lignes);
-			$lignes=str_replace("ê ","ê",$lignes);
-			$lignes=str_replace("ë ","ë",$lignes);
-			$lignes=str_replace("î ","î",$lignes);
-			$lignes=str_replace("ï ","ï",$lignes);
-			$lignes=str_replace("â ","â",$lignes);
-			$lignes=str_replace("à®","î",$lignes);
+			$lignes=str_replace("ï¿½ "," ",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
+			$lignes=str_replace("ï¿½","ï¿½",$lignes);
 
 
 $Assembleligne="";
-			foreach($lignes as $ligne_num => $ligne) { // on lit le fichier de façon séquentielle
+			foreach($lignes as $ligne_num => $ligne) { // on lit le fichier de faï¿½on sï¿½quentielle
 
 $ligne = str_replace(",000",",010",$ligne);
 					if (strlen($ligne)>5) {
@@ -144,7 +144,7 @@ $nombre=$nombre+1;
 
 
 		}
-						if ($_SESSION['niveau']>5) {
+						if ($_SESSION['niveau']>=50) {
 							echo '<tr>';
 								echo '<td align="left">';
 									$num=$num+1;
@@ -187,7 +187,8 @@ $nombre=$nombre+1;
 		<?php include('include/style_onglet.inc');  // header ?>
 
 
-
+
+
 	</head>
 
 	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" onload="TabClick(0);">
@@ -195,7 +196,7 @@ $nombre=$nombre+1;
 <table>
 	<tr>
 		<td width="120" align="left">
-			<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="200">
+			<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="200">
 				<tr>
 					<td align="center">
 						<a href="ressources_transcription_editer_modifier_soustitre_total.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&refpage=<?php echo $refpage ?>&retour=<?php echo $retour ?>&motcle=<?php echo $motcle ?>"><span class="texte_info12"><?php echo versionlinguistique(123) //Tout afficher?></span></a>

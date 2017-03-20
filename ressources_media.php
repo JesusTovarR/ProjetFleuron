@@ -176,7 +176,7 @@ function affichage_commentaire($idressource)
 			{
 				echo '<tr>';
 					echo '<td>';
-				if ($_SESSION['niveau']>5) {
+				if ($_SESSION['niveau']>=50) {
 					echo '<table width="100%">';
 						echo '<tr>';
 							echo '<td bgcolor="'.couleur(4).'">';
@@ -235,7 +235,7 @@ function affichage_reponse1($reponse)
 			{
 				echo '<tr>';
 					echo '<td align="right">';
-				if ($_SESSION['niveau']>5) {
+				if ($_SESSION['niveau']>=50) {
 					echo '<table width="95%">';
 						echo '<tr>';
 							echo '<td bgcolor="'.couleur(4).'">';
@@ -294,7 +294,7 @@ function affichage_reponse2($reponse)
 			{
 				echo '<tr>';
 					echo '<td align="right">';
-				if ($_SESSION['niveau']>5) {
+				if ($_SESSION['niveau']>=50) {
 					echo '<table width="90%">';
 						echo '<tr>';
 							echo '<td bgcolor="'.couleur(4).'">';
@@ -353,7 +353,7 @@ function affichage_reponse3($reponse)
 			{
 				echo '<tr>';
 					echo '<td align="right">';
-				if ($_SESSION['niveau']>5) {
+				if ($_SESSION['niveau']>=50) {
 					echo '<table width="85%">';
 						echo '<tr>';
 							echo '<td bgcolor="'.couleur(4).'">';
@@ -587,7 +587,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 	<?php if ($liens<>"") { $nbonglet=$nbonglet+1 ?>
 										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(138) //Liens ?></td> 
 	<?php } else {?>
-		<?php if ($_SESSION['niveau']>5) { $nbonglet=$nbonglet+1 ?>
+		<?php if ($_SESSION['niveau']>=50) { $nbonglet=$nbonglet+1 ?>
 										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(138) //Liens ?></td> 
 		<?php } ?>
 	<?php } ?>
@@ -776,7 +776,7 @@ if ($num_rows>0) {
 									<iframe src="ressources_liens.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $_SESSION['id'] ?>" name="notes" width="480" scrolling="AUTO" height="450" frameborder="yes"></iframe> 
 								</div> 
 	<?php } else {?>
-		<?php if ($_SESSION['niveau']>5) { ?>
+		<?php if ($_SESSION['niveau']>=50) { ?>
 								<div id="Content" name="Content"> 
 									<iframe src="ressources_liens.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $_SESSION['id'] ?>" name="notes" width="480" scrolling="AUTO" height="450" frameborder="yes"></iframe> 
 								</div> 

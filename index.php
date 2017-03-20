@@ -196,7 +196,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 
 								<?php } ?>
 
-								<?php if ($_SESSION['niveau']>5) {  ?>
+								<?php if ($_SESSION['niveau']>=50) {  ?>
 <!-- ******************************* Affichage page d'accueil visiteur pour admin (édition) ********************* -->
 									<div align="right">
 										<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
