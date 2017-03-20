@@ -116,10 +116,47 @@ div#soustitre380 {
 	cursor:pointer;
 	}
 
-.menu{
-	display:none;
+/*+++++++++++Menu desplegable+++++++++++++++*/
+
+ul, ol {
+	list-style:none;
 }
 
-.menu:hover{
+.nav > li  {
+	float:left;
+
+}
+
+.nav li span{
+	cursor: pointer;
+}
+
+.nav {
+	padding-left: 15px;
+}
+
+.nav li a {
+	background-color:#371111;
+	color:#fff;
+	text-decoration:none;
+	padding:10px 12px;
+	display:block;
+
+}
+
+.nav li a:hover {
+	background-color:#621d1d;
+
+}
+
+.nav li ul {
+	display:none;
+	position:absolute;
+	min-width:90px;
+	margin:0px;
+	padding:0px;
+}
+
+.nav li:hover > ul {
 	display:block;
 }

@@ -5,6 +5,9 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+create database fleuron;
+use fleuron;
+
 DROP TABLE IF EXISTS `accueil_contenu`;
 CREATE TABLE `accueil_contenu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
