@@ -26,8 +26,13 @@ $nb_col= count($tables);
 
         $requete='SELECT code FROM '.$tables[$i].' WHERE id_user='.$_SESSION['id'].' AND code='.$_POST['lg'];
         $validation= mysql_query($requete);
+        if ($data = mysql_fetch_assoc($recup))
+        {
+
+        }
         var_dump($validation);
-        if($validation!=false){
+        die();
+        if($validation==false){
             $requete2='SELECT * FROM '.$tables[$i].' WHERE code="fr" AND status=1';
             $recup = mysql_query($requete2);
             if ($data = mysql_fetch_assoc($recup))
