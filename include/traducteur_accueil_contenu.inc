@@ -75,10 +75,19 @@ if($categorie==1){
 	$nom_table="page_edit";
 	$formulaire=2;
 }else if($categorie==15){
-	$requete2='SELECT * FROM categorie_traduction WHERE id_user='.$_SESSION['id'];
-	$codes = mysql_query($requete2);
+	$requete2='SELECT code FROM categorie_traduction WHERE id_user='.$_SESSION['id'];
+	$resultat = mysql_query($requete2);
 	$nom_table="categorie_traduction";
 	$formulaire=2;
+    $count=0;
+    while ($code = mysql_fetch_assoc($resultat)){
+       $count=$count+1;
+        $nb_array["code".$count]=$code;
+    }
+    for($i=0;$i<=$count;$i++){
+        
+    }
+    die();
 }else{
     echo "error";
 }
