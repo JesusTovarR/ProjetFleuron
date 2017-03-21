@@ -80,12 +80,15 @@ $val="";
                                         echo '<td align="center">';
                                         echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
                                         echo '<tr>';
-                                        echo '<form name="Formlg" action="traducteur_page_traduire.php" method="post">';
-                                        //echo '<input type="hidden" value="'.$code['code'].'" name="code_lg">';
-                                        //echo '<input type="hidden" value="'.$nom_table.'" name="table">';
+                                        echo '<form action="referent_page_revision.php" method="post">';
+                                        $da= (serialize($data));
+                                        $d = str_replace(' ','!',$da);
+
+                                        echo '<input type="hidden" value='.$d.' name="data">';
+                                        echo '<input type="hidden" value="'.$tables[$i].'" name="table">';
                                         //echo '<input type="hidden" value="'.$code['id'].'" name="code_id">';
                                         //echo '<input type="hidden" value="'.$formulaire.'" name="formulaire">';
-                                        echo '<td align="center"><span class="texte_info12"><input type="submit" value="Modificar" name="submitButtonName"></span></td>';//Cambiar
+                                        echo '<td align="center"><span class="texte_info12"><input type="submit" value="voir traduction" name="submitButtonName"></span></td>';//Cambiar
                                         echo '</form>';
                                         echo '</tr>';
                                         echo '</table>';
@@ -111,70 +114,6 @@ $val="";
             //echo $i;
         }
     }
-
-
-
-    /*
-    if ($data) {
-        foreach ($data as $cle => $value) {
-            if ($cle === 'id_user') {
-                $requete2 = 'SELECT nom, prenom FROM profil WHERE id=' .$value;
-                $resultat2 = mysql_query($requete2);
-                if ($resultat2) {
-                    $data_profil = mysql_fetch_array($resultat2);
-                    // var_dump($data_profil);
-                }
-
-                if ($data_profil) {
-                    foreach ($data_profil as $c => $val) {
-                        if ($c === 'prenom') {
-
-                            echo '<table border="0" cellspacing="0">';
-                            echo '<tr>';
-                            echo '<td>';
-                            echo '<table border="0" cellspacing="0">';
-                            echo '<tr>';
-                            echo '<td align="center">';
-                            echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
-                            echo '<tr>';
-
-                            echo '<td align="center"><span class="texte_info12">' . $val . '</span></td>';
-                            echo '</tr>';
-                            echo '</table>';
-                            echo '</td>';
-                            echo '</tr>';
-                            echo '</table>';
-                            echo '</td>';
-                            echo '<td>';
-                            echo '<table border="0" cellspacing="0">';
-                            echo '<tr>';
-                            echo '<td align="center">';
-                            echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
-                            echo '<tr>';
-                            echo '<form name="Formlg" action="traducteur_page_traduire.php" method="post">';
-                            //echo '<input type="hidden" value="'.$code['code'].'" name="code_lg">';
-                            //echo '<input type="hidden" value="'.$nom_table.'" name="table">';
-                            //echo '<input type="hidden" value="'.$code['id'].'" name="code_id">';
-                            //echo '<input type="hidden" value="'.$formulaire.'" name="formulaire">';
-                            echo '<td align="center"><span class="texte_info12"><input type="submit" value="Modificar" name="submitButtonName"></span></td>';//Cambiar
-                            echo '</form>';
-                            echo '</tr>';
-                            echo '</table>';
-                            echo '</td>';
-                            echo '</tr>';
-                            echo '</table>';
-                            echo '</td>';
-                            echo '</table>';
-                        }
-                    }
-                }
-            }
-
-        }
-
-
-}
-*/
 
 
 
