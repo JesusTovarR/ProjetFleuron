@@ -160,3 +160,61 @@ ul, ol {
 .nav li:hover > ul {
 	display:block;
 }
+
+.accept{
+	background-color:#009419;
+	color: #fff;
+}
+
+.reject{
+background-color:#BB0101;
+	color: #fff;
+}
+
+.boton{
+	text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+	text-align:center;
+	text-decoration: none;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	display:inline-block;
+	color: #FFF;
+	background: #7F8C8D;
+	padding: 6px 30px;
+	white-space: nowrap;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin: 10px 5px;
+	-webkit-transition: all 0.1s ease-in-out;
+	-ms-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
+}
+
+.azul{
+	background: #3498DB;
+	border: 1px solid #2980B9;
+}
+
+.azul:hover{
+	background: #39a0e5;
+}
+
+.verde{
+	background: #2ECC71;
+	border: 1px solid #27AE60;
+}
+
+.verde:hover{
+	background: #32db78;
+}
+
+.rojo{
+	background: #E74C3C;
+	border: 1px solid #C0392B;
+}
+
+.rojo:hover{
+	background: #ff5242;
+}

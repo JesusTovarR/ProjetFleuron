@@ -1,14 +1,14 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
 
 if (isset($_GET["action"])) {
-	$action=$_GET["action"]; // Variable permettant l'affichage de message suite à l'action d'édition de la page
+	$action=$_GET["action"]; // Variable permettant l'affichage de message suite ï¿½ l'action d'ï¿½dition de la page
 }
 $_SESSION['colonnes']=array();
 
@@ -64,9 +64,9 @@ function edition_page()
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc');
 
 					?>
@@ -124,7 +124,7 @@ function edition_page()
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

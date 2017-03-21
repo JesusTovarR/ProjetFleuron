@@ -8,8 +8,6 @@
 
 
 include('include/open_connectionBase.inc'); // connection � la base MYSQL
-
-
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
 
@@ -59,28 +57,14 @@ if (isset($_GET["message"])) {
                     <tr>
                         <!-- Partie centrale -->
                         <td valign="top">
-                            <table width="100%" border="0" cellpadding="0" cellspacing="0" >
-                                <tr>
-                                    <td width="100"  bgcolor="<?php echo couleur(1) ?>">
-                                        <table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="100">
-                                            <tr>
-                                                <td align="center">
-                                                    <a href="traducteur.php"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td align="center" bgcolor="<?php echo couleur(2); //couleur claire ?>">
-                                        <span class="titre">Titre<!--Cambiar--></span>
-                                    </td>
-                                </tr>
 
-                            </table>
 
 
                             <p>
-                                <?php include('include/referent_accueil_contenu.inc');  ?>
+                                <?php include('include/referent_accueil_contenu.inc'); ?>
                             </p>
+
+
 
 
 

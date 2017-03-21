@@ -1,5 +1,5 @@
 <hr/>
-<span class="texte_default"><?php echo versionlinguistique(36); //Choisir une catégorie ?></span>
+<span class="texte_default"><?php echo versionlinguistique(36); //Choisir une catï¿½gorie ?></span>
 <br>
 <?php
 
@@ -93,6 +93,7 @@ if($categorie==1){
 }
 
 
+
 while ($code = mysql_fetch_assoc($codes))
 {
 	echo '<table border="0" cellspacing="0">';
@@ -167,7 +168,7 @@ echo '<form action="traducteur_insert.php?categorie='.$_GET['categorie'].'" meth
 		echo '</tr>';
 		echo '<tr>';
 	echo '<input type="hidden"  value="'.$choixlg['code'].'" name="code">';
-			echo '<td colspan="2" bgcolor="'.couleur(1).'">';//couleur foncée
+			echo '<td colspan="2" bgcolor="'.couleur(1).'">';//couleur foncï¿½e
 				echo '<center>';
 					echo '<span class="texte_menu"><input type="submit" value="'.choix_langue().'" name="submitButtonName"></span></center>'; // Choisir cette langue
 			echo '</td>';
