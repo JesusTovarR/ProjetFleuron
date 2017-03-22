@@ -72,7 +72,10 @@ if (isset($_GET["message"])) {
 								</table>
 <?php if($message==1){?>
 <br>
-<span class="texte_default">Idioma agregado</span><!--Cambiar-->
+<span class="texte_default">Existentes:<?php echo $_SESSION['exist']?></span><!--Cambiar-->
+<br>
+<br>
+<span class="texte_default">Agregados:<?php echo $_SESSION['cree']?></span><!--Cambiar-->
 <br>
 <?php
 $message=0;}?>

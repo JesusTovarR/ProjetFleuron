@@ -19,7 +19,7 @@ function edition_page()
 	$donnees = mysql_fetch_assoc($recupcont);
 	$count=1;
 	foreach ($donnees as $cle => $value){
-		if($cle=="id"||$cle=="code"||$cle=="status"||$cle=="id_user"){
+		if($cle=="id"||$cle=="code"||$cle=="status"||$cle=="id_user"||$cle=="ap_ref"){
 
 		}else{
 			$_SESSION['colonnes'][$count]=$cle;
@@ -39,6 +39,39 @@ function edition_page()
 			echo '<input type="hidden" value="'.$_POST['code_id'].'" name="code_id">';
 			echo '<input type="hidden" value="'.$_POST['code_lg'].'" name="code_lg">';
 	$count=0;
+
+}
+
+function edition_page_type2()
+{
+	if($_POST['table']=="categorie_traduction") {
+
+		$requete = 'SELECT * FROM categorie';
+		$resultat = mysql_query($requete);
+		while($cat= mysql_fetch_assoc($resultat)) {
+
+			$requete2 = 'SELECT * FROM ' . $_POST['table'] . ' WHERE category=' . $cat['id'] . ' AND code="' . $_POST['code_lg'] . '"';
+			$recupcont = mysql_query($requete2);
+			$donnees = mysql_fetch_assoc($recupcont);
+			$count = 1;
+			foreach ($donnees as $cle => $value) {
+				if($cle=="id"){
+					echo '<input type="hidden" value="' . $value . '" name="id'.$count.'">';
+				}
+				if ($cle == "name") {
+					echo '<tr>';
+					echo '<td align="center">';
+					echo '<textarea name="value' . $count . '" cols="110" rows="25">' . $value . '</textarea>';
+					echo '</td>';
+					echo '</tr>';
+					$count = $count + 1;
+				}
+			}
+		}
+		echo '<input type="hidden" value="' . $_POST['table'] . '" name="table">';
+		echo '<input type="hidden" value="' . $_POST['code_lg'] . '" name="code_lg">';
+		$count = 0;
+	}
 
 }
 
@@ -102,7 +135,11 @@ function edition_page()
 									<br>
 									<form name="FormName" action="traducteur_update.php" method="post">
 										<table border="0" cellpadding="0" cellspacing="5" width="600">
-											<?php edition_page()?>
+											<?php if($_POST['formulaire']==3){
+												edition_page_type2();
+											}else{
+												edition_page();
+											}?>
 										</table>
 										<input type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->
 									</form>

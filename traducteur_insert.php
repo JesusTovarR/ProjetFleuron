@@ -23,41 +23,86 @@ $tables= array(
 $nb_col= count($tables);
     $col="";
     $val="";
+    $_SESSION['exist']=0;
+    $_SESSION['cree']=0;
     for($i=1; $i<=$nb_col; $i++){
 
-        $requete='SELECT code FROM '.$tables[$i].' WHERE id_user='.$_SESSION['id'].' AND code="'.$_POST['lg'].'"';
+        $requete='SELECT code, ap_ref FROM '.$tables[$i].' WHERE status=1 AND code="'.$_POST['lg'].'"';
         $resultat= mysql_query($requete);
         if($validation = mysql_fetch_assoc($resultat)){
-            include('include/close_connectionBase.inc');
-            header('Location: traducteur_choix_langue.php?categorie=' . $_GET['categorie'] . '&message=2'); // redirection
+            while ($validation){
+                echo $validation['code'];
+                echo $validation['ap_ref'];
+            }
             die();
-        }else{
-            $requete2='SELECT * FROM '.$tables[$i].' WHERE code="fr" AND status=1';
-            $recup = mysql_query($requete2);
-            if ($data = mysql_fetch_assoc($recup))
-            {
-                $count= 0;
-                $col="";
-                $val="";
-                foreach ($data as $cle => $value){
+            /*$requete2='SELECT code FROM '.$tables[$i].' WHERE id_user='.$_SESSION['id'].' AND code="'.$_POST['lg'].'"';
+            if(){
 
-                    if($cle!="id"&&$cle!="code"&&$cle!="status"&&$cle!="id_user"){
-                        $count=$count+1;
-                        if ($count==1) {
-                            // Replacer les '
-                            $col ="".$cle;
-                            $val ='\''.addslashes($value).'\'';
-                        } else {
-                            $col = $col.", ".$cle;
-                            $val =$val.', \''.addslashes($value).'\'';
+            }else{
+                $requete3='SELECT * FROM '.$tables[$i].' WHERE code="fr" AND status=1';
+                $recup = mysql_query($requete3);
+                if ($data = mysql_fetch_assoc($recup))
+                {
+                    $count= 0;
+                    $col="";
+                    $val="";
+                    foreach ($data as $cle => $value){
+
+                        if($cle!="id"&&$cle!="code"&&$cle!="status"&&$cle!="id_user"){
+                            $count=$count+1;
+                            if ($count==1) {
+                                // Replacer les '
+                                $col ="".$cle;
+                                $val ='\''.addslashes($value).'\'';
+                            } else {
+                                $col = $col.", ".$cle;
+                                $val =$val.', \''.addslashes($value).'\'';
+                            }
                         }
+
                     }
 
                 }
-
+                $requete4='INSERT INTO '.$tables[$i].' ('.$col.', code, status, id_user) VALUES ( '.$val.', \''.$_POST['lg'].'\', 1, '.$_SESSION['id'].')';
+                $exec = mysql_query($requete4);
             }
-            $requete3='INSERT INTO '.$tables[$i].' ('.$col.', code, status, id_user) VALUES ( '.$val.', \''.$_POST['lg'].'\', 0, '.$_SESSION['id'].')';
-            $exec = mysql_query($requete3);
+            include('include/close_connectionBase.inc');
+            header('Location: traducteur_choix_langue.php?categorie=' . $_GET['categorie'] . '&message=2'); // redirection
+            die();*/
+        }else{
+            $requete2='SELECT code FROM '.$tables[$i].' WHERE status=0 AND id_user='.$_SESSION['id'].' AND code="'.$_POST['lg'].'"';
+            $recup = mysql_query($requete2);
+            if ($data = mysql_fetch_assoc($recup)){
+                $_SESSION['exist']=$_SESSION['exist']+1;
+            }else{
+                $requete3='SELECT * FROM '.$tables[$i].' WHERE code="fr" AND status=1';
+                $recup2 = mysql_query($requete3);
+                if ($data2 = mysql_fetch_assoc($recup2))
+                {
+                    $count= 0;
+                    $col="";
+                    $val="";
+                    foreach ($data2 as $cle => $value){
+
+                        if($cle!="id"&&$cle!="code"&&$cle!="status"&&$cle!="id_user"&&$cle!="ap_ref"){
+                            $count=$count+1;
+                            if ($count==1) {
+                                // Replacer les '
+                                $col ="".$cle;
+                                $val ='\''.addslashes($value).'\'';
+                            } else {
+                                $col = $col.", ".$cle;
+                                $val =$val.', \''.addslashes($value).'\'';
+                            }
+                        }
+
+                    }
+
+                }
+                $requete4='INSERT INTO '.$tables[$i].' ('.$col.', code, status, id_user, ap_ref) VALUES ( '.$val.', \''.$_POST['lg'].'\', 1, '.$_SESSION['id'].', 0)';
+                $exec = mysql_query($requete4);
+                $_SESSION['cree']=$_SESSION['cree']+1;
+            }
         }
     }
     include('include/close_connectionBase.inc');
