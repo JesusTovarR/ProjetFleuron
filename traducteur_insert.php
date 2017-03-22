@@ -141,6 +141,22 @@ $nb_col= count($tables);
                 $exec = mysql_query($requete5);
                 $_SESSION['cree'] = $_SESSION['cree'] + 1;
             }
+
+            $requete6 = 'SELECT * FROM lg WHERE code="' . $_POST['lg'] . '"';
+            $recup3 = mysql_query($requete6);
+            if ($data = mysql_fetch_assoc($recup3)) {
+                if($data['online']==0){
+                    $requete7 = 'UPDATE lg SET online=1 WHERE  code="'.$_POST['code_lg'].'" AND online=0';
+                    $recupcont = mysql_query($requete7);
+                }
+            }else{
+                $requete8 = 'SELECT nom FROM langues WHERE code="' . $_POST['lg'] . '"';
+                $recup4 = mysql_query($requete8);
+                while ($data2= mysql_fetch_assoc($recup4)){
+                    $requete9 = 'INSERT INTO lg ( nom, code, commentaire, online) VALUES ("'.$data2["nom"].'", "'.$_POST["lg"].'", "", 1)';
+                    $exec2 = mysql_query($requete9);
+                }
+            }
         }
     }
     include('include/close_connectionBase.inc');
