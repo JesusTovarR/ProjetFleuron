@@ -53,10 +53,14 @@ function affichage_categorie()
 							echo '<td align="center">';
 								echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="'.couleur(1).'" width="200" height="60">';
 									echo '<tr>';
-									$requete2 = 'SELECT * FROM categorie_traduction WHERE status=1 AND code="'.$lg.'" AND category='.$data['id'];
+									$requete2 = 'SELECT * FROM categorie_traduction WHERE  code="'.$lg.'" AND category='.$data['id'];
 									$recup2 = mysql_query($requete2);
 									while ($data2 = mysql_fetch_assoc($recup2)) {
-										echo '<td align="center"><a href="ressources_list.php?lg=' . $lg . '&categorie=' . $data['id'] . '"><span class="texte_info12">' . $data2['name'] . $affnbressource . '</span></a></td>';
+										if($data2['status']==1){
+											echo '<td align="center"><a href="ressources_list.php?lg=' . $lg . '&categorie=' . $data['id'] . '"><span class="texte_info12">' . $data2['name'] . $affnbressource . '</span></a></td>';
+										}else if($data2["status"]==2){
+											echo '<td align="center"><a href="ressources_list.php?lg=' . $lg . '&categorie=' . $data['id'] . '"><span class="texte_info12">texte en revision</span></a></td>';
+										}
 									}
 									echo '</tr>';
 								echo '</table>';
