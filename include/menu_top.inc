@@ -15,6 +15,10 @@
 								<td align="center" valign="middle"><a href="traducteur.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("translator")// Traducteur ?></span></a></td>
 							<?php } else { ?>
 							<?php } ?>
+							<?php if ($_SESSION['niveau']>20) { ?>
+								<td align="center" valign="middle"><a href="referent.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("referent")//  ?></span></a></td>
+							<?php } else { ?>
+							<?php } ?>
 							<?php if ($_SESSION['niveau']>0) { ?>
 								<td align="center" valign="middle"><a href="deconnexion.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("logout")// d�connexion ?></span></a></td>
 							<?php } else { ?>
