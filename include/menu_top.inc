@@ -11,12 +11,35 @@
 								<td align="center" valign="middle"><a href="inscription.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("signin")// S'inscrire ?></span></a></td>
 							<?php } ?>
 							<td align="center" valign="middle"><a href="contact.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("contact")// Contact ?></span></a></td>
-							<?php if ($_SESSION['niveau']>20) { ?>
-								<td align="center" valign="middle"><a href="traducteur.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("translator")// Traducteur ?></span></a></td>
-							<?php } else { ?>
-							<?php } ?>
-							<?php if ($_SESSION['niveau']>20) { ?>
-								<td align="center" valign="middle"><a href="referent.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("referent")//  ?></span></a></td>
+
+
+							<?php if ($_SESSION['niveau']>=20) { ?>
+								<td align="center" valign="middle">
+											<ul class="nav">
+												<li><span class="texte_menu">Traduction</span>
+													<ul>
+														<li>
+															<?php if ($_SESSION['niveau']>=20) { ?>
+																<a href="traducteur.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("translator")// Traducteur ?></span></a>
+															<?php } else { ?>
+															<?php } ?>
+														</li>
+														<li>
+															<?php if ($_SESSION['niveau']>=30) { ?>
+																<a href="referent.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("referrer")// referrer ?></span></a>
+															<?php } else { ?>
+															<?php } ?>
+														</li>
+														<li>
+															<?php if ($_SESSION['niveau']>=50) { ?>
+																<a href=""><span class="texte_menu"><?php echo "Admin";//affichage_menu("referrer") referrer ?></span></a>
+															<?php } else { ?>
+															<?php } ?>
+														</li>
+													</ul>
+												</li>
+											</ul>
+								</td>
 							<?php } else { ?>
 							<?php } ?>
 							<?php if ($_SESSION['niveau']>0) { ?>

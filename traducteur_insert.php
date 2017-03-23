@@ -16,53 +16,147 @@ $tables= array(
     11 => 'tableau_du_bord',
     12 => 'affichage_ressource',
     13 => 'content',
-    13 => 'page_edit'
+    14 => 'page_edit'/*,
+    15 => 'categorie_traduction'*/
     );
 
 $nb_col= count($tables);
     $col="";
     $val="";
+    $_SESSION['exist']=0;
+    $_SESSION['cree']=0;
     for($i=1; $i<=$nb_col; $i++){
 
-        $requete='SELECT code FROM '.$tables[$i].' WHERE id_user='.$_SESSION['id'].' AND code='.$_POST['lg'];
-        $validation= mysql_query($requete);
-        if ($data = mysql_fetch_assoc($recup))
-        {
+        $requete='SELECT code FROM '.$tables[$i].' WHERE status=1 AND ap_ref=1 AND code="'.$_POST['lg'].'"';
+        $resultat= mysql_query($requete);
+        $requete2='SELECT code FROM '.$tables[$i].' WHERE status=1 AND ap_ref=0 AND code="'.$_POST['lg'].'"';
+        $resultat2= mysql_query($requete2);
 
-        }
-        var_dump($validation);
-        die();
-        if($validation==false){
-            $requete2='SELECT * FROM '.$tables[$i].' WHERE code="fr" AND status=1';
+        if($validation = mysql_fetch_assoc($resultat)){
+            $requete2='SELECT code FROM '.$tables[$i].' WHERE status=1 AND id_user='.$_SESSION['id'].' AND code="'.$_POST['lg'].'"';
             $recup = mysql_query($requete2);
-            if ($data = mysql_fetch_assoc($recup))
-            {
-                $count= 0;
-                $col="";
-                $val="";
-                foreach ($data as $cle => $value){
+            $requete3='SELECT code FROM '.$tables[$i].' WHERE status=0 AND id_user='.$_SESSION['id'].' AND code="'.$_POST['lg'].'"';
+            $recup2 = mysql_query($requete3);
+            if ($data = mysql_fetch_assoc($recup)){
+                $_SESSION['exist']=$_SESSION['exist']+1;
+            }else if($data2 = mysql_fetch_assoc($recup2)){
+                $_SESSION['exist']=$_SESSION['exist']+1;
+            }else{
+                $requete4='SELECT * FROM '.$tables[$i].' WHERE code="'.$_POST['lg'].'" AND status=1 AND ap_ref=1';
+                $recup2 = mysql_query($requete4);
+                if ($data2 = mysql_fetch_assoc($recup2))
+                {
+                    $count= 0;
+                    $col="";
+                    $val="";
+                    foreach ($data2 as $cle => $value){
 
-                    if($cle!="id"&&$cle!="code"&&$cle!="status"&&$cle!="id_user"){
-                        $count=$count+1;
-                        if ($count==1) {
-                            // Replacer les '
-                            $col ="".$cle;
-                            $val ='\''.addslashes($value).'\'';
-                        } else {
-                            $col = $col.", ".$cle;
-                            $val =$val.', \''.addslashes($value).'\'';
+                        if($cle!="id"&&$cle!="code"&&$cle!="status"&&$cle!="id_user"&&$cle!="ap_ref"){
+                            $count=$count+1;
+                            if ($count==1) {
+                                // Replacer les '
+                                $col ="".$cle;
+                                $val ='\''.addslashes($value).'\'';
+                            } else {
+                                $col = $col.", ".$cle;
+                                $val =$val.', \''.addslashes($value).'\'';
+                            }
                         }
+
                     }
 
                 }
-
+                $requete5='INSERT INTO '.$tables[$i].' ('.$col.', code, status, id_user, ap_ref) VALUES ( '.$val.', \''.$_POST['lg'].'\', 0, '.$_SESSION['id'].', 0)';
+                $exec = mysql_query($requete5);
+                $_SESSION['cree']=$_SESSION['cree']+1;
             }
-            $requete3='INSERT INTO '.$tables[$i].' ('.$col.', code, status, id_user) VALUES ( '.$val.', \''.$_POST['lg'].'\', 0, '.$_SESSION['id'].')';
-            $exec = mysql_query($requete3);
-        }else{
-            include('include/close_connectionBase.inc');
-            header('Location: traducteur_choix_langue.php?categorie=' . $_GET['categorie'] . '&message=2'); // redirection
-            die();
+        }else if($validation2 = mysql_fetch_assoc($resultat2)){
+            $requete3='SELECT code FROM '.$tables[$i].' WHERE status=1 AND id_user='.$_SESSION['id'].' AND code="'.$_POST['lg'].'"';
+            $recup = mysql_query($requete3);
+            $requete4='SELECT code FROM '.$tables[$i].' WHERE status=0 AND id_user='.$_SESSION['id'].' AND code="'.$_POST['lg'].'"';
+            $recup2 = mysql_query($requete4);
+            if ($data = mysql_fetch_assoc($recup)){
+                $_SESSION['exist']=$_SESSION['exist']+1;
+            }else if($data2 = mysql_fetch_assoc($recup2)){
+                $_SESSION['exist']=$_SESSION['exist']+1;
+            }else{
+                $requete5='SELECT * FROM '.$tables[$i].' WHERE code="'.$_POST['lg'].'" AND status=1 AND ap_ref=0';
+                $recup2 = mysql_query($requete5);
+                if ($data2 = mysql_fetch_assoc($recup2))
+                {
+                    $count= 0;
+                    $col="";
+                    $val="";
+                    foreach ($data2 as $cle => $value){
+
+                        if($cle!="id"&&$cle!="code"&&$cle!="status"&&$cle!="id_user"&&$cle!="ap_ref"){
+                            $count=$count+1;
+                            if ($count==1) {
+                                // Replacer les '
+                                $col ="".$cle;
+                                $val ='\''.addslashes($value).'\'';
+                            } else {
+                                $col = $col.", ".$cle;
+                                $val =$val.', \''.addslashes($value).'\'';
+                            }
+                        }
+
+                    }
+
+                }
+                $requete6='INSERT INTO '.$tables[$i].' ('.$col.', code, status, id_user, ap_ref) VALUES ( '.$val.', \''.$_POST['lg'].'\', 0, '.$_SESSION['id'].', 0)';
+                $exec = mysql_query($requete6);
+                $_SESSION['cree']=$_SESSION['cree']+1;
+            }
+        }else {
+            $requete3 = 'SELECT code FROM ' . $tables[$i] . ' WHERE status=0 AND id_user=' . $_SESSION['id'] . ' AND code="' . $_POST['lg'] . '"';
+            $recup = mysql_query($requete3);
+            if ($data = mysql_fetch_assoc($recup)) {
+                $_SESSION['exist'] = $_SESSION['exist'] + 1;
+            } else {
+                $requete4 = 'SELECT * FROM ' . $tables[$i] . ' WHERE code="fr" AND status=1';
+                $recup2 = mysql_query($requete4);
+                if ($data2 = mysql_fetch_assoc($recup2)) {
+                    $count = 0;
+                    $col = "";
+                    $val = "";
+                    foreach ($data2 as $cle => $value) {
+
+                        if ($cle != "id" && $cle != "code" && $cle != "status" && $cle != "id_user" && $cle != "ap_ref") {
+                            $count = $count + 1;
+                            if ($count == 1) {
+                                // Replacer les '
+                                $col = "" . $cle;
+                                $val = '\'' . addslashes($value) . '\'';
+                            } else {
+                                $col = $col . ", " . $cle;
+                                $val = $val . ', \'' . addslashes($value) . '\'';
+                            }
+                        }
+
+                    }
+
+                }
+                $requete5 = 'INSERT INTO ' . $tables[$i] . ' (' . $col . ', code, status, id_user, ap_ref) VALUES ( ' . $val . ', \'' . $_POST['lg'] . '\', 1, ' . $_SESSION['id'] . ', 0)';
+                $exec = mysql_query($requete5);
+                $_SESSION['cree'] = $_SESSION['cree'] + 1;
+            }
+
+            $requete6 = 'SELECT * FROM lg WHERE code="' . $_POST['lg'] . '"';
+            $recup3 = mysql_query($requete6);
+            if ($data = mysql_fetch_assoc($recup3)) {
+                if($data['online']==0){
+                    $requete7 = 'UPDATE lg SET online=1 WHERE  code="'.$_POST['code_lg'].'" AND online=0';
+                    $recupcont = mysql_query($requete7);
+                }
+            }else{
+                $requete8 = 'SELECT nom FROM langues WHERE code="' . $_POST['lg'] . '"';
+                $recup4 = mysql_query($requete8);
+                while ($data2= mysql_fetch_assoc($recup4)){
+                    $requete9 = 'INSERT INTO lg ( nom, code, commentaire, online) VALUES ("'.$data2["nom"].'", "'.$_POST["lg"].'", "", 1)';
+                    $exec2 = mysql_query($requete9);
+                }
+            }
         }
     }
     include('include/close_connectionBase.inc');

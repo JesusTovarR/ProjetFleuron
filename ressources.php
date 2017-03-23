@@ -53,7 +53,15 @@ function affichage_categorie()
 							echo '<td align="center">';
 								echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="'.couleur(1).'" width="200" height="60">';
 									echo '<tr>';
-										echo '<td align="center"><a href="ressources_list.php?lg='.$lg.'&categorie='.$data['id'].'"><span class="texte_info12">'.$data[$lg].$affnbressource.'</span></a></td>';
+									$requete2 = 'SELECT * FROM categorie_traduction WHERE  code="'.$lg.'" AND category='.$data['id'];
+									$recup2 = mysql_query($requete2);
+									while ($data2 = mysql_fetch_assoc($recup2)) {
+										if($data2['status']==1){
+											echo '<td align="center"><a href="ressources_list.php?lg=' . $lg . '&categorie=' . $data['id'] . '"><span class="texte_info12">' . $data2['name'] . $affnbressource . '</span></a></td>';
+										}else if($data2["status"]==2){
+											echo '<td align="center"><a href="ressources_list.php?lg=' . $lg . '&categorie=' . $data['id'] . '"><span class="texte_info12">texte en revision</span></a></td>';
+										}
+									}
 									echo '</tr>';
 								echo '</table>';
 							echo '</td>';
@@ -128,7 +136,7 @@ function affichage_categorie()
 <span class="texte_default"><?php echo versionlinguistique(36); //Choisir une catégorie ?></span>
 <br>
 <div align="right">
-<?php if ($_SESSION['niveau']>5) { // Affichage Bouton édition page ?>
+<?php if ($_SESSION['niveau']>=50) { // Affichage Bouton édition page ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 												<tr>
 													<td align="center"><a href="categorie_ajouter.php?lg=<?php echo $lg ?>&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(43)// Ajouter une catégorie ?></span></a></td>

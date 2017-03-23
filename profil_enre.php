@@ -1,13 +1,13 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique, variable session)
 
 
-$requete ='UPDATE profil SET '; // début de la composition de la requete de mise à jour
+$requete ='UPDATE profil SET '; // dï¿½but de la composition de la requete de mise ï¿½ jour
 
 $requete = $requete.'nom="'.$_POST["nom"].'",';
 
@@ -21,7 +21,16 @@ $requete = $requete.'langue="'.$_POST["langue"].'",';
 
 $requete = $requete.'utilisateur="'.$_POST["utilisateur"].'",';
 
+if($_POST["traducteur"]==1){
+    $requete = $requete.'niveau=20,';
+    $_SESSION['niveau']=20;
+}else if($_POST["traducteur"]==0){
+    $requete = $requete.'niveau=10,';
+    $_SESSION['niveau']=10;
+}
+
 $requete = $requete.'motdepasse="'.$_POST["motdepasse"].'"';
+
 
 $requete = $requete.' WHERE id='.$_POST["id"];
 

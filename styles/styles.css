@@ -2,7 +2,7 @@
 /*             		   	 Styles          	    	   */ 
 /* --------------------------------------------------------------- */ 
 /*                 Codes par : 			                  */ 
-/*            Steven DUDA / n° de tél. 06 63 10 33 21              */ 
+/*            Steven DUDA / nï¿½ de tï¿½l. 06 63 10 33 21              */ 
 /*           		 steven.duda@wanadoo.fr		           */ 
 /* --------------------------------------------------------------- */ 
 
@@ -15,10 +15,10 @@ a:visited { font-decoration: none;text-decoration:none }
 
 H1 { color: #A13926; font-weight: bolder; font-size: 16pt; font-decoration: none;vertical-align:text-bottom; letter-spacing: 1;text-decoration:none }
 
-/* Texte par défaut */ 
+/* Texte par dï¿½faut */ 
 .Texte_default { font-weight: normal; font-size: 12pt; color: #252525; letter-spacing: normal}
 
-/* Texte par défaut Gras */ 
+/* Texte par dï¿½faut Gras */ 
 .Texte_defaultGras { font-weight: bolder; font-size: 12pt; color: #252525; letter-spacing: normal}
 
 /* Texte note  8pt */ 
@@ -53,7 +53,7 @@ H1 { color: #A13926; font-weight: bolder; font-size: 16pt; font-decoration: none
 /* Texte info  12pt (utilisateur/motde passe /etc.) */ 
 .Texte_info12{ font-weight: normal; font-size: 12pt; color: #F5DCDC; letter-spacing: normal}
 
-/* List d'éléments */ 
+/* List d'ï¿½lï¿½ments */ 
 .list{ font-weight: normal; font-size: 10pt; color: #252525; letter-spacing: normal}
 
 /* Texte Conseil */ 
@@ -115,3 +115,106 @@ div#soustitre380 {
 	border: 0px;
 	cursor:pointer;
 	}
+
+/*+++++++++++Menu desplegable+++++++++++++++*/
+
+ul, ol {
+	list-style:none;
+}
+
+.nav > li  {
+	float:left;
+
+}
+
+.nav li span{
+	cursor: pointer;
+}
+
+.nav {
+	padding-left: 15px;
+}
+
+.nav li a {
+	background-color:#371111;
+	color:#fff;
+	text-decoration:none;
+	padding:10px 12px;
+	display:block;
+
+}
+
+.nav li a:hover {
+	background-color:#621d1d;
+
+}
+
+.nav li ul {
+	display:none;
+	position:absolute;
+	min-width:90px;
+	margin:0px;
+	padding:0px;
+}
+
+.nav li:hover > ul {
+	display:block;
+}
+
+.accept{
+	background-color:#009419;
+	color: #fff;
+}
+
+.reject{
+background-color:#BB0101;
+	color: #fff;
+}
+
+.boton{
+	text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+	text-align:center;
+	text-decoration: none;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	display:inline-block;
+	color: #FFF;
+	background: #7F8C8D;
+	padding: 6px 30px;
+	white-space: nowrap;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin: 10px 5px;
+	-webkit-transition: all 0.1s ease-in-out;
+	-ms-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
+}
+
+.azul{
+	background: #3498DB;
+	border: 1px solid #2980B9;
+}
+
+.azul:hover{
+	background: #39a0e5;
+}
+
+.verde{
+	background: #2ECC71;
+	border: 1px solid #27AE60;
+}
+
+.verde:hover{
+	background: #32db78;
+}
+
+.rojo{
+	background: #E74C3C;
+	border: 1px solid #C0392B;
+}
+
+.rojo:hover{
+	background: #ff5242;
+}

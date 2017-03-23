@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -18,13 +18,13 @@ $action2=$_GET["action2"];
 function affichage_lien()
 	{
 
-		global $lg,$pageencours; // récupération variable langue
+		global $lg,$pageencours; // rï¿½cupï¿½ration variable langue
 		$requete = 'SELECT * FROM liensRessources_categories ORDER BY refVL';
 		$recup = mysql_query($requete);
 			while ($data = mysql_fetch_assoc($recup))
 				{
 					echo '<table><tr><td><span class="Texte_default">'.$data[$lg].' :</span></td>';
-if ($_SESSION['niveau']>5) { // Affichage Bouton ajouter un lien
+if ($_SESSION['niveau']>=50) { // Affichage Bouton ajouter un lien
 										echo '<td><table border="0" cellpadding="6" cellspacing="2" bgcolor="'.couleur(1).'">';
 											echo '<tr>';
 												echo '<td colspan="2"><a href="liens_ressources_categorie_edit.php?lg='.$lg.'&id='.$data['id'].'&page='.$pageencours.'"><span class="texte_info12">'.versionlinguistique(47).'</span></a></td>'; // Editer
@@ -47,7 +47,7 @@ if ($_SESSION['niveau']>5) { // Affichage Bouton ajouter un lien
 											echo '</tr>';
 										echo '</table>';
 									echo '</td>';
-							if ($_SESSION['niveau']>5) {
+							if ($_SESSION['niveau']>=50) {
 									echo '<td width="100">';
 										echo '<table border="0" cellpadding="6" cellspacing="2" bgcolor="'.couleur(1).'">';
 											echo '<tr>';
@@ -91,9 +91,9 @@ if ($_SESSION['niveau']>5) { // Affichage Bouton ajouter un lien
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -116,22 +116,22 @@ if ($_SESSION['niveau']>5) { // Affichage Bouton ajouter un lien
 
 <br>
 <?php if ($action<>"") { ?>
-<p><div align="center"><span class="message"><?php echo versionlinguistique(34); // Lien modifié ?></span></div>
+<p><div align="center"><span class="message"><?php echo versionlinguistique(34); // Lien modifiï¿½ ?></span></div>
 <?php } ?>
 <?php if ($action2<>"") { ?>
-<p><div align="center"><span class="message"><?php echo versionlinguistique(33); // Lien supprimé ?></span></div>
+<p><div align="center"><span class="message"><?php echo versionlinguistique(33); // Lien supprimï¿½ ?></span></div>
 <?php } ?>
 <br>
 <div align="right">
-<?php if ($_SESSION['niveau']>5) { // Affichage Bouton ajouter une catégorie ?>
-											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+<?php if ($_SESSION['niveau']>=50) { // Affichage Bouton ajouter une catï¿½gorie ?>
+											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 												<tr>
-													<td align="center"><a href="liens_ressources_categorie_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(43) //Ajouter une catégorie ?></span></a></td>
+													<td align="center"><a href="liens_ressources_categorie_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(43) //Ajouter une catï¿½gorie ?></span></a></td>
 												</tr>
 											</table><br>
 <?php } ?>
-<?php if ($_SESSION['niveau']>5) { // Affichage Bouton ajouter un lien ?>
-											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+<?php if ($_SESSION['niveau']>=50) { // Affichage Bouton ajouter un lien ?>
+											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 												<tr>
 													<td align="center"><a href="liens_ressources_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(49) //Ajouter un lien ?></span></a></td>
 												</tr>
@@ -143,8 +143,8 @@ if ($_SESSION['niveau']>5) { // Affichage Bouton ajouter un lien
 					<?php affichage_lien() ?>
 				</p>
 <div align="right">
-<?php if ($_SESSION['niveau']>5) { // Affichage Bouton édition page ?>
-											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+<?php if ($_SESSION['niveau']>=50) { // Affichage Bouton ï¿½dition page ?>
+											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 												<tr>
 													<td align="center"><a href="liens_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(49) //Ajouter un lien ?></span></a></td>
 												</tr>
@@ -181,7 +181,7 @@ if ($_SESSION['niveau']>5) { // Affichage Bouton ajouter un lien
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -212,7 +212,7 @@ if ($_SESSION['niveau']>5) { // Affichage Bouton ajouter un lien
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

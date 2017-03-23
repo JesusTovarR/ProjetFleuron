@@ -1,14 +1,14 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
 
 if (isset($_GET["action"])) {
-	$action=$_GET["action"]; // Variable permettant l'affichage de message suite à l'action d'édition de la page
+	$action=$_GET["action"]; // Variable permettant l'affichage de message suite ï¿½ l'action d'ï¿½dition de la page
 }
 $_SESSION['colonnes']=array();
 
@@ -19,7 +19,7 @@ function edition_page()
 	$donnees = mysql_fetch_assoc($recupcont);
 	$count=1;
 	foreach ($donnees as $cle => $value){
-		if($cle=="id"||$cle=="code"||$cle=="status"||$cle=="id_user"){
+		if($cle=="id"||$cle=="code"||$cle=="status"||$cle=="id_user"||$cle=="ap_ref"){
 
 		}else{
 			$_SESSION['colonnes'][$count]=$cle;
@@ -39,6 +39,39 @@ function edition_page()
 			echo '<input type="hidden" value="'.$_POST['code_id'].'" name="code_id">';
 			echo '<input type="hidden" value="'.$_POST['code_lg'].'" name="code_lg">';
 	$count=0;
+
+}
+
+function edition_page_type2()
+{
+	if($_POST['table']=="categorie_traduction") {
+
+		$requete = 'SELECT * FROM categorie';
+		$resultat = mysql_query($requete);
+		while($cat= mysql_fetch_assoc($resultat)) {
+
+			$requete2 = 'SELECT * FROM ' . $_POST['table'] . ' WHERE category=' . $cat['id'] . ' AND code="' . $_POST['code_lg'] . '"';
+			$recupcont = mysql_query($requete2);
+			$donnees = mysql_fetch_assoc($recupcont);
+			$count = 1;
+			foreach ($donnees as $cle => $value) {
+				if($cle=="id"){
+					echo '<input type="hidden" value="' . $value . '" name="id'.$count.'">';
+				}
+				if ($cle == "name") {
+					echo '<tr>';
+					echo '<td align="center">';
+					echo '<textarea name="value' . $count . '" cols="110" rows="25">' . $value . '</textarea>';
+					echo '</td>';
+					echo '</tr>';
+					$count = $count + 1;
+				}
+			}
+		}
+		echo '<input type="hidden" value="' . $_POST['table'] . '" name="table">';
+		echo '<input type="hidden" value="' . $_POST['code_lg'] . '" name="code_lg">';
+		$count = 0;
+	}
 
 }
 
@@ -64,9 +97,9 @@ function edition_page()
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc');
 
 					?>
@@ -102,7 +135,11 @@ function edition_page()
 									<br>
 									<form name="FormName" action="traducteur_update.php" method="post">
 										<table border="0" cellpadding="0" cellspacing="5" width="600">
-											<?php edition_page()?>
+											<?php if($_POST['formulaire']==3){
+												edition_page_type2();
+											}else{
+												edition_page();
+											}?>
 										</table>
 										<input type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->
 									</form>
@@ -124,7 +161,7 @@ function edition_page()
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

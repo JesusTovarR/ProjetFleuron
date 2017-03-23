@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -28,7 +28,7 @@ if (isset($_GET["action2"])) {
 function affichage_glossaire()
 	{
 
-		global $lg,$pageencours; // récupération variable langue
+		global $lg,$pageencours; // rï¿½cupï¿½ration variable langue
 
 			$requete = 'SELECT * FROM glossaire ORDER BY item';
 			$recup = mysql_query($requete);
@@ -44,7 +44,7 @@ function affichage_glossaire()
 									echo '<td >';
 										echo '<span class="texte_default">'.$data['description_'.$lg].'</span>';
 									echo '</td>';
-								if ($_SESSION['niveau']>5) {
+								if ($_SESSION['niveau']>=50) {
 									echo '<td width="50">';
 										echo '<table border="0" cellpadding="6" cellspacing="2" bgcolor="'.couleur(1).'">';
 											echo '<tr>';
@@ -90,9 +90,9 @@ function affichage_glossaire()
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -118,8 +118,8 @@ function affichage_glossaire()
 
 <br>
 <div align="right">
-<?php if ($_SESSION['niveau']>5) { // Affichage Bouton édition page ?>
-											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+<?php if ($_SESSION['niveau']>=50) { // Affichage Bouton ï¿½dition page ?>
+											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 												<tr>
 													<td align="center"><a href="glossaire_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(51) //Ajouter ?></span></a></td>
 												</tr>
@@ -133,8 +133,8 @@ function affichage_glossaire()
 					</table>
 				</p>
 <div align="right">
-<?php if ($_SESSION['niveau']>5) { // Affichage Bouton édition page ?>
-											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+<?php if ($_SESSION['niveau']>=50) { // Affichage Bouton ï¿½dition page ?>
+											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 												<tr>
 													<td align="center"><a href="glossaire_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(51) //Ajouter ?></span></a></td>
 												</tr>
@@ -171,7 +171,7 @@ function affichage_glossaire()
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -202,7 +202,7 @@ function affichage_glossaire()
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

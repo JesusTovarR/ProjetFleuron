@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
 
@@ -10,7 +10,7 @@ $idprofil=$_GET["idprofil"];
 
 
 //************************************************************************
-//			Récupération des liens
+//			Rï¿½cupï¿½ration des liens
 //************************************************************************
 	$requete = 'SELECT lien FROM ressources WHERE id='.$idressource;
 	$recup2 = mysql_query($requete);
@@ -21,12 +21,12 @@ $idprofil=$_GET["idprofil"];
 
 
 //**********************************
-// Affichage des liens menu déroulant
+// Affichage des liens menu dï¿½roulant
 //**********************************
 function affichage_choixlien()
 	{
 
-		global $lg,$pageencours, $liens, $idressource ; // récupération variable langue
+		global $lg,$pageencours, $liens, $idressource ; // rï¿½cupï¿½ration variable langue
 
 					if ($liens<>"") {
 						$eleconsultation = explode(";",$liens);
@@ -79,7 +79,7 @@ $deja=0;
 function affichage_lien()
 	{
 
-		global $lg,$pageencours, $liens, $idressource; // récupération variable langue
+		global $lg,$pageencours, $liens, $idressource; // rï¿½cupï¿½ration variable langue
 
 		if ($liens<>"") {
 
@@ -104,7 +104,7 @@ echo '<table>';
 											echo '</tr>';
 										echo '</table><br>';
 								echo '</td>';
-							if ($_SESSION['niveau']>5) {
+							if ($_SESSION['niveau']>=50) {
 								echo '<td>';
 
 										echo '<table border="0" cellpadding="6" cellspacing="2" bgcolor="'.couleur(1).'">';
@@ -138,7 +138,7 @@ echo '</table>';
 
 
 
-<?php if ($_SESSION['niveau']>5) { ?>
+<?php if ($_SESSION['niveau']>=50) { ?>
 		<form name="FormName" action="ressources_ajout_lien.php" method="post">
 <p><?php echo versionlinguistique(140) //Connecter un lien ?> :</p>
 			<?php affichage_choixlien() ?>

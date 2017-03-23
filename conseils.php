@@ -58,7 +58,7 @@ include('include/affichage_page.inc'); // routine affichant le contenu rédaction
 								</table>
 <br>
 <div align="right">
-<?php if ($_SESSION['niveau']>5) { // affichage du bouton Edition page ?>
+<?php if ($_SESSION['niveau']>=50) { // affichage du bouton Edition page ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 												<tr>
 													<td align="center"><a href="page_edit.php?lg=<?php echo $lg ?>&id=2&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo conseils("line64_77") //Editer ?></span></a></td>
@@ -71,7 +71,7 @@ include('include/affichage_page.inc'); // routine affichant le contenu rédaction
 					<?php affichage_conseils($pageencours) ?>
 				</p>
 <div align="right">
-<?php if ($_SESSION['niveau']>5) { // affichage du bouton Edition page ?>
+<?php if ($_SESSION['niveau']>=50) { // affichage du bouton Edition page ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 												<tr>
 													<td align="center"><a href="page_edit.php?lg=<?php echo $lg ?>&id=2&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo conseils("line64_77") //Editer ?></span></a></td>

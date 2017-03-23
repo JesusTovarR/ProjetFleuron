@@ -8,10 +8,10 @@ $nb_col= count($_SESSION['colonnes']);
     for($i=1; $i<=$nb_col; $i++){
         if($i==1){
             $col="".$_SESSION['colonnes'][$i];
-            $val=$col.'=\''.$_POST['value'.$i.''].'\'';
+            $val=$col.'=\''.addslashes($_POST['value'.$i.'']).'\'';
         }else{
             $col=$_SESSION['colonnes'][$i];
-            $val=$val.', '.$col.'=\''.$_POST['value'.$i.''].'\'';
+            $val=$val.', '.$col.'=\''.addslashes($_POST['value'.$i.'']).'\'';
         }
     }
 
