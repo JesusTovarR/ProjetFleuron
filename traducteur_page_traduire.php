@@ -38,6 +38,7 @@ function edition_page()
 			echo '<input type="hidden" value="'.$_POST['table'].'" name="table">';
 			echo '<input type="hidden" value="'.$_POST['code_id'].'" name="code_id">';
 			echo '<input type="hidden" value="'.$_POST['code_lg'].'" name="code_lg">';
+			echo '<input type="hidden" value="1" name="formulaire">';
 	$count=0;
 
 }
@@ -48,12 +49,12 @@ function edition_page_type2()
 
 		$requete = 'SELECT * FROM categorie';
 		$resultat = mysql_query($requete);
+		$count = 1;
 		while($cat= mysql_fetch_assoc($resultat)) {
 
-			$requete2 = 'SELECT * FROM ' . $_POST['table'] . ' WHERE category=' . $cat['id'] . ' AND code="' . $_POST['code_lg'] . '"';
+			$requete2 = 'SELECT * FROM ' . $_POST['table'] . ' WHERE category=' . $cat['id'] . ' AND code="' . $_POST['code_lg'] . '" AND id_user='.$_SESSION['id'];
 			$recupcont = mysql_query($requete2);
 			$donnees = mysql_fetch_assoc($recupcont);
-			$count = 1;
 			foreach ($donnees as $cle => $value) {
 				if($cle=="id"){
 					echo '<input type="hidden" value="' . $value . '" name="id'.$count.'">';
@@ -61,15 +62,17 @@ function edition_page_type2()
 				if ($cle == "name") {
 					echo '<tr>';
 					echo '<td align="center">';
-					echo '<textarea name="value' . $count . '" cols="110" rows="25">' . $value . '</textarea>';
+					echo '<textarea name="value' . $count . '" cols="60" rows="2">' . $value . '</textarea>';
 					echo '</td>';
 					echo '</tr>';
-					$count = $count + 1;
 				}
 			}
+			$count = $count + 1;
 		}
 		echo '<input type="hidden" value="' . $_POST['table'] . '" name="table">';
 		echo '<input type="hidden" value="' . $_POST['code_lg'] . '" name="code_lg">';
+		echo '<input type="hidden" value="'.$count.'" name="total">';
+		echo '<input type="hidden" value="2" name="formulaire">';
 		$count = 0;
 	}
 
