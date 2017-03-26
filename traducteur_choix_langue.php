@@ -79,12 +79,6 @@ if (isset($_GET["message"])) {
 <br>
 <?php
 $message=0;}?>
-<?php if($message==2){?>
-	<br>
-	<span class="texte_default">El idioma ya existe</span><!--Cambiar-->
-	<br>
-	<?php
-	$message=0;}?>
 <div align="right">
 </div>
 

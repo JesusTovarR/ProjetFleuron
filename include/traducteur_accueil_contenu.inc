@@ -89,7 +89,7 @@ if($categorie==1){
 	$formulaire=2;
 	premier_structure($codes, $nom_table, $formulaire);
 }else if($categorie==15){
-	$requete2='SELECT id, code FROM categorie_traduction WHERE id_user='.$_SESSION['id'];
+	$requete2='SELECT id, code, status, ap_ref FROM categorie_traduction WHERE id_user='.$_SESSION['id'];
 	$resultat = mysql_query($requete2);
 	$nom_table="categorie_traduction";
 	$formulaire=3;
@@ -97,10 +97,20 @@ if($categorie==1){
     while ($codes = mysql_fetch_assoc($resultat)){
        $count=$count+1;
         $nb_array["code".$count]=$codes["code"];
+		if($codes["status"]==1&&$codes["ap_ref"]==1){
+			$list[]=$codes['code'];
+		}
     }
 	$code = array_unique($nb_array);
+	$valides=array_unique($list);
 	foreach ($code as $value){
-		duexieme_structure($value, $nom_table, $formulaire);
+		$valid=0;
+		foreach ($valides as $val){
+			if($val==$value){
+				$valid=1;
+			}
+		}
+		duexieme_structure($value, $nom_table, $formulaire, $valid);
 	}
 }else{
     echo "error";
@@ -142,7 +152,11 @@ function premier_structure($codes, $nom_table, $formulaire)
 		echo '<input type="hidden" value="' . $nom_table . '" name="table">';
 		echo '<input type="hidden" value="' . $code['id'] . '" name="code_id">';
 		echo '<input type="hidden" value="' . $formulaire . '" name="formulaire">';
-		echo '<td align="center"><span class="texte_info12"><input type="submit" value="Modificar" name="submitButtonName"></span></td>';//Cambiar
+		if($code['status']==1 && $code['ap_ref']==1) {
+			echo '<td align="center"><span class="texte_info12">Traduction valide</span></td>';//Cambiar
+		}else{
+			echo '<td align="center"><span class="texte_info12"><input type="submit" value="Modifier" name="submitButtonName"></span></td>';//Cambiar
+		}
 		echo '</form>';
 		echo '</tr>';
 		echo '</table>';
@@ -154,7 +168,7 @@ function premier_structure($codes, $nom_table, $formulaire)
 	}
 }
 
-function duexieme_structure($code, $nom_table, $formulaire){
+function duexieme_structure($code, $nom_table, $formulaire, $valid){
 	echo '<table border="0" cellspacing="0">';
 	echo '<tr>';
 	echo '<td>';
@@ -187,7 +201,11 @@ function duexieme_structure($code, $nom_table, $formulaire){
 	echo '<input type="hidden" value="'.$code.'" name="code_lg">';
 	echo '<input type="hidden" value="'.$nom_table.'" name="table">';
 	echo '<input type="hidden" value="'.$formulaire.'" name="formulaire">';
-	echo '<td align="center"><span class="texte_info12"><input type="submit" value="Modificar" name="submitButtonName"></span></td>';//Cambiar
+	if($valid==1){
+		echo '<td align="center"><span class="texte_info12">Langue validee</span></td>';//Cambiar
+	}else{
+		echo '<td align="center"><span class="texte_info12"><input type="submit" value="Modificar" name="submitButtonName"></span></td>';//Cambiar
+	}
 	echo '</form>';
 	echo '</tr>';
 	echo '</table>';
