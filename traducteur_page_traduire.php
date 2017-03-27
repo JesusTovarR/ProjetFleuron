@@ -26,9 +26,9 @@ function edition_page()
 			echo '<tr>';
 			echo '<td align="center">';
 			if($_POST['formulaire']==1){
-				echo '<textarea name="value'.$count.'" cols="110" rows="25">'.$value.'</textarea>';
+				echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
 			}else if($_POST['formulaire']==2){
-				echo '<textarea name="value'.$count.'" cols="60" rows="2">'.$value.'</textarea>';
+				echo '<textarea class="matextarea" name="value'.$count.'" cols="60" rows="1">'.$value.'</textarea>';
 			}
 			echo '</td>';
 			echo '</tr>';
@@ -62,7 +62,7 @@ function edition_page_type2()
 				if ($cle == "name") {
 					echo '<tr>';
 					echo '<td align="center">';
-					echo '<textarea name="value' . $count . '" cols="60" rows="2">' . $value . '</textarea>';
+					echo '<textarea class="matextarea" name="value' . $count . '" cols="60" rows="1">' . $value . '</textarea>';
 					echo '</td>';
 					echo '</tr>';
 				}
@@ -73,6 +73,61 @@ function edition_page_type2()
 		echo '<input type="hidden" value="' . $_POST['code_lg'] . '" name="code_lg">';
 		echo '<input type="hidden" value="'.$count.'" name="total">';
 		echo '<input type="hidden" value="2" name="formulaire">';
+		$count = 0;
+	}
+
+}
+
+function edition_page_fr()
+{
+	$requete = 'SELECT * FROM '.$_POST['table'].' WHERE status=1 AND ap_ref=1  AND code="fr"';
+	$recupcont = mysql_query($requete);
+	$donnees = mysql_fetch_assoc($recupcont);
+	$count=1;
+	foreach ($donnees as $cle => $value){
+		if($cle=="id"||$cle=="code"||$cle=="status"||$cle=="id_user"||$cle=="ap_ref"){
+
+		}else{
+			$_SESSION['colonnes'][$count]=$cle;
+			if($_POST['formulaire']==1){
+				echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
+			}else if($_POST['formulaire']==2){
+				echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
+				echo '<tr>';
+				echo '<td align="center" bgcolor="'.couleur(2).'"><span class="texte_info12">'.$value.'</span></td> <!--Cambiar-->';
+				echo '</tr>';
+				echo '</table>';
+			}
+			$count=$count+1;
+		}
+	}
+	$count=0;
+
+}
+
+function edition_page_type2_fr()
+{
+	if($_POST['table']=="categorie_traduction") {
+
+		$requete = 'SELECT * FROM categorie';
+		$resultat = mysql_query($requete);
+		$count = 1;
+		while($cat= mysql_fetch_assoc($resultat)) {
+
+			$requete2 = 'SELECT * FROM ' . $_POST['table'] . ' WHERE category=' . $cat['id'] . ' AND code="fr" AND status=1 AND ap_ref=1';
+			$recupcont = mysql_query($requete2);
+			$donnees = mysql_fetch_assoc($recupcont);
+			foreach ($donnees as $cle => $value) {
+				if ($cle == "name") {
+					echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
+					echo '<tr>';
+					echo '<td align="center" bgcolor="'.couleur(2).'"><span class="texte_info12">'.$value.'</span></td> <!--Cambiar-->';
+					echo '</tr>';
+					echo '</table>';
+				}
+			}
+			$count = $count + 1;
+		}
 		$count = 0;
 	}
 
@@ -137,12 +192,47 @@ function edition_page_type2()
 								<center>
 									<br>
 									<form name="FormName" action="traducteur_update.php" method="post">
-										<table border="0" cellpadding="0" cellspacing="5" width="600">
-											<?php if($_POST['formulaire']==3){
-												edition_page_type2();
-											}else{
-												edition_page();
-											}?>
+										<table border="0" cellpadding="0" cellspacing="5" width="900" bgcolor="<?php echo couleur(1);?>'">
+											<tr>
+												<td>
+													<table border="0" cellspacing="0">
+														<tr>
+															<td align="center">
+																<table border="0" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="425" height="60">
+																	<tr>
+																		<td align="center"><span class="texte_info12">
+																				<?php if($_POST['formulaire']==3){
+																					edition_page_type2_fr();
+																				}else{
+																					edition_page_fr();
+																				}?>
+																			</span></td><!--Cambiar-->
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</td>
+												<td>
+													<table border="0" cellspacing="0">
+														<tr>
+															<td align="center">
+																<table border="0" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="425" height="60">
+																	<tr>
+																		<td align="center">
+																			<?php if($_POST['formulaire']==3){
+																				edition_page_type2();
+																			}else{
+																				edition_page();
+																			}?>
+																		</td><!--Cambiar-->
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
 										</table>
 										<input type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->
 									</form>

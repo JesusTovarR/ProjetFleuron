@@ -218,3 +218,19 @@ background-color:#BB0101;
 .rojo:hover{
 	background: #ff5242;
 }
+
+textarea{
+	resize: none;
+}
+
+.matextarea{
+	resize: none;
+	font-family: Arial,verdana;
+}
+
+.mycontent{
+	overflow: scroll;
+	width: 400px;
+	height: 200px;
+}
+
