@@ -29,6 +29,8 @@ if($_POST["traducteur"]==1){
     $_SESSION['niveau']=10;
 }
 
+$requete = $requete.'demande_referent="'.$_POST["referent"].'",';
+
 $requete = $requete.'motdepasse="'.$_POST["motdepasse"].'"';
 
 

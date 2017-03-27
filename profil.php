@@ -127,6 +127,9 @@ if (isset($_GET["action"])) {
 ?>
 												</select></td>
 										</tr>
+										<?php
+										if($niveau<20){
+										?>
 										<tr>
 											<td><span class="texte_default">Devenir Traducteur:</span></td><!--Cambiar-->
 											<td>
@@ -146,6 +149,31 @@ if (isset($_GET["action"])) {
 													?>
 												</select></td>
 										</tr>
+										<?php
+											} if($niveau>=20&&$niveau<30){
+										?>
+											<tr>
+											<td><span class="texte_default">Devenir Referent:</span></td><!--Cambiar-->
+											<td>
+												<select name="referent" size="1">
+													<?php
+													if($niveau>=30){
+													?>
+													<option value="1" selected>Oui
+													<option value="0">Non
+														<?php
+														}else{
+														?>
+													<option value="0" selected>Non
+													<option value="1">Oui
+														<?php
+														}
+														?>
+												</select></td>
+										</tr>
+										<?php
+											}
+										?>
 										<tr>
 											<td><span class="texte_default"><?php echo versionlinguistique(22); //Langue à utiliser dans Fleuron ?> :</span></td>
 											<td><select name="langue" size="1">
