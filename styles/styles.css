@@ -219,6 +219,21 @@ background-color:#BB0101;
 	background: #ff5242;
 }
 
+.text_original{
+	background-color: #BBBBBB;
+	padding: 5px;
+}
+
+#value1_tbl[style]{
+	width: 450px !important;
+	height: 1029px !important;
+}
+
+#value1_ifr[style]{
+	width: 100% !important;
+	height:100% !important;
+}
+
 textarea{
 	resize: none;
 }

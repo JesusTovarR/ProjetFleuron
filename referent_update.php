@@ -33,5 +33,5 @@ if($_POST['submit']==='Aceptar Traduction'){
 include('include/close_connectionBase.inc');
 
 
-//header('Location: referent_update.php'); // redirection
+header('Location: referent.php'); // redirection
 ?>
