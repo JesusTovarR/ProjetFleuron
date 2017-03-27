@@ -91,6 +91,8 @@ if($categorie==1){
 }else if($categorie==15){
 	$requete2='SELECT id, code, status, ap_ref FROM categorie_traduction WHERE id_user='.$_SESSION['id'];
 	$resultat = mysql_query($requete2);
+	$nb_array=array();
+	$list=array();
 	$nom_table="categorie_traduction";
 	$formulaire=3;
     $count=0;
