@@ -226,7 +226,7 @@ background-color:#BB0101;
 
 #value1_tbl[style]{
 	width: 450px !important;
-	height: 1029px !important;
+	height: 800px !important;
 }
 
 #value1_ifr[style]{
@@ -244,8 +244,10 @@ textarea{
 }
 
 .mycontent{
-	overflow: scroll;
-	width: 400px;
-	height: 200px;
+	padding: 20px;
 }
 
+.mytext{
+	margin: 5px;
+	padding-top: 33px;
+}

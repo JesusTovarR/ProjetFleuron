@@ -19,13 +19,13 @@
 												<li><span class="texte_menu">Traduction</span>
 													<ul>
 														<li>
-															<?php if ($_SESSION['niveau']>20) { ?>
+															<?php if ($_SESSION['niveau']>=20) { ?>
 																<a href="traducteur.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("translator")// Traducteur ?></span></a>
 															<?php } else { ?>
 															<?php } ?>
 														</li>
 														<li>
-															<?php if ($_SESSION['niveau']>30) { ?>
+															<?php if ($_SESSION['niveau']>=30) { ?>
 																<a href="referent.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("referrer")// referrer ?></span></a>
 															<?php } else { ?>
 															<?php } ?>

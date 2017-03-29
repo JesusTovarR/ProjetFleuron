@@ -4,6 +4,14 @@
 <?php
 
 $categorie=$_GET['categorie'];
+if(isset($_GET['type'])){
+    $type=$_GET['type'];
+}
+
+if(isset($_GET['cat_ressources'])){
+    $_SESSION['ressource']=$_GET['cat_ressources'];
+}
+
 if($categorie==1){
     $requete2='SELECT * FROM accueil_contenu WHERE id_user='.$_SESSION['id'];
     $codes = mysql_query($requete2);
@@ -89,12 +97,18 @@ if($categorie==1){
 	$formulaire=2;
 	premier_structure($codes, $nom_table, $formulaire);
 }else if($categorie==15){
-	$requete2='SELECT id, code, status, ap_ref FROM categorie_traduction WHERE id_user='.$_SESSION['id'];
+    if($type==1){
+        $requete2='SELECT id, code, status, ap_ref FROM categorie_traduction WHERE id_user='.$_SESSION['id'];
+        $nom_table="categorie_traduction";
+        $formulaire=3;
+    }else if($type==2){
+        $requete2='SELECT id, code, status, ap_ref FROM ressources_traduction WHERE id_user='.$_SESSION['id'].' AND category='.$_GET['cat_ressources'];
+        $nom_table="ressources_traduction";
+        $formulaire=4;
+    }
 	$resultat = mysql_query($requete2);
 	$nb_array=array();
 	$list=array();
-	$nom_table="categorie_traduction";
-	$formulaire=3;
     $count=0;
     while ($codes = mysql_fetch_assoc($resultat)){
        $count=$count+1;
@@ -203,11 +217,11 @@ function duexieme_structure($code, $nom_table, $formulaire, $valid){
 	echo '<input type="hidden" value="'.$code.'" name="code_lg">';
 	echo '<input type="hidden" value="'.$nom_table.'" name="table">';
 	echo '<input type="hidden" value="'.$formulaire.'" name="formulaire">';
-	if($valid==1){
-		echo '<td align="center"><span class="texte_info12">Langue validee</span></td>';//Cambiar
-	}else{
+//	if($valid==1){
+//		echo '<td align="center"><span class="texte_info12">Langue validee</span></td>';//Cambiar
+//	}else{
 		echo '<td align="center"><span class="texte_info12"><input type="submit" value="Modificar" name="submitButtonName"></span></td>';//Cambiar
-	}
+//	}
 	echo '</form>';
 	echo '</tr>';
 	echo '</table>';

@@ -45,11 +45,12 @@ function edition_page()
 
 function edition_page_type2()
 {
-	if($_POST['table']=="categorie_traduction") {
+	if($_POST['formulaire']==3) {
 
 		$requete = 'SELECT * FROM categorie';
 		$resultat = mysql_query($requete);
 		$count = 1;
+		echo '<form name="FormName" action="traducteur_update.php" method="post">';
 		while($cat= mysql_fetch_assoc($resultat)) {
 
 			$requete2 = 'SELECT * FROM ' . $_POST['table'] . ' WHERE category=' . $cat['id'] . ' AND code="' . $_POST['code_lg'] . '" AND id_user='.$_SESSION['id'];
@@ -74,6 +75,40 @@ function edition_page_type2()
 		echo '<input type="hidden" value="'.$count.'" name="total">';
 		echo '<input type="hidden" value="2" name="formulaire">';
 		$count = 0;
+	}else if($_POST['formulaire']==4) {
+
+		$requete = 'SELECT * FROM ' . $_POST['table'] . ' WHERE category=' . $_SESSION['ressource'] . ' AND code="' . $_POST['code_lg'] . '" AND id_user='.$_SESSION['id'];
+		$resultat = mysql_query($requete);
+		echo '<form name="FormName" action="traducteur_update.php" method="post">';
+		while($data= mysql_fetch_assoc($resultat)) {
+			foreach ($data as $cle => $value) {
+				if($cle=="id"){
+					echo '<input type="hidden" value="' . $value . '" name="idRessources">';
+					echo '<tr>';
+					echo '<td align="center">';
+					echo '<textarea class="matextarea" name="' . $cle . '" cols="60" rows="1">' . $value . '</textarea>';
+					echo '</td>';
+					echo '</tr>';
+				}
+				if ($cle == "title" || $cle == "description") {
+					echo '<tr>';
+					echo '<td align="center">';
+					echo '<textarea class="matextarea" name="' . $cle . '" cols="60" rows="1">' . $value . '</textarea>';
+					echo '</td>';
+					echo '</tr>';
+				}
+			}
+			echo '<input type="hidden" value="' . $_POST['table'] . '" name="table">';
+			echo '<input type="hidden" value="' . $_POST['code_lg'] . '" name="code_lg">';
+			echo '<input type="hidden" value="3" name="formulaire">';
+			echo '<tr>';
+			echo '<td align="center">';
+			echo '<input type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->';
+			echo '<br>';
+			echo '</td>';
+			echo '</tr>';
+			echo '</form>';
+		}
 	}
 
 }
@@ -90,7 +125,12 @@ function edition_page_fr()
 		}else{
 			$_SESSION['colonnes'][$count]=$cle;
 			if($_POST['formulaire']==1){
-				echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
+//				echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
+				echo '<table class="mytext" border="0" cellpadding="4" cellspacing="1">';
+				echo '<tr>';
+				echo '<td align="left" bgcolor="white"><span class="texte_info12">'.$value.'<span></td>';
+				echo '</tr>';
+				echo '</table>';
 			}else if($_POST['formulaire']==2){
 				echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
 				echo '<tr>';
@@ -191,7 +231,6 @@ function edition_page_type2_fr()
 								</table>
 								<center>
 									<br>
-									<form name="FormName" action="traducteur_update.php" method="post">
 										<table border="0" cellpadding="0" cellspacing="5" width="900" bgcolor="<?php echo couleur(1);?>'">
 											<tr>
 												<td>
@@ -200,13 +239,13 @@ function edition_page_type2_fr()
 															<td align="center">
 																<table border="0" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="425" height="60">
 																	<tr>
-																		<td align="center"><span class="texte_info12">
-																				<?php if($_POST['formulaire']==3){
+																		<td >
+																				<?php if($_POST['formulaire']==3||$_POST['formulaire']==4){
 																					edition_page_type2_fr();
 																				}else{
 																					edition_page_fr();
 																				}?>
-																			</span></td><!--Cambiar-->
+																		</td><!--Cambiar-->
 																	</tr>
 																</table>
 															</td>
@@ -220,9 +259,10 @@ function edition_page_type2_fr()
 																<table border="0" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="425" height="60">
 																	<tr>
 																		<td align="center">
-																			<?php if($_POST['formulaire']==3){
+																			<?php if($_POST['formulaire']==3||$_POST['formulaire']==4){
 																				edition_page_type2();
 																			}else{
+																				echo '<form name="FormName" action="traducteur_update.php" method="post">';
 																				edition_page();
 																			}?>
 																		</td><!--Cambiar-->
@@ -234,8 +274,14 @@ function edition_page_type2_fr()
 												</td>
 											</tr>
 										</table>
-										<input type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->
-									</form>
+									<?php
+										if($_POST['formulaire']!=4) {
+									?>
+											<input type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->
+											</form>
+									<?php
+										}
+									?>
 							</td>
 
 						</tr>

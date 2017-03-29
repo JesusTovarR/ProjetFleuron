@@ -28,6 +28,16 @@ if($_POST['formulaire']==1) {
         $recupcont = mysql_query($requete);
     }
 
+}else if($_POST['formulaire']==3){
+        $requete = 'UPDATE ' . $_POST['table'] . ' SET title="' .  addslashes($_POST['title']). '", description="' .  addslashes($_POST['description']). '" WHERE id=' . $_POST["idRessources"] . ' AND id_user=' . $_SESSION['id'] . ' AND code="' . $_POST['code_lg'] . '"';
+        $recupcont = mysql_query($requete);
+        $_POST['formulaire']==4;
+        $_POST['table']=$_POST['table'];
+        $_SESSION['ressource']=$_SESSION['ressource'];
+        $_POST['code_lg']=$_POST['code_lg'];
+        include('include/close_connectionBase.inc');
+        header('Location: traducteur_page_traduire.php'); // redirection
+        die();
 }
 
 include('include/close_connectionBase.inc');

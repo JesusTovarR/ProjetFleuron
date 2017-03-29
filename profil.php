@@ -134,19 +134,8 @@ if (isset($_GET["action"])) {
 											<td><span class="texte_default">Devenir Traducteur:</span></td><!--Cambiar-->
 											<td>
 												<select name="traducteur" size="1">
-													<?php
-														if($niveau>=20){
-													?>
-													<option value="1" selected>Oui
+													<option value="1" >Oui
 													<option value="0">Non
-													<?php
-													}else  if($niveau<20){
-														?>
-													<option value="0" selected>Non
-													<option value="1">Oui
-													<?php
-														}
-													?>
 												</select></td>
 										</tr>
 										<?php
