@@ -5,7 +5,7 @@
 
 $categorie=$_GET['categorie'];
 if(isset($_GET['type'])){
-    $type=$_GET['type'];
+    $_SESSION['type']=$_GET['type'];
 }
 
 if(isset($_GET['cat_ressources'])){
@@ -16,95 +16,95 @@ if($categorie==1){
     $requete2='SELECT * FROM accueil_contenu WHERE id_user='.$_SESSION['id'];
     $codes = mysql_query($requete2);
     $nom_table="accueil_contenu";
-    $formulaire=1;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=1;
+	premier_structure($codes, $nom_table);
 }else if($categorie==2){
     $requete2='SELECT * FROM conseils_contenu WHERE id_user='.$_SESSION['id'];
     $codes = mysql_query($requete2);
     $nom_table="conseils_contenu";
-    $formulaire=1;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=1;
+	premier_structure($codes, $nom_table);
 }else if($categorie==3){
     $requete2='SELECT * FROM contact_contenu WHERE id_user='.$_SESSION['id'];
     $codes = mysql_query($requete2);
     $nom_table="contact_contenu";
-    $formulaire=1;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=1;
+	premier_structure($codes, $nom_table);
 }else if($categorie==4){
 	$requete2='SELECT * FROM menu WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="menu";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==5){
 	$requete2='SELECT * FROM choix_langue WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="choix_langue";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==6){
 	$requete2='SELECT * FROM conseils WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="conseils";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==7){
 	$requete2='SELECT * FROM dernier_media WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="dernier_media";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==8){
 	$requete2='SELECT * FROM login WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="login";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==9){
 	$requete2='SELECT * FROM menu_admin WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="menu_admin";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==10){
 	$requete2='SELECT * FROM moteur_de_recherche WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="moteur_de_recherche";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==11){
 	$requete2='SELECT * FROM tableau_du_bord WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="tableau_du_bord";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==12){
 	$requete2='SELECT * FROM affichage_ressource WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="affichage_ressource";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==13){
 	$requete2='SELECT * FROM content WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="content";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==14){
 	$requete2='SELECT * FROM page_edit WHERE id_user='.$_SESSION['id'];
 	$codes = mysql_query($requete2);
 	$nom_table="page_edit";
-	$formulaire=2;
-	premier_structure($codes, $nom_table, $formulaire);
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else if($categorie==15){
-    if($type==1){
+    if($_SESSION['type']==1){
         $requete2='SELECT id, code, status, ap_ref FROM categorie_traduction WHERE id_user='.$_SESSION['id'];
         $nom_table="categorie_traduction";
-        $formulaire=3;
-    }else if($type==2){
-        $requete2='SELECT id, code, status, ap_ref FROM ressources_traduction WHERE id_user='.$_SESSION['id'].' AND category='.$_GET['cat_ressources'];
+		$_SESSION['formulaire']=3;
+    }else if($_SESSION['type']==2){
+        $requete2='SELECT id, code, status, ap_ref FROM ressources_traduction WHERE id_user='.$_SESSION['id'].' AND category='. $_SESSION['ressource'];
         $nom_table="ressources_traduction";
-        $formulaire=4;
+		$_SESSION['formulaire']=4;
     }
 	$resultat = mysql_query($requete2);
 	$nb_array=array();
@@ -126,14 +126,14 @@ if($categorie==1){
 				$valid=1;
 			}
 		}
-		duexieme_structure($value, $nom_table, $formulaire, $valid);
+		duexieme_structure($value, $nom_table, $valid);
 	}
 }else{
     echo "error";
 }
 
 
-function premier_structure($codes, $nom_table, $formulaire)
+function premier_structure($codes, $nom_table)
 {
 	while ($code = mysql_fetch_assoc($codes)) {
 		echo '<table border="0" cellspacing="0">';
@@ -167,7 +167,6 @@ function premier_structure($codes, $nom_table, $formulaire)
 		echo '<input type="hidden" value="' . $code['code'] . '" name="code_lg">';
 		echo '<input type="hidden" value="' . $nom_table . '" name="table">';
 		echo '<input type="hidden" value="' . $code['id'] . '" name="code_id">';
-		echo '<input type="hidden" value="' . $formulaire . '" name="formulaire">';
 		if($code['status']==1 && $code['ap_ref']==1) {
 			echo '<td align="center"><span class="texte_info12">Traduction valide</span></td>';//Cambiar
 		}else{
@@ -184,7 +183,7 @@ function premier_structure($codes, $nom_table, $formulaire)
 	}
 }
 
-function duexieme_structure($code, $nom_table, $formulaire, $valid){
+function duexieme_structure($code, $nom_table, $valid){
 	echo '<table border="0" cellspacing="0">';
 	echo '<tr>';
 	echo '<td>';
@@ -216,12 +215,11 @@ function duexieme_structure($code, $nom_table, $formulaire, $valid){
 	echo '<form name="Formlg" action="traducteur_page_traduire.php" method="post">';
 	echo '<input type="hidden" value="'.$code.'" name="code_lg">';
 	echo '<input type="hidden" value="'.$nom_table.'" name="table">';
-	echo '<input type="hidden" value="'.$formulaire.'" name="formulaire">';
-//	if($valid==1){
-//		echo '<td align="center"><span class="texte_info12">Langue validee</span></td>';//Cambiar
-//	}else{
+	if($valid==1){
+		echo '<td align="center"><span class="texte_info12">Langue validee</span></td>';//Cambiar
+	}else{
 		echo '<td align="center"><span class="texte_info12"><input type="submit" value="Modificar" name="submitButtonName"></span></td>';//Cambiar
-//	}
+	}
 	echo '</form>';
 	echo '</tr>';
 	echo '</table>';

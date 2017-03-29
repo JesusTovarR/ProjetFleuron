@@ -13,7 +13,7 @@ function creer_brouillon($table, $lg, $status, $ap_ref, $nb_table){
 			$categoriesId='SELECT id FROM categorie';
 			$recupCategories=mysql_query($categoriesId);
 			while($dataCategorie=mysql_fetch_assoc($recupCategories)){
-				$requete3='SELECT * FROM categorie_traduction WHERE  category='.$dataCategorie['id'].' AND code="'.$lg.'" AND status='.$status.' AND ap_ref='.$ap_ref;
+				$requete3='SELECT * FROM '.$table.' WHERE  category='.$dataCategorie['id'].' AND code="'.$lg.'" AND status='.$status.' AND ap_ref='.$ap_ref;
 				$recup3=mysql_query($requete3);
 				while($data3=mysql_fetch_assoc($recup3)) {
 					$name= addslashes($data3['name']);
@@ -22,7 +22,20 @@ function creer_brouillon($table, $lg, $status, $ap_ref, $nb_table){
 				}
 			}
 			$_SESSION['cree']=$_SESSION['cree']+1;
-		}else{
+		}else if($nb_table==16){
+            $requeteR='SELECT id FROM ressources';
+            $recupid=mysql_query($requeteR);
+            while($dataR=mysql_fetch_assoc($recupid)){
+                $ressources='SELECT * FROM '.$table.' WHERE  id_resource='.$dataR['id'].' AND code="'.$lg.'" AND status='.$status.' AND ap_ref='.$ap_ref;
+                $recupRes=mysql_query($ressources);
+                while($dataRes=mysql_fetch_assoc($recupRes)) {
+                    $title= addslashes($dataRes['title']);
+                    $description= addslashes($dataRes['description']);
+                    $categorie = 'INSERT INTO ' . $table . ' (title, description, category, id_resource, code, status, id_user, ap_ref) VALUES ( \'' .$title.'\', \'' .$description.'\', '.$dataRes['category'].', '.$dataRes['id_resource'].', \'' . $lg . '\', 0, ' . $_SESSION['id'] . ', 0)';
+                    $exec = mysql_query($categorie);
+                }
+            }
+        }else{
 			$requete4='SELECT * FROM '.$table.' WHERE code="'.$lg.'" AND status='.$status.' AND ap_ref='.$ap_ref;
 			$recup4 = mysql_query($requete4);
 			if ($data4 = mysql_fetch_assoc($recup4))
@@ -60,7 +73,7 @@ function ajouter_langue($table, $lg, $nb_table){
 		$categoriesId='SELECT id FROM categorie';
 		$recupCategorie=mysql_query($categoriesId);
 		while($dataCategorie=mysql_fetch_assoc($recupCategorie)){
-			$requete3='SELECT * FROM categorie_traduction WHERE  category='.$dataCategorie['id'].' AND code="fr" AND status=1';
+			$requete3='SELECT * FROM '.$table.' WHERE  category='.$dataCategorie['id'].' AND code="fr" AND status=1';
 			$recup3=mysql_query($requete3);
 			while($data3=mysql_fetch_assoc($recup3)) {
 				$name= addslashes($data3['name']);
@@ -69,7 +82,21 @@ function ajouter_langue($table, $lg, $nb_table){
 			}
 		}
 		$_SESSION['cree']=$_SESSION['cree']+1;
-	}else{
+	}else if($nb_table==16){
+        $requeteR='SELECT id FROM ressources';
+        $recupid=mysql_query($requeteR);
+        while($dataR=mysql_fetch_assoc($recupid)){
+            $ressources='SELECT * FROM '.$table.' WHERE  id_resource='.$dataR['id'].' AND code="fr" AND status=1';
+            $recupRes=mysql_query($ressources);
+            while($dataRes=mysql_fetch_assoc($recupRes)) {
+                $title= addslashes($dataRes['title']);
+                $description= addslashes($dataRes['description']);
+                $categorie = 'INSERT INTO ' . $table . ' (title, description, category, id_resource, code, status, id_user, ap_ref) VALUES ( \'' .$title.'\', \'' .$description.'\', '.$dataRes['category'].', '.$dataRes['id_resource'].', \'' . $lg . '\', 1, ' . $_SESSION['id'] . ', 0)';
+                $exec = mysql_query($categorie);
+            }
+        }
+        $_SESSION['cree']=$_SESSION['cree']+1;
+    }else{
 		$requete = 'SELECT * FROM ' . $table . ' WHERE code="fr" AND status=1';
 		$recup = mysql_query($requete);
 		if ($data = mysql_fetch_assoc($recup)) {

@@ -11,10 +11,22 @@ if (isset($_GET["action"])) {
 	$action=$_GET["action"]; // Variable permettant l'affichage de message suite � l'action d'�dition de la page
 }
 $_SESSION['colonnes']=array();
+ if(isset($_POST['table'])&&isset($_POST['code_id'])&&isset($_POST['code_lg'])){
+	 $_SESSION['table']=$_POST['table'];
+	 $_SESSION['code_id']=$_POST['code_id'];
+	 $_SESSION['code_lg']=$_POST['code_lg'];
+ }else if(isset($_POST['table'])&&isset($_POST['code_lg'])){
+	 $_SESSION['table']=$_POST['table'];
+	 $_SESSION['code_id']="";
+	 $_SESSION['code_lg']=$_POST['code_lg'];
+ }else if(!isset($_SESSION['table'])&&!isset($_SESSION['code_id'])&&!isset($_SESSION['code_lg'])){
+	 include('include/close_connectionBase.inc');
+	 header('Location: traducteur.php'); // redirection
+ }
 
 function edition_page()
 {
-	$requete = 'SELECT * FROM '.$_POST['table'].' WHERE id='.$_POST['code_id'].' AND code="'.$_POST['code_lg'].'"';
+	$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE id='.$_SESSION['code_id'].' AND code="'.$_SESSION['code_lg'].'"';
 	$recupcont = mysql_query($requete);
 	$donnees = mysql_fetch_assoc($recupcont);
 	$count=1;
@@ -25,9 +37,9 @@ function edition_page()
 			$_SESSION['colonnes'][$count]=$cle;
 			echo '<tr>';
 			echo '<td align="center">';
-			if($_POST['formulaire']==1){
+			if($_SESSION['formulaire']==1){
 				echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
-			}else if($_POST['formulaire']==2){
+			}else if($_SESSION['formulaire']==2){
 				echo '<textarea class="matextarea" name="value'.$count.'" cols="60" rows="1">'.$value.'</textarea>';
 			}
 			echo '</td>';
@@ -35,9 +47,9 @@ function edition_page()
 			$count=$count+1;
 		}
 	}
-			echo '<input type="hidden" value="'.$_POST['table'].'" name="table">';
-			echo '<input type="hidden" value="'.$_POST['code_id'].'" name="code_id">';
-			echo '<input type="hidden" value="'.$_POST['code_lg'].'" name="code_lg">';
+			echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';
+			echo '<input type="hidden" value="'.$_SESSION['code_id'].'" name="code_id">';
+			echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';
 			echo '<input type="hidden" value="1" name="formulaire">';
 	$count=0;
 
@@ -45,7 +57,7 @@ function edition_page()
 
 function edition_page_type2()
 {
-	if($_POST['formulaire']==3) {
+	if($_SESSION['formulaire']==3) {
 
 		$requete = 'SELECT * FROM categorie';
 		$resultat = mysql_query($requete);
@@ -53,7 +65,7 @@ function edition_page_type2()
 		echo '<form name="FormName" action="traducteur_update.php" method="post">';
 		while($cat= mysql_fetch_assoc($resultat)) {
 
-			$requete2 = 'SELECT * FROM ' . $_POST['table'] . ' WHERE category=' . $cat['id'] . ' AND code="' . $_POST['code_lg'] . '" AND id_user='.$_SESSION['id'];
+			$requete2 = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE category=' . $cat['id'] . ' AND code="' . $_SESSION['code_lg'] . '" AND id_user='.$_SESSION['id'];
 			$recupcont = mysql_query($requete2);
 			$donnees = mysql_fetch_assoc($recupcont);
 			foreach ($donnees as $cle => $value) {
@@ -70,25 +82,20 @@ function edition_page_type2()
 			}
 			$count = $count + 1;
 		}
-		echo '<input type="hidden" value="' . $_POST['table'] . '" name="table">';
-		echo '<input type="hidden" value="' . $_POST['code_lg'] . '" name="code_lg">';
+		echo '<input type="hidden" value="' . $_SESSION['table'] . '" name="table">';
+		echo '<input type="hidden" value="' . $_SESSION['code_lg'] . '" name="code_lg">';
 		echo '<input type="hidden" value="'.$count.'" name="total">';
 		echo '<input type="hidden" value="2" name="formulaire">';
 		$count = 0;
-	}else if($_POST['formulaire']==4) {
+	}else if($_SESSION['formulaire']==4) {
 
-		$requete = 'SELECT * FROM ' . $_POST['table'] . ' WHERE category=' . $_SESSION['ressource'] . ' AND code="' . $_POST['code_lg'] . '" AND id_user='.$_SESSION['id'];
+		$requete = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE category=' . $_SESSION['ressource'] . ' AND code="' . $_SESSION['code_lg'] . '" AND id_user='.$_SESSION['id'];
 		$resultat = mysql_query($requete);
-		echo '<form name="FormName" action="traducteur_update.php" method="post">';
 		while($data= mysql_fetch_assoc($resultat)) {
+			echo '<form name="FormName" action="traducteur_update.php" method="post">';
 			foreach ($data as $cle => $value) {
 				if($cle=="id"){
 					echo '<input type="hidden" value="' . $value . '" name="idRessources">';
-					echo '<tr>';
-					echo '<td align="center">';
-					echo '<textarea class="matextarea" name="' . $cle . '" cols="60" rows="1">' . $value . '</textarea>';
-					echo '</td>';
-					echo '</tr>';
 				}
 				if ($cle == "title" || $cle == "description") {
 					echo '<tr>';
@@ -98,8 +105,8 @@ function edition_page_type2()
 					echo '</tr>';
 				}
 			}
-			echo '<input type="hidden" value="' . $_POST['table'] . '" name="table">';
-			echo '<input type="hidden" value="' . $_POST['code_lg'] . '" name="code_lg">';
+			echo '<input type="hidden" value="' . $_SESSION['table'] . '" name="table">';
+			echo '<input type="hidden" value="' . $_SESSION['code_lg'] . '" name="code_lg">';
 			echo '<input type="hidden" value="3" name="formulaire">';
 			echo '<tr>';
 			echo '<td align="center">';
@@ -115,7 +122,7 @@ function edition_page_type2()
 
 function edition_page_fr()
 {
-	$requete = 'SELECT * FROM '.$_POST['table'].' WHERE status=1 AND ap_ref=1  AND code="fr"';
+	$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE status=1 AND ap_ref=1  AND code="fr"';
 	$recupcont = mysql_query($requete);
 	$donnees = mysql_fetch_assoc($recupcont);
 	$count=1;
@@ -124,14 +131,14 @@ function edition_page_fr()
 
 		}else{
 			$_SESSION['colonnes'][$count]=$cle;
-			if($_POST['formulaire']==1){
+			if($_SESSION['formulaire']==1){
 //				echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
 				echo '<table class="mytext" border="0" cellpadding="4" cellspacing="1">';
 				echo '<tr>';
 				echo '<td align="left" bgcolor="white"><span class="texte_info12">'.$value.'<span></td>';
 				echo '</tr>';
 				echo '</table>';
-			}else if($_POST['formulaire']==2){
+			}else if($_SESSION['formulaire']==2){
 				echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
 				echo '<tr>';
 				echo '<td align="center" bgcolor="'.couleur(2).'"><span class="texte_info12">'.$value.'</span></td> <!--Cambiar-->';
@@ -147,14 +154,14 @@ function edition_page_fr()
 
 function edition_page_type2_fr()
 {
-	if($_POST['table']=="categorie_traduction") {
+	if($_SESSION['formulaire']==3) {
 
 		$requete = 'SELECT * FROM categorie';
 		$resultat = mysql_query($requete);
 		$count = 1;
 		while($cat= mysql_fetch_assoc($resultat)) {
 
-			$requete2 = 'SELECT * FROM ' . $_POST['table'] . ' WHERE category=' . $cat['id'] . ' AND code="fr" AND status=1 AND ap_ref=1';
+			$requete2 = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE category=' . $cat['id'] . ' AND code="fr" AND status=1 AND ap_ref=1';
 			$recupcont = mysql_query($requete2);
 			$donnees = mysql_fetch_assoc($recupcont);
 			foreach ($donnees as $cle => $value) {
@@ -169,6 +176,20 @@ function edition_page_type2_fr()
 			$count = $count + 1;
 		}
 		$count = 0;
+	}else if($_SESSION['formulaire']==4) {
+		$requete = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE category=' . $_SESSION['ressource'] . ' AND code="' . $_SESSION['code_lg'] . '" AND id_user='.$_SESSION['id'];
+		$resultat = mysql_query($requete);
+		echo '<form name="FormName" action="traducteur_update.php" method="post">';
+		while($data= mysql_fetch_assoc($resultat)) {
+				echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
+				echo '<tr>';
+				echo '<td align="center" bgcolor="'.couleur(2).'"><span class="texte_info12">'.$data['title'].'</span></td> <!--Cambiar-->';
+				echo '</tr>';
+				echo '<tr>';
+				echo '<td align="center" bgcolor="'.couleur(2).'"><span class="texte_info12">'.$data['description'].'</span></td> <!--Cambiar-->';
+				echo '</tr>';
+				echo '</table>';
+		}
 	}
 
 }
@@ -182,7 +203,7 @@ function edition_page_type2_fr()
 		<?php include('include/head.inc');  // header ?>
 		<?php include('include/alexandria.inc');  // dictionnaire alexandria ?>
 
-		<?php if($_POST['formulaire']==1){include('include/traitementtexte.inc');} // Traitement de texte TinyMCE');  ?>
+		<?php if($_SESSION['formulaire']==1){include('include/traitementtexte.inc');} // Traitement de texte TinyMCE');  ?>
 		<link href="styles/styles.css" rel="styleSheet" type="text/css">
 	</head>
 
@@ -240,7 +261,7 @@ function edition_page_type2_fr()
 																<table border="0" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="425" height="60">
 																	<tr>
 																		<td >
-																				<?php if($_POST['formulaire']==3||$_POST['formulaire']==4){
+																				<?php if($_SESSION['formulaire']==3||$_SESSION['formulaire']==4){
 																					edition_page_type2_fr();
 																				}else{
 																					edition_page_fr();
@@ -259,7 +280,7 @@ function edition_page_type2_fr()
 																<table border="0" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="425" height="60">
 																	<tr>
 																		<td align="center">
-																			<?php if($_POST['formulaire']==3||$_POST['formulaire']==4){
+																			<?php if($_SESSION['formulaire']==3||$_SESSION['formulaire']==4){
 																				edition_page_type2();
 																			}else{
 																				echo '<form name="FormName" action="traducteur_update.php" method="post">';
@@ -275,13 +296,14 @@ function edition_page_type2_fr()
 											</tr>
 										</table>
 									<?php
-										if($_POST['formulaire']!=4) {
+										if($_SESSION['formulaire']!=4) {
 									?>
 											<input type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->
 											</form>
 									<?php
 										}
 									?>
+								</center>
 							</td>
 
 						</tr>

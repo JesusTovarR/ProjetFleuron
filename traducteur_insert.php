@@ -18,7 +18,8 @@ $tables= array(
     12 => 'affichage_ressource',
     13 => 'content',
     14 => 'page_edit',
-    15 => 'categorie_traduction'
+    15 => 'categorie_traduction',
+    16 => 'ressources_traduction'
     );
 
 $nb_col= count($tables);
