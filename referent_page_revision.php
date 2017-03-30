@@ -11,37 +11,71 @@ include('include/open_connectionBase.inc'); // connection � la base MYSQL
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
-
 if (isset($_GET["action"])) {
     $action=$_GET["action"]; // Variable permettant l'affichage de message suite � l'action d'�dition de la page
 }
 
 function revision_referent(){
-    //var_dump($_POST);
+
     if($_POST['data']){
-        $_POST['data'] = str_replace('!',' ',unserialize($_POST['data']));
-        //var_dump($_POST['data']);
-        //var_dump($_POST['table']);
+        $_POST["data"]=unserialize(base64_decode($_POST["data"]));
+        $_POST["datafr"]=unserialize(base64_decode($_POST["datafr"]));
+        $_POST['data'] = str_replace('!',' ',$_POST['data']);
+        $_POST['data'] = str_replace('(','<',$_POST['data']);
+        $_POST['data'] = str_replace(')','>',$_POST['data']);
+        $_POST['data'] = str_replace('|','"',$_POST['data']);
+        $_POST['data'] = str_replace('~',"\n",$_POST['data']);
+        $_POST['data'] = str_replace('°',"\r",$_POST['data']);
+
+
+        $_POST['datafr'] = str_replace('!',' ',$_POST['datafr']);
+        $_POST['datafr'] = str_replace('(','<',$_POST['datafr']);
+        $_POST['datafr'] = str_replace(')','>',$_POST['datafr']);
+        $_POST['datafr'] = str_replace('|','"',$_POST['datafr']);
+        $_POST['datafr'] = str_replace('~',"\n",$_POST['datafr']);
+        $_POST['datafr'] = str_replace('°',"\r",$_POST['datafr']);
+
         $_SESSION['colonnes']=array();
         $count=1;
         foreach ($_POST['data'] as $cle => $value) {
             if ($cle == "id" || $cle == "code" || $cle == "status" || $cle == "id_user") {
 
             } else {
-                $_SESSION['colonnes'][$count]=$cle;
-                echo '<tr>';
+                $_SESSION['colonnes'][$count] = $cle;
+
+                //echo $_POST['data'][$cle][0];
+                if ($_POST['data'][$cle][0] == '<') {
+                    include('include/traitementtexte.inc');
+
+                    echo '<tr>';
+                    echo '<td class="text_original" width="400" align="center">';
+                    echo '<p  >' . $_POST['datafr'][$cle] . '</p>';
+                    echo '</td>';
+                    echo '<td align="center">';
+                    echo '<textarea name="value' . $count . '"cols="60" rows="48">' . $value . '</textarea>';
+                    $count += 1;
+                } else {
+                //var_dump($_POST);
+                /*echo '<tr>';
                 echo '<td align="center">';
-                echo '<textarea name="value'.$count.'" cols="110" rows="2">'.$value.'</textarea>';
+                echo '<p>'.$_POST['datafr'][$cle].'</p>';
+                echo '</td>';
+                echo '</tr>';*/
+
+
+                echo '<tr>';
+                echo '<td width="400" align="center">';
+                echo '<p>' . $_POST['datafr'][$cle] . '</p>';
+                echo '</td>';
+                echo '<td align="center">';
+                echo '<textarea name="value' . $count . '"cols="60" rows="2">' . $value . '</textarea>';
                 $count += 1;
+            }
             }
             echo '</td>';
             echo '</tr>';
         }
     }
-}
-
-function delete_traduccion(){
-
 }
 
 
@@ -53,7 +87,9 @@ function delete_traduccion(){
         <?php include('include/head.inc');  // header ?>
         <?php include('include/alexandria.inc');  // dictionnaire alexandria ?>
 
+
         <link href="styles/styles.css" rel="styleSheet" type="text/css">
+
     </head>
 
     <body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="white" >
@@ -102,9 +138,9 @@ function delete_traduccion(){
                             <center>
                                 <br>
                                 <form name="FormName" action="referent_update.php" method="post">
-                                    <table border="0" cellpadding="0" cellspacing="5" width="600">
+                                    <table border="0" cellpadding="0" cellspacing="5" width="100%">
                                         <?php revision_referent();
-                                            $table = $_POST['table'];
+                                        $table = $_POST['table'];
                                         $da= (serialize($_POST['data']));
                                         $d = str_replace(' ','!',$da);
                                         $d = str_replace('"','%',$da);

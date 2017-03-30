@@ -218,3 +218,36 @@ background-color:#BB0101;
 .rojo:hover{
 	background: #ff5242;
 }
+
+.text_original{
+	background-color: #BBBBBB;
+	padding: 5px;
+}
+
+#value1_tbl[style]{
+	width: 450px !important;
+	height: 800px !important;
+}
+
+#value1_ifr[style]{
+	width: 100% !important;
+	height:100% !important;
+}
+
+textarea{
+	resize: none;
+}
+
+.matextarea{
+	resize: none;
+	font-family: Arial,verdana;
+}
+
+.mycontent{
+	padding: 20px;
+}
+
+.mytext{
+	margin: 5px;
+	padding-top: 33px;
+}

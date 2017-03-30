@@ -21,13 +21,18 @@ $requete = $requete.'langue="'.$_POST["langue"].'",';
 
 $requete = $requete.'utilisateur="'.$_POST["utilisateur"].'",';
 
-if($_POST["traducteur"]==1){
-    $requete = $requete.'niveau=20,';
-    $_SESSION['niveau']=20;
-}else if($_POST["traducteur"]==0){
-    $requete = $requete.'niveau=10,';
-    $_SESSION['niveau']=10;
+if(isset($_POST['traducteur'])){
+    if($_POST["traducteur"]==1){
+        $requete = $requete.'niveau=21,';
+        $_SESSION['niveau']=21;
+    }else if($_POST["traducteur"]==0){
+        $requete = $requete.'niveau=10,';
+        $_SESSION['niveau']=10;
+    }
 }
+
+
+$requete = $requete.'demande_referent="'.$_POST["referent"].'",';
 
 $requete = $requete.'motdepasse="'.$_POST["motdepasse"].'"';
 

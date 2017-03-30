@@ -223,7 +223,6 @@ function page_modification($val)
 
     $requete='SELECT '.$val.', status FROM page_edit WHERE code="'.$lg.'" && status=1';
     $recup = mysql_query($requete);
-
     while ($data = mysql_fetch_assoc($recup))
     {
         if($data['status']==1){

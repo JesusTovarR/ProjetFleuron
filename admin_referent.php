@@ -12,13 +12,6 @@ if (isset($_GET["action"])) {
 	$action=$_GET["action"]; // Variable permettant l'affichage de message suite � l'action d'�dition de la page
 }
 
-if (isset($_GET["message"])) {
-	$message=$_GET["message"]; // Variable permettant l'affichage de message suite � l'action d'�dition de la page
-}else{
-	$message=0;
-}
-$page_avant=$_SERVER['HTTP_REFERER'];
-
 ?>
 
 <html>
@@ -29,7 +22,7 @@ $page_avant=$_SERVER['HTTP_REFERER'];
 		<link href="styles/styles.css" rel="styleSheet" type="text/css">
 	</head>
 
-	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="white" >
+	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="white">
 		<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
 			<tr height="67">
 				<td align="center" valign="middle" bgcolor="<?php echo couleur(2); // couleur claire ?>" height="67">
@@ -41,7 +34,7 @@ $page_avant=$_SERVER['HTTP_REFERER'];
 				<td bgcolor="<?php echo couleur(1); //couleur fonc�e ?>" height="40" align="center">
 					<?php 
 						// Menu Sup�rieur 
-						include('include/menu_top.inc');
+						include('include/menu_top.inc'); 
 
 					?>
 				</td>
@@ -51,45 +44,40 @@ $page_avant=$_SERVER['HTTP_REFERER'];
 				<td bgcolor="#f6f5ed" align="center" valign="top">
 					<table border="0" cellpadding="10" cellspacing="2" width="900">
 						<tr>
+
+
 <!-- Partie centrale -->
-							<td valign="top">
-								<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+    <td valign="top">
+								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 									<tr>
-										<td width="100"  bgcolor="<?php echo couleur(1) ?>">
-											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="100">
-												<tr>
-													<td align="center">
-														<a href="traducteur.php"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td align="center" bgcolor="<?php echo couleur(2); //couleur claire ?>">
-											<span class="titre">Titre<!--Cambiar--></span>
+										<td align="center" height="30">
+											<span class="titre">Gestion des r&eacute;f&eacute;rents</span>
 										</td>
 									</tr>
-
 								</table>
-<?php if($message==1){?>
-<br>
-<span class="texte_default">Existentes:<?php echo $_SESSION['exist']?></span><!--Cambiar-->
-<br>
-<br>
-<span class="texte_default">Agregados:<?php echo $_SESSION['cree']?></span><!--Cambiar-->
-<br>
-<?php
-$message=0;}?>
-<div align="right">
-</div>
 
-				<p>
-					<?php include('include/traducteur_accueil_contenu.inc');  ?>
-				</p>
+<p>
+    <table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+
+        <tr height="40">
+            <td align="center">
+            <a class="titre" href="gestion_referent.php">Afficher les r&eacute;f&eacute;rents</a>
+            <td>
+        </tr>
+        <tr height="40">
+            <td align="center">
+            <a  class="titre" href="demande_referent.php">Nouvelles demandes</a>
+            </td>
+        </tr>
+        
+    </table>
+    </td>
+</p>
+</td>
 
 
-
-							</td>
 <!-- Fin partie centrale -->
+
 <!-- Colonne de droite -->
 							<td width="250" align="right" valign="top">
 								<table border="0" cellpadding="5" cellspacing="2">
@@ -111,13 +99,6 @@ $message=0;}?>
 				<?php } ?>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du formulaire pour ajouter une langue  -->
-<?php //include('include/traducteur_ajouter_traduction.inc');  ?>
-<?php ajouter_langue();  ?>
-										</td>
-									</tr>
-									<tr>
-										<td align="right">
 <!-- Module d'affichage du formulaire de recherche  -->
 <?php include('include/moteurderecherche.inc');  ?>
 											</td>
@@ -131,13 +112,13 @@ $message=0;}?>
 									<tr>
 										<td align="center">
 <!-- Module d'affichage menu utilisateur  -->
-<?php include('include/menu_FavorisNotesComm.inc');  ?>
+<?php include('include/menu_FavorisNotesComm.inc');  ?>		
 										</td>
 									</tr>
 									<tr>
 										<td align="center">
 <!-- Module d'affichage menu Admin  -->
-<?php include('include/menu_admin.inc');  ?>
+<?php include('include/menu_admin.inc');  ?>		
 										</td>
 									</tr>
 								</table>

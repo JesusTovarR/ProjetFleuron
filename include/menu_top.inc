@@ -13,7 +13,7 @@
 							<td align="center" valign="middle"><a href="contact.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("contact")// Contact ?></span></a></td>
 
 
-							<?php if ($_SESSION['niveau']>=20) { ?>
+							<?php if ($_SESSION['niveau']>20) { ?>
 								<td align="center" valign="middle">
 											<ul class="nav">
 												<li><span class="texte_menu">Traduction</span>
@@ -42,6 +42,7 @@
 								</td>
 							<?php } else { ?>
 							<?php } ?>
+
 							<?php if ($_SESSION['niveau']>0) { ?>
 								<td align="center" valign="middle"><a href="deconnexion.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("logout")// d�connexion ?></span></a></td>
 							<?php } else { ?>

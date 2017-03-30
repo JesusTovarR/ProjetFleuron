@@ -13,7 +13,9 @@ tinyMCEPopup = {
 		}
 
 		if (q.mce_rdomain)
-			document.domain = q.mce_rdomain;
+			{ //noinspection JSAnnotator
+				document.domain = q.mce_rdomain;
+			}
 
 		// Find window & API
 		w = t.getWin();
