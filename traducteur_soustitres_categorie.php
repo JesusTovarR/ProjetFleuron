@@ -12,68 +12,57 @@ if (isset($_GET["action"])) {
 	$action=$_GET["action"]; // Variable permettant l'affichage de message suite � l'action d'�dition de la page
 }
 
+if (isset($_GET["id_cat"])) {
+	$_SESSION['id_cat']=$_GET["id_cat"];
+}
 
 
 //**********************************
 // Affichage des Cat�gories
 //**********************************
-function affichage_categorie()
+function affichage_soustitres()
 	{
 
-		global $lg,$affnbressource; // r�cup�ration variable langue
+		global $lg;
 		$nb=0;
 			echo '<table border="0" cellspacing="0" >';
 						echo '<tr>';
-
-			$requete = 'SELECT * FROM categorie';
+			$ids=array();
+			$count=1;
+			$requete = 'SELECT id FROM ressources WHERE categorie='.$_SESSION['id_cat'];
 			$recup = mysql_query($requete);
 				while ($data = mysql_fetch_assoc($recup))
 				{
-
-					if ($_SESSION['niveau']>1) {
-
-//**********************************
-// 	Nombre de ressources par cat�gorie
-//**********************************
-						$nbressource = 0;
-						$requete = 'SELECT COUNT(id) AS total FROM ressources WHERE categorie='.$data['id'];
-						$recup2 = mysql_query($requete);
-						$nbressource_array = mysql_fetch_assoc($recup2);
-						$nbressource = $nbressource_array['total'];
-						$affnbressource = ' ('.$nbressource.')';
-					}
-		if ($nb>2) {
-			echo '</tr><tr>';
-			$nb=0;
-
-			}
-							echo '<td>';
-					echo '<table border="0" cellspacing="0">';
-						echo '<tr>';
-							echo '<td align="center">';
-								echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="'.couleur(1).'" width="200" height="60">';
-									echo '<tr>';
-									$requete2 = 'SELECT * FROM categorie_traduction WHERE  code="'.$lg.'" AND category='.$data['id'];
-									$recup2 = mysql_query($requete2);
-									while ($data2 = mysql_fetch_assoc($recup2)) {
-										if($data2['status']==1){
-											echo '<td align="center"><a href="traducteur_choix_langue.php?lg=' . $lg . '&categorie=15&type=2&cat_ressources=' . $data['id'] . '"><span class="texte_info12">' . $data2['name'] . $affnbressource . '</span></a></td>';
-										}else if($data2["status"]==2){
-											echo '<td align="center"><a href="traducteur_choix_langue.php?lg=' . $lg . '&categorie=15&type=2&cat_ressources=' . $data['id'] . '"><span class="texte_info12">texte en revision</span></a></td>';
-										}
-									}
-									echo '</tr>';
-								echo '</table>';
-							echo '</td>';
-						echo '</tr>';
-					echo '</table>';
-							echo '</td>';
-
-		$nb=$nb+1;
-
+					$ids['id'.$count]=$data['id'];
+					$count=$count+1;
 				}
-					echo '</tr></table>';
+			foreach ($ids as $value){
+				$requete2 = 'SELECT title FROM ressources_traduction WHERE id_resource='.$value.' AND code="'.$lg.'" AND status=1';
+				$recup2 = mysql_query($requete2);
+				while ($data2 = mysql_fetch_assoc($recup2)){
+					if ($nb>2) {
+						echo '</tr><tr>';
+						$nb=0;
 
+					}
+					echo '<td>';
+					echo '<table border="0" cellspacing="0">';
+					echo '<tr>';
+					echo '<td align="center">';
+					echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="'.couleur(1).'" width="200" height="60">';
+					echo '<tr>';
+					echo '<td align="center"><a href="traducteur_choix_langue.php?lg=' . $lg . '&categorie=16&id_res='.$value.'"><span class="texte_info12">' . $data2['title'] . '</span></a></td>';
+					echo '</tr>';
+					echo '</table>';
+					echo '</td>';
+					echo '</tr>';
+					echo '</table>';
+					echo '</td>';
+
+					$nb=$nb+1;
+				}
+			}
+		echo '</tr></table>';
 	}
 
 ?>
@@ -117,7 +106,7 @@ function affichage_categorie()
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="traducteur.php"><span class="texte_menu"><?php echo page_modification("line97") //Retour ?></span></a>
+														<a href="traducteur_soustitres.php"><span class="texte_menu"><?php echo page_modification("line97") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -132,7 +121,7 @@ function affichage_categorie()
 <br>
 
 				<p>
-					<?php affichage_categorie() ?>
+					<?php affichage_soustitres() ?>
 				</p>
 
 

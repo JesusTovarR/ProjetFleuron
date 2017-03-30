@@ -20,6 +20,7 @@ if($_POST['formulaire']==1) {
 
     $recupcont = mysql_query($requete);
 }else if($_POST['formulaire']==2){
+    $POST_['total']=$POST_['total']-1;
     for ($i=1; $i<=$_POST['total']; $i++){
 
 
@@ -34,6 +35,12 @@ if($_POST['formulaire']==1) {
         include('include/close_connectionBase.inc');
         header('Location: traducteur_page_traduire.php'); // redirection
         die();
+}else if($_POST['formulaire']==4){
+    $requete = 'UPDATE ' . $_POST['table'] . ' SET text="' .  addslashes($_POST['text']). '" WHERE id_resource=' . $_SESSION["id_res"] . ' AND id_user=' . $_SESSION['id'] . ' AND code="' . $_POST['code_lg'] . '"';
+    $recupcont = mysql_query($requete);
+    include('include/close_connectionBase.inc');
+    header('Location: traducteur_soustitres_categorie.php?&id_cat='.$_SESSION['id_cat']); // redirection
+    die();
 }
 
 include('include/close_connectionBase.inc');

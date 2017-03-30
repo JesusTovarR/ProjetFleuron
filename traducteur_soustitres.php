@@ -57,9 +57,9 @@ function affichage_categorie()
 									$recup2 = mysql_query($requete2);
 									while ($data2 = mysql_fetch_assoc($recup2)) {
 										if($data2['status']==1){
-											echo '<td align="center"><a href="traducteur_choix_langue.php?lg=' . $lg . '&categorie=15&type=2&cat_ressources=' . $data['id'] . '"><span class="texte_info12">' . $data2['name'] . $affnbressource . '</span></a></td>';
+											echo '<td align="center"><a href="traducteur_soustitres_categorie.php?&id_cat=' . $data['id'] . '"><span class="texte_info12">' . $data2['name'] . $affnbressource . '</span></a></td>';
 										}else if($data2["status"]==2){
-											echo '<td align="center"><a href="traducteur_choix_langue.php?lg=' . $lg . '&categorie=15&type=2&cat_ressources=' . $data['id'] . '"><span class="texte_info12">texte en revision</span></a></td>';
+											echo '<td align="center"><a href="traducteur_soustitres_categorie.php?&id_cat=' . $data['id'] . '"><span class="texte_info12">texte en revision</span></a></td>';
 										}
 									}
 									echo '</tr>';

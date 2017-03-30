@@ -26,33 +26,48 @@ $_SESSION['colonnes']=array();
 
 function edition_page()
 {
-	$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE id='.$_SESSION['code_id'].' AND code="'.$_SESSION['code_lg'].'"';
-	$recupcont = mysql_query($requete);
-	$donnees = mysql_fetch_assoc($recupcont);
-	$count=1;
-	foreach ($donnees as $cle => $value){
-		if($cle=="id"||$cle=="code"||$cle=="status"||$cle=="id_user"||$cle=="ap_ref"){
-
-		}else{
-			$_SESSION['colonnes'][$count]=$cle;
-			echo '<tr>';
-			echo '<td align="center">';
-			if($_SESSION['formulaire']==1){
-				echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
-			}else if($_SESSION['formulaire']==2){
-				echo '<textarea class="matextarea" name="value'.$count.'" cols="60" rows="1">'.$value.'</textarea>';
-			}
-			echo '</td>';
-			echo '</tr>';
-			$count=$count+1;
+	if($_SESSION['formulaire']==5){
+		$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE id_resource='. $_SESSION['id_res'].' AND code="'.$_SESSION['code_lg'].'" AND id_user='.$_SESSION['id'];
+		$recupcont = mysql_query($requete);
+		while ($data= mysql_fetch_assoc($recupcont)){
+				echo '<tr>';
+				echo '<td align="center">';
+				echo '<textarea class="matextarea" name="text" cols="60" rows="25">'.$data['text'].'</textarea>';
+				echo '</td>';
+				echo '</tr>';
 		}
-	}
-			echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';
-			echo '<input type="hidden" value="'.$_SESSION['code_id'].'" name="code_id">';
-			echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';
-			echo '<input type="hidden" value="1" name="formulaire">';
-	$count=0;
+		echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';
+		echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';
+		echo '<input type="hidden" value="4" name="formulaire">';
 
+	}else{
+		$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE id='.$_SESSION['code_id'].' AND code="'.$_SESSION['code_lg'].'"';
+		$recupcont = mysql_query($requete);
+		$donnees = mysql_fetch_assoc($recupcont);
+		$count=1;
+		foreach ($donnees as $cle => $value){
+			if($cle=="id"||$cle=="code"||$cle=="status"||$cle=="id_user"||$cle=="ap_ref"){
+
+			}else{
+				$_SESSION['colonnes'][$count]=$cle;
+				echo '<tr>';
+				echo '<td align="center">';
+				if($_SESSION['formulaire']==1){
+					echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
+				}else if($_SESSION['formulaire']==2){
+					echo '<textarea class="matextarea" name="value'.$count.'" cols="60" rows="1">'.$value.'</textarea>';
+				}
+				echo '</td>';
+				echo '</tr>';
+				$count=$count+1;
+			}
+		}
+		echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';
+		echo '<input type="hidden" value="'.$_SESSION['code_id'].'" name="code_id">';
+		echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';
+		echo '<input type="hidden" value="1" name="formulaire">';
+		$count=0;
+	}
 }
 
 function edition_page_type2()
@@ -122,33 +137,49 @@ function edition_page_type2()
 
 function edition_page_fr()
 {
-	$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE status=1 AND ap_ref=1  AND code="fr"';
-	$recupcont = mysql_query($requete);
-	$donnees = mysql_fetch_assoc($recupcont);
-	$count=1;
-	foreach ($donnees as $cle => $value){
-		if($cle=="id"||$cle=="code"||$cle=="status"||$cle=="id_user"||$cle=="ap_ref"){
-
-		}else{
-			$_SESSION['colonnes'][$count]=$cle;
-			if($_SESSION['formulaire']==1){
-//				echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
-				echo '<table class="mytext" border="0" cellpadding="4" cellspacing="1">';
-				echo '<tr>';
-				echo '<td align="left" bgcolor="white"><span class="texte_info12">'.$value.'<span></td>';
-				echo '</tr>';
-				echo '</table>';
-			}else if($_SESSION['formulaire']==2){
-				echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
-				echo '<tr>';
-				echo '<td align="center" bgcolor="'.couleur(2).'"><span class="texte_info12">'.$value.'</span></td> <!--Cambiar-->';
-				echo '</tr>';
-				echo '</table>';
-			}
-			$count=$count+1;
+	if($_SESSION['formulaire']==5){
+		$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE id_resource='. $_SESSION['id_res'].' AND code="fr" AND status=1 AND ap_ref=1';
+		$recupcont = mysql_query($requete);
+		while ($data= mysql_fetch_assoc($recupcont)){
+			echo '<tr>';
+			echo '<td align="center">';
+			echo '<textarea class="matextarea" name="text" cols="60" rows="25" disabled>'.$data['text'].'</textarea>';
+			echo '</td>';
+			echo '</tr>';
 		}
+		echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';
+		echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';
+		echo '<input type="hidden" value="4" name="formulaire">';
+
+	}else {
+		$requete = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE status=1 AND ap_ref=1  AND code="fr"';
+		$recupcont = mysql_query($requete);
+		$donnees = mysql_fetch_assoc($recupcont);
+		$count = 1;
+		foreach ($donnees as $cle => $value) {
+			if ($cle == "id" || $cle == "code" || $cle == "status" || $cle == "id_user" || $cle == "ap_ref") {
+
+			} else {
+				$_SESSION['colonnes'][$count] = $cle;
+				if ($_SESSION['formulaire'] == 1) {
+//				echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
+					echo '<table class="mytext" border="0" cellpadding="4" cellspacing="1">';
+					echo '<tr>';
+					echo '<td align="left" bgcolor="white"><span class="texte_info12">' . $value . '<span></td>';
+					echo '</tr>';
+					echo '</table>';
+				} else if ($_SESSION['formulaire'] == 2) {
+					echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
+					echo '<tr>';
+					echo '<td align="center" bgcolor="' . couleur(2) . '"><span class="texte_info12">' . $value . '</span></td> <!--Cambiar-->';
+					echo '</tr>';
+					echo '</table>';
+				}
+				$count = $count + 1;
+			}
+		}
+		$count = 0;
 	}
-	$count=0;
 
 }
 

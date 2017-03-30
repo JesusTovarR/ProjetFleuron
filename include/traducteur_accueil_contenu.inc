@@ -8,6 +8,11 @@ if(isset($_GET['type'])){
     $_SESSION['type']=$_GET['type'];
 }
 
+if(isset($_GET['id_res'])){
+	$_SESSION['id_res']=$_GET['id_res'];
+}
+
+
 if(isset($_GET['cat_ressources'])){
     $_SESSION['ressource']=$_GET['cat_ressources'];
 }
@@ -128,6 +133,24 @@ if($categorie==1){
 		}
 		duexieme_structure($value, $nom_table, $valid);
 	}
+}else if($categorie==16){
+	$langues='SELECT code, status, ap_ref FROM soustitres WHERE id_resource='.$_SESSION['id_res'].' AND id_user='.$_SESSION['id'];
+	$recup=mysql_query($langues);
+	$nom_table="soustitres";
+	$_SESSION['formulaire']=5;
+	$soustitre=0;
+	while($data=mysql_fetch_assoc($recup)){
+		if($data['status']==1&&$data['ap_ref']==1){
+			duexieme_structure($data['code'], $nom_table, 1);
+		}else{
+			duexieme_structure($data['code'], $nom_table, 0);
+		}
+		$soustitre=$soustitre+1;
+	}
+	if($soustitre==0) {
+		echo 'Vous n\'avez aucune traduction';
+	}
+
 }else{
     echo "error";
 }

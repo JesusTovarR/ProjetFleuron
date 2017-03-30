@@ -17,7 +17,7 @@ if (isset($_GET["message"])) {
 }else{
 	$message=0;
 }
-
+$page_avant=$_SERVER['HTTP_REFERER'];
 
 ?>
 

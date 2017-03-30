@@ -280,6 +280,19 @@ if (isset($_GET["action"])) {
 												</tr>
 											</table>
 										</td>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+															<tr>
+																<td align="center"><a href="traducteur_soustitres.php"><span class="texte_info12">Soustitres</span></a></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
 									</tr>
 								</table>
 
