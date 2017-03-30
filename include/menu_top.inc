@@ -31,8 +31,8 @@
 															<?php } ?>
 														</li>
 														<li>
-															<?php if ($_SESSION['niveau']=50) { ?>
-																<a href=""><span class="texte_menu"><?php echo "Admin";//affichage_menu("referrer") referrer ?></span></a>
+															<?php if ($_SESSION['niveau']>=50) { ?>
+																<a href="admin_referent.php"><span class="texte_menu"><?php echo "Admin";//affichage_menu("referrer") referrer ?></span></a>
 															<?php } else { ?>
 															<?php } ?>
 														</li>
