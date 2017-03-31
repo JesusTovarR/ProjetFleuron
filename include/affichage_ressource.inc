@@ -106,7 +106,7 @@ if (isset($_SESSION['id'])) {
 										echo '</td>'.chr(10);
 									echo '</tr>'.chr(10);		
 
-							if ($_SESSION['niveau']>1) {
+							if ($_SESSION['niveau']>=50) {
 									echo '<tr>'.chr(10);
 										echo '<td colspan="2" align="right">'.chr(10);
 											echo '<table>'.chr(10);

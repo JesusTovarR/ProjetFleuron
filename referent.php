@@ -75,7 +75,6 @@ if (isset($_GET["message"])) {
                             <table border="0" cellpadding="5" cellspacing="2">
                                 <?php if ($_SESSION['niveau']<1) { ?>
                                     <tr>
-
                                         <td align="right">
                                             <!-- Module d'affichage des choix des langues disponibles - table LG -->
                                             <?php include('include/choix_langue.inc');  ?>
@@ -92,7 +91,7 @@ if (isset($_GET["message"])) {
                                 <?php } ?>
                                 <tr>
                                 <td align="right">
-                                    <!-- Module d'affichage du formulaire pour ajouter une langue  -->
+                                    <!-- Module d'affichage du formulaire pour trier les resultats des bruillons par langue  -->
                                     <?php //include('include/traducteur_ajouter_traduction.inc');  ?>
                                     <?php referent_langue(); ?>
                                 </td>

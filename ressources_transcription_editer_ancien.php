@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -14,7 +14,7 @@ $retour=$_GET["retour"];
 
 $_SESSION['idressource']=$idressource;
 
-// Récupérer les informations de la ressource (table RESSOURCES)
+// Rï¿½cupï¿½rer les informations de la ressource (table RESSOURCES)
 include('include/Recup_infosRessource.inc');
 
 $filename = 'ressources/'.$idressource.'.srt';
@@ -49,7 +49,7 @@ if (file_exists($filename)) {
 					<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 						<tr>
 							<td align="center">
-								<a href="<?php echo $retour ?>?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(110) //créer ?></span></a>
+								<a href="<?php echo $retour ?>?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(110) //crï¿½er ?></span></a>
 							</td>
 						</tr>
 					</table>

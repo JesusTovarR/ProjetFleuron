@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -14,7 +14,7 @@ $retour=$_GET["retour"];
 
 $_SESSION['idressource']=$idressource;
 
-// Récupérer les informations de la ressource (table RESSOURCES)
+// Rï¿½cupï¿½rer les informations de la ressource (table RESSOURCES)
 include('include/Recup_infosRessource.inc');
 
 ?>
@@ -45,7 +45,7 @@ include('include/Recup_infosRessource.inc');
 					<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1); //gris ?>" width="120">
 						<tr>
 							<td align="center">
-								<a href="ressources_media_editer_vignette_creer.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&categorie=<?php echo $categorie ?>&retour=<?php echo $retour ?>" target="_top"><span class="texte_info12"><?php echo versionlinguistique(110) //Créer ?></span></a>
+								<a href="ressources_media_editer_vignette_creer.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&categorie=<?php echo $categorie ?>&retour=<?php echo $retour ?>" target="_top"><span class="texte_info12"><?php echo versionlinguistique(110) //Crï¿½er ?></span></a>
 							</td>
 						</tr>
 					</table>

@@ -73,7 +73,6 @@ function edition_page()
 function edition_page_type2()
 {
 	if($_SESSION['formulaire']==3) {
-
 		$requete = 'SELECT * FROM categorie';
 		$resultat = mysql_query($requete);
 		$count = 1;
