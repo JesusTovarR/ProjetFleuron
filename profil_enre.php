@@ -32,6 +32,13 @@ if(isset($_POST['traducteur'])){
 }
 
 
+if($_POST['referent']){
+    $requete2 = 'INSERT INTO langues_profil VALUES (null,"'.$_POST['langue_referent']. '",' . $_POST['id']. ')';
+    var_dump($requete2);
+    var_dump(mysql_query($requete2));
+}
+
+
 $requete = $requete.'demande_referent="'.$_POST["referent"].'",';
 
 $requete = $requete.'motdepasse="'.$_POST["motdepasse"].'"';
