@@ -4,11 +4,9 @@ function creer_brouillon($table, $lg, $status, $ap_ref, $nb_table){
 	$recup = mysql_query($requete);
 	$requete2='SELECT code FROM '.$table.' WHERE status=0 AND id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
 	$recup2 = mysql_query($requete2);
-	if ($data = mysql_fetch_assoc($recup)){
-		$_SESSION['exist']=$_SESSION['exist']+1;
-	}else if($data2 = mysql_fetch_assoc($recup2)){
-		$_SESSION['exist']=$_SESSION['exist']+1;
-	}else{
+    if ($recup!=false||$recup2!=false){
+        $_SESSION['exist']=$_SESSION['exist']+1;
+    }else {
 			$requete4='SELECT * FROM '.$table.' WHERE code="'.$lg.'" AND status='.$status.' AND ap_ref='.$ap_ref;
 			$recup4 = mysql_query($requete4);
 			if ($data4 = mysql_fetch_assoc($recup4))
@@ -52,11 +50,9 @@ function creer_brouillon_ressource($table, $id_resource, $lg, $status, $ap_ref, 
         $requete2='SELECT code FROM '.$table.' WHERE id_resource='.$id_resource.'AND status=0 AND id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
         $recup2 = mysql_query($requete2);
     }
-    if ($data = mysql_fetch_assoc($recup)){
+    if ($recup!=false||$recup2!=false){
         $_SESSION['exist']=$_SESSION['exist']+1;
-    }else if($data2 = mysql_fetch_assoc($recup2)){
-        $_SESSION['exist']=$_SESSION['exist']+1;
-    }else{
+    }else {
             if($nb_table==15){
                 $ressources='SELECT * FROM '.$table.' WHERE  category='.$id_resource.' AND code="'.$lg.'" AND status='.$status.' AND ap_ref='.$ap_ref;
                 $recupRes=mysql_query($ressources);
