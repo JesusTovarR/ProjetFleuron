@@ -149,6 +149,7 @@ if (isset($_GET["action"])) {
 											} if($niveau>=20&&$niveau<30&&$demande_referent==0){
 
 										?>
+
 											<tr>
 											<td><span class="texte_default">Devenir Referent:</span></td><!--Cambiar-->
 											<td>
