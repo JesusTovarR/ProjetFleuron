@@ -79,6 +79,7 @@ if (isset($_GET["message"])) {
                                             <!-- Module d'affichage des choix des langues disponibles - table LG -->
                                             <?php include('include/choix_langue.inc');  ?>
                                         </td>
+
                                     </tr>
                                 <?php } ?>
                                 <?php if ($_SESSION['niveau']<1) { ?>

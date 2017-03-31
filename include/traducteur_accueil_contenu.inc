@@ -277,6 +277,7 @@ echo '<form action="traducteur_insert.php?categorie='.$_GET['categorie'].'" meth
 							echo '<option value="'.$choixlg['code'].'">'.$choixlg['nom'];
 						}
 
+
 	echo '</select></center>';
 			echo '</td>';
 		echo '</tr>';
