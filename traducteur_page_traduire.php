@@ -105,11 +105,13 @@ function edition_page_type2()
 
 		$requete = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE category=' . $_SESSION['ressource'] . ' AND code="' . $_SESSION['code_lg'] . '" AND id_user='.$_SESSION['id'];
 		$resultat = mysql_query($requete);
+		$dat=0;
 		while($data= mysql_fetch_assoc($resultat)) {
 			echo '<form name="FormName" action="traducteur_update.php" method="post">';
 			foreach ($data as $cle => $value) {
 				if($cle=="id"){
 					echo '<input type="hidden" value="' . $value . '" name="idRessources">';
+					$dat=$value;
 				}
 				if ($cle == "title" || $cle == "description") {
 					echo '<tr>';
@@ -124,11 +126,12 @@ function edition_page_type2()
 			echo '<input type="hidden" value="3" name="formulaire">';
 			echo '<tr>';
 			echo '<td align="center">';
-			echo '<input type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->';
+			echo '<input type="submit" value="Enregistrer" name="submitButtonName"><!--Cambiar-->';
+			echo '</form>';
+			echo '<a href="traducteur_demande_referent.php?dat='.$dat.'"><input type="submit" value="Referent" name="submitButtonName"></a><!--Cambiar-->';
 			echo '<br>';
 			echo '</td>';
 			echo '</tr>';
-			echo '</form>';
 		}
 	}
 
@@ -276,7 +279,30 @@ function edition_page_type2_fr()
 											<span class="titre_admin">Traduire</span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo page_modification("line106") //Editer ?></span>
+											<?php
+											if($_SESSION['formulaire']!=4&&$_SESSION['formulaire']!=5){
+											?>
+											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
+												<tr>
+													<td align="center">
+														<a href="traducteur_demande_referent.php"><span class="texte_menu">Referent</span></a><!--Cambiar-->
+													</td>
+												</tr>
+											</table>
+											<?php
+												}else if($_SESSION['formulaire']==5){
+												?>
+												<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
+													<tr>
+														<td align="center">
+															<a href="traducteur_demande_referent.php?dat=<?php echo $_SESSION['id_res']?>"><span class="texte_menu">Referent</span></a><!--Cambiar-->
+														</td>
+													</tr>
+												</table>
+												<?php
+												}
+												?>
+
 										</td>
 									</tr>
 								</table>
