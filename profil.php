@@ -17,10 +17,13 @@ if (isset($_GET["action"])) {
 // 		R�cup�ration des donn�es du profil
 
 			$requete='SELECT * FROM profil WHERE id='.$_SESSION['id'];
+			$requete2='SELECT * FROM langues';
 			$recup = mysql_query($requete);
+			$recup2 = mysql_query($requete2);
+			$langues = Array();
+
 				while ($data = mysql_fetch_assoc($recup))
 					{
-
 						$iduser=$data['id'];
 						$nom=$data['nom'];
 						$prenom=$data['prenom'];
@@ -31,8 +34,11 @@ if (isset($_GET["action"])) {
 						$niveau=$data['niveau'];
 						$demande_referent=$data['demande_referent'];
 						$motdepasse=$data['motdepasse'];
-
 					}
+
+
+
+
 
 ?>
 
@@ -143,6 +149,7 @@ if (isset($_GET["action"])) {
 											} if($niveau>=20&&$niveau<30&&$demande_referent==0){
 
 										?>
+
 											<tr>
 											<td><span class="texte_default">Devenir Referent:</span></td><!--Cambiar-->
 											<td>
@@ -160,7 +167,18 @@ if (isset($_GET["action"])) {
 														<?php
 														}
 														?>
-												</select></td>
+												</select>
+
+												<select name="langue_referent" size="1">
+													<?php
+													while ($lang = mysql_fetch_assoc($recup2))
+													{
+														echo '<option value="'.$lang['code'].'">'.$lang['nom'];
+													}
+														?>
+												</select>
+											</td>
+
 										</tr>
 										<?php
 											}else{
