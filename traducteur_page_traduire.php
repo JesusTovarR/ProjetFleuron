@@ -53,7 +53,7 @@ function edition_page()
 				echo '<tr>';
 				echo '<td align="center">';
 				if($_SESSION['formulaire']==1){
-					echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
+					echo '<textarea name="value'.$count.'" cols="60" rows="31">'.$value.'</textarea>';
 				}else if($_SESSION['formulaire']==2){
 					echo '<textarea class="matextarea" name="value'.$count.'" cols="60" rows="1">'.$value.'</textarea>';
 				}
@@ -76,7 +76,7 @@ function edition_page_type2()
 		$requete = 'SELECT * FROM categorie';
 		$resultat = mysql_query($requete);
 		$count = 1;
-		echo '<form name="FormName" action="traducteur_update.php" method="post">';
+		echo '<form style="display: none" name="FormName" action="traducteur_update.php" method="post">';
 		while($cat= mysql_fetch_assoc($resultat)) {
 
 			$requete2 = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE category=' . $cat['id'] . ' AND code="' . $_SESSION['code_lg'] . '" AND id_user='.$_SESSION['id'];
@@ -107,7 +107,7 @@ function edition_page_type2()
 		$resultat = mysql_query($requete);
 		$dat=0;
 		while($data= mysql_fetch_assoc($resultat)) {
-			echo '<form name="FormName" action="traducteur_update.php" method="post">';
+			echo '<form style="display: none" name="FormName" action="traducteur_update.php" method="post">';
 			foreach ($data as $cle => $value) {
 				if($cle=="id"){
 					echo '<input type="hidden" value="' . $value . '" name="idRessources">';
@@ -116,7 +116,11 @@ function edition_page_type2()
 				if ($cle == "title" || $cle == "description") {
 					echo '<tr>';
 					echo '<td align="center">';
-					echo '<textarea class="matextarea" name="' . $cle . '" cols="60" rows="1">' . $value . '</textarea>';
+					if($cle == "description"){
+						echo '<textarea class="matextarea" name="' . $cle . '" cols="60" rows="5">' . $value . '</textarea>';
+					}else{
+						echo '<textarea class="matextarea" name="' . $cle . '" cols="60" rows="1">' . $value . '</textarea>';
+					}
 					echo '</td>';
 					echo '</tr>';
 				}
@@ -126,10 +130,9 @@ function edition_page_type2()
 			echo '<input type="hidden" value="3" name="formulaire">';
 			echo '<tr>';
 			echo '<td align="center">';
-			echo '<input type="submit" value="Enregistrer" name="submitButtonName"><!--Cambiar-->';
+			echo '<input class="btn" type="submit" value="Enregistrer" name="submitButtonName"><!--Cambiar-->';
 			echo '</form>';
-			echo '<a href="traducteur_demande_referent.php?dat='.$dat.'"><input type="submit" value="Referent" name="submitButtonName"></a><!--Cambiar-->';
-			echo '<br>';
+			echo '<a href="traducteur_demande_referent.php?dat='.$dat.'"><input class="btn" type="submit" value="Referent" name="submitButtonName"></a><!--Cambiar-->';
 			echo '</td>';
 			echo '</tr>';
 		}
@@ -163,20 +166,15 @@ function edition_page_fr()
 
 			} else {
 				$_SESSION['colonnes'][$count] = $cle;
+				echo '<tr>';
+				echo '<td align="center">';
 				if ($_SESSION['formulaire'] == 1) {
-//				echo '<textarea name="value'.$count.'" cols="60" rows="25">'.$value.'</textarea>';
-					echo '<table class="mytext" border="0" cellpadding="4" cellspacing="1">';
-					echo '<tr>';
-					echo '<td align="left" bgcolor="white"><span class="texte_info12">' . $value . '<span></td>';
-					echo '</tr>';
-					echo '</table>';
+					echo '<textarea class="matextarea" name="value'.$count.'" cols="60" rows="23" disabled>'.$value.'</textarea>';
 				} else if ($_SESSION['formulaire'] == 2) {
-					echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
-					echo '<tr>';
-					echo '<td align="center" bgcolor="' . couleur(2) . '"><span class="texte_info12">' . $value . '</span></td> <!--Cambiar-->';
-					echo '</tr>';
-					echo '</table>';
+					echo '<textarea class="matextarea" name="value'.$count.'" cols="60" rows="1" disabled>'.$value.'</textarea>';
 				}
+				echo '</td>';
+				echo '</tr>';
 				$count = $count + 1;
 			}
 		}
@@ -199,11 +197,11 @@ function edition_page_type2_fr()
 			$donnees = mysql_fetch_assoc($recupcont);
 			foreach ($donnees as $cle => $value) {
 				if ($cle == "name") {
-					echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
 					echo '<tr>';
-					echo '<td align="center" bgcolor="'.couleur(2).'"><span class="texte_info12">'.$value.'</span></td> <!--Cambiar-->';
+					echo '<td align="center">';
+					echo '<textarea class="matextarea" name="" cols="60" rows="1" disabled>'.$value.'</textarea>';
+					echo '</td>';
 					echo '</tr>';
-					echo '</table>';
 				}
 			}
 			$count = $count + 1;
@@ -212,16 +210,19 @@ function edition_page_type2_fr()
 	}else if($_SESSION['formulaire']==4) {
 		$requete = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE category=' . $_SESSION['ressource'] . ' AND code="' . $_SESSION['code_lg'] . '" AND id_user='.$_SESSION['id'];
 		$resultat = mysql_query($requete);
-		echo '<form name="FormName" action="traducteur_update.php" method="post">';
 		while($data= mysql_fetch_assoc($resultat)) {
-				echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
 				echo '<tr>';
-				echo '<td align="center" bgcolor="'.couleur(2).'"><span class="texte_info12">'.$data['title'].'</span></td> <!--Cambiar-->';
+				echo '<td align="center">';
+				echo '<textarea class="matextarea" name="" cols="60" rows="1" disabled>' . $data['title'] . '</textarea>';
+				echo '<textarea class="matextarea" name="" cols="60" rows="5" disabled>' . $data['description'] . '</textarea>';
+				echo '</td>';
 				echo '</tr>';
 				echo '<tr>';
-				echo '<td align="center" bgcolor="'.couleur(2).'"><span class="texte_info12">'.$data['description'].'</span></td> <!--Cambiar-->';
+				echo '<td align="center">';
+				echo '<input class="btn2" type="submit" value="Traduction en francaise" name=""><!--Cambiar-->';
+				echo '</td>';
 				echo '</tr>';
-				echo '</table>';
+
 		}
 	}
 
@@ -306,17 +307,15 @@ function edition_page_type2_fr()
 										</td>
 									</tr>
 								</table>
-								<center>
-									<br>
 										<table border="0" cellpadding="0" cellspacing="5" width="900" bgcolor="<?php echo couleur(1);?>'">
 											<tr>
-												<td>
+												<td style="vertical-align: top;">
 													<table border="0" cellspacing="0">
 														<tr>
 															<td align="center">
 																<table border="0" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="425" height="60">
 																	<tr>
-																		<td >
+																		<td align="center" >
 																				<?php if($_SESSION['formulaire']==3||$_SESSION['formulaire']==4){
 																					edition_page_type2_fr();
 																				}else{
@@ -329,7 +328,7 @@ function edition_page_type2_fr()
 														</tr>
 													</table>
 												</td>
-												<td>
+												<td style="vertical-align: top;">
 													<table border="0" cellspacing="0">
 														<tr>
 															<td align="center">
@@ -339,7 +338,7 @@ function edition_page_type2_fr()
 																			<?php if($_SESSION['formulaire']==3||$_SESSION['formulaire']==4){
 																				edition_page_type2();
 																			}else{
-																				echo '<form name="FormName" action="traducteur_update.php" method="post">';
+																				echo '<form style="display: none" FormName" action="traducteur_update.php" method="post">';
 																				edition_page();
 																			}?>
 																		</td><!--Cambiar-->
@@ -351,19 +350,20 @@ function edition_page_type2_fr()
 												</td>
 											</tr>
 										</table>
+								<center>
 									<?php
 										if($_SESSION['formulaire']!=4) {
 									?>
-											<input type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->
+											<input class="btn3" type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->
 											</form>
 									<?php
 										}
 									?>
 								</center>
-							</td>
+								</td>
+								</tr>
+								</table>
 
-						</tr>
-					</table>
 							</td>
 <!-- Fin partie centrale -->
 						</tr>
