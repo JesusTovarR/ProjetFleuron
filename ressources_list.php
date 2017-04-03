@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -13,21 +13,21 @@ if (! isset($_SESSION['niveau'])) {
 $categorie=$_GET["categorie"];
 
 if (isset($_GET["refpage"])) {
-	$refpage=$_GET["refpage"]; // Variable permettant l'affichage de message suite à l'action d'édition de la page
+	$refpage=$_GET["refpage"]; // Variable permettant l'affichage de message suite ï¿½ l'action d'ï¿½dition de la page
 } else {
 	$refpage=1;
 }
 
 if (isset($_GET["action"])) {
-	$action=$_GET["action"]; // Variable permettant l'affichage de message suite à l'action d'édition de la page
+	$action=$_GET["action"]; // Variable permettant l'affichage de message suite ï¿½ l'action d'ï¿½dition de la page
 }
 if (isset($_GET["action2"])) {
-	$action2=$_GET["action2"]; // Variable permettant l'affichage de message suite à l'action d'édition de la page
+	$action2=$_GET["action2"]; // Variable permettant l'affichage de message suite ï¿½ l'action d'ï¿½dition de la page
 }
 
 
 //************************************************************************
-//		Nombre de ressources associées à la catégorie - comptage du nombre de pages
+//		Nombre de ressources associï¿½es ï¿½ la catï¿½gorie - comptage du nombre de pages
 //************************************************************************
 $requete = 'SELECT COUNT(id) AS total FROM ressources WHERE categorie='.$categorie;
 $recup = mysql_query($requete);
@@ -57,12 +57,12 @@ function affichage_boutonpages()
 					$ressourcepagefin=$ressourcepagefin+5;
 			echo '<td width="20">';
 				if ($i==$refpage) {
-					echo '<table border="0" cellpadding="4" cellspacing="2" width="30">'; // couleur foncée
+					echo '<table border="0" cellpadding="4" cellspacing="2" width="30">'; // couleur foncï¿½e
 						echo '<td align="center"><span class="texte_default">'.$i.'</span></td>';
 					echo '</table>';
 				} else {
 
-					echo '<table border="0" cellpadding="4" cellspacing="2" bgcolor="'.couleur(1).'" width="30">'; // couleur foncée
+					echo '<table border="0" cellpadding="4" cellspacing="2" bgcolor="'.couleur(1).'" width="30">'; // couleur foncï¿½e
 						echo '<td align="center"><a href="?lg='.$lg.'&categorie='.$categorie.'&refpage='.$i.'"><span class="texte_info12">'.$i.'</span></a></td>';
 					echo '</table>';
 				}
@@ -77,7 +77,7 @@ function affichage_boutonpages()
 
 
 //**********************************
-// Affichage des ressources de la catégorie retenue
+// Affichage des ressources de la catï¿½gorie retenue
 //**********************************
 function affichage_ressourcelist()
 	{
@@ -105,9 +105,9 @@ function affichage_ressourcelist()
 }
 
 
-include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du nom de la catégorie retenue
+include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du nom de la catï¿½gorie retenue
 
-include('include/affichage_ressource.inc'); // affichage des ressources dans une liste	
+include('include/affichage_ressource.inc'); // affichage des ressources dans une liste
 ?>
 
 <html>
@@ -128,9 +128,9 @@ include('include/affichage_ressource.inc'); // affichage des ressources dans une
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -166,16 +166,16 @@ include('include/affichage_ressource.inc'); // affichage des ressources dans une
 
 
 <?php if (isset($_GET["action"])) { ?>
-<p><div align="center"><span class="message"><?php echo versionlinguistique(70); // Ressource modifiée ?></span></div>
+<p><div align="center"><span class="message"><?php echo versionlinguistique(70); // Ressource modifiï¿½e ?></span></div>
 <?php } ?>
 <?php if (isset($_GET["action2"])) { ?>
-<p><div align="center"><span class="message"><?php echo versionlinguistique(73); // Ressource supprimée ?></span></div>
+<p><div align="center"><span class="message"><?php echo versionlinguistique(73); // Ressource supprimï¿½e ?></span></div>
 <?php } ?>
 
 <br>
 <div align="right">
-<?php if ($_SESSION['niveau']>1) { // Affichage Bouton édition page ?>
-											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+<?php if ($_SESSION['niveau']>=50) { // Affichage Bouton ï¿½dition page ?>
+											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 												<tr>
 													<td align="center"><a href="ressource_ajouter.php?lg=<?php echo $lg ?>&page=<?php echo $pageencours ?>&categorie=<?php echo $categorie ?>"><span class="texte_info12"><?php echo versionlinguistique(42)// Ajouter une ressource ?></span></a></td>
 												</tr>
@@ -249,7 +249,7 @@ include('include/affichage_ressource.inc'); // affichage des ressources dans une
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -280,7 +280,7 @@ include('include/affichage_ressource.inc'); // affichage des ressources dans une
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

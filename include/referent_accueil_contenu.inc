@@ -8,7 +8,7 @@
 include('include/open_connectionBase.inc');
 
 
-$tables= array(
+$tables = array(
     1 => 'accueil_contenu',
     2 => 'choix_langue',
     3 => 'conseils',
@@ -26,111 +26,241 @@ $tables= array(
     15 => 'categorie_traduction'
 );
 
-$con=mysqli_connect("localhost","root","root","fleuron");
+$con = mysqli_connect("localhost", "root", "root", "fleuron");
 // Check connection
-if (mysqli_connect_errno())
-{
+if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
 
+$nb_col = count($tables);
+$col = "";
+$val = "";
+$lang_revision="fr";
 
-$nb_col= count($tables);
-$col="";
-$val="";
-$lang="'fr'";
+for ($i = 1; $i <= $nb_col; $i++) {
 
-    for($i=1; $i<=$nb_col; $i++) {
-        $requete = 'SELECT * FROM '.$tables[$i].' WHERE status=2';
+    if (isset($_POST['lang'])) {
+        $requete = 'SELECT * FROM ' . $tables[$i] . ' WHERE status=2 and code="' . $_POST['lang'] . '"';
         $resultat = mysql_query($requete);
+    } else {
+        $requete = 'SELECT * FROM langues_profil WHERE id_user=' . $_SESSION['id'];
+        $recuplg = mysql_query($requete);
+        $choixlg = mysql_fetch_assoc($recuplg);
+        $_POST['lang'] = $choixlg['code'];
+        $requete = 'SELECT * FROM ' . $tables[$i] . ' WHERE status=2 and code="' . $_POST['lang'] . '"';
+        $resultat = mysql_query($requete);
+    }
+
+
+
+
+
+
+    if ($i == 15) {
+        //var_dump($_POST['lang']);
+        // Function pour ramener les text de categorie en francais
+        $data_categorie_fr = textFrenchCategorie($tables, $i);
+
+        $user = Array();
+        $contdor=0;
+        $requete2 = 'SELECT id_user FROM categorie_traduction WHERE  status=2';
+        $recupcont = mysql_query($requete2);
+        while($donnees = mysql_fetch_assoc($recupcont)){
+            $contdor=$contdor+1;
+            $user[$contdor]=$donnees['id_user'];
+        }
+       //var_dump($user);
+        $user = array_unique($user);
+
+        //por cada Usuario de la tabla Categorie_traduction con estatus 2
+        foreach ($user as $u){
+            // recuperar traducciones
+            $requete = 'SELECT * FROM categorie';
+            $resultat = mysql_query($requete);
+            $count = 1;
+            $array_categorie_data = Array();
+            while($cat= mysql_fetch_assoc($resultat)) {
+
+                $requete2 = 'SELECT * FROM ' . $tables[$i]  . ' WHERE category=' . $cat['id'] . ' AND code="' . $_POST['lang'] . '" AND status=2 AND id_user="'.$u.'"';
+                $recupcont = mysql_query($requete2);
+                $donnees = mysql_fetch_assoc($recupcont);
+                if($donnees) {
+                    foreach ($donnees as $cle => $value) {
+                        if($cle=="id"){
+                            $array_categorie_data["id".$count]=$value;
+                        }
+                        if ($cle == "name") {
+                            $array_categorie_data["value".$count]=$value;
+                            //echo '<tr>';
+                            //echo '<td align="center">';
+                            ////////////////////////////////			echo '<p>Que hace esto</p>';
+                            //echo '<textarea class="matextarea" name="value' . $count . '" cols="60" rows="1">' . $value . '</textarea>';
+                            //echo '</td>';
+                            //echo '</tr>';
+                        }
+                    }
+                    $count = $count + 1;
+                }else{
+                    // echo "No hay categorias en este idioma";
+                }
+            }
+            //var_dump($array_categorie_data);
+            $data_categorie = base64_encode(serialize($array_categorie_data));
+            //echo "<br/><br/>";
+            //var_dump($donnees['code']);
+            if(!empty($array_categorie_data)) {
+
+                // chercher les profil qui corresponde a chaque traduction
+                $requete2 = 'SELECT nom, prenom FROM profil WHERE id=' . $u;
+                $resultat2 = mysql_query($requete2);
+                if ($resultat2) {
+                    $data_profil = mysql_fetch_array($resultat2);
+                }
+
+                echo '<table border="0" cellspacing="0">';
+                echo '<tr>';
+                echo '<td>';
+                echo '<table border="0" cellspacing="0">';
+                echo '<tr>';
+                echo '<td align="center">';
+                echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
+                echo '<tr>';
+                echo '<td align="center"><span class="texte_info12">' . $data_profil['prenom'] . " " . $data_profil['nom'] . '</span></td>';
+                echo '</tr>';
+                echo '</table>';
+                echo '</td>';
+                echo '</tr>';
+                echo '</table>';
+                echo '</td>';
+                echo '<td>';
+                echo '<table border="0" cellspacing="0">';
+                echo '<tr>';
+                echo '<td align="center">';
+                echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
+                echo '<tr>';
+                echo '<form action="referent_page_revision.php" method="post">';
+
+                echo '<input type="hidden" value="' . $data_categorie_fr . '" name="datafr">';
+                echo '<input type="hidden" value="' . $data_categorie . '" name="data">';
+                echo '<input type="hidden" value="' . $tables[$i] . '" name="table">';
+                echo '<input type="hidden" value="' . $count . '" name="total">';
+                echo '<td align="center"><span class="texte_info12"><input type="submit" value="voir traduction" name="submitButtonName"></span></td>';//Cambiar
+                echo '</form>';
+                echo '</tr>';
+                echo '</table>';
+                echo '</td>';
+                echo '</tr>';
+                echo '</table>';
+                echo '</td>';
+                echo '</table>';
+            }
+        }
+
+
+
+    }else {
+
+
+
+
+
+
+
+        // SI LA TABLA NO ES LA DE CATERGORIA ENTONCES HAZ LO SIGUIENTE
+        // SI LA TABLA NO ES LA DE CATERGORIA ENTONCES HAZ LO SIGUIENTE
+        // SI LA TABLA NO ES LA DE CATERGORIA ENTONCES HAZ LO SIGUIENTE
+        // SI LA TABLA NO ES LA DE CATERGORIA ENTONCES HAZ LO SIGUIENTE
+        // SI LA TABLA NO ES LA DE CATERGORIA ENTONCES HAZ LO SIGUIENTE
+        // SI LA TABLA NO ES LA DE CATERGORIA ENTONCES HAZ LO SIGUIENTE
+
+
+
         if ($resultat) {
-            //$resultSet = array();
-            //var_dump($resultat);
             while ($data = mysql_fetch_assoc($resultat)) {
-                //$resultSet[] = $data;
-                if($data['status']==2) {
-                    $textfr = 'SELECT * FROM ' . $tables[$i] . ' WHERE code=' . $lang;
+                if ($data['status'] == 2) {
+                    // chercher tous les texte en francais pour comparer avec la traduction
+                    $textfr = 'SELECT * FROM ' . $tables[$i] . ' WHERE code="' . $lang_revision . '"';
                     $resulfr = mysql_query($textfr);
                     $datafr = mysql_fetch_assoc($resulfr);
                     foreach ($datafr as $cle => $value) {
-                        if ($cle != "id" && $cle != "code" && $cle != "status" && $cle != "id_user") {
+                        //codifier la data en francais
+                        if ($cle != "id" && $cle != "code" && $cle != "status" && $cle != "id_user" && $cle != "ap_ref") {
                             $datafr[$cle] = str_replace('>', ')', $value);
                             $datafr[$cle] = str_replace('<', '(', $datafr[$cle]);
                             $datafr[$cle] = str_replace(' ', '!', $datafr[$cle]);
                             $datafr[$cle] = str_replace('"', '|', $datafr[$cle]);
                             $datafr[$cle] = str_replace("\n", '~', $datafr[$cle]);
                             $datafr[$cle] = str_replace("\r", '°', $datafr[$cle]);
-                            //echo $dfr;
                         }
                     }
                 }
-                //var_dump($data);
                 if ($data) {
                     foreach ($data as $cle => $value) {
                         if ($cle === 'id_user') {
-                            $requete2 = 'SELECT nom, prenom FROM profil WHERE id=' .$value;
+                            // chercher les profil qui corresponde a chaque traduction
+                            $requete2 = 'SELECT nom, prenom FROM profil WHERE id=' . $value;
                             $resultat2 = mysql_query($requete2);
                             if ($resultat2) {
                                 $data_profil = mysql_fetch_array($resultat2);
-                               // var_dump($data_profil);
                             }
 
                             if ($data_profil) {
-                                //var_dump($data); || $cle != "code" || $cle != "status" || $cle != "id_user"
-                                $id="id";
+                                //$id = "id";
+                                // codifier la data de traduction
                                 foreach ($data as $cle => $value) {
-                                    if ($cle != "id" && $cle != "code" && $cle != "status" && $cle != "id_user") {
+                                    if ($cle != "id" && $cle != "code" && $cle != "status" && $cle != "id_user" && $cle != "ap_ref") {
 
-                                        //$data[$cle] = implode("#$",$value);
-                                        $data[$cle] = str_replace('>',')',$value);
-                                        $data[$cle] = str_replace('<','(',$data[$cle]);
-                                        $data[$cle] = str_replace(' ','!',$data[$cle]);
-                                        $data[$cle] = str_replace('"','|',$data[$cle]);
-                                        $data[$cle] = str_replace("\n",'~',$data[$cle]);
-                                        $data[$cle] = str_replace("\r",'°',$data[$cle]);
+                                        $data[$cle] = str_replace('>', ')', $value);
+                                        $data[$cle] = str_replace('<', '(', $data[$cle]);
+                                        $data[$cle] = str_replace(' ', '!', $data[$cle]);
+                                        $data[$cle] = str_replace('"', '|', $data[$cle]);
+                                        $data[$cle] = str_replace("\n", '~', $data[$cle]);
+                                        $data[$cle] = str_replace("\r", '°', $data[$cle]);
                                     }
                                 }
-                                        echo '<table border="0" cellspacing="0">';
-                                        echo '<tr>';
-                                        echo '<td>';
-                                        echo '<table border="0" cellspacing="0">';
-                                        echo '<tr>';
-                                        echo '<td align="center">';
-                                        echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
-                                        echo '<tr>';
-                                        echo '<td align="center"><span class="texte_info12">' . $data_profil['prenom'] . " " .$data_profil['nom']. '</span></td>';
-                                        echo '</tr>';
-                                        echo '</table>';
-                                        echo '</td>';
-                                        echo '</tr>';
-                                        echo '</table>';
-                                        echo '</td>';
-                                        echo '<td>';
-                                        echo '<table border="0" cellspacing="0">';
-                                        echo '<tr>';
-                                        echo '<td align="center">';
-                                        echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
-                                        echo '<tr>';
-                                        echo '<form action="referent_page_revision.php" method="post">';
+                                echo '<table border="0" cellspacing="0">';
+                                echo '<tr>';
+                                echo '<td>';
+                                echo '<table border="0" cellspacing="0">';
+                                echo '<tr>';
+                                echo '<td align="center">';
+                                echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
+                                echo '<tr>';
+                                echo '<td align="center"><span class="texte_info12">' . $data_profil['prenom'] . " " . $data_profil['nom'] . '</span></td>';
+                                echo '</tr>';
+                                echo '</table>';
+                                echo '</td>';
+                                echo '</tr>';
+                                echo '</table>';
+                                echo '</td>';
+                                echo '<td>';
+                                echo '<table border="0" cellspacing="0">';
+                                echo '<tr>';
+                                echo '<td align="center">';
+                                echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
+                                echo '<tr>';
+                                echo '<form action="referent_page_revision.php" method="post">';
 
 
-                                        $data= base64_encode(serialize($data));
-                                        $dafr= base64_encode(serialize($datafr));
+                                $data = base64_encode(serialize($data));
+                                $dafr = base64_encode(serialize($datafr));
 
-                                        echo '<input type="hidden" value="'.$data.'" name="data">';
-                                        echo '<input type="hidden" value='.$dafr.' name="datafr">';
-                                        echo '<input type="hidden" value="'.$tables[$i].'" name="table">';
-                                        //echo '<input type="hidden" value="'.$code['id'].'" name="code_id">';
-                                        //echo '<input type="hidden" value="'.$formulaire.'" name="formulaire">';
-                                        echo '<td align="center"><span class="texte_info12"><input type="submit" value="voir traduction" name="submitButtonName"></span></td>';//Cambiar
-                                        echo '</form>';
-                                        echo '</tr>';
-                                        echo '</table>';
-                                        echo '</td>';
-                                        echo '</tr>';
-                                        echo '</table>';
-                                        echo '</td>';
-                                        echo '</table>';
+                                //echo '<input type="hidden" value="' . $data_categorie_fr . '" name="data_categorie_fr">';
+                                echo '<input type="hidden" value="' . $data . '" name="data">';
+                                echo '<input type="hidden" value=' . $dafr . ' name="datafr">';
+                                echo '<input type="hidden" value="' . $tables[$i] . '" name="table">';
+                                //echo '<input type="hidden" value="'.$code['id'].'" name="code_id">';
+                                //echo '<input type="hidden" value="'.$formulaire.'" name="formulaire">';
+                                echo '<td align="center"><span class="texte_info12"><input type="submit" value="voir traduction" name="submitButtonName"></span></td>';//Cambiar
+                                echo '</form>';
+                                echo '</tr>';
+                                echo '</table>';
+                                echo '</td>';
+                                echo '</tr>';
+                                echo '</table>';
+                                echo '</td>';
+                                echo '</table>';
 
                             }
                         }
@@ -138,24 +268,26 @@ $lang="'fr'";
                     }
 
 
-                }else{
+                } else {
                     echo "error";
                 }
             }
             //var_dump($resultSet);
 
-        }else{
+        } else {
             //echo $i;
         }
     }
+}
 
 
-function referent_langue(){
+function referent_langue()
+{
 
-    //echo '<form action="traducteur_insert.php?categorie='.$_GET['categorie'].'" method="post">';
+    echo '<form action="referent.php" method="post">';
 
     echo '<p>';
-    echo '<table border="0" cellpadding="7" cellspacing="2" bgcolor="'.couleur(2).'" width="220">';// couleur claire
+    echo '<table border="0" cellpadding="7" cellspacing="2" bgcolor="' . couleur(2) . '" width="220">';// couleur claire
     echo '<tr>';
     echo '<td colspan="2" align="center">';
     echo '<span class="Texte_menu">Langues des Traductions</span>';// Cambiar
@@ -164,26 +296,25 @@ function referent_langue(){
     echo '<tr>';
     echo '<td colspan="2" align="center">';
     echo '<center>';
-    echo '<select name="lg" size="1">';
+    echo '<select name="lang" size="1">';
 
-    var_dump($_SESSION);
-    $requete='SELECT * FROM langue_referent WHERE profil=1 ORDER BY nom';
+    $requete = 'SELECT * FROM langues_profil WHERE id_user=' . $_SESSION['id'];
     $recuplg = mysql_query($requete);
-    var_dump($recuplg);
-    while ($choixlg = mysql_fetch_assoc($recuplg))
-    {
-        var_dump($choixlg);
-        echo '<option value="'.$choixlg['code'].'">'.$choixlg['nom'];
+
+    while ($choixlg = mysql_fetch_assoc($recuplg)) {
+        $requete2 = 'SELECT * FROM langues WHERE code="' . $choixlg['code'] . '"';
+        $nomLg = mysql_query($requete2);
+        $nomLg = mysql_fetch_assoc($nomLg);
+        echo '<option value="' . $choixlg['code'] . '">' . $nomLg['nom'];
     }
 
     echo '</select></center>';
     echo '</td>';
     echo '</tr>';
     echo '<tr>';
-    echo '<input type="hidden"  value="'.$choixlg['code'].'" name="code">';
-    echo '<td colspan="2" bgcolor="'.couleur(1).'">';//couleur fonc�e
+    echo '<td colspan="2" bgcolor="' . couleur(1) . '">';//couleur fonc�e
     echo '<center>';
-    echo '<span class="texte_menu"><input type="submit" value="'.choix_langue().'" name="submitButtonName"></span></center>'; // Choisir cette langue
+    echo '<span class="texte_menu"><input type="submit" value="' . choix_langue() . '" name="submitButtonName"></span></center>'; // Choisir cette langue
     echo '</td>';
     echo '</tr>';
     echo '</table>';
@@ -193,19 +324,33 @@ function referent_langue(){
 
 }
 
+Function textFrenchCategorie($tables,$i){
+    // recuperar texto en frances
+    $requete = 'SELECT * FROM categorie';
+    $resultat = mysql_query($requete);
+    $count = 1;
+    $array_categorie = Array();
+    while ($cat = mysql_fetch_assoc($resultat)) {
 
-    /* obtener lo que hay dentro de cada tabla en textsAreas
-        if($data){
-            foreach ($data as $cle => $value) {
-                if ($cle == "id" || $cle == "code" || $cle == "status" || $cle == "id_user") {
+        $requete2 = 'SELECT * FROM ' . $tables[$i] . ' WHERE category=' . $cat['id'] . ' AND code="fr" AND status=1 AND ap_ref=1';
+        $recupcont = mysql_query($requete2);
+        $donnees = mysql_fetch_assoc($recupcont);
 
-                } else {
-                    echo '<tr>';
-                    echo '<td align="center">';
-                    echo '<textarea name="value" cols="110" rows="25">' . $value . '</textarea>';
-                }
-                echo '</td>';
-                echo '</tr>';
+        foreach ($donnees as $cle => $value) {
+            if ($cle == "name") {
+                array_push($array_categorie, $value);
+                //echo '<table border="0" cellpadding="4" cellspacing="1"  width="450" height="45">';
+                //echo '<tr>';
+                ////////////		////////////		echo 'Escribo aqui';
+                //echo '<td align="center" bgcolor="'.couleur(2).'"><span class="texte_info12">'.$value.'</span></td> <!--Cambiar-->';
+                //echo '</tr>';
+                //echo '</table>';
             }
         }
-    */
+        $count = $count + 1;
+    }
+    $count = 0;
+   // var_dump($array_categorie);
+   return $data_categorie_fr = base64_encode(serialize($array_categorie));
+    //echo $data_categorie_fr;
+}

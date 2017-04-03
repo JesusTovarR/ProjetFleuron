@@ -109,6 +109,7 @@ $message=0;}?>
 											</td>
 									</tr>
 				<?php } ?>
+
 									<tr>
 										<td align="right">
 <!-- Module d'affichage du formulaire pour ajouter une langue  -->

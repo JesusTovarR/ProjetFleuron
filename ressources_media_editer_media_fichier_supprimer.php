@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -14,7 +14,7 @@ $retour=$_GET["retour"];
 
 $_SESSION['idressource']=$idressource;
 
-// Récupérer les informations de la ressource (table RESSOURCES)
+// Rï¿½cupï¿½rer les informations de la ressource (table RESSOURCES)
 include('include/Recup_infosRessource.inc');
 
 ?>

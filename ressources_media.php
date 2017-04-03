@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -63,7 +63,7 @@ if (! isset($_SESSION['idressource'])) {
 
 $offstetimecode = "#t=".$timecode;
 
-// Récupérer les informations de la ressource (table RESSOURCES)
+// Rï¿½cupï¿½rer les informations de la ressource (table RESSOURCES)
 include('include/Recup_infosRessource.inc');
 
 if ($_SESSION['niveau']>0) {
@@ -75,7 +75,7 @@ if ($_SESSION['idressource']<>$_GET["idressource"]) {
 	$recup = mysql_query($query);
 		while ($data = mysql_fetch_assoc($recup))
 			{
-			$consultation = $data['consultation']; // récupération des consultations
+			$consultation = $data['consultation']; // rï¿½cupï¿½ration des consultations
 		}
 
 	if ($consultation<>"") { // s'il y a des consultations
@@ -106,7 +106,7 @@ if ($_SESSION['idressource']<>$_GET["idressource"]) {
 // Compteur nombre de consultation de la ressource
 // ***************************************************************
 
-	$visiteur = $visiteur + 1; // variable récupérer précédement dans Recup_infosRessource
+	$visiteur = $visiteur + 1; // variable rï¿½cupï¿½rer prï¿½cï¿½dement dans Recup_infosRessource
 
 	$requete ='UPDATE `ressources` SET ';
 	$requete =$requete.'`visiteur`='.$visiteur;
@@ -119,7 +119,7 @@ if ($_SESSION['idressource']<>$_GET["idressource"]) {
 
 $nbonglet=0;
 //************************************************************************
-//			Vérification présence media, transcription et vignette
+//			Vï¿½rification prï¿½sence media, transcription et vignette
 //************************************************************************
 $nbmedia=0;
 $filename = 'ressources/'.$idressource.'.mp4';
@@ -149,7 +149,7 @@ $vignette=$filename;
 }
 
 $soustitre=0;
-$filename = 'ressources/'.$idressource.'fr.srt';
+$filename = 'ressources/'.$idressource.'.srt';
 if (file_exists($filename)) {
 $soustitre=$soustitre+1;
 }
@@ -157,7 +157,7 @@ $soustitre=$soustitre+1;
 
 
 //************************************************************************
-//		Nombre de conseils associés à cette ressource
+//		Nombre de conseils associï¿½s ï¿½ cette ressource
 //************************************************************************
 $requete = 'SELECT COUNT(ressource) AS total FROM conseils_page WHERE ressource='.$idressource;
 $recup = mysql_query($requete);
@@ -224,7 +224,7 @@ function affichage_commentaire($idressource)
 			}
 	}
 //------------------------------------------------
-//		Affichage de réponse niveau 1
+//		Affichage de rï¿½ponse niveau 1
 //------------------------------------------------
 function affichage_reponse1($reponse)
 	{
@@ -283,7 +283,7 @@ function affichage_reponse1($reponse)
 			}
 	}
 //------------------------------------------------
-//		Affichage de réponse niveau 2
+//		Affichage de rï¿½ponse niveau 2
 //------------------------------------------------
 function affichage_reponse2($reponse)
 	{
@@ -342,7 +342,7 @@ function affichage_reponse2($reponse)
 			}
 	}
 //------------------------------------------------
-//		Affichage de réponse niveau 2
+//		Affichage de rï¿½ponse niveau 2
 //------------------------------------------------
 function affichage_reponse3($reponse)
 	{
@@ -396,7 +396,7 @@ function affichage_reponse3($reponse)
 	}
 
 //************************************************************************
-//		Récupération nom utilisateur
+//		Rï¿½cupï¿½ration nom utilisateur
 //************************************************************************
 function affichage_utilisateur($utilisateur)
 	{
@@ -416,7 +416,7 @@ function affichage_utilisateur($utilisateur)
 function affichage_glossaire()
 	{
 
-		global $lg,$pageencours; // récupération variable langue
+		global $lg,$pageencours; // rï¿½cupï¿½ration variable langue
 
 			$requete = 'SELECT * FROM glossaire ORDER BY item';
 			$recup = mysql_query($requete);
@@ -441,7 +441,7 @@ function affichage_glossaire()
 
 	}
 
-include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du nom de la catégorie retenue
+include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du nom de la catï¿½gorie retenue
 ?>
 <html>
 
@@ -471,9 +471,9 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -500,7 +500,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 												</tr>
 											</table>
 										</td>
-										<td align="center" bgcolor="<?php echo couleur(2); //couleur foncée ?>">
+										<td align="center" bgcolor="<?php echo couleur(2); //couleur foncï¿½e ?>">
 
 <?php
 					if ($offline==1) {
@@ -520,7 +520,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 										</td>
 
 <?php if ($_SESSION['niveau']>0) { ?>
-										<td width="40" align="right" bgcolor="<?php echo couleur(1); //couleur foncée ?>">
+										<td width="40" align="right" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>">
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="40" height="46">
 												<tr>
 													<td align="center">
@@ -605,7 +605,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 <!-- ----------------------------------------------------------------------- -->
 <!--                         Affichage du media AUDIO                        -->
 <!-- ----------------------------------------------------------------------- -->
-	<!-- Vérification et affichage vignette -->
+	<!-- Vï¿½rification et affichage vignette -->
 		<?php if ($vignette=="") { ?>
 			<img src="visuel/pictos/hp_160.png">
 		<?php } else { ?>
@@ -622,7 +622,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 			<div id="subtitres">
 				<button id="buton1" class="stbutton" ><?php echo versionlinguistique(108) //Afficher les sous-titres ?></button>
 				<div id="soustitre">
-					<div id="sub1" class="srt" data-video="audio" data-srt="ressources/<?php echo $idressource ?>fr.srt"></div>
+					<div id="sub1" class="srt" data-video="audio" data-srt="ressources/<?php echo $idressource ?>.srt"></div>
 				</div>
 
 			</div> 
@@ -663,7 +663,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 				<button id="buton1" class="stbutton" ><?php echo versionlinguistique(108) //Afficher les sous-titres ?></button>
 				<div id="soustitre">
 <?php clearstatcache(); ?>
-					<div id="sub1" class="srt" data-video="video" data-srt="ressources/<?php echo $idressource ?>fr.srt"></div>
+					<div id="sub1" class="srt" data-video="video" data-srt="ressources/<?php echo $idressource ?>.srt"></div>
 				</div>
 			</div> 
 	<!-- Fin sous titres-->
@@ -835,7 +835,7 @@ if ($num_rows>0) {
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

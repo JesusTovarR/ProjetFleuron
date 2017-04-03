@@ -1,26 +1,29 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique, variable session)
 
 
 if (isset($_GET["action"])) {
-	$action=$_GET["action"]; // Variable permettant l'affichage de message suite à l'action d'édition de la page
+	$action=$_GET["action"]; // Variable permettant l'affichage de message suite ï¿½ l'action d'ï¿½dition de la page
 } else {
 	$action="";
 }
 
 
-// 		Récupération des données du profil
+// 		Rï¿½cupï¿½ration des donnï¿½es du profil
 
 			$requete='SELECT * FROM profil WHERE id='.$_SESSION['id'];
+			$requete2='SELECT * FROM langues';
 			$recup = mysql_query($requete);
+			$recup2 = mysql_query($requete2);
+			$langues = Array();
+
 				while ($data = mysql_fetch_assoc($recup))
 					{
-
 						$iduser=$data['id'];
 						$nom=$data['nom'];
 						$prenom=$data['prenom'];
@@ -29,9 +32,13 @@ if (isset($_GET["action"])) {
 						$langue=$data['langue'];
 						$utilisateur=$data['utilisateur'];
 						$niveau=$data['niveau'];
+						$demande_referent=$data['demande_referent'];
 						$motdepasse=$data['motdepasse'];
-
 					}
+
+
+
+
 
 ?>
 
@@ -53,7 +60,7 @@ if (isset($_GET["action"])) {
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <?php 
 
 		// Menu des visiteurs non inscrits 
@@ -79,7 +86,7 @@ if (isset($_GET["action"])) {
 								</table>
 								<center>
 <?php if ($action<>"") { ?>
-<p><div align="center"><span class="message"><?php echo versionlinguistique(25); // Profil enregistré ?></span></div>
+<p><div align="center"><span class="message"><?php echo versionlinguistique(25); // Profil enregistrï¿½ ?></span></div>
 <?php } ?>
 									<p><span class="texte_default">
 		<form name="FormName" action="profil_enre.php" method="post">
@@ -97,7 +104,7 @@ if (isset($_GET["action"])) {
 											<td><input type="text" name="nom" size="24" value="<?php echo $nom ?>"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(19); //Prénom ?> :</span></td>
+											<td><span class="texte_default"><?php echo versionlinguistique(19); //Prï¿½nom ?> :</span></td>
 											<td><input type="text" name="prenom" size="24" value="<?php echo $prenom ?>"></td>
 										</tr>
 										<tr>
@@ -139,8 +146,10 @@ if (isset($_GET["action"])) {
 												</select></td>
 										</tr>
 										<?php
-											} if($niveau>=20&&$niveau<30){
+											} if($niveau>=20&&$niveau<30&&$demande_referent==0){
+
 										?>
+
 											<tr>
 											<td><span class="texte_default">Devenir Referent:</span></td><!--Cambiar-->
 											<td>
@@ -158,13 +167,30 @@ if (isset($_GET["action"])) {
 														<?php
 														}
 														?>
-												</select></td>
+												</select>
+
+												<select name="langue_referent" size="1">
+													<?php
+													while ($lang = mysql_fetch_assoc($recup2))
+													{
+														echo '<option value="'.$lang['code'].'">'.$lang['nom'];
+													}
+														?>
+												</select>
+											</td>
+
 										</tr>
 										<?php
-											}
+											}else{
+											echo '<tr>';
+											echo '<td><span class="texte_default">Devenir Referent: </span></td>';
+											echo '<td><span class="texte_default">Demande en attente</span></td>';
+											echo '</tr>';
+
+										}
 										?>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(22); //Langue à utiliser dans Fleuron ?> :</span></td>
+											<td><span class="texte_default"><?php echo versionlinguistique(22); //Langue ï¿½ utiliser dans Fleuron ?> :</span></td>
 											<td><select name="langue" size="1">
 <?php
 	// Affichage de la liste des langues disponibles
@@ -222,7 +248,7 @@ if (isset($_GET["action"])) {
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -254,7 +280,7 @@ if (isset($_GET["action"])) {
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

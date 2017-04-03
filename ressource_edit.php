@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -64,7 +64,7 @@ function afficher_versionlinguistique($id) // Affichage des champs du formulaire
 	}
 
 
-include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du nom de la catégorie retenue
+include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du nom de la catï¿½gorie retenue
 ?>
 
 <html>
@@ -85,7 +85,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <?php 
 
 		// Menu des visiteurs non inscrits 
@@ -133,7 +133,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 												<table>
 													<tr>
 														<td>
-															<span class="texte_default"><?php echo versionlinguistique(50); //Catégorie ?> :</span>
+															<span class="texte_default"><?php echo versionlinguistique(50); //Catï¿½gorie ?> :</span>
 														</td>
 														<td>
 															<select name="categorie" size="1">
@@ -200,7 +200,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -232,7 +232,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>
