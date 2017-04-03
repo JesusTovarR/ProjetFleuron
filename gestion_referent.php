@@ -90,7 +90,7 @@ if (isset($_GET["action"])) {
 
             $new_ref ="";
             if(isset($_GET["action"])){
-                        if($_GET["action"] == 'oui'){
+                        if($_GET["action"] == 'delete'){
                             
                             
                             //$r ='INSERT INTO referent SET nom= '.$data['nom'].', prenom='.$data['prenom'].', email='.$data['email'].', langue='.$data['langue'].'';
