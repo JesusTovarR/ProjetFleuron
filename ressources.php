@@ -128,12 +128,12 @@ function affichage_categorie()
 								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 									<tr>
 										<td align="center" height="30">
-											<span class="titre"><?php echo versionlinguistique(35); //Ressources multimedias ?></span>
+											<span class="titre"><?php echo general("text2"); //Ressources multimedias ?></span>
 										</td>
 									</tr>
 								</table>
 <br>
-<span class="texte_default"><?php echo versionlinguistique(36); //Choisir une catégorie ?></span>
+<span class="texte_default"><?php echo general("text1"); //Choisir une catégorie ?></span>
 <br>
 <div align="right">
 <?php if ($_SESSION['niveau']>=50) { // Affichage Bouton édition page ?>

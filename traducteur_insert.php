@@ -21,7 +21,8 @@ $tables= array(
     15 => 'categorie_traduction',
     16 => 'ressources_traduction',
     17 => 'soustitres',
-    18 => 'traducteur'
+    18 => 'traducteur',
+    19 => 'general'
     );
 
 $nb_col= count($tables);

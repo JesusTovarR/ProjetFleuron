@@ -181,7 +181,7 @@ if (isset($_GET["action"])) {
 
 										</tr>
 										<?php
-											}else{
+											}else if($niveau>=20&&$niveau<30&&$demande_referent==1){
 											echo '<tr>';
 											echo '<td><span class="texte_default">Devenir Referent: </span></td>';
 											echo '<td><span class="texte_default">Demande en attente</span></td>';

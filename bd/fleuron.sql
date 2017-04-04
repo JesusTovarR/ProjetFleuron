@@ -401,6 +401,23 @@ INSERT INTO `favoris` (`id`, `jour`, `profil`, `ressource`) VALUES
 (139,	'2016-05-27',	83,	67),
 (140,	'2017-03-10',	65,	94);
 
+DROP TABLE IF EXISTS `general`;
+CREATE TABLE `general` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `text1` longtext NOT NULL,
+  `text2` longtext NOT NULL,
+  `code` tinytext NOT NULL,
+  `status` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `ap_ref` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `general` (`id`, `text1`, `text2`, `code`, `status`, `id_user`, `ap_ref`) VALUES
+(1,	'Choisir une catégorie :',	'Ressources multimedias',	'fr',	1,	1,	1),
+(2,	'Choose a category:',	'Multimedia resources',	'uk',	1,	1,	1),
+(3,	'Elige una categoría:',	'Recursos multimedia',	'es',	1,	1,	1);
+
 DROP TABLE IF EXISTS `glossaire`;
 CREATE TABLE `glossaire` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -662,7 +679,8 @@ CREATE TABLE `langues_profil` (
 INSERT INTO `langues_profil` (`id`, `code`, `id_user`) VALUES
 (1,	'es',	87),
 (2,	'ab',	88),
-(3,	'aa',	90);
+(3,	'aa',	90),
+(4,	'es',	91);
 
 DROP TABLE IF EXISTS `lg`;
 CREATE TABLE `lg` (
@@ -1174,7 +1192,7 @@ CREATE TABLE `profil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `profil` (`id`, `nom`, `prenom`, `email`, `pays`, `langue`, `utilisateur`, `niveau`, `motdepasse`, `jour`, `heure`, `consultation`, `demande_referent`) VALUES
-(1,	'Duda',	'Steven',	'steven.duda@wanadoo.fr',	'sv',	'es',	'Steven',	50,	'yoboseo',	'2016-02-15',	'00:00:00',	'32;73;110;46;47;35;49;62;120;78;71;91;63;92;37;102;103;107;26;97;105;90;48;53;76;74;108;31;121;24;100;45;119;126;125;77;127;50;',	0),
+(1,	'Duda',	'Steven',	'steven.duda@wanadoo.fr',	'sv',	'fr',	'Steven',	50,	'yoboseo',	'2016-02-15',	'00:00:00',	'32;73;110;46;47;35;49;62;120;78;71;91;63;92;37;102;103;107;26;97;105;90;48;53;76;74;108;31;121;24;100;45;119;126;125;77;127;50;',	0),
 (2,	'Andre',	'Virginie',	'Virginie.Andre@univ-lorraine.fr',	'fr',	'fr',	'Fleuron',	10,	'crapel',	'2016-03-01',	'00:00:00',	'78;121;31;74;25;43;24;122;123;115;117;124;108;26;56;99;50;47;120;125;53;111;66;20;110;76;126;127;128;',	0),
 (41,	'Spock',	'',	'sdsd@sds.fr',	'fr',	'fr',	'Spock',	5,	'spock',	'2016-03-15',	'00:00:00',	'104;56;37;62;',	0),
 (52,	'Kara',	'',	'',	'fr',	'fr',	'Supergirl',	1,	'supergirl',	'2016-03-18',	'00:00:00',	'31;107;73;82;53;104;27;50;120;121;110;26;77;76;',	0),
@@ -1202,10 +1220,11 @@ INSERT INTO `profil` (`id`, `nom`, `prenom`, `email`, `pays`, `langue`, `utilisa
 (84,	'JimmiXS',	'JimmiXS',	'jimos4581rt@hotmail.com',	'gm',	'fr',	'gtBogOHMXIBST',	1,	'iphDXtjoVavTG',	'2016-08-10',	'00:00:00',	'',	0),
 (85,	'JimmiXS',	'JimmiXS',	'jimos4581rt@hotmail.com',	'er',	'fr',	'cRDDOcQQYjto',	1,	'hnohWkCgYadUzgJ',	'2016-08-11',	'00:00:00',	'',	0),
 (86,	'JimmiXS',	'JimmiXS',	'jimos4581rt@hotmail.com',	'sd',	'fr',	'MbRSSCiWlXgIbu',	1,	'GhzqBQoWisj',	'2016-08-11',	'00:00:00',	'',	0),
-(87,	'Jesus',	'TR',	'jesus@email.mx',	'fr',	'fr',	'Jesus',	30,	'123456789',	'2017-03-31',	'00:00:00',	'',	2),
-(88,	'Dani',	'Men',	'men@email.com',	'mx',	'es',	'Daniel',	30,	'123',	'2017-03-31',	'00:00:00',	'',	2),
+(87,	'Jesus',	'TR',	'jesus@email.mx',	'fr',	'fr',	'Jesus',	1,	'123456789',	'2017-03-31',	'00:00:00',	'',	0),
+(88,	'Dani',	'Men',	'men@email.com',	'mx',	'es',	'Daniel',	1,	'123',	'2017-03-31',	'00:00:00',	'',	0),
 (89,	'ROC',	'Jose',	'jose@email.com',	'mx',	'es',	'Jose',	21,	'123456789',	'2017-03-31',	'00:00:00',	'',	0),
-(90,	'MENDEZ',	'Gerar',	'ger@email.com',	'fr',	'fr',	'Gerardo',	30,	'123456789',	'2017-03-31',	'00:00:00',	'',	2);
+(90,	'MENDEZ',	'Gerar',	'ger@email.com',	'fr',	'fr',	'Gerardo',	1,	'123456789',	'2017-03-31',	'00:00:00',	'',	0),
+(91,	'Lopez',	'Pedro',	'pedro@email.com',	'mx',	'es',	'Pedro',	21,	'123456789',	'2017-04-04',	'00:00:00',	'',	1);
 
 DROP TABLE IF EXISTS `recherche`;
 CREATE TABLE `recherche` (
@@ -1966,6 +1985,7 @@ CREATE TABLE `traducteur` (
   `categorie16` longtext NOT NULL,
   `categorie17` longtext NOT NULL,
   `categorie18` longtext NOT NULL,
+  `categorie19` longtext NOT NULL,
   `code` tinytext NOT NULL,
   `status` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
@@ -1973,10 +1993,10 @@ CREATE TABLE `traducteur` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `traducteur` (`id`, `title`, `title2`, `title3`, `title4`, `title5`, `title6`, `message`, `message2`, `message3`, `message4`, `message5`, `categorie1`, `categorie2`, `categorie3`, `categorie4`, `categorie5`, `categorie6`, `categorie7`, `categorie8`, `categorie9`, `categorie10`, `categorie11`, `categorie12`, `categorie13`, `categorie14`, `categorie15`, `categorie16`, `categorie17`, `categorie18`, `code`, `status`, `id_user`, `ap_ref`) VALUES
-(1,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Choisir une categorie',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'fr',	1,	1,	1),
-(2,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Choisir une categorie',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'uk',	1,	1,	1),
-(3,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Choisir une categorie',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'es',	1,	1,	1);
+INSERT INTO `traducteur` (`id`, `title`, `title2`, `title3`, `title4`, `title5`, `title6`, `message`, `message2`, `message3`, `message4`, `message5`, `categorie1`, `categorie2`, `categorie3`, `categorie4`, `categorie5`, `categorie6`, `categorie7`, `categorie8`, `categorie9`, `categorie10`, `categorie11`, `categorie12`, `categorie13`, `categorie14`, `categorie15`, `categorie16`, `categorie17`, `categorie18`, `categorie19`, `code`, `status`, `id_user`, `ap_ref`) VALUES
+(1,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Choisir une categorie',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'Général',	'fr',	1,	1,	1),
+(2,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Choisir une categorie',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'General',	'uk',	1,	1,	1),
+(3,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Elegir una categoria',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'General',	'es',	1,	1,	1);
 
 DROP TABLE IF EXISTS `versionlinguistique`;
 CREATE TABLE `versionlinguistique` (
@@ -2136,4 +2156,4 @@ INSERT INTO `versionlinguistique` (`id`, `fr`, `uk`, `es`, `ch`) VALUES
 (148,	'Ajouter',	'Add',	'Agregar',	''),
 (149,	'人 人 都 有 受 教 ',	'人 人 都 有 受 教 ',	'人 人 都 有 受 教 ',	'');
 
--- 2017-04-04 18:19:39
+-- 2017-04-04 20:33:27

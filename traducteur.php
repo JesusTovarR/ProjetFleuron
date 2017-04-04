@@ -307,6 +307,21 @@ if (isset($_GET["action"])) {
 											</table>
 										</td>
 									</tr>
+									<tr>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+															<tr>
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=18"><span class="texte_info12"><?php echo page_traducteur("categorie19")//Cambiar ?></span></a></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
 								</table>
 
 				</p>

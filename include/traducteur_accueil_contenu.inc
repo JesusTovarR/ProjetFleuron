@@ -161,6 +161,12 @@ if($categorie==1){
 	$nom_table="traducteur";
 	$_SESSION['formulaire']=2;
 	premier_structure($codes, $nom_table);
+}else if($categorie==18){
+    $requete2='SELECT * FROM general WHERE id_user='.$_SESSION['id'];
+    $codes = mysql_query($requete2);
+    $nom_table="general";
+    $_SESSION['formulaire']=2;
+    premier_structure($codes, $nom_table);
 }else{
     echo "error";
 }
