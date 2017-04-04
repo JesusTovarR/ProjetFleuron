@@ -17,8 +17,9 @@ if (isset($_GET["message"])) {
 }else{
 	$message=0;
 }
-$page_avant=$_SERVER['HTTP_REFERER'];
-
+if (isset($_GET["categorie"])) {
+	$nb_cat=$_GET["categorie"];
+}
 ?>
 
 <html>
@@ -59,23 +60,23 @@ $page_avant=$_SERVER['HTTP_REFERER'];
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="100">
 												<tr>
 													<td align="center">
-														<a href="traducteur.php"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="traducteur.php"><span class="texte_menu"><?php echo page_modification("line97") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center" bgcolor="<?php echo couleur(2); //couleur claire ?>">
-											<span class="titre">Titre<!--Cambiar--></span>
+											<span class="titre"><?php echo page_traducteur("title2");//Choisir une catégorie ?></span>
 										</td>
 									</tr>
 
 								</table>
 <?php if($message==1){?>
 <br>
-<span class="texte_default">Existentes:<?php echo $_SESSION['exist']?></span><!--Cambiar-->
+<span class="texte_default"><?php echo page_traducteur("message3"); echo ":".$_SESSION['exist']?></span><!--Cambiar-->
 <br>
 <br>
-<span class="texte_default">Agregados:<?php echo $_SESSION['cree']?></span><!--Cambiar-->
+<span class="texte_default"><?php echo page_traducteur("message4"); echo ":". $_SESSION['cree']?></span><!--Cambiar-->
 <br>
 <?php
 $message=0;}?>

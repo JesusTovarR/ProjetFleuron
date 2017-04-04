@@ -234,5 +234,24 @@ function page_modification($val)
     }
 }
 
+function page_traducteur($val)
+{
+
+
+    global $lg; // récupération variable langue
+
+    $requete='SELECT '.$val.', status FROM traducteur WHERE code="'.$lg.'" && status=1';
+    $recup = mysql_query($requete);
+    while ($data = mysql_fetch_assoc($recup))
+    {
+        if($data['status']==1){
+            return $data[$val];
+        }else if($data['status']==2){
+            return "texte en revision";
+        }
+
+    }
+}
+
 
 ?>

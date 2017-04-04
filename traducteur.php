@@ -49,12 +49,12 @@ if (isset($_GET["action"])) {
 								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 									<tr>
 										<td align="center" height="30">
-											<span class="titre"><?php echo versionlinguistique(147); //Ressources multimedias ?></span>
+											<span class="titre"><?php echo page_traducteur("title"); //Ressources multimedias ?></span>
 										</td>
 									</tr>
 								</table>
 <br>
-<span class="texte_default"><?php echo versionlinguistique(36); //Choisir une catégorie ?></span>
+<span class="texte_default"><?php echo page_traducteur("message");//Choisir une catégorie ?></span>
 <br>
 <div align="right">
 </div>
@@ -68,7 +68,7 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=1"><span class="texte_info12"><?php echo affichage_menu("home")//Cambiar ?></span></a></td>
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=1"><span class="texte_info12"><?php echo page_traducteur("categorie1")//Cambiar ?></span></a></td>
 															</tr>
 														</table>
 													</td>
@@ -81,7 +81,7 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=2"><span class="texte_info12"><?php echo affichage_menu("tips")//Cambiar ?></span></a></td>
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=2"><span class="texte_info12"><?php echo page_traducteur("categorie2")//Cambiar ?></span></a></td>
 															</tr>
 														</table>
 													</td>
@@ -94,48 +94,7 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=3"><span class="texte_info12"> Contacto</span></a></td> <!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=4"><span class="texte_info12">Menu</span></a></td> <!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=5"><span class="texte_info12">Choix Langue</span></a></td> <!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=6"><span class="texte_info12">Conseils</span></a></td><!--Cambiar-->
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=3"><span class="texte_info12"> <?php echo page_traducteur("categorie3")//Cambiar ?></span></a></td> <!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -150,7 +109,7 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=7"><span class="texte_info12">Dernier_media</span></a></td><!--Cambiar-->
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=4"><span class="texte_info12"><?php echo page_traducteur("categorie4")//Cambiar ?></span></a></td> <!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -163,7 +122,7 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=8"><span class="texte_info12">Login</span></a></td><!--Cambiar-->
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=5"><span class="texte_info12"><?php echo page_traducteur("categorie5")//Cambiar ?></span></a></td> <!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -176,7 +135,7 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=9"><span class="texte_info12">Menu_admin</span></a></td><!--Cambiar-->
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=6"><span class="texte_info12"><?php echo page_traducteur("categorie6")//Cambiar ?></span></a></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -191,7 +150,7 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=10"><span class="texte_info12">Moteur_de_recherche</span></a></td><!--Cambiar-->
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=7"><span class="texte_info12"><?php echo page_traducteur("categorie7")//Cambiar ?></span></a></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -204,7 +163,7 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=11"><span class="texte_info12">Tableau_du_bord</span></a></td><!--Cambiar-->
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=8"><span class="texte_info12"><?php echo page_traducteur("categorie8")//Cambiar ?></span></a></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -217,7 +176,48 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=12"><span class="texte_info12">Affichage_ressource</span></a></td><!--Cambiar-->
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=9"><span class="texte_info12"><?php echo page_traducteur("categorie9")//Cambiar ?></span></a></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+															<tr>
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=10"><span class="texte_info12"><?php echo page_traducteur("categorie10")//Cambiar ?></span></a></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+															<tr>
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=11"><span class="texte_info12"><?php echo page_traducteur("categorie11")//Cambiar ?></span></a></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+															<tr>
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=12"><span class="texte_info12"><?php echo page_traducteur("categorie12")//Cambiar ?></span></a></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -232,7 +232,7 @@ if (isset($_GET["action"])) {
                                                     <td align="center">
                                                         <table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
                                                             <tr>
-                                                                <td align="center"><a href="traducteur_choix_langue.php?categorie=13"><span class="texte_info12">Content</span></a></td><!--Cambiar-->
+                                                                <td align="center"><a href="traducteur_choix_langue.php?categorie=13"><span class="texte_info12"><?php echo page_traducteur("categorie13")//Cambiar ?></span></a></td><!--Cambiar-->
                                                             </tr>
                                                         </table>
                                                     </td>
@@ -245,7 +245,7 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_choix_langue.php?categorie=14"><span class="texte_info12">Page_edit</span></a></td><!--Cambiar-->
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=14"><span class="texte_info12"><?php echo page_traducteur("categorie14")//Cambiar ?></span></a></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -258,7 +258,7 @@ if (isset($_GET["action"])) {
                                                     <td align="center">
                                                         <table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
                                                             <tr>
-                                                                <td align="center"><a href="traducteur_choix_langue.php?categorie=15&type=1"><span class="texte_info12">Categories</span></a></td><!--Cambiar-->
+                                                                <td align="center"><a href="traducteur_choix_langue.php?categorie=15&type=1"><span class="texte_info12"><?php echo page_traducteur("categorie15")//Cambiar ?></span></a></td><!--Cambiar-->
                                                             </tr>
                                                         </table>
                                                     </td>
@@ -273,7 +273,7 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_ressources.php"><span class="texte_info12">Ressources</span></a></td><!--Cambiar-->
+																<td align="center"><a href="traducteur_ressources.php"><span class="texte_info12"><?php echo page_traducteur("categorie16")//Cambiar ?></span></a></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -286,7 +286,20 @@ if (isset($_GET["action"])) {
 													<td align="center">
 														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 															<tr>
-																<td align="center"><a href="traducteur_soustitres.php"><span class="texte_info12">Soustitres</span></a></td><!--Cambiar-->
+																<td align="center"><a href="traducteur_soustitres.php"><span class="texte_info12"><?php echo page_traducteur("categorie17")//Cambiar ?></span></a></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+															<tr>
+																<td align="center"><a href="traducteur_choix_langue.php?categorie=17"><span class="texte_info12"><?php echo page_traducteur("categorie18")//Cambiar ?></span></a></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>

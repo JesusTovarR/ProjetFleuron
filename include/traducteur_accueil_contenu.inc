@@ -122,16 +122,20 @@ if($categorie==1){
 			$list[]=$codes['code'];
 		}
     }
-	$code = array_unique($nb_array);
-	$valides=array_unique($list);
-	foreach ($code as $value){
-		$valid=0;
-		foreach ($valides as $val){
-			if($val==$value){
-				$valid=1;
+   /* if($count==0){
+		echo page_traducteur("message2");
+	}else{*/
+		$code = array_unique($nb_array);
+		$valides=array_unique($list);
+		foreach ($code as $value){
+			$valid=0;
+			foreach ($valides as $val){
+				if($val==$value){
+					$valid=1;
+				}
 			}
-		}
-		duexieme_structure($value, $nom_table, $valid);
+			duexieme_structure($value, $nom_table, $valid);
+		/*}*/
 	}
 }else if($categorie==16){
 	$langues='SELECT code, status, ap_ref FROM soustitres WHERE id_resource='.$_SESSION['id_res'].' AND id_user='.$_SESSION['id'];
@@ -147,10 +151,16 @@ if($categorie==1){
 		}
 		$soustitre=$soustitre+1;
 	}
-	if($soustitre==0) {
-		echo 'Vous n\'avez aucune traduction';
-	}
+	/*if($soustitre==0) {
+		echo page_traducteur("message2");
+	}*/
 
+}else if($categorie==17){
+	$requete2='SELECT * FROM traducteur WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="traducteur";
+	$_SESSION['formulaire']=2;
+	premier_structure($codes, $nom_table);
 }else{
     echo "error";
 }
@@ -191,9 +201,9 @@ function premier_structure($codes, $nom_table)
 		echo '<input type="hidden" value="' . $nom_table . '" name="table">';
 		echo '<input type="hidden" value="' . $code['id'] . '" name="code_id">';
 		if($code['status']==1 && $code['ap_ref']==1) {
-			echo '<td align="center"><span class="texte_info12">Traduction valide</span></td>';//Cambiar
+			echo '<td align="center"><span class="texte_info12">'.page_traducteur("message5").'</span></td>';//Cambiar
 		}else{
-			echo '<td align="center"><span class="texte_info12"><input type="submit" value="Modifier" name="submitButtonName"></span></td>';//Cambiar
+			echo '<td align="center"><span class="texte_info12"><input type="submit" value="'.afficher_ressource("option1").'" name="submitButtonName"></span></td>';//Cambiar
 		}
 		echo '</form>';
 		echo '</tr>';
@@ -203,7 +213,12 @@ function premier_structure($codes, $nom_table)
 		echo '</table>';
 		echo '</td>';
 		echo '</table>';
+
 	}
+
+	/*if($count==0) {
+		echo page_traducteur("message2");
+	}*/
 }
 
 function duexieme_structure($code, $nom_table, $valid){
@@ -239,9 +254,9 @@ function duexieme_structure($code, $nom_table, $valid){
 	echo '<input type="hidden" value="'.$code.'" name="code_lg">';
 	echo '<input type="hidden" value="'.$nom_table.'" name="table">';
 	if($valid==1){
-		echo '<td align="center"><span class="texte_info12">Langue validee</span></td>';//Cambiar
+		echo '<td align="center"><span class="texte_info12">'.page_traducteur("message5").'</span></td>';//Cambiar
 	}else{
-		echo '<td align="center"><span class="texte_info12"><input type="submit" value="Modificar" name="submitButtonName"></span></td>';//Cambiar
+		echo '<td align="center"><span class="texte_info12"><input type="submit" value="'.afficher_ressource("option1").'" name="submitButtonName"></span></td>';//Cambiar
 	}
 	echo '</form>';
 	echo '</tr>';
@@ -262,7 +277,7 @@ echo '<form action="traducteur_insert.php?categorie='.$_GET['categorie'].'" meth
 	echo '<table border="0" cellpadding="7" cellspacing="2" bgcolor="'.couleur(2).'" width="220">';// couleur claire
 		echo '<tr>';
 			echo '<td colspan="2" align="center">';
-				echo '<span class="Texte_menu">Agregar nuevo idioma</span>';// Cambiar
+				echo '<span class="Texte_menu">'.page_traducteur("title5").'</span>';// Cambiar
 			echo '</td>';
 		echo '</tr>';
 		echo '<tr>';

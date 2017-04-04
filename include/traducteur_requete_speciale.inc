@@ -1,10 +1,13 @@
 <?
 function creer_brouillon($table, $lg, $status, $ap_ref, $nb_table){
-	$requete='SELECT code FROM '.$table.' WHERE status=1 AND id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
+	$requete='SELECT code FROM '.$table.' WHERE id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
 	$recup = mysql_query($requete);
-	$requete2='SELECT code FROM '.$table.' WHERE status=0 AND id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
+	$requete2='SELECT code FROM '.$table.' WHERE id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
 	$recup2 = mysql_query($requete2);
-    if ($recup!=false||$recup2!=false){
+
+    if ($data=mysql_fetch_assoc($recup)){
+        $_SESSION['exist']=$_SESSION['exist']+1;
+    }else if($data2=mysql_fetch_assoc($recup2)){
         $_SESSION['exist']=$_SESSION['exist']+1;
     }else {
 			$requete4='SELECT * FROM '.$table.' WHERE code="'.$lg.'" AND status='.$status.' AND ap_ref='.$ap_ref;
@@ -39,18 +42,31 @@ function creer_brouillon($table, $lg, $status, $ap_ref, $nb_table){
 }
 
 function creer_brouillon_ressource($table, $id_resource, $lg, $status, $ap_ref, $nb_table){
+/*    $requete="";
+    $recup="";
+    $requete2="";
+    $recup2="";
+    $data="";
+    $data2="";
+    $ressources="";
+    $recupRes="";
+    $dataRes="";
+    $name="";
+    $categorie="";
+    $title="";
+    $description="";
+    $exec="";*/
     if($nb_table==15){
-        $requete='SELECT code FROM '.$table.' WHERE category='.$id_resource.' AND status=1 AND id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
+        $requete='SELECT code FROM '.$table.' WHERE category='.$id_resource.' AND id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
         $recup = mysql_query($requete);
-        $requete2='SELECT code FROM '.$table.' WHERE category='.$id_resource.'AND status=0 AND id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
-        $recup2 = mysql_query($requete2);
     }else{
-        $requete='SELECT code FROM '.$table.' WHERE id_resource='.$id_resource.' AND status=1 AND id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
+        $requete='SELECT code FROM '.$table.' WHERE id_resource='.$id_resource.' AND id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
         $recup = mysql_query($requete);
-        $requete2='SELECT code FROM '.$table.' WHERE id_resource='.$id_resource.'AND status=0 AND id_user='.$_SESSION['id'].' AND code="'.$lg.'"';
-        $recup2 = mysql_query($requete2);
     }
-    if ($recup!=false||$recup2!=false){
+
+    $total = mysql_num_rows($recup);
+
+    if ($total>0){
         $_SESSION['exist']=$_SESSION['exist']+1;
     }else {
             if($nb_table==15){
@@ -107,6 +123,14 @@ function ajouter_langue($table, $lg, $nb_table){
 }
 
 function ajouter_langue_ressource($table, $id_resource, $lg, $nb_table){
+/*    $ressources="";
+    $recupRes="";
+    $dataRes="";
+    $name="";
+    $categorie="";
+    $title="";
+    $description="";
+    $exec="";*/
             if($nb_table==15){
                 $ressources='SELECT * FROM '.$table.' WHERE  category='.$id_resource.' AND code="fr" AND status=1';
                 $recupRes=mysql_query($ressources);

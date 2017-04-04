@@ -112,12 +112,12 @@ function affichage_soustitres()
 											</table>
 										</td>
 										<td align="center" height="30">
-											<span class="titre"><?php echo versionlinguistique(35); //Ressources multimedias ?></span>
+											<span class="titre"><?php echo page_traducteur("title4");  //Ressources multimedias ?></span>
 										</td>
 									</tr>
 								</table>
 <br>
-<span class="texte_default"><?php echo versionlinguistique(36); //Choisir une cat�gorie ?></span>
+<span class="texte_default"><?php echo page_traducteur("title2");  //Choisir une cat�gorie ?></span>
 <br>
 
 				<p>

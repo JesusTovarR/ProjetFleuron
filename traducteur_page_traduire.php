@@ -130,9 +130,9 @@ function edition_page_type2()
 			echo '<input type="hidden" value="3" name="formulaire">';
 			echo '<tr>';
 			echo '<td align="center">';
-			echo '<input class="btn" type="submit" value="Enregistrer" name="submitButtonName"><!--Cambiar-->';
+			echo '<input class="btn" type="submit" value="'. content("btn2").'" name="submitButtonName"><!--Cambiar-->';
 			echo '</form>';
-			echo '<a href="traducteur_demande_referent.php?dat='.$dat.'"><input class="btn" type="submit" value="Referent" name="submitButtonName"></a><!--Cambiar-->';
+			echo '<a href="traducteur_demande_referent.php?dat='.$dat.'"><input class="btn" type="submit" value="'.content("btn").'" name="submitButtonName"></a><!--Cambiar-->';
 			echo '</td>';
 			echo '</tr>';
 		}
@@ -277,7 +277,7 @@ function edition_page_type2_fr()
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin">Traduire</span>
+											<span class="titre_admin"><?php echo page_traducteur("title6");?></span>
 										</td>
 										<td width="150" align="center">
 											<?php
@@ -286,7 +286,7 @@ function edition_page_type2_fr()
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="traducteur_demande_referent.php"><span class="texte_menu">Referent</span></a><!--Cambiar-->
+														<a href="traducteur_demande_referent.php"><span class="texte_menu"><?php echo content("btn");?></span></a><!--Cambiar-->
 													</td>
 												</tr>
 											</table>
@@ -354,7 +354,7 @@ function edition_page_type2_fr()
 									<?php
 										if($_SESSION['formulaire']!=4) {
 									?>
-											<input class="btn3" type="submit" value="Guardar" name="submitButtonName"><!--Cambiar-->
+											<input class="btn3" type="submit" value="<?php echo content("btn2");?>" name="submitButtonName"><!--Cambiar-->
 											</form>
 									<?php
 										}

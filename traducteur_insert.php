@@ -20,7 +20,8 @@ $tables= array(
     14 => 'page_edit',
     15 => 'categorie_traduction',
     16 => 'ressources_traduction',
-    17 => 'soustitres'
+    17 => 'soustitres',
+    18 => 'traducteur'
     );
 
 $nb_col= count($tables);
@@ -28,6 +29,7 @@ $nb_col= count($tables);
     $val="";
     $_SESSION['exist']=0;
     $_SESSION['cree']=0;
+
     for($i=1; $i<=$nb_col; $i++){
          if($i==15||$i==16||$i==17){
              if($i==15){
@@ -57,16 +59,17 @@ $nb_col= count($tables);
 
                 } else {
                     if($i==15){
-                        $requete3 = 'SELECT code FROM ' . $tables[$i] . ' WHERE category=' . $dataR['id'] . ' status=0 AND id_user=' . $_SESSION['id'] . ' AND code="' . $_POST['lg'] . '"';
+                        $requete3 = 'SELECT code FROM ' . $tables[$i] . ' WHERE category=' . $dataR['id'] . ' AND id_user=' . $_SESSION['id'] . ' AND code="' . $_POST['lg'] . '"';
                         $recup = mysql_query($requete3);
                     }else{
-                        $requete3 = 'SELECT code FROM ' . $tables[$i] . ' WHERE id_resource=' . $dataR['id'] . ' status=0 AND id_user=' . $_SESSION['id'] . ' AND code="' . $_POST['lg'] . '"';
+                        $requete3 = 'SELECT code FROM ' . $tables[$i] . ' WHERE id_resource=' . $dataR['id'] . ' AND id_user=' . $_SESSION['id'] . ' AND code="' . $_POST['lg'] . '"';
                         $recup = mysql_query($requete3);
                     }
+                    $total = mysql_num_rows($recup);
 
-                    if ($recup != false) {
-                        $_SESSION['exist'] = $_SESSION['exist'] + 1;
-                    } else {
+                    if ($total>0){
+                        $_SESSION['exist']=$_SESSION['exist']+1;
+                    }else if($total==0){
                         ajouter_langue_ressource($tables[$i], $dataR['id'], $_POST['lg'], $i);
                     }
 
