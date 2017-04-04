@@ -55,7 +55,9 @@ if (isset($_GET["action"])) {
     <td valign="top">
 								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 									<tr>
-										<td><a class="titre" href="admin_referent.php">Retour</a></td>
+										<td align="center"  bgcolor="<?php echo couleur(1) ?>">
+											<a href="admin_referent.php"><span class="texte_menu"><?php echo page_modification("line97") //Retour ?></span></a>
+										</td>
 										<td align="center" height="30">
 											<span class="titre"><?php echo versionlinguistique(150); //Reférent ?> Demande Referent</span>
 										</td>

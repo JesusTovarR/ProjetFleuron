@@ -85,7 +85,10 @@ function traductions($table){
 							<td valign="top">
 								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 								<tr>
-									<td  ><a class="titre" href="demande_referent.php">Retour</a></td>
+									<td align="center"  bgcolor="<?php echo couleur(1) ?>">
+										<a href="demande_referent.php"><span class="texte_menu"><?php echo page_modification("line97") //Retour ?></span></a>
+									</td>
+
 									
 										<td align="center" height="30">
 
