@@ -406,6 +406,7 @@ CREATE TABLE `general` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `text1` longtext NOT NULL,
   `text2` longtext NOT NULL,
+  `text3` longtext NOT NULL,
   `code` tinytext NOT NULL,
   `status` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
@@ -413,10 +414,10 @@ CREATE TABLE `general` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `general` (`id`, `text1`, `text2`, `code`, `status`, `id_user`, `ap_ref`) VALUES
-(1,	'Choisir une catégorie :',	'Ressources multimedias',	'fr',	1,	1,	1),
-(2,	'Choose a category:',	'Multimedia resources',	'uk',	1,	1,	1),
-(3,	'Elige una categoría:',	'Recursos multimedia',	'es',	1,	1,	1);
+INSERT INTO `general` (`id`, `text1`, `text2`, `text3`, `code`, `status`, `id_user`, `ap_ref`) VALUES
+(1,	'Choisir une catégorie :',	'Ressources multimedias',	'Aucune Traduction',	'fr',	1,	1,	1),
+(2,	'Choose a category:',	'Multimedia resources',	'No translation',	'uk',	1,	1,	1),
+(3,	'Elige una categoría:',	'Recursos multimedia',	'Ninguna traductión',	'es',	1,	1,	1);
 
 DROP TABLE IF EXISTS `glossaire`;
 CREATE TABLE `glossaire` (
@@ -2156,4 +2157,4 @@ INSERT INTO `versionlinguistique` (`id`, `fr`, `uk`, `es`, `ch`) VALUES
 (148,	'Ajouter',	'Add',	'Agregar',	''),
 (149,	'人 人 都 有 受 教 ',	'人 人 都 有 受 教 ',	'人 人 都 有 受 教 ',	'');
 
--- 2017-04-04 20:33:27
+-- 2017-04-04 21:15:46

@@ -12,6 +12,41 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 	$action=$_GET["action"]; // Variable permettant l'affichage de message suite � l'action d'�dition de la page
 }*/
 
+function traductions($table){
+	$id = $_SESSION['id_profil'.$_SESSION['nb']];
+	$requete = 'SELECT code FROM ' . $table . ' WHERE id_user='.$id;
+	$resultat = mysql_query($requete);
+	$count=0;
+	while ($code = mysql_fetch_assoc($resultat)){
+		$count=$count+1;
+		$codes["code".$count]=$code["code"];
+	}
+	if(isset($codes)&&!is_null($codes)){
+		$count=0;
+		$uniques = array_unique($codes);
+		$langues="(";
+
+		foreach ($uniques as $valeur){
+			$count=$count+1;
+			$requete2 = 'SELECT nom FROM langues WHERE code="'.$valeur.'"';
+			$resultat2 = mysql_query($requete2);
+			while ($data = mysql_fetch_assoc($resultat2)){
+				if($count==1){
+					$langues=$langues.$data['nom'];
+				}else{
+					$langues=$langues.', '.$data['nom'];
+				}
+			}
+		}
+
+		$langues=$langues.')';
+		echo $langues;
+	}else{
+		echo "(".general("text3").")";
+	}
+}
+
+
 
 ?>
 
@@ -48,7 +83,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 						<tr>
 <!-- Partie centrale -->
 							<td valign="top">
-								<table width="70%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
+								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 								<tr>
 									<td  ><a class="titre" href="demande_referent.php">Retour</a></td>
 									
@@ -96,9 +131,9 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0" cellspacing="0">
 												<tr>
 													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
 															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie1")//Cambiar ?></span></td>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie1") ?><hr/><br/><?php echo traductions("accueil_contenu") ?> </span></td>
 															</tr>
 														</table>
 													</td>
@@ -109,9 +144,9 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0" cellspacing="0">
 												<tr>
 													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
 															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie2")//Cambiar ?></span></td>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie2")//Cambiar ?><hr/><br/><?php echo traductions("conseils_contenu") ?></span></td>
 															</tr>
 														</table>
 													</td>
@@ -122,50 +157,9 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0" cellspacing="0">
 												<tr>
 													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
 															<tr>
-																<td align="center"><span class="texte_info12"> <?php echo page_traducteur("categorie3")//Cambiar ?></span></td> <!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie4")//Cambiar ?></span></td> <!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie5")//Cambiar ?></span></td> <!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie6")//Cambiar ?></span></td><!--Cambiar-->
+																<td align="center"><span class="texte_info12"> <?php echo page_traducteur("categorie3")//Cambiar ?><hr/><br/><?php echo traductions("contact_contenu") ?></span></td> <!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -178,9 +172,9 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0" cellspacing="0">
 												<tr>
 													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
 															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie7")//Cambiar ?></span></td><!--Cambiar-->
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie4")//Cambiar ?><hr/><br/><?php echo traductions("menu") ?></span></td> <!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -191,9 +185,9 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0" cellspacing="0">
 												<tr>
 													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
 															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie8")//Cambiar ?></span></td><!--Cambiar-->
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie5")//Cambiar ?><hr/><br/><?php echo traductions("choix_langue") ?></span></td> <!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -204,50 +198,9 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0" cellspacing="0">
 												<tr>
 													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
 															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie9")//Cambiar ?></span></td><!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie10")//Cambiar ?></span></td><!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie11")//Cambiar ?></span></td><!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie12")//Cambiar ?></span></td><!--Cambiar-->
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie6")//Cambiar ?><hr/><br/><?php echo traductions("conseils") ?></span></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -260,9 +213,9 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0" cellspacing="0">
 												<tr>
 													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
 															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie13")//Cambiar ?></span></td><!--Cambiar-->
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie7")//Cambiar ?><hr/><br/><?php echo traductions("dernier_media") ?></span></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -273,9 +226,9 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0" cellspacing="0">
 												<tr>
 													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
 															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie14")//Cambiar ?></span></td><!--Cambiar-->
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie8")//Cambiar ?><hr/><br/><?php echo traductions("login") ?></span></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -286,50 +239,9 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0" cellspacing="0">
 												<tr>
 													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
 															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie15")//Cambiar ?></span></td><!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie16")//Cambiar ?></span></td><!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie17")//Cambiar ?></span></td><!--Cambiar-->
-															</tr>
-														</table>
-													</td>
-												</tr>
-											</table>
-										</td>
-										<td>
-											<table border="0" cellspacing="0">
-												<tr>
-													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
-															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie18")//Cambiar ?></span></td><!--Cambiar-->
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie9")//Cambiar ?><hr/><br/><?php echo traductions("menu_admin") ?></span></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
@@ -342,9 +254,132 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0" cellspacing="0">
 												<tr>
 													<td align="center">
-														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
 															<tr>
-																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie19")//Cambiar ?></span></td><!--Cambiar-->
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie10")//Cambiar ?><hr/><br/><?php echo traductions("moteur_de_recherche") ?></span></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+															<tr>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie11")//Cambiar ?><hr/><br/><?php echo traductions("tableau_du_bord") ?></span></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+															<tr>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie12")//Cambiar ?><hr/><br/><?php echo traductions("affichage_ressource") ?></span></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+															<tr>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie13")//Cambiar ?><hr/><br/><?php echo traductions("content") ?></span></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+															<tr>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie14")//Cambiar ?><hr/><br/><?php echo traductions("page_edit") ?></span></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+															<tr>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie15")//Cambiar ?><hr/><br/><?php echo traductions("categorie_traduction") ?></span></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+															<tr>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie16")//Cambiar ?><hr/><br/><?php echo traductions("ressources_traduction") ?></span></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+															<tr>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie17")//Cambiar ?><hr/><br/><?php echo traductions("soustitres") ?></span></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+															<tr>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie18")//Cambiar ?><hr/><br/><?php echo traductions("traducteur") ?></span></td><!--Cambiar-->
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<table border="0" cellspacing="0">
+												<tr>
+													<td align="center">
+														<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+															<tr>
+																<td align="center"><span class="texte_info12"><?php echo page_traducteur("categorie19")//Cambiar ?><hr/><br/><?php echo traductions("general") ?></span></td><!--Cambiar-->
 															</tr>
 														</table>
 													</td>
