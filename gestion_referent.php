@@ -70,7 +70,6 @@ if (isset($_GET["action"])) {
         <tr height="40" bgcolor="#e03e3e">
             <td align="center" class="cell">Nom</td>
             <td align="center"class="cell">Prenom</td>
-            <td align="center" class="cell">Profil</td>
             <td align="center" class="cell">Supprimer</td>
         </tr>
 
@@ -85,24 +84,12 @@ if (isset($_GET["action"])) {
 
        echo '<tr height="40">
             <td align="center" class="cell">'.$data['nom'].'</td>
-            <td align="center" class="cell">'.$data['prenom'].'</td>
-            <td align="center" class="cell"><a href="demande_referent_profil.php">Profil</a></td>';
-            
-            echo "<td align='center' class='cell'><a href='?action=delete'>Supprimer</a></td></tr>";
-
-            $new_ref ="";
-            if(isset($_GET["action"])){
-                        if($_GET["action"] == 'delete'){
-                            
-                            
-                            //$r ='INSERT INTO referent SET nom= '.$data['nom'].', prenom='.$data['prenom'].', email='.$data['email'].', langue='.$data['langue'].'';
-                            $r = 'UPDATE profil SET niveau= 1, demande_referent = 0 WHERE id ='.$data['id'].'';
-                            $res= mysql_query($r);
-                        }
-
-                    
-            
-        }
+            <td align="center" class="cell">'.$data['prenom'].'</td>';
+		echo "<td align='center' class='cell'><form action='supprimer_referent.php' method='POST'>
+                        <input type='hidden' name='id_i' value='$id_profil' >";
+		$btn=afficher_ressource('option2');
+		echo '<input type="submit" value="'.$btn.'">';
+		echo "  </form></td></tr>";	
            $i+=1;
      } ?> 
     </table>
