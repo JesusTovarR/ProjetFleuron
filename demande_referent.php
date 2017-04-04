@@ -79,14 +79,15 @@ if (isset($_GET["action"])) {
 	
     $i = 0;
     while ($data = mysql_fetch_assoc($resultat)){
+
 				$id_profil = $data['id'];
  
-				$_SESSION['id_profil'] = $id_profil;
+				$_SESSION['id_profil'.$i] = $id_profil;
        echo '<tr height="40">
             <td align="center" class="cell" >'.$data['nom'].'</td>
             <td align="center" class="cell" >'.$data['prenom'].'</td>';
             echo "<td align='center' class='cell' width='210'><form action='demande_referent_profil.php' method='POST'>
-                        <input type='hidden' name='id_profil' value='$id_profil'>	
+						<input type='hidden' name='nb' value='$i'>	
                         <input class='btn' type='submit' value='Profil' name=''>
                     </form></td>";
             
@@ -115,12 +116,12 @@ if (isset($_GET["action"])) {
                             //$res->execute();
                             
                     }
-
-                    
+       
             
         }
            $i+=1;
-     } ?> 
+     } 
+	 $_SESSION['i']=$i;?> 
     </table>
     </td>
 </p>

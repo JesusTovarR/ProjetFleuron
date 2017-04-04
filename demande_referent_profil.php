@@ -55,13 +55,13 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 										<td align="center" height="30">
 
 											<?php
-													if(!isset($_SESSION['id_profil'])){
+													/*if(!isset($_SESSION['id_profil'])){
 														$_SESSION['id_profil'] = $_POST['id_profil'];
 
-													}
-
-													$id_profil = $_SESSION['id_profil'];
-
+													}*/
+													$_SESSION['nb']=$_POST['nb'];
+															$id_profil = $_SESSION['id_profil'.$_SESSION['nb']];
+														echo $_SESSION['id_profil'];
 													$req = "SELECT * FROM profil WHERE id = $id_profil";
 													$res = mysql_query($req);
 													
@@ -320,45 +320,80 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 						//$req = "SELECT * FROM profil WHERE id = $id";
 						//$resultat = mysql_query($req);
 						
-						
 
 						if(isset($_GET['categorie'])){
 
-							if($_GET['categorie'] == 1 ){
+							
+								if($_GET['categorie'] == 1 ){
 
-								$req_accueil = "SELECT * FROM accueil_contenu WHERE id_user =  $id_profil";
-								$res1 = mysql_query($req_accueil);
-								$num_row = mysql_num_rows($res1);
-									//var_dump($res1);
-								while($data = mysql_fetch_assoc($res1)){
+									$req_accueil = "SELECT * FROM accueil_contenu WHERE id_user =  ".$_SESSION["id_profil".$_SESSION["nb"]];
+									$res1 = mysql_query($req_accueil);
+									$num_row = mysql_num_rows($res1);
+										//var_dump($res1);
+									while($data = mysql_fetch_assoc($res1)){
 
-									$content = $data['content'];
-									$lg = $data['code'];
-									echo $lg;
-									//$req2 = "SELECT * FROM langues WHERE code = $lg";
-									//$res2 = mysql_query($req2);
-									//var_dump($res2);
+										$content = $data['content'];
+										$lg = $data['code'];
+										echo $lg;
+										//$req2 = "SELECT * FROM langues WHERE code = $lg";
+										//$res2 = mysql_query($req2);
+										//var_dump($res2);
+										
+										//$langue = $data2['nom'];
+
+										//echo $langue;
+										echo "<textarea cols='110' rows='25'> $content </textarea><br>";
+									}
 									
-									//$langue = $data2['nom'];
 
-									//echo $langue;
-									echo "<textarea cols='110' rows='25'> $content </textarea><br>";
+									
+								}/*elseif($_GET['categorie'] == 2){
+
+									$req_accueil = "SELECT * FROM conseils WHERE id_user =  $id_profil";
+									$res1 = mysql_query($req_accueil);
+									$num_row = mysql_num_rows($res1);
+
+									while($data = mysql_fetch_assoc($res1)){
+
+										$content = $data['line55'];
+										$lg = $data['code'];
+										echo $lg;
+										//$req2 = "SELECT * FROM langues WHERE code = $lg";
+										//$res2 = mysql_query($req2);
+										//var_dump($res2);
+										
+										//$langue = $data2['nom'];
+
+										//echo $langue;
+										echo "<textarea cols='80' rows='3'> $content </textarea><br>";
+									}
+									
+								}elseif($_GET['categorie'] == 3){
+									$req_accueil = "SELECT * FROM contact_contenu WHERE id_user =  $id_profil";
+									$res1 = mysql_query($req_accueil);
+									$num_row = mysql_num_rows($res1);
+
+									while($data = mysql_fetch_assoc($res1)){
+
+										$content = $data['content'];
+										$lg = $data['code'];
+										echo $lg;
+										//$req2 = "SELECT * FROM langues WHERE code = $lg";
+										//$res2 = mysql_query($req2);
+										//var_dump($res2);
+										
+										//$langue = $data2['nom'];
+
+										//echo $langue;
+										echo "<textarea cols='90' rows='15'> $content </textarea><br>";
+									}
+									
+								}*/else{
+
+									echo"Pas de traduction effectué dans cette catégorie";
 								}
-								
+							
 
-								
-							}else{
-
-								echo"Pas de traduction effectué dans cette catégorie";
-							}
-
-
-							if($_GET['categorie'] == 1 ){
-
-								$req_accueil = "SELECT * FROM conseils_contenu WHERE id_user =  $id_profil";
-								$res1 = mysql_query($req_accueil);
-								$num_row = mysql_num_rows($res1);
-							}
 						}
 						
 
