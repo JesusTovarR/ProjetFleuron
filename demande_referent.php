@@ -93,34 +93,15 @@ if (isset($_GET["action"])) {
                         <input class='btn' type='submit' value='Profil' name=''>
                     </form></td>";
             
-            echo "<td align='center' class='cell'><form method='POST'>
+            echo "<td align='center' class='cell'><form action='validation_referent.php' method='POST'>
                         <input type='radio' name='choix$i' value='oui' checked='checked'><label>oui</label>
-                        <input type='radio' name='choix$i' value='non'><label>non</label>
-                        <input type='submit' name='form$i'>
-                    </form></td></tr>";
+                        <input type='hidden' name='nbi' value='$i' >
+                        <input type='hidden' name='id_i' value='$id_profil' >
+                        <input type='radio' name='choix$i' value='non'><label>non</label>";
+		$btn=content('btn2');
+                 echo '<input type="submit" name="form'.$i.'" value="'.$btn.'">';
+                  echo "  </form></td></tr>";
 
-            $new_ref ="";
-            if(isset($_POST["form$i"]) && isset($_POST["choix$i"])){
-                        if($_POST["choix$i"] == 'oui'){
-                            
-                            
-                            $r = 'UPDATE profil SET niveau= 30, demande_referent= 2 WHERE id ='.$data['id'].'';
-                            //$res = $db->prepare($r);
-                            $res= mysql_query($r);
-							//mysql_fetch_assoc($res);
-                            //$res->execute();
-
-                        }elseif($_POST["choix$i"] == 'non'){
-                            echo "refus";
-                            $r = 'UPDATE profil SET demande_referent = 3 WHERE id ='.$data['id'].'';
-                            $res = mysql_query($r);
-							mysql_fetch_assoc($res);
-                            //$res->execute();
-                            
-                    }
-       
-            
-        }
            $i+=1;
      } 
 	 $_SESSION['i']=$i;?> 

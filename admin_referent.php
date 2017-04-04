@@ -57,20 +57,37 @@ if (isset($_GET["action"])) {
 								</table>
 
 <p>
-    <table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1);?>'" width="200" height="60">
 
-        <tr height="40">
-            <td align="center">
-            <a class="titre" href="gestion_referent.php">Afficher les r&eacute;f&eacute;rents</a>
-            <td>
-        </tr>
-        <tr height="40">
-            <td align="center">
-            <a  class="titre" href="demande_referent.php">Nouvelles demandes</a>
-            </td>
-        </tr>
-        
-    </table>
+		<table border="0" cellspacing="0">
+			<tr>
+				<td>
+					<table border="0" cellspacing="0">
+						<tr>
+							<td align="center">
+								<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+									<tr>
+										<td align="center"><span class="texte_info12"> <a class="titre" href="gestion_referent.php">Afficher les r&eacute;f&eacute;rents</a></span></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table border="0" cellspacing="0">
+						<tr>
+							<td align="center">
+								<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="300" height="60">
+									<tr>
+										<td align="center"><span class="texte_info12"> <a  class="titre" href="demande_referent.php">Nouvelles demandes</a></span></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
     </td>
 </p>
 </td>
