@@ -5,6 +5,8 @@ include('include/initialisation_page.inc');
 //$_POST['data'] = unserialize(str_replace('%','"',str_replace('!',' ',$_POST['data'])));
 if($_POST['table']=="soustitres"){
     if ($_POST['submit'] === 'Aceptar Traduction') {
+        $select='DELETE FROM '.$_POST['table'].' WHERE status=1 AND ap_ref=1 AND code="'.$_POST['lang'].'" AND id_resource='.$_POST["idRes"];
+        $exec=mysql_query($select);
         $requete = 'UPDATE ' . $_POST['table'] . ' SET text="'.addslashes($_POST['soustitre']).'", status=1, ap_ref=1 WHERE id=' . $_POST['resid'] . '';
         mysql_query($requete);
 
@@ -33,13 +35,17 @@ if($_POST['table']=="soustitres"){
 
             fclose($archivo);
         }
+
+
     } else {
         $requete = 'DELETE FROM ' . $_POST['table'] . ' WHERE id=' . $_POST['resid'];
         mysql_query($requete);
     }
 }else if($_POST['table']=="ressources_traduction"){
     if ($_POST['submit'] === 'Aceptar Traduction') {
-        $requete = 'UPDATE ' . $_POST['table'] . ' SET title="'.addslashes($_POST['title']).'",  description="'.addslashes($_POST['description']).'",status=1, ap_ref=1 WHERE id=' . $_POST['resid'] . '';
+        $select='DELETE FROM '.$_POST['table'].' WHERE status=1 AND ap_ref=1 AND code="'.$_POST['lang'].'" AND id_resource=' . $_POST['idRes'];
+        $exec=mysql_query($select);
+        $requete = 'UPDATE ' . $_POST['table'] . ' SET title="' . addslashes($_POST['title']) . '",  description="' . addslashes($_POST['description']) . '",status=1, ap_ref=1 WHERE id=' . $_POST['resid'] . '';
         mysql_query($requete);
     } else {
         $requete = 'DELETE FROM ' . $_POST['table'] . ' WHERE id=' . $_POST['resid'];
@@ -108,8 +114,14 @@ if($_POST['table']=="soustitres"){
     if ($_POST['table'] == 'categorie_traduction') {
         if ($_POST['submit'] === 'Aceptar Traduction') {
             for ($i = 1; $i <= ($_POST['total'] - 1); $i++) {
-                $requete = 'UPDATE ' . $_POST['table'] . ' SET name="' . addslashes($_POST["value" . $i]) . '", status=1, ap_ref=1 WHERE id=' . $_POST['data']["id" . $i];
-                $recupcont = mysql_query($requete);
+                $select='SELECT category, code FROM ' . $_POST['table'] . ' WHERE id=' . $_POST['data']["id" . $i];
+                $recup=mysql_query($select);
+                while($data=mysql_fetch_assoc($recup)){
+                    $select='DELETE FROM '.$_POST['table'].' WHERE status=1 AND ap_ref=1 AND code="'.$data['code'].'" AND category='.$data['category'];
+                    $exec=mysql_query($select);
+                    $requete = 'UPDATE ' . $_POST['table'] . ' SET name="' . addslashes($_POST["value" . $i]) . '", status=1, ap_ref=1 WHERE id=' . $_POST['data']["id" . $i];
+                    $recupcont = mysql_query($requete);
+                }
             }
         } else {
             for ($i = 1; $i <= ($_POST['total'] - 1); $i++) {
@@ -119,6 +131,8 @@ if($_POST['table']=="soustitres"){
         }
     } else {
         if ($_POST['submit'] === 'Aceptar Traduction') {
+            $select='DELETE FROM '.$_POST['table'].' WHERE status=1 AND ap_ref=1 AND code="'.$_POST['data']['code'].'"';
+            $exec=mysql_query($select);
             $requete = 'UPDATE ' . $_POST['table'] . ' SET ' . $val . ', status=' . $_POST['data']['status'] . ', ap_ref=1 WHERE id=' . $_POST['data']['id'] . '';
             mysql_query($requete);
         } else {
