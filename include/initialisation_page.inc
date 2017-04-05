@@ -13,6 +13,15 @@ if (isset($_SESSION['langue'])) {
 	}
 }
 
+if (isset($_SESSION['niveau'])&&isset($_SESSION['id'])){
+    $requete="SELECT niveau FROM profil WHERE id=".$_SESSION['id'];
+    $resultat=mysql_query($requete);
+    while ($data=mysql_fetch_assoc($resultat)){
+        $_SESSION['niveau']=$data['niveau'];
+    }
+
+}
+
 if (! isset($idprofil)) {
 	$idprofil=0;
 }

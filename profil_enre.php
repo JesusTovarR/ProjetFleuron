@@ -33,14 +33,17 @@ if(isset($_POST['traducteur'])){
 
 
 if($_POST['referent']){
-    $requete2 = 'INSERT INTO langues_profil VALUES (null,"'.$_POST['langue_referent']. '",' . $_POST['id']. ')';
-    var_dump($requete2);
-    var_dump(mysql_query($requete2));
+    $lang='SELECT code FROM langues_profil WHERE code="'.$_POST['langue_referent'].'" AND id_user='. $_POST['id'];
+    $rec=mysql_query($lang);
+    $val=mysql_num_rows($rec);
+    if($val==0){
+        $requete2 = 'INSERT INTO langues_profil VALUES (null,"'.$_POST['langue_referent']. '",' . $_POST['id']. ', 0)';
+        $exec=mysql_query($requete2);
+        $requete = $requete.'demande_referent="'.$_POST["referent"].'",';
+    }else{
+        $requete = $requete.'demande_referent="0",';
+    }
 }
-
-
-
-$requete = $requete.'demande_referent="'.$_POST["referent"].'",';
 
 $requete = $requete.'motdepasse="'.$_POST["motdepasse"].'"';
 

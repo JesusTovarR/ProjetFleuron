@@ -23,7 +23,11 @@ $tables = array(
     12 => 'affichage_ressource',
     13 => 'content',
     14 => 'page_edit',
-    15 => 'categorie_traduction'
+    15 => 'categorie_traduction',
+    16 => 'ressources_traduction',
+    17 => 'soustitres',
+    18 => 'traducteur',
+    19 => 'general'
 );
 
 $con = mysqli_connect("localhost", "root", "root", "fleuron");
@@ -298,7 +302,7 @@ function referent_langue()
     echo '<center>';
     echo '<select name="lang" size="1">';
 
-    $requete = 'SELECT * FROM langues_profil WHERE id_user=' . $_SESSION['id'];
+    $requete = 'SELECT * FROM langues_profil WHERE ap_ref=1 AND id_user=' . $_SESSION['id'];
     $recuplg = mysql_query($requete);
 
     while ($choixlg = mysql_fetch_assoc($recuplg)) {

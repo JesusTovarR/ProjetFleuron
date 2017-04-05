@@ -181,7 +181,42 @@ if (isset($_GET["action"])) {
 
 										</tr>
 										<?php
-											}else if($niveau>=20&&$niveau<30&&$demande_referent==1){
+											}else if($niveau>=30&&$niveau<50&&$demande_referent==0){
+	?>
+
+	<tr>
+											<td><span class="texte_default">Referent en autre langue:</span></td><!--Cambiar-->
+											<td>
+												<select name="referent" size="1">
+													<?php
+													if($niveau>=30){
+													?>
+													<option value="1" selected>Oui
+													<option value="0">Non
+														<?php
+														}else{
+														?>
+													<option value="0" selected>Non
+													<option value="1">Oui
+														<?php
+														}
+														?>
+												</select>
+
+												<select name="langue_referent" size="1">
+													<?php
+													while ($lang = mysql_fetch_assoc($recup2))
+													{
+														echo '<option value="'.$lang['code'].'">'.$lang['nom'];
+													}
+													?>
+												</select>
+											</td>
+
+										</tr>
+										<?php
+
+										}else if($niveau<50 && $demande_referent==1){
 											echo '<tr>';
 											echo '<td><span class="texte_default">Devenir Referent: </span></td>';
 											echo '<td><span class="texte_default">Demande en attente</span></td>';

@@ -89,7 +89,7 @@ if (isset($_GET["action"])) {
                         <input type='hidden' name='id_i' value='$id_profil' >";
 		$btn=afficher_ressource('option2');
 		echo '<input type="submit" value="'.$btn.'">';
-		echo "  </form></td></tr>";	
+		echo "  </form></td></tr>";
            $i+=1;
      } ?> 
     </table>

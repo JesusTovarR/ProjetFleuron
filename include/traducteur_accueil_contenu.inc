@@ -114,12 +114,15 @@ if($categorie==1){
 	$resultat = mysql_query($requete2);
 	$nb_array=array();
 	$list=array();
+	$list2=array();
     $count=0;
     while ($codes = mysql_fetch_assoc($resultat)){
        $count=$count+1;
         $nb_array["code".$count]=$codes["code"];
 		if($codes["status"]==1&&$codes["ap_ref"]==1){
 			$list[]=$codes['code'];
+		}else if($codes["status"]==2){
+			$list2[]=$codes['code'];
 		}
     }
    /* if($count==0){
@@ -127,11 +130,17 @@ if($categorie==1){
 	}else{*/
 		$code = array_unique($nb_array);
 		$valides=array_unique($list);
+		$attend=array_unique($list2);
 		foreach ($code as $value){
 			$valid=0;
 			foreach ($valides as $val){
 				if($val==$value){
 					$valid=1;
+				}
+			}
+			foreach ($attend as $val2){
+				if($val2==$value){
+					$valid=2;
 				}
 			}
 			duexieme_structure($value, $nom_table, $valid);
@@ -208,6 +217,8 @@ function premier_structure($codes, $nom_table)
 		echo '<input type="hidden" value="' . $code['id'] . '" name="code_id">';
 		if($code['status']==1 && $code['ap_ref']==1) {
 			echo '<td align="center"><span class="texte_info12">'.page_traducteur("message5").'</span></td>';//Cambiar
+		}else if($code['status']==2){
+			echo '<td align="center"><span class="texte_info12">'.page_traducteur("message6").'</span></td>';//Cambiar
 		}else{
 			echo '<td align="center"><span class="texte_info12"><input type="submit" value="'.afficher_ressource("option1").'" name="submitButtonName"></span></td>';//Cambiar
 		}
@@ -261,6 +272,8 @@ function duexieme_structure($code, $nom_table, $valid){
 	echo '<input type="hidden" value="'.$nom_table.'" name="table">';
 	if($valid==1){
 		echo '<td align="center"><span class="texte_info12">'.page_traducteur("message5").'</span></td>';//Cambiar
+	}else if($valid==2){
+		echo '<td align="center"><span class="texte_info12">'.page_traducteur("message6").'</span></td>';//Cambiar
 	}else{
 		echo '<td align="center"><span class="texte_info12"><input type="submit" value="'.afficher_ressource("option1").'" name="submitButtonName"></span></td>';//Cambiar
 	}
