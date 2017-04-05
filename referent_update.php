@@ -37,6 +37,14 @@ if($_POST['table']=="soustitres"){
         $requete = 'DELETE FROM ' . $_POST['table'] . ' WHERE id=' . $_POST['resid'];
         mysql_query($requete);
     }
+}else if($_POST['table']=="ressources_traduction"){
+    if ($_POST['submit'] === 'Aceptar Traduction') {
+        $requete = 'UPDATE ' . $_POST['table'] . ' SET title="'.addslashes($_POST['title']).'",  description="'.addslashes($_POST['description']).'",status=1, ap_ref=1 WHERE id=' . $_POST['resid'] . '';
+        mysql_query($requete);
+    } else {
+        $requete = 'DELETE FROM ' . $_POST['table'] . ' WHERE id=' . $_POST['resid'];
+        mysql_query($requete);
+    }
 }else {
     $_POST["data"] = unserialize(base64_decode($_POST["data"]));
     $_POST['data'] = str_replace('!', ' ', $_POST['data']);

@@ -26,6 +26,18 @@ function soustitres(){
             echo '<textarea class="matextarea" name="soustitre" cols="60" rows="23">'.$value.'</textarea>';
             echo '</td>';
             echo '</tr>';
+        }else if ($cle=="title"){
+            echo '<tr>';
+            echo '<td align="center">';
+            echo '<textarea class="matextarea" name="title" cols="60" rows="1">'.$value.'</textarea>';
+            echo '</td>';
+            echo '</tr>';
+        }else if($cle=="description"){
+            echo '<tr>';
+            echo '<td align="center">';
+            echo '<textarea class="matextarea" name="description" cols="60" rows="10">'.$value.'</textarea>';
+            echo '</td>';
+            echo '</tr>';
         }
     }
     echo '<input type="hidden" value="'.$_POST['table'].'" name="table">';
@@ -42,7 +54,19 @@ function soustitres2(){
         if($cle=="text"){
             echo '<tr>';
             echo '<td align="center">';
-            echo '<textarea class="matextarea" name="soustitre" cols="60" rows="23"  disabled>'.$value.'</textarea>';
+            echo '<textarea class="matextarea" name="" cols="60" rows="23"  disabled>'.$value.'</textarea>';
+            echo '</td>';
+            echo '</tr>';
+        }else if($cle=="title"){
+            echo '<tr>';
+            echo '<td align="center">';
+            echo '<textarea class="matextarea" name="" cols="60" rows="1"  disabled>'.$value.'</textarea>';
+            echo '</td>';
+            echo '</tr>';
+        }else if($cle=="description"){
+            echo '<tr>';
+            echo '<td align="center">';
+            echo '<textarea class="matextarea" name="" cols="60" rows="10"  disabled>'.$value.'</textarea>';
             echo '</td>';
             echo '</tr>';
         }
@@ -178,7 +202,7 @@ echo '<tr>';
                         <center>
                             <br>
                             <?php
-                            if($_POST['table']=="soustitres"){
+                            if($_POST['table']=="soustitres"||$_POST['table']=="ressources_traduction"){
                                 ?>
                                 <form name="FormName" action="referent_update.php" method="post">
                                     <table border="0" cellpadding="0" cellspacing="5" width="900" bgcolor="<?php echo couleur(1);?>'">

@@ -163,7 +163,7 @@ for ($i = 1; $i <= $nb_col; $i++) {
 
 
 
-    }else if($i == 17){
+    }else if($i==16||$i == 17){
         if ($resultat) {
             while ($data = mysql_fetch_assoc($resultat)) {
                 if ($data) {
