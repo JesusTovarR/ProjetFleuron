@@ -143,7 +143,11 @@ if($categorie==1){
 					$valid=2;
 				}
 			}
-			duexieme_structure($value, $nom_table, $valid);
+			if($_SESSION['type']==2) {
+				duexieme_structure($value, $nom_table, 0);
+			}else{
+				duexieme_structure($value, $nom_table, $valid);
+			}
 		/*}*/
 	}
 }else if($categorie==16){

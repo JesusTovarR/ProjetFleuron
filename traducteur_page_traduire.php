@@ -208,9 +208,12 @@ function edition_page_type2_fr()
 		}
 		$count = 0;
 	}else if($_SESSION['formulaire']==4) {
-		$requete = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE category=' . $_SESSION['ressource'] . ' AND code="fr" AND ap_ref=1 ORDER BY title ASC';
-		$resultat = mysql_query($requete);
-		while($data= mysql_fetch_assoc($resultat)) {
+		$requete2 = 'SELECT id_resource FROM ' . $_SESSION['table'] . ' WHERE category=' . $_SESSION['ressource'] . ' AND code="' . $_SESSION['code_lg'] . '" AND id_user='.$_SESSION['id'].' ORDER BY title ASC';
+		$resultat2 = mysql_query($requete2);
+		while($data2= mysql_fetch_assoc($resultat2)) {
+			$requete = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE id_resource='.$data2['id_resource'].' AND category=' . $_SESSION['ressource'] . ' AND code="fr" AND ap_ref=1 ORDER BY title ASC';
+			$resultat = mysql_query($requete);
+			while($data= mysql_fetch_assoc($resultat)) {
 				echo '<tr>';
 				echo '<td align="center">';
 				echo '<textarea class="matextarea" name="" cols="60" rows="1" disabled>' . $data['title'] . '</textarea>';
@@ -223,7 +226,9 @@ function edition_page_type2_fr()
 				echo '</td>';
 				echo '</tr>';
 
+			}
 		}
+
 	}
 
 }
@@ -338,7 +343,7 @@ function edition_page_type2_fr()
 																			<?php if($_SESSION['formulaire']==3||$_SESSION['formulaire']==4){
 																				edition_page_type2();
 																			}else{
-																				echo '<form style="display: none" FormName" action="traducteur_update.php" method="post">';
+																				echo '<form style="display: none" FormName="" action="traducteur_update.php" method="post">';
 																				edition_page();
 																			}?>
 																		</td><!--Cambiar-->
