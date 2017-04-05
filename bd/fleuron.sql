@@ -696,13 +696,7 @@ CREATE TABLE `lg` (
 INSERT INTO `lg` (`id`, `nom`, `code`, `commentaire`, `online`) VALUES
 (1,	'Français',	'fr',	'',	1),
 (2,	'English',	'uk',	'',	1),
-(3,	'Español',	'es',	'',	1),
-(14,	'Allemand',	'de',	'',	1),
-(15,	'Abkhaze',	'ab',	'',	1),
-(16,	'Afar',	'aa',	'',	1),
-(17,	'Afrikaans',	'af',	'',	1),
-(18,	'Akan',	'ak',	'',	1),
-(19,	'Albanais',	'sq',	'',	1);
+(3,	'Español',	'es',	'',	1);
 
 DROP TABLE IF EXISTS `liencategories`;
 CREATE TABLE `liencategories` (
@@ -2158,4 +2152,4 @@ INSERT INTO `versionlinguistique` (`id`, `fr`, `uk`, `es`, `ch`) VALUES
 (148,	'Ajouter',	'Add',	'Agregar',	''),
 (149,	'人 人 都 有 受 教 ',	'人 人 都 有 受 教 ',	'人 人 都 有 受 教 ',	'');
 
--- 2017-04-05 00:11:51
+-- 2017-04-05 10:47:35

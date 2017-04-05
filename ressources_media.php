@@ -5,6 +5,7 @@ include('include/open_connectionBase.inc'); // connection � la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
+global $lg;
 
 if (! isset($_SESSION['niveau'])) {
 	$_SESSION['niveau']=0;
@@ -149,7 +150,7 @@ $vignette=$filename;
 }
 
 $soustitre=0;
-$filename = 'ressources/'.$idressource.'.srt';
+$filename = 'ressources/'.$idressource.$lg.'.srt';
 if (file_exists($filename)) {
 $soustitre=$soustitre+1;
 }
@@ -622,7 +623,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 			<div id="subtitres">
 				<button id="buton1" class="stbutton" ><?php echo versionlinguistique(108) //Afficher les sous-titres ?></button>
 				<div id="soustitre">
-					<div id="sub1" class="srt" data-video="audio" data-srt="ressources/<?php echo $idressource ?>.srt"></div>
+					<div id="sub1" class="srt" data-video="audio" data-srt="ressources/<?php echo $idressource ?><?php echo $lg ?>.srt"></div>
 				</div>
 
 			</div> 
@@ -663,7 +664,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 				<button id="buton1" class="stbutton" ><?php echo versionlinguistique(108) //Afficher les sous-titres ?></button>
 				<div id="soustitre">
 <?php clearstatcache(); ?>
-					<div id="sub1" class="srt" data-video="video" data-srt="ressources/<?php echo $idressource ?>.srt"></div>
+					<div id="sub1" class="srt" data-video="video" data-srt="ressources/<?php echo $idressource ?><?php echo $lg ?>.srt"></div>
 				</div>
 			</div> 
 	<!-- Fin sous titres-->

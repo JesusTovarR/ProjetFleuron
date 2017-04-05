@@ -1,18 +1,18 @@
 <?php
 //*****************************************************************************************
-// 	Réalisation par Steven DUDA - 2016 
+// 	Rï¿½alisation par Steven DUDA - 2016 
 //	06 63 10 33 21 - steven.duda@wanadoo.fr
 //	www.stevenduda.com
 //*****************************************************************************************
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
 
 $page=$_GET["page"];
 
 //**************************************************************************************************
-// Routine d'affichage du formulaire d'ajout de catégorie pour toutes les langues d'utilisation
+// Routine d'affichage du formulaire d'ajout de catï¿½gorie pour toutes les langues d'utilisation
 //**************************************************************************************************
 function ajouter_categorie()
 	{
@@ -32,7 +32,7 @@ function ajouter_categorie()
 						if ($donneeslg['code']=="fr")
 							{
 							echo '<td width="100" rowspan="3" align="center" valign="middle">';
-								echo '<input type="submit" value="'.versionlinguistique(24).'" name="submitButtonName">'; // Enregistrer
+								echo '<input type="submit" value="'.content('btn2').'" name="submitButtonName">'; // Enregistrer
 							echo '</td>';
 							}
 					}
@@ -64,7 +64,7 @@ function ajouter_categorie()
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <!-- Menu principal -->
 					<?php include('include/menu_top.inc'); ?>
 				</td>
@@ -87,7 +87,7 @@ function ajouter_categorie()
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(50) //catégorie ?></span>
+											<span class="titre_admin"><?php echo versionlinguistique(50) //catï¿½gorie ?></span>
 										</td>
 										<td width="150" align="center">
 											<span class="titre_admin"><?php echo versionlinguistique(51) //Ajouter ?></span>
@@ -112,7 +112,7 @@ function ajouter_categorie()
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>
@@ -125,7 +125,7 @@ function ajouter_categorie()
 </html>
 <?php include('include/close_connectionBase.inc');  ?>
 <!-- ****************************************************************************************** -->
-<!--  	Réalisation par Steven DUDA pour CNRS/ATILF - 2016 					-->
+<!--  	Rï¿½alisation par Steven DUDA pour CNRS/ATILF - 2016 					-->
 <!--	06 63 10 33 21 - steven.duda@wanadoo.fr							-->
 <!--	www.stevenduda.com									-->
 <!-- ****************************************************************************************** -->
