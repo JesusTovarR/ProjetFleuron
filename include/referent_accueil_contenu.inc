@@ -189,7 +189,7 @@ for ($i = 1; $i <= $nb_col; $i++) {
                     $datafr = mysql_fetch_assoc($resulfr);
                     foreach ($datafr as $cle => $value) {
                         //codifier la data en francais
-                        if ($cle != "id" && $cle != "code" && $cle != "status" && $cle != "id_user" && $cle != "ap_ref") {
+                        if ($cle != "id" && $cle != "category" && $cle != "code" && $cle != "status" && $cle != "id_user" && $cle != "ap_ref") {
                             $datafr[$cle] = str_replace('>', ')', $value);
                             $datafr[$cle] = str_replace('<', '(', $datafr[$cle]);
                             $datafr[$cle] = str_replace(' ', '!', $datafr[$cle]);
@@ -328,7 +328,7 @@ function referent_langue()
 
 }
 
-Function textFrenchCategorie($tables,$i){
+function textFrenchCategorie($tables,$i){
     // recuperar texto en frances
     $requete = 'SELECT * FROM categorie';
     $resultat = mysql_query($requete);
