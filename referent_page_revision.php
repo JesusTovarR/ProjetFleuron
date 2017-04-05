@@ -15,6 +15,40 @@ if (isset($_GET["action"])) {
 $action=$_GET["action"]; // Variable permettant l'affichage de message suite � l'action d'�dition de la page
 }
 
+function soustitres(){
+    $requete = 'SELECT * FROM '.$_POST['table'].' WHERE id='.$_POST['resid'];
+    $recupcont = mysql_query($requete);
+    $donnees = mysql_fetch_assoc($recupcont);
+    foreach ($donnees as $cle => $value){
+        if($cle=="text"){
+            echo '<tr>';
+            echo '<td align="center">';
+            echo '<textarea class="matextarea" name="soustitre" cols="60" rows="23">'.$value.'</textarea>';
+            echo '</td>';
+            echo '</tr>';
+        }
+    }
+    echo '<input type="hidden" value="'.$_POST['table'].'" name="table">';
+    echo '<input type="hidden" value="'.$_POST['resid'].'" name="resid">';
+    echo '<input type="hidden" value="'.$_POST['idRes'].'" name="idRes">';
+    echo '<input type="hidden" value="'.$_POST['lang'].'" name="lang">';
+}
+
+function soustitres2(){
+    $requete = 'SELECT * FROM '.$_POST['table'].' WHERE code="fr" AND status=1 AND ap_ref=1 AND id_resource='.$_POST['idRes'];
+    $recupcont = mysql_query($requete);
+    $donnees = mysql_fetch_assoc($recupcont);
+    foreach ($donnees as $cle => $value){
+        if($cle=="text"){
+            echo '<tr>';
+            echo '<td align="center">';
+            echo '<textarea class="matextarea" name="soustitre" cols="60" rows="23"  disabled>'.$value.'</textarea>';
+            echo '</td>';
+            echo '</tr>';
+        }
+    }
+}
+
 function revision_referent(){
 
 if($_POST['data']){
@@ -143,6 +177,54 @@ echo '<tr>';
                         </table>
                         <center>
                             <br>
+                            <?php
+                            if($_POST['table']=="soustitres"){
+                                ?>
+                                <form name="FormName" action="referent_update.php" method="post">
+                                    <table border="0" cellpadding="0" cellspacing="5" width="900" bgcolor="<?php echo couleur(1);?>'">
+                                        <tr>
+                                            <td style="vertical-align: top;">
+                                                <table border="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="center">
+                                                            <table border="0" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="425" height="60">
+                                                                <tr>
+                                                                    <td align="center" >
+                                                                        <?php
+                                                                            soustitres2();
+                                                                        ?>
+                                                                    </td><!--Cambiar-->
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td style="vertical-align: top;">
+                                                <table border="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="center">
+                                                            <table border="0" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(1);?>'" width="425" height="60">
+                                                                <tr>
+                                                                    <td align="center">
+                                                                        <?php
+                                                                            soustitres();
+                                                                        ?>
+                                                                    </td><!--Cambiar-->
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <input class="boton verde" type="submit" value="Aceptar Traduction" name="submit"><!--Cambiar-->
+                                    <input class="boton rojo" type="submit" value="Rechazar Traduction" name="submit"><!--Cambiar-->
+                                </form>
+                                <?php
+                            }else{
+                                ?>
                             <form name="FormName" action="referent_update.php" method="post">
                                 <table border="0" cellpadding="0" cellspacing="5" width="100%">
                                     <?php revision_referent();
@@ -177,7 +259,9 @@ echo '<tr>';
                                 <input class="boton verde" type="submit" value="Aceptar Traduction" name="submit"><!--Cambiar-->
                                 <input class="boton rojo" type="submit" value="Rechazar Traduction" name="submit"><!--Cambiar-->
                             </form>
-
+                             <?php
+                            }
+                            ?>
                     </td>
 
                 </tr>

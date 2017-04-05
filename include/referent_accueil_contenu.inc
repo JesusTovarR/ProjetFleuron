@@ -163,6 +163,77 @@ for ($i = 1; $i <= $nb_col; $i++) {
 
 
 
+    }else if($i == 17){
+        if ($resultat) {
+            while ($data = mysql_fetch_assoc($resultat)) {
+                if ($data) {
+                    foreach ($data as $cle => $value) {
+                        if ($cle === 'id_user') {
+                            // chercher les profil qui corresponde a chaque traduction
+                            $requete2 = 'SELECT nom, prenom FROM profil WHERE id=' . $value;
+                            $resultat2 = mysql_query($requete2);
+                            if ($resultat2) {
+                                $data_profil = mysql_fetch_array($resultat2);
+                            }
+
+                            if ($data_profil) {
+                                //$id = "id";
+                                // codifier la data de traduction
+                                echo '<table border="0" cellspacing="0">';
+                                echo '<tr>';
+                                echo '<td>';
+                                echo '<table border="0" cellspacing="0">';
+                                echo '<tr>';
+                                echo '<td align="center">';
+                                echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
+                                echo '<tr>';
+                                echo '<td align="center"><span class="texte_info12">' . $data_profil['prenom'] . " " . $data_profil['nom'] . '</span></td>';
+                                echo '</tr>';
+                                echo '</table>';
+                                echo '</td>';
+                                echo '</tr>';
+                                echo '</table>';
+                                echo '</td>';
+                                echo '<td>';
+                                echo '<table border="0" cellspacing="0">';
+                                echo '<tr>';
+                                echo '<td align="center">';
+                                echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="' . couleur(1) . '" width="300" height="60">';
+                                echo '<tr>';
+                                echo '<form action="referent_page_revision.php" method="post">';
+
+                                //echo '<input type="hidden" value="' . $data_categorie_fr . '" name="data_categorie_fr">';
+                                echo '<input type="hidden" value="' . $data['id'] . '" name="resid">';
+                                echo '<input type="hidden" value=' . $data['id_resource'] . ' name="idRes">';
+                                echo '<input type="hidden" value="' . $tables[$i] . '" name="table">';
+                                echo '<input type="hidden" value="' . $_POST['lang'] . '" name="lang">';
+                                //echo '<input type="hidden" value="'.$code['id'].'" name="code_id">';
+                                //echo '<input type="hidden" value="'.$formulaire.'" name="formulaire">';
+                                echo '<td align="center"><span class="texte_info12"><input type="submit" value="voir traduction" name="submitButtonName"></span></td>';//Cambiar
+                                echo '</form>';
+                                echo '</tr>';
+                                echo '</table>';
+                                echo '</td>';
+                                echo '</tr>';
+                                echo '</table>';
+                                echo '</td>';
+                                echo '</table>';
+
+                            }
+                        }
+
+                    }
+
+
+                } else {
+                    echo "error";
+                }
+            }
+            //var_dump($resultSet);
+
+        } else {
+            //echo $i;
+        }
     }else {
 
 

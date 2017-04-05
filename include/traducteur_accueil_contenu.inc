@@ -155,6 +155,8 @@ if($categorie==1){
 	while($data=mysql_fetch_assoc($recup)){
 		if($data['status']==1&&$data['ap_ref']==1){
 			duexieme_structure($data['code'], $nom_table, 1);
+		}else if($data['status']==2){
+			duexieme_structure($data['code'], $nom_table, 2);
 		}else{
 			duexieme_structure($data['code'], $nom_table, 0);
 		}
