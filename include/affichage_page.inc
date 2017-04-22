@@ -16,6 +16,7 @@ function affichage_page($ref)
 					}
 	}
 
+//Fonction pour récupérer le contenu de la page d'accueil (index.php)
 function affichage_accueil()
 {
 
@@ -26,7 +27,7 @@ function affichage_accueil()
     $recup = mysql_query($requete2);
     while ($data = mysql_fetch_assoc($recup))
     {
-
+        // récupération variable langue
         if($data["status"]==1){
             echo $data["content"];
         }else if($data["status"]==2){
@@ -36,17 +37,17 @@ function affichage_accueil()
     }
 }
 
+//Fonction pour récupérer le contenu de la partie central de conseils.php
 function affichage_conseils()
 {
 
-    global $lg; // récupération variables de connexion
-
+    global $lg; // récupération de la variable de la langage
 
     $requete2 = 'SELECT * FROM conseils_contenu WHERE code="'.$lg.'" && status=1';
     $recup = mysql_query($requete2);
     while ($data = mysql_fetch_assoc($recup))
     {
-
+        //vérification du statut du contenu
         if($data["status"]==1){
             echo $data["content"];
         }else if($data["status"]==2){
@@ -55,7 +56,7 @@ function affichage_conseils()
 
     }
 }
-
+//Fonction pour récupérer le contenu de la partie central de contact.php
 function affichage_contact()
 {
 
@@ -67,6 +68,7 @@ function affichage_contact()
     while ($data = mysql_fetch_assoc($recup))
     {
 
+        //vérification du statut du contenu
         if($data["status"]==1){
             echo $data["content"];
         }else if($data["status"]==2){

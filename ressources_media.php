@@ -145,6 +145,7 @@ $nbmedia=$nbmedia+1;
 
 $filename = $idressource.strrchr($sourcevignette, '.');
 $filenamepath = 'ressources/'.$idressource.strrchr($sourcevignette, '.');
+$vignette="";
 if (file_exists($filenamepath)) {
 $vignette=$filename;
 }
@@ -620,27 +621,102 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 		</audio>
 <?php if ($soustitre>0) { ?>
 	<!-- Sous-titres-->
-			<div id="subtitres">
-				<button id="buton1" class="stbutton" ><?php echo versionlinguistique(108) //Afficher les sous-titres ?></button>
-				<div id="soustitre">
-					<div id="sub1" class="srt" data-video="audio" data-srt="ressources/<?php echo $idressource ?><?php echo $lg ?>.srt"></div>
-				</div>
-
-			</div> 
-	<!-- Fin sous titres-->
-	<!-- Bouton Masquer/afficher les sous-titres -->		
-			<script>
-					$('#buton1').click(function () {
-						if ($("#soustitre").is(":hidden")) {
-							$("#soustitre").show("slow");
-							document.getElementById('buton1').innerHTML = "<?php echo versionlinguistique(108) //Afficher les sous-titres ?>";
-						} else {
-							$("#soustitre").slideUp();
-							document.getElementById('buton1').innerHTML = "<?php echo versionlinguistique(107) //Afficher les sous-titres ?>";
+		<div id="subtitres">
+			<button id="buton1" class="stbutton" ><?php echo versionlinguistique(108) //Afficher les sous-titres ?></button>
+			<div id="soustitre">
+				<div>
+					<select  id="lg" name="color1">
+						<?php
+						$codes=array();
+						$requete='SELECT * FROM lg WHERE online=1 ORDER BY nom';
+						$recuplg = mysql_query($requete);
+						while ($choixlg = mysql_fetch_assoc($recuplg))
+						{
+							$filename = 'ressources/'.$idressource.$choixlg['code'].'.srt';
+							if (file_exists($filename)) {
+								if($choixlg['code']=="fr"){
+									echo '<option value="'.$choixlg['code'].'" selected>'.$choixlg['nom'];
+								}else{
+									echo '<option value="'.$choixlg['code'].'">'.$choixlg['nom'];
+								}
+								array_push($codes, $choixlg['code']);
+							}
 						}
-					});
-					
-			</script>
+						$nbarray=count($codes)
+
+						?>
+					</select>
+				</div>
+				<br/>
+				<?php
+				clearstatcache();
+				for($i=0; $i<$nbarray; $i++) {
+					?>
+					<div id="<?php echo $codes[$i]?>" class="srt" data-video="audio" data-srt="ressources/<?php echo $idressource ?><?php  echo $codes[$i]?>.srt"></div>
+					<?php
+				}
+				?>
+			</div>
+		</div>
+		<!-- Fin sous titres-->
+	<!-- Bouton Masquer/afficher les sous-titres -->
+		<script>
+
+
+
+			$(document).ready(function() {
+				<?php
+				for($i=0; $i<$nbarray; $i++){
+
+				?>
+				var codes="<?php echo $codes[$i];?>";
+				if(codes=="fr"){
+					if ($("#"+codes+"").is(":hidden")) {
+						$("#"+codes+"").show("fast");
+					}
+				}else {
+					if ($("#"+codes+"").is(":visible")) {
+						$("#"+codes+"").hide("fast");
+					}
+				}
+
+				<?php
+				}
+				?>
+			});
+
+			$('select#lg').on('change',function(){
+				<?php
+				for($i=0; $i<$nbarray; $i++){
+
+				?>
+				var codes="<?php echo $codes[$i];?>";
+				var val = $(this).val();
+				if(codes==val){
+					if ($("#"+codes+"").is(":hidden")) {
+						$("#"+codes+"").show("fast");
+					}
+				}else {
+					if ($("#"+codes+"").is(":visible")) {
+						$("#"+codes+"").hide("fast");
+					}
+				}
+				<?php
+				}
+				?>
+			});
+
+			$('#buton1').click(function () {
+				if ($("#soustitre").is(":hidden")) {
+					$("#soustitre").show("slow");
+					document.getElementById('buton1').innerHTML = "<?php echo versionlinguistique(108) //Afficher les sous-titres ?>";
+				} else {
+					$("#soustitre").slideUp();
+					document.getElementById('buton1').innerHTML = "<?php echo versionlinguistique(107) //Afficher les sous-titres ?>";
+				}
+			});
+
+		</script>
 	<!-- Fin bouton -->
 <?php } ?>
 <!-- ----------------------- Fin affichage audio ---------------------------- -->
@@ -663,14 +739,89 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 			<div id="subtitres">
 				<button id="buton1" class="stbutton" ><?php echo versionlinguistique(108) //Afficher les sous-titres ?></button>
 				<div id="soustitre">
-<?php clearstatcache(); ?>
-					<div id="sub1" class="srt" data-video="video" data-srt="ressources/<?php echo $idressource ?><?php echo $lg ?>.srt"></div>
+					<div>
+						<select  id="lg" name="color1">
+							<?php
+							$codes=array();
+							$requete='SELECT * FROM lg WHERE online=1 ORDER BY nom';
+							$recuplg = mysql_query($requete);
+							while ($choixlg = mysql_fetch_assoc($recuplg))
+							{
+								$filename = 'ressources/'.$idressource.$choixlg['code'].'.srt';
+								if (file_exists($filename)) {
+									if($choixlg['code']=="fr"){
+										echo '<option value="'.$choixlg['code'].'" selected>'.$choixlg['nom'];
+									}else{
+										echo '<option value="'.$choixlg['code'].'">'.$choixlg['nom'];
+									}
+									array_push($codes, $choixlg['code']);
+								}
+							}
+							$nbarray=count($codes)
+
+							?>
+						</select>
+					</div>
+					<br/>
+					<?php
+						clearstatcache();
+						for($i=0; $i<$nbarray; $i++) {
+							?>
+							<div id="<?php echo $codes[$i]?>" class="srt" data-video="video" data-srt="ressources/<?php echo $idressource ?><?php  echo $codes[$i]?>.srt"></div>
+							<?php
+						}
+					?>
 				</div>
 			</div> 
 	<!-- Fin sous titres-->
 	<!-- Bouton Masquer/afficher les sous-titres -->		
 			<script>
-					$('#buton1').click(function () {
+
+
+
+			$(document).ready(function() {
+				<?php
+				for($i=0; $i<$nbarray; $i++){
+
+				?>
+				var codes="<?php echo $codes[$i];?>";
+				if(codes=="fr"){
+					if ($("#"+codes+"").is(":hidden")) {
+						$("#"+codes+"").show("fast");
+					}
+				}else {
+					if ($("#"+codes+"").is(":visible")) {
+						$("#"+codes+"").hide("fast");
+					}
+				}
+
+				<?php
+				}
+				?>
+			});
+
+			$('select#lg').on('change',function(){
+			<?php
+				for($i=0; $i<$nbarray; $i++){
+
+			?>
+				var codes="<?php echo $codes[$i];?>";
+				var val = $(this).val();
+				if(codes==val){
+					if ($("#"+codes+"").is(":hidden")) {
+						$("#"+codes+"").show("fast");
+					}
+				}else {
+					if ($("#"+codes+"").is(":visible")) {
+						$("#"+codes+"").hide("fast");
+					}
+				}
+			<?php
+				}
+			?>
+			});
+
+			$('#buton1').click(function () {
 						if ($("#soustitre").is(":hidden")) {
 							$("#soustitre").show("slow");
 							document.getElementById('buton1').innerHTML = "<?php echo versionlinguistique(108) //Afficher les sous-titres ?>";

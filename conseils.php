@@ -68,6 +68,7 @@ include('include/affichage_page.inc'); // routine affichant le contenu rédaction
 </div>
 
 				<p>
+					<!-- Méthode pour afficher le contenu de la partie central -->
 					<?php affichage_conseils($pageencours) ?>
 				</p>
 <div align="right">

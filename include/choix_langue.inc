@@ -35,9 +35,9 @@ if (isset($_GET["categorie"])) {
 			$recuplg = mysql_query($requete);
 				while ($choixlg = mysql_fetch_assoc($recuplg))
 					{
-						if ($lg==$choixlg['code'])
+						if ($lg==$choixlg['code'])//code de la langue
 							{
-								echo '<option value="'.$choixlg['code'].'" selected>'.$choixlg['nom'];
+								echo '<option value="'.$choixlg['code'].'" selected>'.$choixlg['nom'];//nom de la langue
 							} else {
 								echo '<option value="'.$choixlg['code'].'">'.$choixlg['nom'];
 							}

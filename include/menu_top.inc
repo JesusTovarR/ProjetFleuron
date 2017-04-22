@@ -18,6 +18,7 @@
 							<?php if ($_SESSION['niveau']>20) { ?>
 								<td align="center" valign="middle">
 											<ul class="nav">
+												<!-- Option dans le menu pour le module traducteur -->
 												<li><span class="texte_menu">Traduction</span>
 													<ul>
 														<li>

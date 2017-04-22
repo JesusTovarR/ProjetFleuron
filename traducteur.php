@@ -60,6 +60,7 @@ if (isset($_GET["action"])) {
 </div>
 
 				<p>
+					<!-- sections du site pour traduire-->
 					<table border="0" cellspacing="0">
 									<tr>
 										<td>

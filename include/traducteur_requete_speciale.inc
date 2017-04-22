@@ -6,9 +6,9 @@ function creer_brouillon($table, $lg, $status, $ap_ref, $nb_table){
 	$recup2 = mysql_query($requete2);
 
     if ($data=mysql_fetch_assoc($recup)){
-        $_SESSION['exist']=$_SESSION['exist']+1;
+        $_SESSION['exist']=$_SESSION['exist']+1;//la traduction exist
     }else if($data2=mysql_fetch_assoc($recup2)){
-        $_SESSION['exist']=$_SESSION['exist']+1;
+        $_SESSION['exist']=$_SESSION['exist']+1;//la traduction exist
     }else {
 			$requete4='SELECT * FROM '.$table.' WHERE code="'.$lg.'" AND status='.$status.' AND ap_ref='.$ap_ref;
 			$recup4 = mysql_query($requete4);
@@ -24,20 +24,20 @@ function creer_brouillon($table, $lg, $status, $ap_ref, $nb_table){
 						if ($count==1) {
 							// Replacer les '
 							$col ="".$cle;
-							$val ='\''.addslashes($value).'\'';
+							$val ='\''.addslashes($value).'\'';//on retire les slash
 						} else {
 							$col = $col.", ".$cle;
-							$val =$val.', \''.addslashes($value).'\'';
+							$val =$val.', \''.addslashes($value).'\'';//on retire les slash
 						}
 					}
 
 				}
 
 			}
-
+             //On met à jour
 			$requete5='INSERT INTO '.$table.' ('.$col.', code, status, id_user, ap_ref) VALUES ( '.$val.', \''.$lg.'\', 0, '.$_SESSION['id'].', 0)';
 			$exec = mysql_query($requete5);
-			$_SESSION['cree']=$_SESSION['cree']+1;
+			$_SESSION['cree']=$_SESSION['cree']+1;//traduction ajouté
 		}
 }
 
@@ -67,7 +67,7 @@ function creer_brouillon_ressource($table, $id_resource, $lg, $status, $ap_ref, 
     $total = mysql_num_rows($recup);
 
     if ($total>0){
-        $_SESSION['exist']=$_SESSION['exist']+1;
+        $_SESSION['exist']=$_SESSION['exist']+1;//la traduction exist
     }else {
             if($nb_table==15){
                 $ressources='SELECT * FROM '.$table.' WHERE  category='.$id_resource.' AND code="'.$lg.'" AND status='.$status.' AND ap_ref='.$ap_ref;
@@ -78,14 +78,17 @@ function creer_brouillon_ressource($table, $id_resource, $lg, $status, $ap_ref, 
             }
             while($dataRes=mysql_fetch_assoc($recupRes)) {
                 if($nb_table==15){
-                    $name= addslashes($dataRes['name']);
+                    //on cree la traduction
+                    $name= addslashes($dataRes['name']);//on retire les slash
                     $categorie = 'INSERT INTO ' . $table . ' (name, category, code, status, id_user, ap_ref) VALUES ( \'' .$name.'\', '.$dataRes['category'].', \'' . $lg . '\', 0, ' . $_SESSION['id'] . ', 0)';
                 }else if($nb_table==16){
-                    $title= addslashes($dataRes['title']);
+                    $title= addslashes($dataRes['title']);//on retire les slash
                     $description= addslashes($dataRes['description']);
+                    //on cree la traduction
                     $categorie = 'INSERT INTO ' . $table . ' (title, description, category, id_resource, code, status, id_user, ap_ref) VALUES ( \'' .$title.'\', \'' .$description.'\', '.$dataRes['category'].','.$dataRes['id_resource'].', \'' . $lg . '\', 0, ' . $_SESSION['id'] . ', 0)';
                 }else if($nb_table==17){
-                    $text= addslashes($dataRes['text']);
+                    $text= addslashes($dataRes['text']);//on retire les slash
+                    //on cree la traduction
                     $categorie = 'INSERT INTO ' . $table . ' (text, id_resource, code, status, id_user, ap_ref) VALUES ( \'' .$text.'\', '.$dataRes['id_resource'].', \'' . $lg . '\', 0, ' . $_SESSION['id'] . ', 0)';
                 }
                 $exec = mysql_query($categorie);
@@ -117,6 +120,7 @@ function ajouter_langue($table, $lg, $nb_table){
 			}
 
 		}
+    //on cree la traduction
 		$requete2 = 'INSERT INTO ' . $table . ' (' . $col . ', code, status, id_user, ap_ref) VALUES ( ' . $val . ', \'' . $lg . '\', 1, ' . $_SESSION['id'] . ', 0)';
 		$exec = mysql_query($requete2);
 		$_SESSION['cree'] = $_SESSION['cree'] + 1;
@@ -140,18 +144,18 @@ function ajouter_langue_ressource($table, $id_resource, $lg, $nb_table){
             }
             while($dataRes=mysql_fetch_assoc($recupRes)) {
                 if($nb_table==15){
-                    $name= addslashes($dataRes['name']);
+                    $name= addslashes($dataRes['name']);//on retire les slash
                     $categorie = 'INSERT INTO ' . $table . ' (name, category, code, status, id_user, ap_ref) VALUES ( \'' .$name.'\', '.$dataRes['category'].', \'' . $lg . '\', 1, ' . $_SESSION['id'] . ', 0)';
                 }else if($nb_table==16){
-                    $title= addslashes($dataRes['title']);
-                    $description= addslashes($dataRes['description']);
+                    $title= addslashes($dataRes['title']);//on retire les slash
+                    $description= addslashes($dataRes['description']);//on retire les slash
                     $categorie = 'INSERT INTO ' . $table . ' (title, description, category, id_resource, code, status, id_user, ap_ref) VALUES ( \'' .$title.'\', \'' .$description.'\', '.$dataRes['category'].', '.$dataRes['id_resource'].', \'' . $lg . '\', 1, ' . $_SESSION['id'] . ', 0)';
                 }else if($nb_table==17){
-                    $text= addslashes($dataRes['text']);
+                    $text= addslashes($dataRes['text']);//on retire les slash
                     $categorie = 'INSERT INTO ' . $table . ' (text, id_resource, code, status, id_user, ap_ref) VALUES ( \'' .$text.'\', '.$dataRes['id_resource'].', \'' . $lg . '\', 1, ' . $_SESSION['id'] . ', 0)';
                 }
                 $exec = mysql_query($categorie);
             }
-        $_SESSION['cree']=$_SESSION['cree']+1;
+        $_SESSION['cree']=$_SESSION['cree']+1;//la traduction exist
 }
 ?>

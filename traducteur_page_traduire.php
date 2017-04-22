@@ -12,35 +12,40 @@ if (isset($_GET["action"])) {
 }
 $_SESSION['colonnes']=array();
  if(isset($_POST['table'])&&isset($_POST['code_id'])&&isset($_POST['code_lg'])){
-	 $_SESSION['table']=$_POST['table'];
-	 $_SESSION['code_id']=$_POST['code_id'];
-	 $_SESSION['code_lg']=$_POST['code_lg'];
+	 $_SESSION['table']=$_POST['table'];//nom de la table dans la base de données
+	 $_SESSION['code_id']=$_POST['code_id'];//identifiant du code dans la table de la bd
+	 $_SESSION['code_lg']=$_POST['code_lg'];//code de la langue
  }else if(isset($_POST['table'])&&isset($_POST['code_lg'])){
-	 $_SESSION['table']=$_POST['table'];
-	 $_SESSION['code_id']="";
-	 $_SESSION['code_lg']=$_POST['code_lg'];
+	 $_SESSION['table']=$_POST['table'];//nom de la table dans la base de données
+	 $_SESSION['code_id']="";//identifiant du code dans la table de la bd
+	 $_SESSION['code_lg']=$_POST['code_lg'];//code de la langue
  }else if(!isset($_SESSION['table'])&&!isset($_SESSION['code_id'])&&!isset($_SESSION['code_lg'])){
 	 include('include/close_connectionBase.inc');
 	 header('Location: traducteur.php'); // redirection
  }
 
+//Afichage du formulaire pour modifier
 function edition_page()
 {
+	//Formulaire pour la table soustitres
 	if($_SESSION['formulaire']==5){
+		//requête pour récupérer les sosutitres
 		$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE id_resource='. $_SESSION['id_res'].' AND code="'.$_SESSION['code_lg'].'" AND id_user='.$_SESSION['id'];
 		$recupcont = mysql_query($requete);
 		while ($data= mysql_fetch_assoc($recupcont)){
 				echo '<tr>';
 				echo '<td align="center">';
-				echo '<textarea class="matextarea" name="text" cols="60" rows="25">'.$data['text'].'</textarea>';
+				echo '<textarea class="matextarea" name="text" cols="60" rows="25">'.$data['text'].'</textarea>';//affichage du soustitres
 				echo '</td>';
 				echo '</tr>';
 		}
-		echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';
-		echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';
+		echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';//nom de la table où les soustitres appartient
+		echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';//code de la langue des soustitres
 		echo '<input type="hidden" value="4" name="formulaire">';
 
 	}else{
+		//Formulaire pour tous les tables sauf soustitres, categorie_traduction, ressources_traduction
+		//requête pour récupérer le contenu à traduire
 		$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE id='.$_SESSION['code_id'].' AND code="'.$_SESSION['code_lg'].'"';
 		$recupcont = mysql_query($requete);
 		$donnees = mysql_fetch_assoc($recupcont);
@@ -49,60 +54,63 @@ function edition_page()
 			if($cle=="id"||$cle=="code"||$cle=="status"||$cle=="id_user"||$cle=="ap_ref"){
 
 			}else{
-				$_SESSION['colonnes'][$count]=$cle;
+				$_SESSION['colonnes'][$count]=$cle;//nombre de lignes à enregistrer
 				echo '<tr>';
 				echo '<td align="center">';
 				if($_SESSION['formulaire']==1){
-					echo '<textarea name="value'.$count.'" cols="60" rows="31">'.$value.'</textarea>';
+					echo '<textarea name="value'.$count.'" cols="60" rows="31">'.$value.'</textarea>';//contenu avec balises html
 				}else if($_SESSION['formulaire']==2){
-					echo '<textarea class="matextarea" name="value'.$count.'" cols="60" rows="1">'.$value.'</textarea>';
+					echo '<textarea class="matextarea" name="value'.$count.'" cols="60" rows="1">'.$value.'</textarea>';//contenu sans balises html
 				}
 				echo '</td>';
 				echo '</tr>';
 				$count=$count+1;
 			}
 		}
-		echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';
-		echo '<input type="hidden" value="'.$_SESSION['code_id'].'" name="code_id">';
-		echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';
-		echo '<input type="hidden" value="1" name="formulaire">';
+		echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';//nom de la table
+		echo '<input type="hidden" value="'.$_SESSION['code_id'].'" name="code_id">';//identifiant du code
+		echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';//code de la langue
+		echo '<input type="hidden" value="1" name="formulaire">';//type de formulaire
 		$count=0;
 	}
 }
 
+//Afichage du formulaire pour modifier
 function edition_page_type2()
 {
+	//Formulaire pour la table categorie_traduction
 	if($_SESSION['formulaire']==3) {
+		//requête pour récupérer les identifiants des categories
 		$requete = 'SELECT * FROM categorie';
 		$resultat = mysql_query($requete);
 		$count = 1;
 		echo '<form style="display: none" name="FormName" action="traducteur_update.php" method="post">';
 		while($cat= mysql_fetch_assoc($resultat)) {
-
+			//on récupére les categories une par une
 			$requete2 = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE category=' . $cat['id'] . ' AND code="' . $_SESSION['code_lg'] . '" AND id_user='.$_SESSION['id'];
 			$recupcont = mysql_query($requete2);
 			$donnees = mysql_fetch_assoc($recupcont);
 			foreach ($donnees as $cle => $value) {
 				if($cle=="id"){
-					echo '<input type="hidden" value="' . $value . '" name="id'.$count.'">';
+					echo '<input type="hidden" value="' . $value . '" name="id'.$count.'">';//id de la traduction de la categorie dans la table categorie_traduction
 				}
 				if ($cle == "name") {
 					echo '<tr>';
 					echo '<td align="center">';
-					echo '<textarea class="matextarea" name="value' . $count . '" cols="60" rows="1">' . $value . '</textarea>';
+					echo '<textarea class="matextarea" name="value' . $count . '" cols="60" rows="1">' . $value . '</textarea>';//text à traduire
 					echo '</td>';
 					echo '</tr>';
 				}
 			}
 			$count = $count + 1;
 		}
-		echo '<input type="hidden" value="' . $_SESSION['table'] . '" name="table">';
-		echo '<input type="hidden" value="' . $_SESSION['code_lg'] . '" name="code_lg">';
-		echo '<input type="hidden" value="'.$count.'" name="total">';
+		echo '<input type="hidden" value="' . $_SESSION['table'] . '" name="table">';//nom de la table
+		echo '<input type="hidden" value="' . $_SESSION['code_lg'] . '" name="code_lg">';//code de la langue
+		echo '<input type="hidden" value="'.$count.'" name="total">';//total des éléments enregistrés
 		echo '<input type="hidden" value="2" name="formulaire">';
 		$count = 0;
 	}else if($_SESSION['formulaire']==4) {
-
+		//Formulaire pour la table ressources_traduction
 		$requete = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE category=' . $_SESSION['ressource'] . ' AND code="' . $_SESSION['code_lg'] . '" AND id_user='.$_SESSION['id'].' ORDER BY title ASC';
 		$resultat = mysql_query($requete);
 		$dat=0;
@@ -110,29 +118,29 @@ function edition_page_type2()
 			echo '<form style="display: none" name="FormName" action="traducteur_update.php" method="post">';
 			foreach ($data as $cle => $value) {
 				if($cle=="id"){
-					echo '<input type="hidden" value="' . $value . '" name="idRessources">';
+					echo '<input type="hidden" value="' . $value . '" name="idRessources">';//identifiant du ressource
 					$dat=$value;
 				}
 				if ($cle == "title" || $cle == "description") {
 					echo '<tr>';
 					echo '<td align="center">';
 					if($cle == "description"){
-						echo '<textarea class="matextarea" name="' . $cle . '" cols="60" rows="5">' . $value . '</textarea>';
+						echo '<textarea class="matextarea" name="' . $cle . '" cols="60" rows="5">' . $value . '</textarea>';//titre du ressource
 					}else{
-						echo '<textarea class="matextarea" name="' . $cle . '" cols="60" rows="1">' . $value . '</textarea>';
+						echo '<textarea class="matextarea" name="' . $cle . '" cols="60" rows="1">' . $value . '</textarea>';//description du ressource
 					}
 					echo '</td>';
 					echo '</tr>';
 				}
 			}
-			echo '<input type="hidden" value="' . $_SESSION['table'] . '" name="table">';
-			echo '<input type="hidden" value="' . $_SESSION['code_lg'] . '" name="code_lg">';
-			echo '<input type="hidden" value="3" name="formulaire">';
+			echo '<input type="hidden" value="' . $_SESSION['table'] . '" name="table">';//nom de la table
+			echo '<input type="hidden" value="' . $_SESSION['code_lg'] . '" name="code_lg">';//code de la langue
+			echo '<input type="hidden" value="3" name="formulaire">';//type de formulaire
 			echo '<tr>';
 			echo '<td align="center">';
-			echo '<input class="btn" type="submit" value="'. content("btn2").'" name="submitButtonName"><!--Cambiar-->';
+			echo '<input class="btn" type="submit" value="'. content("btn2").'" name="submitButtonName">';//Enregistrer
 			echo '</form>';
-			echo '<a href="traducteur_demande_referent.php?dat='.$dat.'"><input class="btn" type="submit" value="'.content("btn").'" name="submitButtonName"></a><!--Cambiar-->';
+			echo '<a href="traducteur_demande_referent.php?dat='.$dat.'"><input class="btn" type="submit" value="'.content("btn").'" name="submitButtonName"></a>';//Demande référent
 			echo '</td>';
 			echo '</tr>';
 		}
@@ -140,6 +148,7 @@ function edition_page_type2()
 
 }
 
+//Affichage du text en francaise
 function edition_page_fr()
 {
 	if($_SESSION['formulaire']==5){
@@ -183,6 +192,7 @@ function edition_page_fr()
 
 }
 
+//Affichage du text en francaise
 function edition_page_type2_fr()
 {
 	if($_SESSION['formulaire']==3) {

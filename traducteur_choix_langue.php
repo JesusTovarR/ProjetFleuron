@@ -13,12 +13,12 @@ if (isset($_GET["action"])) {
 }
 
 if (isset($_GET["message"])) {
-	$message=$_GET["message"]; // Variable permettant l'affichage de message suite � l'action d'�dition de la page
+	$message=$_GET["message"]; // Variable permettant l'affichage de message suite à la traduction d'une section
 }else{
 	$message=0;
 }
 if (isset($_GET["categorie"])) {
-	$nb_cat=$_GET["categorie"];
+	$nb_cat=$_GET["categorie"];// Variable permettant d'identifier la table dans la base de données
 }
 ?>
 
@@ -84,7 +84,7 @@ $message=0;}?>
 </div>
 
 				<p>
-					<?php include('include/traducteur_accueil_contenu.inc');  ?>
+					<?php include('include/traducteur_accueil_contenu.inc');  //affiche les traductions fait?>
 				</p>
 
 
@@ -98,7 +98,7 @@ $message=0;}?>
 									<tr>
 										<td align="right">
 <!-- Module d'affichage des choix des langues disponibles - table LG -->
-<?php include('include/choix_langue.inc');  ?>
+<?php include('include/choix_langue.inc'); ?>
 											</td>
 									</tr>
 				<?php } ?>
@@ -115,7 +115,7 @@ $message=0;}?>
 										<td align="right">
 <!-- Module d'affichage du formulaire pour ajouter une langue  -->
 <?php //include('include/traducteur_ajouter_traduction.inc');  ?>
-<?php ajouter_langue();  ?>
+<?php ajouter_langue(); //affiche le farmulaire pour ajouter une nouvelle langue ?>
 										</td>
 									</tr>
 									<tr>

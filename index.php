@@ -178,7 +178,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 
 <!-- ******************************* Affichage page d'accueil pour le visiteur lambda ********************* -->
 									<p>
-										<?php affichage_accueil() ?>
+										<?php affichage_accueil() //affichage contenu accueil?>
 									</p>
 								<?php } ?>
 

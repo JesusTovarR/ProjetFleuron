@@ -15,7 +15,9 @@ function versionlinguistique($codemot)
 		}
 }
 
-function affichage_menu($val)
+//Fonction pour récupérer le text du menu
+
+function affichage_menu($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -26,6 +28,7 @@ function affichage_menu($val)
 
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
@@ -35,9 +38,10 @@ function affichage_menu($val)
     }
 }
 
+//Fonction pour récupérer le contenu du formulaire pour ajouter une langue
+
 function choix_langue()
 {
-
 
     global $lg; // récupération variable langue
 
@@ -46,6 +50,7 @@ function choix_langue()
 
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data["content"];
         }else if($data['status']==2){
@@ -55,7 +60,9 @@ function choix_langue()
     }
 }
 
-function login($val)
+//Fonction pour récupérer le contenu du login
+
+function login($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -66,6 +73,7 @@ function login($val)
 
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
@@ -75,7 +83,9 @@ function login($val)
     }
 }
 
-function moteur($val)
+//Fonction pour récupérer le contenu de la partie moteur de recherche
+
+function moteur($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -86,6 +96,7 @@ function moteur($val)
 
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
@@ -94,6 +105,8 @@ function moteur($val)
 
     }
 }
+
+//Fonction pour récupérer le contenu de la partie dernier media
 
 function dernier_media()
 {
@@ -106,6 +119,7 @@ function dernier_media()
 
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data["title"];
         }else if($data['status']==2){
@@ -115,7 +129,9 @@ function dernier_media()
     }
 }
 
-function afficher_ressource($val)
+//Fonction pour récupérer le contenu des boutons pour les brouillons
+
+function afficher_ressource($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -126,6 +142,7 @@ function afficher_ressource($val)
 
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
@@ -135,7 +152,9 @@ function afficher_ressource($val)
     }
 }
 
-function tableau_du_bord($val)
+//Fonction pour récupérer le contenu des boutons pour l'administrateur
+
+function tableau_du_bord($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -146,6 +165,7 @@ function tableau_du_bord($val)
 
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
@@ -155,7 +175,9 @@ function tableau_du_bord($val)
     }
 }
 
-function menu_administrateur($val)
+//Fonction pour récupérer le contenu du menu administrateur
+
+function menu_administrateur($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -166,6 +188,7 @@ function menu_administrateur($val)
 
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
@@ -175,7 +198,9 @@ function menu_administrateur($val)
     }
 }
 
-function content($val)
+//Fonction pour récupérer contenu en général du site
+
+function content($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -186,6 +211,7 @@ function content($val)
 
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
@@ -195,7 +221,9 @@ function content($val)
     }
 }
 
-function conseils($val)
+//Fonction pour récupérer le contenu de conseils.php
+
+function conseils($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -206,6 +234,7 @@ function conseils($val)
 
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
@@ -215,7 +244,9 @@ function conseils($val)
     }
 }
 
-function page_modification($val)
+//Fonction pour récupérer contenu en général du site
+
+function page_modification($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -225,6 +256,7 @@ function page_modification($val)
     $recup = mysql_query($requete);
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
@@ -234,7 +266,9 @@ function page_modification($val)
     }
 }
 
-function page_traducteur($val)
+//Fonction pour récupérer le contenu du moodule traducteur
+
+function page_traducteur($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -244,6 +278,7 @@ function page_traducteur($val)
     $recup = mysql_query($requete);
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
@@ -253,7 +288,9 @@ function page_traducteur($val)
     }
 }
 
-function general($val)
+//Fonction pour récupérer contenu en général du site
+
+function general($val)//$val contient le nom de la colonne dans la table
 {
 
 
@@ -263,6 +300,7 @@ function general($val)
     $recup = mysql_query($requete);
     while ($data = mysql_fetch_assoc($recup))
     {
+        //vérification du statut du contenu
         if($data['status']==1){
             return $data[$val];
         }else if($data['status']==2){
