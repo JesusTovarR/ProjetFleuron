@@ -34,7 +34,7 @@ function affichage_lien()
 if ($_SESSION['niveau']>=50) { // Affichage Bouton ajouter un lien
 										echo '<td><table border="0" cellpadding="6" cellspacing="2" bgcolor="'.couleur(1).'">';
 											echo '<tr>';
-												echo '<td colspan="2"><a href="liens_categorie_edit.php?lg='.$lg.'&id='.$data['id'].'&page='.$pageencours.'"><span class="texte_info12">'.versionlinguistique(47).'</span></a></td>'; // Editer
+												echo '<td colspan="2"><a href="liens_categorie_edit.php?lg='.$lg.'&id='.$data['id'].'&page='.$pageencours.'"><span class="texte_info12">'.content("line205_216").'</span></a></td>'; // Editer
 											echo '</tr>';
 										echo '</table></td></tr></table>';
 }
@@ -58,14 +58,14 @@ if ($_SESSION['niveau']>=50) { // Affichage Bouton ajouter un lien
 									echo '<td width="100">';
 										echo '<table border="0" cellpadding="6" cellspacing="2" bgcolor="'.couleur(1).'">';
 											echo '<tr>';
-												echo '<td colspan="2"><a href="liens_modifier.php?lg='.$lg.'&id='.$data2['id'].'&page='.$pageencours.'"><span class="texte_info12">'.versionlinguistique(47).'</span></a></td>'; // Editer
+												echo '<td colspan="2"><a href="liens_modifier.php?lg='.$lg.'&id='.$data2['id'].'&page='.$pageencours.'"><span class="texte_info12">'.content("line205_216").'</span></a></td>'; // Editer
 											echo '</tr>';
 										echo '</table>';
 									echo '</td>';
 									echo '<td width="100">';
 										echo '<table border="0" cellpadding="6" cellspacing="2" bgcolor="'.couleur(1).'">';
 											echo '<tr>';
-												echo '<td colspan="2"><a href="liens_supprimer.php?lg='.$lg.'&id='.$data2['id'].'&page='.$pageencours.'"><span class="texte_info12">'.versionlinguistique(48).'</span></a></td>'; // Supprimer
+												echo '<td colspan="2"><a href="liens_supprimer.php?lg='.$lg.'&id='.$data2['id'].'&page='.$pageencours.'"><span class="texte_info12">'.afficher_ressource("option2").'</span></a></td>'; // Supprimer
 											echo '</tr>';
 										echo '</table>';
 									echo '</td>';
@@ -116,31 +116,31 @@ if ($_SESSION['niveau']>=50) { // Affichage Bouton ajouter un lien
 								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 									<tr>
 										<td align="center" height="30">
-											<span class="titre"><?php echo versionlinguistique(27); //Liens utiles ?></span>
+											<span class="titre"><?php echo new_versionlinguistique("text27"); //Liens utiles ?></span>
 										</td>
 									</tr>
 								</table>
 
 <br>
 <?php if (isset($_GET["action"])) { ?>
-<p><div align="center"><span class="message"><?php echo versionlinguistique(34); // Lien modifi� ?></span></div>
+<p><div align="center"><span class="message"><?php echo new_versionlinguistique("text34"); // Lien modifi� ?></span></div>
 <?php } ?>
 <?php if (isset($_GET["action2"])) { ?>
-<p><div align="center"><span class="message"><?php echo versionlinguistique(33); // Lien supprim� ?></span></div>
+<p><div align="center"><span class="message"><?php echo new_versionlinguistique("text33"); // Lien supprim� ?></span></div>
 <?php } ?>
 <br>
 <div align="right">
 <?php if ($_SESSION['niveau']>=50) { // Affichage Bouton ajouter une cat�gorie ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur fonc�e ?>" width="220">
 												<tr>
-													<td align="center"><a href="liens_categorie_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(43) //Ajouter une cat�gorie ?></span></a></td>
+													<td align="center"><a href="liens_categorie_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text43") //Ajouter une cat�gorie ?></span></a></td>
 												</tr>
 											</table><br>
 <?php } ?>
 <?php if ($_SESSION['niveau']>=50) { // Affichage Bouton ajouter un lien ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur fonc�e ?>" width="220">
 												<tr>
-													<td align="center"><a href="liens_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(49) //Ajouter un lien ?></span></a></td>
+													<td align="center"><a href="liens_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text49") //Ajouter un lien ?></span></a></td>
 												</tr>
 											</table>
 <?php } ?>
@@ -153,7 +153,7 @@ if ($_SESSION['niveau']>=50) { // Affichage Bouton ajouter un lien
 <?php if ($_SESSION['niveau']>=50) { // Affichage Bouton �dition page ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur fonc�e ?>" width="220">
 												<tr>
-													<td align="center"><a href="liens_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(49) //Ajouter un lien ?></span></a></td>
+													<td align="center"><a href="liens_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text49") //Ajouter un lien ?></span></a></td>
 												</tr>
 											</table>
 <?php } ?>

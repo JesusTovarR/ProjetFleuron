@@ -109,7 +109,7 @@ echo '<table>';
 
 										echo '<table border="0" cellpadding="6" cellspacing="2" bgcolor="'.couleur(1).'">';
 											echo '<tr>';
-												echo '<td colspan="2"><a href="ressources_retirer_lien.php?idressource='.$idressource.'&liens='.$liens.'&lien='.$data2['id'].'"><span class="texte_info12">'.versionlinguistique(139).'</span></a></td>';
+												echo '<td colspan="2"><a href="ressources_retirer_lien.php?idressource='.$idressource.'&liens='.$liens.'&lien='.$data2['id'].'"><span class="texte_info12">'.new_versionlinguistique("text139").'</span></a></td>';
 											echo '</tr>';
 										echo '</table><br>';
 								echo '</td>';	
@@ -140,9 +140,9 @@ echo '</table>';
 
 <?php if ($_SESSION['niveau']>=50) { ?>
 		<form name="FormName" action="ressources_ajout_lien.php" method="post">
-<p><?php echo versionlinguistique(140) //Connecter un lien ?> :</p>
+<p><?php echo new_versionlinguistique("text140") //Connecter un lien ?> :</p>
 			<?php affichage_choixlien() ?>
-			<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo versionlinguistique(51) //Ajouter ?></button>
+			<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo general("text6") //Ajouter ?></button>
 
 
 		<input type="hidden" value="<?php echo $idressource; ?>" name="idressource">
@@ -151,7 +151,7 @@ echo '</table>';
 		<input type="hidden" value="<?php echo $liens; ?>" name="liens">
 		</form><br><br>
 <?php } ?>
-<br><p><?php echo versionlinguistique(141) //Connecter un lien ?> :</p><br>
+<br><p><?php echo new_versionlinguistique("text141") //Connecter un lien ?> :</p><br>
 <?php affichage_lien() ?>
 	</body>
 

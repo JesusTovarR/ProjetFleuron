@@ -89,7 +89,8 @@ if ($fichierserveur=="") {
 if ($_SESSION['id']<>'') {
 														echo '<iframe src="favoris.php?ressource='.$data['id'].'&id='.$_SESSION['id'].'" name="notes" width="35" scrolling="NO" height="35" frameborder="yes"></iframe>';
 }
-													echo '</td>';
+													echo '</td>';
+
 												echo '</tr>';
 											echo '</table>';
 										echo '</td>';
@@ -117,14 +118,14 @@ if ($_SESSION['id']<>'') {
 													echo '<td>';
 														echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="'.couleur(1).'" width="100">';
 															echo '<tr>';
-																echo '<td align="center"><a href="ressource_edit.php?lg='.$lg.'&id='.$data['id'].'&categorie='.$data['categorie'].'&pageencours='.$pageencours.'&idprofil='.$idprofil.'"><span class="texte_info12">'.versionlinguistique(47).'</span></a></td>';
+																echo '<td align="center"><a href="ressource_edit.php?lg='.$lg.'&id='.$data['id'].'&categorie='.$data['categorie'].'&pageencours='.$pageencours.'&idprofil='.$idprofil.'"><span class="texte_info12">'.content("line205_216").'</span></a></td>';
 															echo '</tr>';
 														echo '</table>';
 													echo '</td>';
 													echo '<td>';
 														echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="'.couleur(1).'" width="100">';
 															echo '<tr>';
-																echo '<td align="center"><a href="ressource_suppr.php?lg='.$lg.'&id='.$data['id'].'&categorie='.$data['categorie'].'&pageencours='.$pageencours.'&idprofil='.$idprofil.'"><span class="texte_info12">'.versionlinguistique(48).'</span></a></td>'; // supprimer
+																echo '<td align="center"><a href="ressource_suppr.php?lg='.$lg.'&id='.$data['id'].'&categorie='.$data['categorie'].'&pageencours='.$pageencours.'&idprofil='.$idprofil.'"><span class="texte_info12">'.afficher_ressource("option2").'</span></a></td>'; // supprimer
 															echo '</tr>';
 														echo '</table>';
 													echo '</td>';

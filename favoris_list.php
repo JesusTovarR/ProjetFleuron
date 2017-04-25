@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -24,7 +24,7 @@ if (isset($_GET["page"])) {
 
 
 //**********************************
-// Vérification des favoris de l'utiliateur
+// Vï¿½rification des favoris de l'utiliateur
 //**********************************
 	$nbfavoris=0;
 	$requete = 'SELECT COUNT(id) AS total FROM favoris WHERE profil='.$_SESSION['id'];
@@ -43,7 +43,7 @@ header('Location: ressources.php?lg='.$lg.'&action2=ok&categorie='.$categorie.'&
 function affichage_favoris()
 	{
 
-		global $lg,$categorie,$idprofil,$pageencours; // récupération variable langue
+		global $lg,$categorie,$idprofil,$pageencours; // rï¿½cupï¿½ration variable langue
 		$nb=0;
 			echo '<table border="0" cellspacing="5" >';
 
@@ -77,9 +77,9 @@ include('include/affichage_ressource_favoris.inc'); // affichage des ressources 
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -98,13 +98,13 @@ include('include/affichage_ressource_favoris.inc'); // affichage des ressources 
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="100">
 												<tr>
 													<td align="center">
-														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center" bgcolor="<?php echo couleur(2); //couleur claire ?>">
-											<span class="titre"><?php echo versionlinguistique(75); //favoris ?></span>
+											<span class="titre"><?php echo tableau_du_bord("btnfavorite");//favoris ?></span>
 										</td>
 										
 									</tr>
@@ -143,7 +143,7 @@ include('include/affichage_ressource_favoris.inc'); // affichage des ressources 
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -174,7 +174,7 @@ include('include/affichage_ressource_favoris.inc'); // affichage des ressources 
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

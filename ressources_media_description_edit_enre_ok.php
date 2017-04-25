@@ -17,7 +17,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 	<body>
 		<table border="0" cellpadding="0" cellspacing="2" width="100%" height="300">
 			<tr>
-				<td align="center" valign="middle"><span class="titre_admin"><?php echo versionlinguistique(100); //Votre description a été enregistrée ?></span></td>
+				<td align="center" valign="middle"><span class="titre_admin"><?php echo new_versionlinguistique("text100"); //Votre description a ï¿½tï¿½ enregistrï¿½e ?></span></td>
 			</tr>
 		</table>
 	</body>

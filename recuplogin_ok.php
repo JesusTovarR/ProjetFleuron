@@ -1,13 +1,13 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
 
-include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une page
+include('include/affichage_page.inc'); // afficher le contenu rï¿½dactionnel d'une page
 
 ?>
 
@@ -30,7 +30,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <?php 
 
 		// Menu des visiteurs non inscrits 
@@ -48,7 +48,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 							<td valign="top">
 <center>
 <br><br><br>
-<span class="texte_defaultGras"><?php echo versionlinguistique(144); //un mail vous a été envoyé ?></span><br><br>
+<span class="texte_defaultGras"><?php echo new_versionlinguistique("text144"); //un mail vous a ï¿½tï¿½ envoyï¿½ ?></span><br><br>
 
 
 </center>
@@ -84,7 +84,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -111,7 +111,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

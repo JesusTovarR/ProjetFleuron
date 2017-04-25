@@ -1,5 +1,5 @@
 <hr/>
-<span class="texte_default"><?php echo versionlinguistique(36); //Choisir une cat�gorie ?></span>
+<span class="texte_default"><?php echo general("text1"); //Choisir une cat�gorie ?></span>
 <br>
 <?php
 
@@ -184,6 +184,12 @@ if($categorie==1){
     $nom_table="general";//nom de la table dans la base de données
     $_SESSION['formulaire']=2;//Type du formulaire pour la traduction
     premier_structure($codes, $nom_table);
+}else if($categorie==19){
+	$requete2='SELECT * FROM new_versionlinguistique WHERE id_user='.$_SESSION['id'];
+	$codes = mysql_query($requete2);
+	$nom_table="new_versionlinguistique";//nom de la table dans la base de données
+	$_SESSION['formulaire']=2;//Type du formulaire pour la traduction
+	premier_structure($codes, $nom_table);
 }else{
     echo "error";
 }

@@ -36,7 +36,7 @@ function edition()
 						if ($donneeslg['code']=="fr")
 							{
 							echo '<td width="100" rowspan="3" align="center" valign="middle">';
-								echo '<input type="submit" value="'.versionlinguistique(24).'" name="submitButtonName">'; // Enregistrer
+								echo '<input type="submit" value="'.content("btn2").'" name="submitButtonName">'; // Enregistrer
 							echo '</td>';
 							}
 					}
@@ -89,16 +89,16 @@ function edition()
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="liens.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="liens.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(50) ?> - <?php echo versionlinguistique(5) //catégorie - Liens utiles ?></span>
+											<span class="titre_admin"><?php echo general("text7") ?> - <?php echo new_versionlinguistique("text5") //catégorie - Liens utiles ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(47) //Editer ?></span>
+											<span class="titre_admin"><?php echo content("line205_216") //Editer ?></span>
 										</td>
 									</tr>
 								</table>

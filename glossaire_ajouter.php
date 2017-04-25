@@ -13,7 +13,7 @@ function ajouter_versionlinguistique()
 		echo '<form name="FormName" action="glossaire_ajouter_enre.php" method="post">';
 		echo '<table border="0">';
 					echo '<tr>';
-						echo '<td><span class="texte_defaultgras">'.versionlinguistique(134).' :</span></td>';
+						echo '<td><span class="texte_defaultgras">'.content("text3").' :</span></td>';
 					echo '</tr>';
 					echo '<tr>';
 						echo '<td><input type="text" name="item" size="80" value=""></td>';
@@ -22,7 +22,7 @@ function ajouter_versionlinguistique()
 						echo '<td align="30">&nbsp;</td>';
 					echo '</tr>';
 					echo '<tr>';
-						echo '<td><span class="texte_defaultgras">'.versionlinguistique(69).' :</span></td>';
+						echo '<td><span class="texte_defaultgras">'.general("text14").' :</span></td>';
 					echo '</tr>';
 			$recuplg = mysql_query('SELECT * FROM lg ORDER BY id');
 				while ($donneeslg = mysql_fetch_assoc($recuplg))
@@ -39,7 +39,7 @@ function ajouter_versionlinguistique()
 					echo '</tr>';
 					echo '<tr>';
 						echo '<td align="center" >';
-							echo '<input type="submit" value="'.versionlinguistique(24).'" name="submitButtonName">'; // Enregistrer
+							echo '<input type="submit" value="'.content("btn2").'" name="submitButtonName">'; // Enregistrer
 						echo '</td>';
 
 					echo '</tr>';
@@ -96,16 +96,16 @@ function ajouter_versionlinguistique()
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="glossaire.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //REtour ?></span></a>
+														<a href="glossaire.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //REtour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(133) //Glossaire ?></span>
+											<span class="titre_admin"><?php echo tableau_du_bord("btnglossary") //Glossaire ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(51) //Ajouter?></span>
+											<span class="titre_admin"><?php echo general("text6") //Ajouter?></span>
 										</td>
 									</tr>
 								</table>

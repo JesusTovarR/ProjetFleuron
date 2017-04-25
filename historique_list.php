@@ -94,13 +94,13 @@ include('include/affichage_ressource_favoris.inc'); // affichage des ressources 
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="100">
 												<tr>
 													<td align="center">
-														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center" bgcolor="<?php echo couleur(2); //couleur claire ?>">
-											<span class="titre"><?php echo versionlinguistique(126); //historique ?></span>
+											<span class="titre"><?php echo tableau_du_bord("btnhistory");//historique ?></span>
 										</td>
 										
 									</tr>

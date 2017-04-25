@@ -23,7 +23,8 @@ $tables= array(
     16 => 'ressources_traduction',
     17 => 'soustitres',
     18 => 'traducteur',
-    19 => 'general'
+    19 => 'general',
+    20 => 'new_versionlinguistique'
     );
 
 $nb_col= count($tables);//numéro de tables

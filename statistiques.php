@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -31,9 +31,9 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -47,7 +47,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 <!-- Partie centrale -->
 							<td valign="top">
 <center>
-<span class="titre_admin"><?php echo versionlinguistique(130); // Statistiques ?></span></center>
+<span class="titre_admin"><?php echo new_versionlinguistique("text130"); // Statistiques ?></span></center>
 <br><br><br>
 
 
@@ -60,7 +60,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 						<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1) ?>" width="200" height="60">
 							<tr>
 								<td align="center">
-									<a href="statistiques_concordancier.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo versionlinguistique(114); // concordancier ?></span></a>
+									<a href="statistiques_concordancier.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text114"); // concordancier ?></span></a>
 								</td>
 							</tr>
 						</table>
@@ -70,7 +70,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 						<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1) ?>" width="200" height="60">
 							<tr>
 								<td align="center">
-									<a href="statistiques_media.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo versionlinguistique(115); // ressources ?></span></a>
+									<a href="statistiques_media.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text115"); // ressources ?></span></a>
 								</td>
 							</tr>
 						</table>
@@ -111,7 +111,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -142,7 +142,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

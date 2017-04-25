@@ -82,16 +82,16 @@ function affichage_concordancier()
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="statistiques.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="statistiques.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(130) //Statistiques ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text130") //Statistiques ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(114) //Concordancier ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text114") //Concordancier ?></span>
 										</td>
 									</tr>
 								</table>
@@ -99,15 +99,15 @@ function affichage_concordancier()
 
 
 				<p>
-			<span class="texte_defaultGras"><?php echo $nbrequete ?> <?php echo versionlinguistique(132) //requêtes ?></span><br><br>
+			<span class="texte_defaultGras"><?php echo $nbrequete ?> <?php echo new_versionlinguistique("text132") //requêtes ?></span><br><br>
 
 			<table border="0" cellspacing="0" width="400">
 				<tr>
 					<td>
-						<span class="texte_defaultGras"><?php echo versionlinguistique(119) //Mot recherché ?></span>
+						<span class="texte_defaultGras"><?php echo new_versionlinguistique("text119") //Mot recherché ?></span>
 					</td>
 					<td align="center">
-						<span class="texte_defaultGras"><?php echo versionlinguistique(131) //Compteur ?></span>
+						<span class="texte_defaultGras"><?php echo new_versionlinguistique("text131") //Compteur ?></span>
 					</td>
 				</tr>
 				<?php affichage_concordancier() ?>

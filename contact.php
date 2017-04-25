@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -10,7 +10,7 @@ if (! isset($_SESSION['niveau'])) {
 	$_SESSION['niveau']=0;
 }
 
-include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une page
+include('include/affichage_page.inc'); // afficher le contenu rï¿½dactionnel d'une page
 
 ?>
 
@@ -33,7 +33,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <?php 
 		// ****************************
 		// 		Menu 
@@ -53,15 +53,15 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 									<tr>
 										<td align="center" height="30">
-											<span class="titre"><?php echo versionlinguistique(4); //Contact ?></span>
+											<span class="titre"><?php echo affichage_menu("contact");//Contact ?></span>
 										</td>
 									</tr>
 								</table><br>
 <div align="right">
-<?php  if ($_SESSION['niveau']>=50) { // Bouton édition page ?>
-											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+<?php  if ($_SESSION['niveau']>=50) { // Bouton ï¿½dition page ?>
+											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 												<tr>
-													<td align="center"><a href="page_edit.php?lg=<?php echo $lg ?>&id=3&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(47) //Editer ?></span></a></td>
+													<td align="center"><a href="page_edit.php?lg=<?php echo $lg ?>&id=3&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo content("line205_216") //Editer ?></span></a></td>
 												</tr>
 											</table>
 <?php } ?>
@@ -71,10 +71,10 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 					<?php affichage_contact() ?>
 				</p>
 <div align="right">
-<?php  if ($_SESSION['niveau']>=50) { // Bouton édition page ?>
-											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+<?php  if ($_SESSION['niveau']>=50) { // Bouton ï¿½dition page ?>
+											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 												<tr>
-													<td align="center"><a href="page_edit.php?lg=<?php echo $lg ?>&id=3&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(47) //Editer ?></span></a></td>
+													<td align="center"><a href="page_edit.php?lg=<?php echo $lg ?>&id=3&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo content("line205_216") //Editer ?></span></a></td>
 												</tr>
 											</table>
 <?php } ?>
@@ -109,7 +109,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -140,7 +140,7 @@ include('include/affichage_page.inc'); // afficher le contenu rédactionnel d'une
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

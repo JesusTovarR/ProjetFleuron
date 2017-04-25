@@ -310,6 +310,9 @@ CREATE TABLE `content` (
   `line227` longtext NOT NULL,
   `btn` longtext NOT NULL,
   `btn2` longtext NOT NULL,
+  `text1` longtext NOT NULL,
+  `text2` longtext NOT NULL,
+  `text3` longtext NOT NULL,
   `code` tinytext NOT NULL,
   `status` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
@@ -317,10 +320,10 @@ CREATE TABLE `content` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `content` (`id`, `line174`, `line190`, `line192`, `line205_216`, `line227`, `btn`, `btn2`, `code`, `status`, `id_user`, `ap_ref`) VALUES
-(1,	'Page modifiée',	'Bonjour',	'Découvrez nos ressources multimedia :',	'Editer',	'Dernières ressources consultées',	'Référent',	'Enregistrer',	'fr',	1,	1,	1),
-(2,	'Page modified',	'Hello',	'Discover our multimedia resources:',	'Edit',	'Recently accessed resources',	'Référent',	'Enregistrer',	'uk',	1,	1,	1),
-(3,	'Página modificada',	'Hola!',	'Descubre nuestros recursos multimedia:',	'Editar',	'Recursos accedido recientemente',	'Référent',	'Enregistrer',	'es',	1,	1,	1);
+INSERT INTO `content` (`id`, `line174`, `line190`, `line192`, `line205_216`, `line227`, `btn`, `btn2`, `text1`, `text2`, `text3`, `code`, `status`, `id_user`, `ap_ref`) VALUES
+(1,	'Page modifiée',	'Bonjour',	'Découvrez nos ressources multimedia :',	'Editer',	'Dernières ressources consultées',	'Référent',	'Enregistrer',	'Appliquer',	'Palette de couleurs',	'Item',	'fr',	1,	1,	1),
+(2,	'Page modified',	'Hello',	'Discover our multimedia resources:',	'Edit',	'Recently accessed resources',	'Référent',	'Save',	'Apply',	'Color scheme',	'Item',	'uk',	1,	1,	1),
+(3,	'Página modificada',	'Hola!',	'Descubre nuestros recursos multimedia:',	'Editar',	'Recursos accedido recientemente',	'Référent',	'Registrar',	'Aplicar',	'Esquema de colores',	'Item',	'es',	1,	1,	1);
 
 DROP TABLE IF EXISTS `couleur`;
 CREATE TABLE `couleur` (
@@ -407,6 +410,17 @@ CREATE TABLE `general` (
   `text1` longtext NOT NULL,
   `text2` longtext NOT NULL,
   `text3` longtext NOT NULL,
+  `text4` longtext NOT NULL,
+  `text5` longtext NOT NULL,
+  `text6` longtext NOT NULL,
+  `text7` longtext NOT NULL,
+  `text8` longtext NOT NULL,
+  `text9` longtext NOT NULL,
+  `text10` longtext NOT NULL,
+  `text11` longtext NOT NULL,
+  `text12` longtext NOT NULL,
+  `text13` longtext NOT NULL,
+  `text14` longtext NOT NULL,
   `code` tinytext NOT NULL,
   `status` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
@@ -414,10 +428,10 @@ CREATE TABLE `general` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `general` (`id`, `text1`, `text2`, `text3`, `code`, `status`, `id_user`, `ap_ref`) VALUES
-(1,	'Choisir une catégorie :',	'Ressources multimedias',	'Aucune Traduction',	'fr',	1,	1,	1),
-(2,	'Choose a category:',	'Multimedia resources',	'No translation',	'uk',	1,	1,	1),
-(3,	'Elige una categoría:',	'Recursos multimedia',	'Ninguna traductión',	'es',	1,	1,	1);
+INSERT INTO `general` (`id`, `text1`, `text2`, `text3`, `text4`, `text5`, `text6`, `text7`, `text8`, `text9`, `text10`, `text11`, `text12`, `text13`, `text14`, `code`, `status`, `id_user`, `ap_ref`) VALUES
+(1,	'Choisir une catégorie :',	'Ressources multimedias',	'Aucune Traduction',	'Masquer les sous-titres',	'Retour',	'Ajouter',	'Catégorie',	'Répondre',	'Submit',	'Supprimer ce commentaire ?',	'Oui',	'Commentaires',	'Langues d\'utilisation',	'Description',	'fr',	1,	1,	1),
+(2,	'Choose a category:',	'Multimedia resources',	'No translation',	'Hide subtitles',	'Back',	'Add',	'Category',	'Reply',	'Envíen',	'Delete this comment?',	'Yes',	'Comments',	'Use Languages',	'Description',	'uk',	1,	1,	1),
+(3,	'Elige una categoría:',	'Recursos multimedia',	'Ninguna traductión',	'Ocultar subtítulos',	'Vuelta',	'Agregar',	'Categoría',	'Responder',	'Publier',	'Eliminar este comentario?',	'Si',	'Comentarios',	'Uso Idiomas',	'Descripción',	'es',	1,	1,	1);
 
 DROP TABLE IF EXISTS `glossaire`;
 CREATE TABLE `glossaire` (
@@ -858,6 +872,116 @@ INSERT INTO `moteur_de_recherche` (`id`, `word`, `title`, `button`, `code`, `sta
 (2,	'Keyword',	'Concordancer',	'Search',	'uk',	1,	1,	1),
 (3,	'Palabra clave',	'Concordancer',	'Buscar',	'es',	1,	1,	1);
 
+DROP TABLE IF EXISTS `new_versionlinguistique`;
+CREATE TABLE `new_versionlinguistique` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `text3` longtext NOT NULL,
+  `text5` longtext NOT NULL,
+  `text6` longtext NOT NULL,
+  `text8` longtext NOT NULL,
+  `text9` longtext NOT NULL,
+  `text11` longtext NOT NULL,
+  `text13` longtext NOT NULL,
+  `text14` longtext NOT NULL,
+  `text16` longtext NOT NULL,
+  `text18` longtext NOT NULL,
+  `text19` longtext NOT NULL,
+  `text20` longtext NOT NULL,
+  `text21` longtext NOT NULL,
+  `text22` longtext NOT NULL,
+  `text23` longtext NOT NULL,
+  `text25` longtext NOT NULL,
+  `text27` longtext NOT NULL,
+  `text33` longtext NOT NULL,
+  `text34` longtext NOT NULL,
+  `text38` longtext NOT NULL,
+  `text39` longtext NOT NULL,
+  `text41` longtext NOT NULL,
+  `text42` longtext NOT NULL,
+  `text43` longtext NOT NULL,
+  `text44` longtext NOT NULL,
+  `text45` longtext NOT NULL,
+  `text49` longtext NOT NULL,
+  `text53` longtext NOT NULL,
+  `text54` longtext NOT NULL,
+  `text55` longtext NOT NULL,
+  `text56` longtext NOT NULL,
+  `text57` longtext NOT NULL,
+  `text58` longtext NOT NULL,
+  `text59` longtext NOT NULL,
+  `text60` longtext NOT NULL,
+  `text61` longtext NOT NULL,
+  `text62` longtext NOT NULL,
+  `text63` longtext NOT NULL,
+  `text64` longtext NOT NULL,
+  `text65` longtext NOT NULL,
+  `text66` longtext NOT NULL,
+  `text67` longtext NOT NULL,
+  `text68` longtext NOT NULL,
+  `text70` longtext NOT NULL,
+  `text72` longtext NOT NULL,
+  `text73` longtext NOT NULL,
+  `text74` longtext NOT NULL,
+  `text76` longtext NOT NULL,
+  `text81` longtext NOT NULL,
+  `text82` longtext NOT NULL,
+  `text84` longtext NOT NULL,
+  `text85` longtext NOT NULL,
+  `text86` longtext NOT NULL,
+  `text87` longtext NOT NULL,
+  `text88` longtext NOT NULL,
+  `text89` longtext NOT NULL,
+  `text90` longtext NOT NULL,
+  `text91` longtext NOT NULL,
+  `text93` longtext NOT NULL,
+  `text95` longtext NOT NULL,
+  `text97` longtext NOT NULL,
+  `text98` longtext NOT NULL,
+  `text99` longtext NOT NULL,
+  `text100` longtext NOT NULL,
+  `text101` longtext NOT NULL,
+  `text102` longtext NOT NULL,
+  `text104` longtext NOT NULL,
+  `text105` longtext NOT NULL,
+  `text106` longtext NOT NULL,
+  `text107` longtext NOT NULL,
+  `text109` longtext NOT NULL,
+  `text110` longtext NOT NULL,
+  `text111` longtext NOT NULL,
+  `text114` longtext NOT NULL,
+  `text115` longtext NOT NULL,
+  `text117` longtext NOT NULL,
+  `text118` longtext NOT NULL,
+  `text119` longtext NOT NULL,
+  `text120` longtext NOT NULL,
+  `text121` longtext NOT NULL,
+  `text122` longtext NOT NULL,
+  `text123` longtext NOT NULL,
+  `text124` longtext NOT NULL,
+  `text130` longtext NOT NULL,
+  `text131` longtext NOT NULL,
+  `text132` longtext NOT NULL,
+  `text135` longtext NOT NULL,
+  `text138` longtext NOT NULL,
+  `text139` longtext NOT NULL,
+  `text140` longtext NOT NULL,
+  `text141` longtext NOT NULL,
+  `text142` longtext NOT NULL,
+  `text143` longtext NOT NULL,
+  `text144` longtext NOT NULL,
+  `text145` longtext NOT NULL,
+  `code` tinytext NOT NULL,
+  `status` int(10) NOT NULL,
+  `id_user` int(10) NOT NULL,
+  `ap_ref` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `new_versionlinguistique` (`id`, `text3`, `text5`, `text6`, `text8`, `text9`, `text11`, `text13`, `text14`, `text16`, `text18`, `text19`, `text20`, `text21`, `text22`, `text23`, `text25`, `text27`, `text33`, `text34`, `text38`, `text39`, `text41`, `text42`, `text43`, `text44`, `text45`, `text49`, `text53`, `text54`, `text55`, `text56`, `text57`, `text58`, `text59`, `text60`, `text61`, `text62`, `text63`, `text64`, `text65`, `text66`, `text67`, `text68`, `text70`, `text72`, `text73`, `text74`, `text76`, `text81`, `text82`, `text84`, `text85`, `text86`, `text87`, `text88`, `text89`, `text90`, `text91`, `text93`, `text95`, `text97`, `text98`, `text99`, `text100`, `text101`, `text102`, `text104`, `text105`, `text106`, `text107`, `text109`, `text110`, `text111`, `text114`, `text115`, `text117`, `text118`, `text119`, `text120`, `text121`, `text122`, `text123`, `text124`, `text130`, `text131`, `text132`, `text135`, `text138`, `text139`, `text140`, `text141`, `text142`, `text143`, `text144`, `text145`, `code`, `status`, `id_user`, `ap_ref`) VALUES
+(1,	'Ressources multimedia',	'Liens utiles',	'S\'inscrire',	'Utilisateur',	'Mot de passe',	'Rechercher',	'Mot recherché',	'Double cliquer sur un mot pour afficher une définition ou une traduction',	'Complétez ce formulaire pour vous inscrire :',	'Nom',	'Prénom',	'E-mail',	'Pays',	'Langue à utiliser dans Fleuron',	'Modifier votre profil',	'Profil enregistré',	'Liens utiles si vous préparez votre séjour en France :',	'Lien supprimé',	'Lien modifié',	'Envoyer',	'Envoyez nous votre e-mail :',	'Modifier',	'Ajouter une ressource',	'Ajouter une catégorie',	'Utilisateurs',	'Versions linguistiques',	'Ajouter un lien',	'Lien',	'Ajouter un profil',	'Profils',	'Stagiaires',	'Administrateurs',	'Par pays',	'Ordre alphabétique',	'Premier',	'Dernier',	'Niveau',	'Stagiaire',	'Administrateur',	'Profil modifié',	'Profil ajouté',	'Supprimer ce profil ?',	'Titre',	'Ressource modifiée',	'Supprimer une ressource',	'Ressource supprimée',	'Version linguistique modifiée',	'Version linguistique ajoutée',	'Media',	'Notes',	'Prendre des notes :',	'Pourquoi je regarde ce media ?',	'Ce que j\'ai compris :',	'Ce que j\'ai aimé ? pas aimé ?',	'Est ce que j\'ai suivi les conseils ?',	'Vos notes ont été enregistrées',	'Votre commentaire a été enregistré',	'Votre commentaire',	'Conseils',	'Depuis le',	'Publier un fichier vidéo',	'Publier un fichier audio',	'Vos conseils ont été enregistrés',	'Votre description a été enregistrée',	'Editer media',	'Editer vignette',	'Supprimer les médias',	'Afficher la transcription',	'Cacher la transcription',	'Afficher les sous-titres',	'Imprimer',	'Créer',	'Capturer',	'Concordancier',	'Ressources',	'Mes notes',	'A gauche du mot',	'Mot recherché',	'A droite du mot',	'le fichier .srt',	'Haut de la page',	'Tout afficher',	'Concordancier',	'Statistiques',	'Compteur',	'requêtes',	'Faire un commentaire :',	'Liens',	'Retirer',	'Connectez un lien',	'Cliquer sur le lien de votre choix',	'Un mot de passe a été demandé par',	'Votre mot de passe pour Fleuron est',	'Un mail vous a été envoyé',	'Votre mot de passe pour Fleuron',	'fr',	1,	1,	1),
+(2,	'Multimedia resources',	'Useful links',	'Register',	'User',	'Password',	'Search',	'Keyword',	'Double click on a word to view a definition or translation',	'Complete this form to register:',	'Name',	'First name',	'E-mail',	'Country',	'Language to use in Fleuron',	'Modify your profile',	'Profile saved',	'Useful links to prepare your stay in France:',	'Link removed',	'Link modify',	'Send',	'Send us your email:',	'Modify',	'Add a resource',	'Add a category',	'Users',	'Linguistic Versions',	'Add a link',	'Link',	'Add profile',	'Profiles',	'Trainees',	'Administrators',	'By country',	'Alphabetical order',	'First',	'Last',	'Level',	'Trainee',	'Administrator',	'Profile modified',	'Profile added',	'Delete this profile?',	'Title',	'Resource modified',	'Delete a resource',	'Resource deleted',	'Linguistic version modified',	'Linguistic version added',	'Media',	'Notes',	'Take notes:',	'Why I look at what media?',	'What I understood :',	'Did I like?',	'Did I follow the advice?',	'Your note has been recorded',	'Your comment has been saved',	'Your comment',	'Tips',	'Since',	'Submit a video file',	'Submit an audio file',	'Your advice has been recorded',	'Your description has been saved',	'Edit media',	'Edit thumbnail',	'Remove the media',	'View the transcript',	'Hide transcription',	'View subtitles',	'Print',	'Create',	'Capture',	'Concordancer',	'Ressources',	'My notes',	'Left of the word',	'Search word',	'To the right of the word',	'the .srt file',	'Top of the page',	'Show all',	'Concordancer',	'Statistics',	'Counter',	'queries',	'Add a comment :',	'Links',	'Remove',	'Connect a link',	'Click on the link of your choice',	'A password was requested from',	'Your password to Fleuron is',	'An email was sent to you',	'Your password to Fleuron',	'uk',	1,	1,	1),
+(3,	'Recursos multimedia',	'Enlaces útiles',	'Registrar',	'Usuario',	'Contraseña',	'Buscar',	'Palabra clave',	'Haga doble click sobre una palabra para ver una definición o traducción',	'Completar este formulario para registrarse:',	'Nombre',	'Primer nombre',	'E-mail',	'País',	'Idioma a utilizar en Fleuron',	'Editar su perfil',	'Perfil guardado',	'Informacíon de interes  para preparar su estancia en Francia:',	'Enlace eliminado',	'Editar enlace',	'Enviar',	'Envíenos su correo electrónico:',	'Editar',	'Agregar recurso',	'Agregar categoría',	'Usuarios',	'Versiones lingüísticas',	'Añadir un enlace',	'Enlace',	'Agregar perfil',	'Perfiles',	'Aprendices',	'Administradores',	'Según el país',	'Alfabéticamente',	'Primero',	'Pasado',	'Nivel',	'Aprendiz',	'Administrador',	'Perfil modificado',	'Perfil agregado',	'Borrar este perfil?',	'Título',	'Recursos modificado',	'Eliminar un recurso',	'Recurso eliminado',	'Versión para cambiar el idioma',	'Versión en idioma añadido',	'Media',	'Notas',	'Tomar notas:',	'¿Por qué miro a este medio?',	'Lo que he entendido:',	'Es lo que me ha gustado?',	'Es lo que he seguido el consejo?',	'Su voto ha sido registrado',	'Tu comentario ha sido guardado',	'Su comentario',	'Asesoría',	'Desde el',	'Envíen un archivo de vídeo',	'Envíen un archivo de audio',	'Su consejo ha sido registrado',	'Su descripción se ha guardado',	'Editar medios',	'Editar miniatura',	'Quite el medio',	'Ver la transcripción',	'Ocultar transcripción',	'Ver subtítulos',	'Impresión',	'Crear',	'Captura',	'Concordancer',	'Ressources',	'Mis notas',	'A la izquierda de la palabra',	'Palabra de búsqueda',	'A la derecha de la palabra',	'el archivo .srt',	'Superior de la Página',	'Ver todo',	'Concordancer',	'Estadística',	'Metro',	'consultas',	'Hacer un comentario :',	'Enlaces',	'Retirar',	'Conectar un enlace',	'Haga clic en el enlace de su elección',	'Se solicitó una contraseña',	'Su contraseña es',	'Un correo electrónico fue enviado a usted',	'Su contraseña para Fleuron',	'es',	1,	1,	1);
+
 DROP TABLE IF EXISTS `notes`;
 CREATE TABLE `notes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1215,7 +1339,7 @@ INSERT INTO `profil` (`id`, `nom`, `prenom`, `email`, `pays`, `langue`, `utilisa
 (84,	'JimmiXS',	'JimmiXS',	'jimos4581rt@hotmail.com',	'gm',	'fr',	'gtBogOHMXIBST',	1,	'iphDXtjoVavTG',	'2016-08-10',	'00:00:00',	'',	0),
 (85,	'JimmiXS',	'JimmiXS',	'jimos4581rt@hotmail.com',	'er',	'fr',	'cRDDOcQQYjto',	1,	'hnohWkCgYadUzgJ',	'2016-08-11',	'00:00:00',	'',	0),
 (86,	'JimmiXS',	'JimmiXS',	'jimos4581rt@hotmail.com',	'sd',	'fr',	'MbRSSCiWlXgIbu',	1,	'GhzqBQoWisj',	'2016-08-11',	'00:00:00',	'',	0),
-(87,	'Jesus',	'TR',	'jesus@email.mx',	'fr',	'fr',	'Jesus',	1,	'123456789',	'2017-03-31',	'00:00:00',	'',	0),
+(87,	'Jesus',	'TR',	'jesus@email.mx',	'fr',	'fr',	'Jesus',	21,	'123456789',	'2017-03-31',	'00:00:00',	'100;',	0),
 (88,	'Dani',	'Men',	'men@email.com',	'mx',	'es',	'Daniel',	1,	'123',	'2017-03-31',	'00:00:00',	'',	0),
 (89,	'ROC',	'Jose',	'jose@email.com',	'mx',	'es',	'Jose',	21,	'123456789',	'2017-03-31',	'00:00:00',	'',	0),
 (90,	'MENDEZ',	'Gerar',	'ger@email.com',	'fr',	'fr',	'Gerardo',	1,	'123456789',	'2017-03-31',	'00:00:00',	'',	0),
@@ -1440,7 +1564,7 @@ INSERT INTO `ressources` (`id`, `nom_fr`, `description_fr`, `categorie`, `nom_es
 (97,	'Fiche pédagogique',	'Une étudiante Erasmus vient chercher la fiche pédagogique pour inscrire les cours qu\'elle a choisi avec son professeur coordinateur',	15,	'',	'',	'',	'',	'0000-00-00',	'00:00:00',	0,	'V_Rint_exo_06_P5 (decoupage ok).mp4video.mp4',	'téléchargement.png',	'V_Rint_exo_06_P5 (decoupage ok).theora.ogv',	'video',	'Francais_V_Rint_exo_06_P5_(decoupage_ok).srt',	'97.srt',	2,	'',	'',	'',	'',	0,	0),
 (98,	'Retirer un diplôme',	'Une étudiante vient récupérer le diplôme d\'un autre étudiant.',	15,	'',	'',	'',	'',	'0000-00-00',	'00:00:00',	0,	'V_Defle_exo_05_P3 (ok redecoupage).mp4video.mp4',	'téléchargement.png',	'V_Defle_exo_05_P3 (ok redecoupage).theora.ogv',	'video',	'Francais_V_Defle_exo_05_P3_(ok_redecoupage).srt',	'98.srt',	0,	'',	'',	'',	'',	0,	0),
 (99,	'Carte de séjour pour étudiant',	'Le fonctionnaire explique la procédure à  effectuer et cite les documents nécessaires pour obtenir sa carte de séjour en tant qu\'étudiant.',	15,	'',	'',	'',	'',	'0000-00-00',	'00:00:00',	0,	'A-ENT- endo-nat-02.mp3',	'',	'A-ENT- endo-nat-02.ogg',	'audio',	'Francais_A-ENT-endo-nat-02.srt',	'99.srt',	2,	'',	'',	'',	'',	0,	0),
-(100,	'Convention de stage',	'Une étudiante se renseigne pour obtenir une convention de stage.',	15,	'',	'',	'',	'',	'0000-00-00',	'00:00:00',	0,	'V_Scol_02_P9_Corr.mp4',	'téléchargement.png',	'V_Scol_02_P9_Corr.ogv',	'video',	'Francais_V_Scol_02_P9_Corr.srt',	'1\r\n00:00:00,105 --> 00:00:00,702\r\nE: euh bonjour\r\n\r\n2\r\n00:00:00,822 --> 00:00:01,106\r\nA: bonjour\r\n\r\n3\r\n00:00:01,226 --> 00:00:08,403\r\nE: je suis en culture et communication et j\'aurais aimé effectuer un stage facultatif et euh j\'aurais aimé obtenir une convention\r\n\r\n4\r\n00:00:08,801 --> 00:00:10,354\r\nA: alors une convention de stage\r\n\r\n5\r\n00:00:10,474 --> 00:00:11,093\r\nE: voir si c\'est possible\r\n\r\n6\r\n00:00:11,213 --> 00:00:12,440\r\nA: il faudrait voir avec l\'UFR\r\n\r\n7\r\n00:00:12,765 --> 00:00:13,601\r\nE: hum d\'accord\r\n\r\n8\r\n00:00:13,721 --> 00:00:14,050\r\nA: hum\r\n\r\n9\r\n00:00:14,170 --> 00:00:15,407\r\nE: il faut que j\'aille voir euh\r\n\r\n10\r\n00:00:15,527 --> 00:00:17,533\r\nA: ouais c\'est alors c\'est en quoi\r\n\r\n11\r\n00:00:17,653 --> 00:00:18,130\r\nE: euh\r\n\r\n12\r\n00:00:18,250 --> 00:00:18,625\r\nA: exactement\r\n\r\n13\r\n00:00:18,745 --> 00:00:20,519\r\nE: je suis en culture\r\net communication donc c\'est en\r\n\r\n14\r\n00:00:20,639 --> 00:00:23,391\r\nA: ouais donc il faudrait\r\nvoir à l\'UFR de lettres au premier étage\r\n\r\n15\r\n00:00:23,511 --> 00:00:25,109\r\nE: d\'accord je vais voir l\'U.F.R. de lettres\r\n\r\n16\r\n00:00:25,229 --> 00:00:29,190\r\nA: en euh G hum en G116\r\n\r\n17\r\n00:00:29,310 --> 00:00:30,342\r\nE: d\'accord\r\n\r\n18\r\n00:00:30,462 --> 00:00:31,553\r\nA: hum\r\n\r\n19\r\n00:00:31,673 --> 00:00:35,201\r\nE: ben d\'accord je vous remercie\r\n\r\n\r\n\r\n',	1,	'',	'',	'',	'',	0,	0),
+(100,	'Convention de stage',	'Une étudiante se renseigne pour obtenir une convention de stage.',	15,	'',	'',	'',	'',	'0000-00-00',	'00:00:00',	0,	'V_Scol_02_P9_Corr.mp4',	'téléchargement.png',	'V_Scol_02_P9_Corr.ogv',	'video',	'Francais_V_Scol_02_P9_Corr.srt',	'1\r\n00:00:00,105 --> 00:00:00,702\r\nE: euh bonjour\r\n\r\n2\r\n00:00:00,822 --> 00:00:01,106\r\nA: bonjour\r\n\r\n3\r\n00:00:01,226 --> 00:00:08,403\r\nE: je suis en culture et communication et j\'aurais aimé effectuer un stage facultatif et euh j\'aurais aimé obtenir une convention\r\n\r\n4\r\n00:00:08,801 --> 00:00:10,354\r\nA: alors une convention de stage\r\n\r\n5\r\n00:00:10,474 --> 00:00:11,093\r\nE: voir si c\'est possible\r\n\r\n6\r\n00:00:11,213 --> 00:00:12,440\r\nA: il faudrait voir avec l\'UFR\r\n\r\n7\r\n00:00:12,765 --> 00:00:13,601\r\nE: hum d\'accord\r\n\r\n8\r\n00:00:13,721 --> 00:00:14,050\r\nA: hum\r\n\r\n9\r\n00:00:14,170 --> 00:00:15,407\r\nE: il faut que j\'aille voir euh\r\n\r\n10\r\n00:00:15,527 --> 00:00:17,533\r\nA: ouais c\'est alors c\'est en quoi\r\n\r\n11\r\n00:00:17,653 --> 00:00:18,130\r\nE: euh\r\n\r\n12\r\n00:00:18,250 --> 00:00:18,625\r\nA: exactement\r\n\r\n13\r\n00:00:18,745 --> 00:00:20,519\r\nE: je suis en culture\r\net communication donc c\'est en\r\n\r\n14\r\n00:00:20,639 --> 00:00:23,391\r\nA: ouais donc il faudrait\r\nvoir à l\'UFR de lettres au premier étage\r\n\r\n15\r\n00:00:23,511 --> 00:00:25,109\r\nE: d\'accord je vais voir l\'U.F.R. de lettres\r\n\r\n16\r\n00:00:25,229 --> 00:00:29,190\r\nA: en euh G hum en G116\r\n\r\n17\r\n00:00:29,310 --> 00:00:30,342\r\nE: d\'accord\r\n\r\n18\r\n00:00:30,462 --> 00:00:31,553\r\nA: hum\r\n\r\n19\r\n00:00:31,673 --> 00:00:35,201\r\nE: ben d\'accord je vous remercie\r\n\r\n\r\n\r\n',	2,	'',	'',	'',	'',	0,	0),
 (101,	'Evaluation de la préparation au C2I',	'Un enseignant explique comment les étudiants sont évalués lors de la formation Préparation au C2I.',	16,	'',	'',	'',	'',	'0000-00-00',	'00:00:00',	0,	'c2i_partie 3.mp4',	'téléchargement.png',	'c2i_partie_3.ogv',	'video',	'Francais_c2i_partie_3-3.srt',	'101.srt',	0,	'',	'',	'',	'',	0,	0),
 (102,	'La préparation au C2I',	'Un enseignant explique comment se déroule la formation « Préparation au C2I ».',	16,	'',	'',	'',	'',	'0000-00-00',	'00:00:00',	0,	'c2i_partie 2.mp4',	'téléchargement.png',	'c2i_partie 2.ogv',	'video',	'Francais_c2i_partie_2-2.srt',	'102.srt',	1,	'',	'',	'',	'',	0,	0),
 (103,	'Pourquoi passer le C2I',	'Un enseignant explique pour quelles raisons il serait intéressant de passer le C2I.',	16,	'',	'',	'',	'',	'0000-00-00',	'00:00:00',	0,	'c2i_partie 1.mp4',	'téléchargement.png',	'c2i_partie 1.ogv',	'video',	'Francais_c2i_partie_1-1.srt',	'103.srt',	1,	'',	'',	'',	'',	0,	0),
@@ -1957,6 +2081,7 @@ CREATE TABLE `traducteur` (
   `title4` longtext NOT NULL,
   `title5` longtext NOT NULL,
   `title6` longtext NOT NULL,
+  `title7` longtext NOT NULL,
   `message` longtext NOT NULL,
   `message2` longtext NOT NULL,
   `message3` longtext NOT NULL,
@@ -1989,10 +2114,10 @@ CREATE TABLE `traducteur` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `traducteur` (`id`, `title`, `title2`, `title3`, `title4`, `title5`, `title6`, `message`, `message2`, `message3`, `message4`, `message5`, `message6`, `categorie1`, `categorie2`, `categorie3`, `categorie4`, `categorie5`, `categorie6`, `categorie7`, `categorie8`, `categorie9`, `categorie10`, `categorie11`, `categorie12`, `categorie13`, `categorie14`, `categorie15`, `categorie16`, `categorie17`, `categorie18`, `categorie19`, `code`, `status`, `id_user`, `ap_ref`) VALUES
-(1,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Choisir une categorie',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Text en validation',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'Général',	'fr',	1,	1,	1),
-(2,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Choisir une categorie',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Text en validation',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'General',	'uk',	1,	1,	1),
-(3,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Elegir una categoria',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Text en validation',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'General',	'es',	1,	1,	1);
+INSERT INTO `traducteur` (`id`, `title`, `title2`, `title3`, `title4`, `title5`, `title6`, `title7`, `message`, `message2`, `message3`, `message4`, `message5`, `message6`, `categorie1`, `categorie2`, `categorie3`, `categorie4`, `categorie5`, `categorie6`, `categorie7`, `categorie8`, `categorie9`, `categorie10`, `categorie11`, `categorie12`, `categorie13`, `categorie14`, `categorie15`, `categorie16`, `categorie17`, `categorie18`, `categorie19`, `code`, `status`, `id_user`, `ap_ref`) VALUES
+(1,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Demande Referent',	'Choisir une categorie',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Text en validation',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'Général',	'fr',	1,	1,	1),
+(2,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Demande Referent',	'Choisir une categorie',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Text en validation',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'General',	'uk',	1,	1,	1),
+(3,	'Traducteur',	'Choisir une langue',	'Ressources Multimédia',	'Soustitres',	'Ajouter une nouvelle langue',	'Traduire',	'Demande Referent',	'Elegir una categoria',	'Vous n\'avez aucune traduction',	'Existant',	'Ajouteés',	'Traduction validée',	'Text en validation',	'Contenu Accueil',	'Contenu Qu\'est-ce que Fleuron?',	'Contact',	'Menu',	'Choix Langue',	'Conseils',	'Dernier media',	'Login',	'Menu Administrateur',	'Moteur de recherche',	'Tableau du bord',	'Boutons ressources',	'Messages ',	'Boutons Admin',	'Categories',	'Ressources',	'Soustitres',	'Traducteur',	'General',	'es',	1,	1,	1);
 
 DROP TABLE IF EXISTS `versionlinguistique`;
 CREATE TABLE `versionlinguistique` (
@@ -2152,4 +2277,4 @@ INSERT INTO `versionlinguistique` (`id`, `fr`, `uk`, `es`, `ch`) VALUES
 (148,	'Ajouter',	'Add',	'Agregar',	''),
 (149,	'人 人 都 有 受 教 ',	'人 人 都 有 受 教 ',	'人 人 都 有 受 教 ',	'');
 
--- 2017-04-05 10:47:35
+-- 2017-04-25 21:33:50

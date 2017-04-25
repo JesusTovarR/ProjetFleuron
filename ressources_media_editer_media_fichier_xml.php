@@ -79,7 +79,7 @@ function abortHandler(event){
 					<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 						<tr>
 							<td align="center">
-								<a href="ressources_media_editer_media.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+								<a href="ressources_media_editer_media.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 							</td>
 						</tr>
 					</table>
@@ -104,7 +104,7 @@ if ($_SESSION['niveau']>0) {
 						<input type="file" name="media" id="media">
 					</td>
 					<td align="center">
-						<button id="buton1"  type="submit" class="stbuttonImp"  onclick="uploadFile()" ><?php echo versionlinguistique(112) //Publier ?></button>
+						<button id="buton1"  type="submit" class="stbuttonImp"  onclick="uploadFile()" ><?php echo general("text9") //Publier ?></button>
 					</td>
 				</tr>
  				<tr>

@@ -17,9 +17,9 @@ $_SESSION['idressource']=$idressource;
 // R�cup�rer les informations de la ressource (table RESSOURCES)
 include('include/Recup_infosRessource.inc');
 
-$filename = 'ressources/'.$idressource.'.srt';
+$filename = 'ressources/'.$idressource.'fr.srt';
 if (file_exists($filename)) {
-	$fichierserveur=$idressource.'.srt';
+	$fichierserveur=$idressource.'fr.srt';
 }
 
 ?>
@@ -39,7 +39,7 @@ if (file_exists($filename)) {
 					<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 						<tr>
 							<td align="center">
-								<a href="<?php echo $retour ?>?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+								<a href="<?php echo $retour ?>?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 							</td>
 						</tr>
 					</table>
@@ -49,7 +49,7 @@ if (file_exists($filename)) {
 					<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 						<tr>
 							<td align="center">
-								<a href="<?php echo $retour ?>?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(110) //cr�er ?></span></a>
+								<a href="<?php echo $retour ?>?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo new_versionlinguistique("text110") //cr�er ?></span></a>
 							</td>
 						</tr>
 					</table>
@@ -58,7 +58,7 @@ if (file_exists($filename)) {
 					<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 						<tr>
 							<td align="center">
-								<a href="ressources_transcription_editer_modifier.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>" target="_top"><span class="texte_menu"><?php echo versionlinguistique(41) //Modifier ?></span></a>
+								<a href="ressources_transcription_editer_modifier.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>" target="_top"><span class="texte_menu"><?php echo new_versionlinguistique("text41") //Modifier ?></span></a>
 							</td>
 						</tr>
 					</table>
@@ -85,7 +85,7 @@ if ($_SESSION['niveau']>0) {
 				</tr>
 				<tr>
 					<td align="center">
-						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo versionlinguistique(112) //Publier ?></button>
+						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo general("text9") //Publier ?></button>
 					</td>
 				</tr>
 			</table>

@@ -38,10 +38,10 @@ function affichage_palette()
 						echo '&nbsp;';
 					echo '</td>';
 					echo '<td width="100" align="center" bgcolor="'.couleur(1).'">';
-						echo '<a href="couleurs_appliquer.php?lg='.$lg.'&couleur1='.$donnees['couleur1'].'&couleur2='.$donnees['couleur2'].'"><span class="texte_info12">'.versionlinguistique(80).'</span></a>'; // supprimer
+						echo '<a href="couleurs_appliquer.php?lg='.$lg.'&couleur1='.$donnees['couleur1'].'&couleur2='.$donnees['couleur2'].'"><span class="texte_info12">'.content("text1").'</span></a>'; // supprimer
 					echo '</td>';			
 					echo '<td width="100" align="center" bgcolor="'.couleur(1).'">';
-						echo '<a href="couleurs_supprimer.php?lg='.$lg.'&id='.$donnees['id'].'"><span class="texte_info12">'.versionlinguistique(48).'</span></a>'; // supprimer
+						echo '<a href="couleurs_supprimer.php?lg='.$lg.'&id='.$donnees['id'].'"><span class="texte_info12">'.afficher_ressource("option2").'</span></a>'; // supprimer
 					echo '</td>';
 				echo '</tr>';
 
@@ -163,7 +163,7 @@ Cliquer pour choisir<br>la couleur boutons:
 				$num_rows = mysql_num_rows($recup2);
 					if ($num_rows>0) {
 ?>
-<span class="titre_admin"><?php echo versionlinguistique(79) ?> :</span></center>
+<span class="titre_admin"><?php echo content("text2")?> :</span></center>
 <br>
 <?php affichage_palette() ?>
 

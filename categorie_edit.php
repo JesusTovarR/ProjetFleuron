@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -15,7 +15,7 @@ function edition()
 	{
 		echo '<form name="FormName" action="categorie_edit_enre.php" method="post">';
 		echo '<table border="0">';
-		global $bdd,$id,$lg; // récupération variables de connexion
+		global $bdd,$id,$lg; // rï¿½cupï¿½ration variables de connexion
 
 		$recup = mysql_query('SELECT * FROM categorie WHERE id='.$id);
 
@@ -27,7 +27,7 @@ function edition()
 
 					echo '<tr>';
 
-								echo '<input type="hidden" value="'.$donnees['id'].'" name="id">';	// champ formulaire caché de l'ID
+								echo '<input type="hidden" value="'.$donnees['id'].'" name="id">';	// champ formulaire cachï¿½ de l'ID
 
 						echo '<td width="50">';
 								echo $donneeslg['nom'];	// Affichage de la version linguistique du mot
@@ -36,7 +36,7 @@ function edition()
 						if ($donneeslg['code']=="fr")
 							{
 							echo '<td width="100" rowspan="3" align="center" valign="middle">';
-								echo '<input type="submit" value="'.versionlinguistique(24).'" name="submitButtonName">'; // Enregistrer
+								echo '<input type="submit" value="'.content("btn2").'" name="submitButtonName">'; // Enregistrer
 							echo '</td>';
 							}
 					}
@@ -69,7 +69,7 @@ function edition()
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <?php 
 		// Menu des visiteurs non inscrits 
 		include('include/menu_top.inc'); 
@@ -89,23 +89,23 @@ function edition()
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(50) //Catégorie ?></span>
+											<span class="titre_admin"><?php echo general("text7") //Catï¿½gorie ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(47) //Editer ?></span>
+											<span class="titre_admin"><?php echo content("line205_216")//Editer ?></span>
 										</td>
 									</tr>
 								</table>
 								<center>
 								<br><br><br>
 <!-- *******************************************************************************************************  -->
-<!-- Routine affichage formulaire et champs des catégories (selon langues en cours)  -->
+<!-- Routine affichage formulaire et champs des catï¿½gories (selon langues en cours)  -->
 <!-- *******************************************************************************************************  -->
 										<?php edition(); ?>
 								</center>
@@ -123,7 +123,7 @@ function edition()
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

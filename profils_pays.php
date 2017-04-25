@@ -14,13 +14,13 @@ $niveau=$_GET["niveau"];
 
 
 if ($niveau==1) {
-	$nomniveau = versionlinguistique(44);
+	$nomniveau = new_versionlinguistique("text44");
 }
 if ($niveau==5) {
-	$nomniveau = versionlinguistique(56);
+	$nomniveau = new_versionlinguistique("text56");
 }
 if ($niveau==10) {
-	$nomniveau = versionlinguistique(57);
+	$nomniveau = new_versionlinguistique("text57");
 }
 
 if (isset($_GET["ordre"])) {
@@ -103,13 +103,13 @@ $pays="";
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="profils.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="profils.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(55) //profils ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text55") //profils ?></span>
 										</td>
 										<td width="150" align="center">
 											<span class="titre_admin"><?php echo $nomniveau ?></span>
@@ -129,13 +129,13 @@ $pays="";
 			<table>
 				<tr>
 					<td>
-						<input type="text" name="motcle" size="24" value="<?php echo versionlinguistique(13) //Mot clé ?>" onFocus="javascript:this.value=''">
+						<input type="text" name="motcle" size="24" value="<?php echo new_versionlinguistique("text13") //Mot clé ?>" onFocus="javascript:this.value=''">
 					</td>
 				</tr>
 				<tr>
 					<td>
 							<center>
-							<span class="texte_menu"><input type="submit" value="<?php echo versionlinguistique(11) //Rechercher ?>" name="submitButtonName"></span></center>
+							<span class="texte_menu"><input type="submit" value="<?php echo new_versionlinguistique("text11") //Rechercher ?>" name="submitButtonName"></span></center>
 					</td>
 				</tr>
 			</table>
@@ -145,7 +145,7 @@ $pays="";
 			<td align="right" valign="top">
 				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 					<tr>
-						<td align="center"><a href="profils_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo versionlinguistique(54); // Ajouter un utilisateur ?></span></a></td>
+						<td align="center"><a href="profils_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text54"); // Ajouter un utilisateur ?></span></a></td>
 					</tr>
 				</table>
 			</td>
@@ -153,7 +153,7 @@ $pays="";
 	</table>
 </div><br>
 
-				<p><span class="message"><?php echo versionlinguistique(58) //Par pays ?> :</span>
+				<p><span class="message"><?php echo new_versionlinguistique("text58") //Par pays ?> :</span>
 <br>
 			<table border="0" cellspacing="0" width="100%">
 				<?php affichage_profil() ?>

@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -15,7 +15,7 @@ if (isset($_GET["refpage"])) {
 
 
 //************************************************************************
-//		Nombre de ressources associées à la catégorie - comptage du nombre de pages
+//		Nombre de ressources associï¿½es ï¿½ la catï¿½gorie - comptage du nombre de pages
 //************************************************************************
 $requete = 'SELECT COUNT(id) AS total FROM commentaires';
 $recup = mysql_query($requete);
@@ -45,12 +45,12 @@ function affichage_boutonpages()
 					$ressourcepagefin=$ressourcepagefin+5;
 			echo '<td width="20">';
 				if ($i==$refpage) {
-					echo '<table border="0" cellpadding="4" cellspacing="2" width="30">'; // couleur foncée
+					echo '<table border="0" cellpadding="4" cellspacing="2" width="30">'; // couleur foncï¿½e
 						echo '<td align="center"><span class="texte_default">'.$i.'</span></td>';
 					echo '</table>';
 				} else {
 
-					echo '<table border="0" cellpadding="4" cellspacing="2" bgcolor="'.couleur(1).'" width="30">'; // couleur foncée
+					echo '<table border="0" cellpadding="4" cellspacing="2" bgcolor="'.couleur(1).'" width="30">'; // couleur foncï¿½e
 						echo '<td align="center"><a href="?lg='.$lg.'&categorie='.$categorie.'&refpage='.$i.'"><span class="texte_info12">'.$i.'</span></a></td>';
 					echo '</table>';
 				}
@@ -65,13 +65,13 @@ function affichage_boutonpages()
 
 
 //**********************************
-// Affichage des ressources de la catégorie retenue
+// Affichage des ressources de la catï¿½gorie retenue
 //**********************************
 function affichage_ressourcelist()
 	{
 
 
-		global $lg,$categorie,$pageencours,$page,$refpage; // récupération variable langue
+		global $lg,$categorie,$pageencours,$page,$refpage; // rï¿½cupï¿½ration variable langue
 
 		$debpage=($refpage*5)-4;
 		$compteur=0;
@@ -94,7 +94,7 @@ function affichage_ressourcelist()
 }
 
 //************************************************************************
-//		Récupération nom utilisateur
+//		Rï¿½cupï¿½ration nom utilisateur
 //************************************************************************
 function affichage_utilisateur($utilisateur)
 	{
@@ -107,7 +107,7 @@ function affichage_utilisateur($utilisateur)
 		}
 	}
 
-include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du nom de la catégorie retenue
+include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du nom de la catï¿½gorie retenue
 
 include('include/affichage_commentaires_tous.inc'); // affichage des ressources dans une liste	
 ?>
@@ -130,9 +130,9 @@ include('include/affichage_commentaires_tous.inc'); // affichage des ressources 
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -146,7 +146,7 @@ include('include/affichage_commentaires_tous.inc'); // affichage des ressources 
 <!-- Partie centrale -->
 							<td valign="top">
 <center>
-<span class="titre_admin"><?php echo versionlinguistique(83); //Commentaires ?></span></center>
+<span class="titre_admin"><?php echo general("text12"); //Commentaires ?></span></center>
 
 
 
@@ -199,7 +199,7 @@ include('include/affichage_commentaires_tous.inc'); // affichage des ressources 
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -230,7 +230,7 @@ include('include/affichage_commentaires_tous.inc'); // affichage des ressources 
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

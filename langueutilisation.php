@@ -53,14 +53,14 @@ function affichageversionlinguistique()
 													echo '<td>';
 														echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="'.couleur(1).'" width="100">';
 															echo '<tr>';
-																echo '<td align="center"><a href="langueutilisation_edit.php?lg='.$lg.'&id='.$data['id'].'"><span class="texte_info12">'.versionlinguistique(47).'</span></a></td>';
+																echo '<td align="center"><a href="langueutilisation_edit.php?lg='.$lg.'&id='.$data['id'].'"><span class="texte_info12">'.content("line205_216").'</span></a></td>';
 															echo '</tr>';
 														echo '</table>';
 													echo '</td>';
 													echo '<td>';
 														echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="'.couleur(1).'" width="100">';
 															echo '<tr>';
-																echo '<td align="center"><a href="langueutilisation_supprimer.php?lg='.$lg.'&id='.$data['id'].'"<span class="texte_info12">'.versionlinguistique(48).'</span></a></td>'; // supprimer
+																echo '<td align="center"><a href="langueutilisation_supprimer.php?lg='.$lg.'&id='.$data['id'].'"<span class="texte_info12">'.afficher_ressource("option2").'</span></a></td>'; // supprimer
 															echo '</tr>';
 														echo '</table>';
 													echo '</td>';
@@ -115,12 +115,12 @@ function affichageversionlinguistique()
 						<tr>
 
 							<td valign="top">
-								<center><span class="titre_admin"><?php echo versionlinguistique(129) //Langues d'utilisation ?></center>
+								<center><span class="titre_admin"><?php echo general("text13")//Langues d'utilisation ?></center>
 									<br><div align="right">
 									<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 										<tr>
 											<td align="center">
-												<a href="langueutilisation_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(51) //Ajouter ?></span></a>
+												<a href="langueutilisation_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text6") //Ajouter ?></span></a>
 											</td>
 										</tr>
 									</table>

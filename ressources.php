@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -9,18 +9,18 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 
 
 if (isset($_GET["action"])) {
-	$action=$_GET["action"]; // Variable permettant l'affichage de message suite à l'action d'édition de la page
+	$action=$_GET["action"]; // Variable permettant l'affichage de message suite ï¿½ l'action d'ï¿½dition de la page
 }
 
 
 
 //**********************************
-// Affichage des Catégories
+// Affichage des Catï¿½gories
 //**********************************
 function affichage_categorie()
 	{
 
-		global $lg,$affnbressource; // récupération variable langue
+		global $lg,$affnbressource; // rï¿½cupï¿½ration variable langue
 		$nb=0;
 			echo '<table border="0" cellspacing="0" >';
 						echo '<tr>';
@@ -33,7 +33,7 @@ function affichage_categorie()
 					if ($_SESSION['niveau']>1) {
 
 //**********************************
-// 	Nombre de ressources par catégorie
+// 	Nombre de ressources par catï¿½gorie
 //**********************************
 						$nbressource = 0;
 						$requete = 'SELECT COUNT(id) AS total FROM ressources WHERE categorie='.$data['id'];
@@ -68,11 +68,11 @@ function affichage_categorie()
 						echo '</tr>';		
 
 
-				if ($_SESSION['niveau']>1) { // affichage du bouton d'édition de la catégorie
+				if ($_SESSION['niveau']>1) { // affichage du bouton d'ï¿½dition de la catï¿½gorie
 					echo '<tr><td>';
 						echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="'.couleur(1).'" width="200">';
 							echo '<tr>';
-								echo '<td align="center"><a href="categorie_edit.php?lg='.$lg.'&id='.$data['id'].'"><span class="texte_info12">'.versionlinguistique(47).'</span></a></td>'; //éditer
+								echo '<td align="center"><a href="categorie_edit.php?lg='.$lg.'&id='.$data['id'].'"><span class="texte_info12">'.content("line205_216").'</span></a></td>'; //ï¿½diter
 							echo '</tr>';
 						echo '</table>';
 					echo '</td></tr>';
@@ -110,9 +110,9 @@ function affichage_categorie()
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -133,13 +133,13 @@ function affichage_categorie()
 									</tr>
 								</table>
 <br>
-<span class="texte_default"><?php echo general("text1"); //Choisir une catégorie ?></span>
+<span class="texte_default"><?php echo general("text1"); //Choisir une catï¿½gorie ?></span>
 <br>
 <div align="right">
-<?php if ($_SESSION['niveau']>=50) { // Affichage Bouton édition page ?>
-											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+<?php if ($_SESSION['niveau']>=50) { // Affichage Bouton ï¿½dition page ?>
+											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 												<tr>
-													<td align="center"><a href="categorie_ajouter.php?lg=<?php echo $lg ?>&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(43)// Ajouter une catégorie ?></span></a></td>
+													<td align="center"><a href="categorie_ajouter.php?lg=<?php echo $lg ?>&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text43")// Ajouter une catï¿½gorie ?></span></a></td>
 												</tr>
 											</table>
 <?php } ?>
@@ -180,7 +180,7 @@ function affichage_categorie()
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -211,7 +211,7 @@ function affichage_categorie()
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -35,7 +35,7 @@ function affichage_commentaire($idcommentaire)
 	}
 
 //************************************************************************
-//		Récupération nom utilisateur
+//		Rï¿½cupï¿½ration nom utilisateur
 //************************************************************************
 function affichage_utilisateur($utilisateur)
 	{
@@ -65,9 +65,9 @@ function affichage_utilisateur($utilisateur)
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -85,7 +85,7 @@ function affichage_utilisateur($utilisateur)
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 												<tr>
 													<td align="center">
-														<a href="ressources_media.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="ressources_media.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -116,13 +116,13 @@ function affichage_utilisateur($utilisateur)
 		<table border="0" cellpadding="2" cellspacing="2">
 			<tr>
 				<td>
-					<p><?php echo versionlinguistique(136); //répondre ?> :</p>
+					<p><?php echo general("text8");//rï¿½pondre ?> :</p>
 					<p><textarea name="commentaire" cols="54" rows="3"></textarea></p>
 				</td>
 			</tr>
 			<tr>
 				<td align="center">					
-						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo versionlinguistique(112) //publier ?></button>
+						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo general("text9") //publier ?></button>
 				</td>
 			</tr>
 		</table>
@@ -144,7 +144,7 @@ function affichage_utilisateur($utilisateur)
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

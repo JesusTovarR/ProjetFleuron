@@ -117,7 +117,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="80" height="44">
 												<tr>
 													<td align="center">
-														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>&categorie=<?php echo $categorie ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>&categorie=<?php echo $categorie ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -157,12 +157,12 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 
 								<table border="0" cellpadding="0" cellspacing="2">
 									<tr>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(0);" width="80" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(81) //Media ?></td>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(1);" width="80" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(69) //Description ?></td>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(2);" width="80" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(93) //Conseils ?></td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(0);" width="80" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text81") //Media ?></td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(1);" width="80" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo general("text14") //Description ?></td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(2);" width="80" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text93") //Conseils ?></td>
 <?php if ($_SESSION['niveau']>0) { ?>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(3);" width="80" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(82) //Notes ?></td>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(4);" width="80" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(83) //Commentaires ?></td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(3);" width="80" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text82") //Notes ?></td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(4);" width="80" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo general("text12") //Commentaires ?></td>
 <?php } ?>
 									</tr>
 								</table>
@@ -177,7 +177,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 
 if ($num_rows>0) {
 	echo '<div align="left">';
-		echo '<span class="titre">'.versionlinguistique(83).' :</span><br><br>';
+		echo '<span class="titre">'.general("text12").' :</span><br><br>';
 		echo '<table cellpadding="10" width="100%">';
 			affichage_commentaire($id);
 		echo '</table>';

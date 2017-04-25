@@ -79,7 +79,7 @@ function affichage_ressource()
 									echo '<td>';
 										echo '<table border="0" cellpadding="4" cellspacing="0" bgcolor="'.couleur(1).'" width="200">';
 											echo '<tr>';
-												echo '<td align="center"><a href="ressource_suppr_enre.php?lg='.$lg.'&id='.$id.'&categorie='.$data['categorie'].'&pageencours='.$page.'&idprofil='.$idprofil.'"><span class="texte_info12">'.versionlinguistique(48).'</span></a></td>'; // supprimer
+												echo '<td align="center"><a href="ressource_suppr_enre.php?lg='.$lg.'&id='.$id.'&categorie='.$data['categorie'].'&pageencours='.$page.'&idprofil='.$idprofil.'"><span class="texte_info12">'.afficher_ressource("option2").'</span></a></td>'; // supprimer
 											echo '</tr>';
 										echo '</table>';
 									echo '</td>';
@@ -141,13 +141,13 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="100">
 												<tr>
 													<td align="center">
-														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>&idprofil=<?php echo $idprofil ?>&categorie=<?php echo $categorie ?>#<?php echo $id ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>&idprofil=<?php echo $idprofil ?>&categorie=<?php echo $categorie ?>#<?php echo $id ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="texte_default"><?php echo versionlinguistique(72); //Supprimer une ressource ?></span>
+											<span class="texte_default"><?php echo new_versionlinguistique("text72"); //Supprimer une ressource ?></span>
 										</td>
 										<td width="150">
 											&nbsp;

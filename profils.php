@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -66,9 +66,9 @@ if (isset($_GET["action2"])) {
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -82,7 +82,7 @@ if (isset($_GET["action2"])) {
 <!-- Partie centrale -->
 							<td valign="top">
 <center>
-<span class="titre_admin"><?php echo versionlinguistique(55); // profils ?></span></center>
+<span class="titre_admin"><?php echo new_versionlinguistique("text55"); // profils ?></span></center>
 <br><br><br>
 <div align="center">
 	<table width="600">
@@ -92,13 +92,13 @@ if (isset($_GET["action2"])) {
 			<table>
 				<tr>
 					<td>
-						<input type="text" name="motcle" size="24" value="<?php echo versionlinguistique(13) //Mot clé ?>" onFocus="javascript:this.value=''">
+						<input type="text" name="motcle" size="24" value="<?php echo new_versionlinguistique("text13") //Mot clï¿½ ?>" onFocus="javascript:this.value=''">
 					</td>
 				</tr>
 				<tr>
 					<td>
 							<center>
-							<span class="texte_menu"><input type="submit" value="<?php echo versionlinguistique(11) //Rechercher ?>" name="submitButtonName"></span></center>
+							<span class="texte_menu"><input type="submit" value="<?php echo new_versionlinguistique("text11") //Rechercher ?>" name="submitButtonName"></span></center>
 					</td>
 				</tr>
 			</table>
@@ -106,9 +106,9 @@ if (isset($_GET["action2"])) {
 			</form>
 			</td>
 			<td align="right" valign="top">
-				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 					<tr>
-						<td align="center"><a href="profils_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo versionlinguistique(54); // Ajouter un utilisateur ?></span></a></td>
+						<td align="center"><a href="profils_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text54"); // Ajouter un utilisateur ?></span></a></td>
 					</tr>
 				</table>
 			</td>
@@ -126,7 +126,7 @@ if (isset($_GET["action2"])) {
 						<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1) ?>" width="200" height="60">
 							<tr>
 								<td align="center">
-									<a href="profils_pays.php?lg=<?php echo $lg ?>&niveau=1"><span class="texte_info12"><?php echo versionlinguistique(44); // utilisateurs ?> (<?php echo $nbutilisateur ?>)</span></a>
+									<a href="profils_pays.php?lg=<?php echo $lg ?>&niveau=1"><span class="texte_info12"><?php echo new_versionlinguistique("text44"); // utilisateurs ?> (<?php echo $nbutilisateur ?>)</span></a>
 								</td>
 							</tr>
 						</table>
@@ -136,7 +136,7 @@ if (isset($_GET["action2"])) {
 						<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1) ?>" width="200" height="60">
 							<tr>
 								<td align="center">
-									<a href="profils_pays.php?lg=<?php echo $lg ?>&niveau=5"><span class="texte_info12"><?php echo versionlinguistique(56); // stagiaires ?> (<?php echo $nbstagiaire ?>)</span></a>
+									<a href="profils_pays.php?lg=<?php echo $lg ?>&niveau=5"><span class="texte_info12"><?php echo new_versionlinguistique("text56"); // stagiaires ?> (<?php echo $nbstagiaire ?>)</span></a>
 								</td>
 							</tr>
 						</table>
@@ -147,7 +147,7 @@ if (isset($_GET["action2"])) {
 							<tr>
 								<td align="center">
 <!-- profils_list.php -->
-									<a href="profils_pays.php?lg=<?php echo $lg ?>&niveau=10"><span class="texte_info12"><?php echo versionlinguistique(57); // Administrateurs ?> (<?php echo $nbadmin ?>)</span></a>
+									<a href="profils_pays.php?lg=<?php echo $lg ?>&niveau=10"><span class="texte_info12"><?php echo new_versionlinguistique("text57"); // Administrateurs ?> (<?php echo $nbadmin ?>)</span></a>
 								</td>
 							</tr>
 						</table>
@@ -188,7 +188,7 @@ if (isset($_GET["action2"])) {
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -219,7 +219,7 @@ if (isset($_GET["action2"])) {
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

@@ -27,7 +27,7 @@ function afficher_versionlinguistique() // Affichage des champs du formulaire te
 						echo '<table width="100%" border="0" cellpadding="5">';
 							echo '<tr>';
 								echo '<td>';
-									echo '<span class="texte_default">'. versionlinguistique(68).':</span>'; // Titre
+									echo '<span class="texte_default">'. new_versionlinguistique("text68").':</span>'; // Titre
 								echo '</td>';
 								echo '<td>';
 									echo '<input type="text" name="nom_'.$donneeslg['code'].'" size="64" value="">';
@@ -35,7 +35,7 @@ function afficher_versionlinguistique() // Affichage des champs du formulaire te
 							echo '</tr>';
 							echo '<tr>';
 								echo '<td valign="top">';
-									echo '<span class="texte_default">'.versionlinguistique(69).'&nbsp;:</span>'; // description
+									echo '<span class="texte_default">'.general("text14").'&nbsp;:</span>'; // description
 								echo '</td>';
 								echo '<td>';
 									echo '<textarea name="description_'.$donneeslg['code'].'" cols="58" rows="6"></textarea>';
@@ -43,7 +43,7 @@ function afficher_versionlinguistique() // Affichage des champs du formulaire te
 							echo '</tr>';
 							echo '<tr>';
 								echo '<td colspan="2" align="center">';
-									echo '<input type="submit" value="'.versionlinguistique(24) .'" name="Valider">'; // enregistrer
+									echo '<input type="submit" value="'.content("btn2") .'" name="Valider">'; // enregistrer
 								echo '</td>';
 							echo '</tr>';
 						echo '</table>';
@@ -103,7 +103,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="200">
 												<tr>
 													<td align="center">
-														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(3); //Ressources multimedia ?></span></a>
+														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo new_versionlinguistique("text3"); //Ressources multimedia ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -118,11 +118,11 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 											</table>
 										</td>
 										<td align="center">
-											<span class="texte_default"><?php echo versionlinguistique(51); //Ajouter ?><br></span>
+											<span class="texte_default"><?php echo general("text6"); //Ajouter ?><br></span>
 										</td>
 									</tr>
 								</table>
-<br><br><span class="texte_defaultGras"><?php echo versionlinguistique(42); //Ajouter une ressource ?> :</span>
+<br><br><span class="texte_defaultGras"><?php echo new_versionlinguistique("text42"); //Ajouter une ressource ?> :</span>
 <center><br><br>
 							<form name="FormName" action="ressource_ajouter_enre.php" method="post">
 									<table width="100%" border="0" cellpadding="5">

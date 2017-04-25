@@ -80,39 +80,39 @@ if (isset($_GET["action"])) {
 								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 									<tr>
 										<td align="center" height="30">
-											<span class="titre"><?php echo versionlinguistique(23); //Modifier votre profil ?></span>
+											<span class="titre"><?php echo new_versionlinguistique("text23"); //Modifier votre profil ?></span>
 										</td>
 									</tr>
 								</table>
 								<center>
 <?php if ($action<>"") { ?>
-<p><div align="center"><span class="message"><?php echo versionlinguistique(25); // Profil enregistr� ?></span></div>
+<p><div align="center"><span class="message"><?php echo new_versionlinguistique("text25"); // Profil enregistr� ?></span></div>
 <?php } ?>
 									<p><span class="texte_default">
 		<form name="FormName" action="profil_enre.php" method="post">
 									<table border="0" cellpadding="10" cellspacing="2">
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(8); //Utilisateur ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text8"); //Utilisateur ?> :</span></td>
 											<td><input type="text" name="utilisateur" size="24" value="<?php echo $utilisateur ?>"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(9); //Mot de passe ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text9"); //Mot de passe ?> :</span></td>
 											<td><input type="text" name="motdepasse" size="24" value="<?php echo $motdepasse ?>"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(18); //Nom ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text18"); //Nom ?> :</span></td>
 											<td><input type="text" name="nom" size="24" value="<?php echo $nom ?>"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(19); //Pr�nom ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text19"); //Pr�nom ?> :</span></td>
 											<td><input type="text" name="prenom" size="24" value="<?php echo $prenom ?>"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(20); //E-mail ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text20"); //E-mail ?> :</span></td>
 											<td><input type="text" name="email" size="24" value="<?php echo $email ?>"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(21); //Pays ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text21"); //Pays ?> :</span></td>
 											<td>
 												<select name="pays" size="1">
 <?php
@@ -225,7 +225,7 @@ if (isset($_GET["action"])) {
 										}
 										?>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(22); //Langue � utiliser dans Fleuron ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text22"); //Langue � utiliser dans Fleuron ?> :</span></td>
 											<td><select name="langue" size="1">
 <?php
 	// Affichage de la liste des langues disponibles
@@ -248,7 +248,7 @@ if (isset($_GET["action"])) {
 										<tr>
 											<td colspan="2">
 												<center>
-													<input type="submit" value="<?php echo versionlinguistique(24) //S'inscrire ?>" name="submitButtonName"></center>
+													<input type="submit" value="<?php echo content("btn2") //S'inscrire ?>" name="submitButtonName"></center>
 											</td>
 										</tr>
 									</table>

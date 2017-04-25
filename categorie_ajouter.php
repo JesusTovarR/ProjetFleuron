@@ -81,16 +81,16 @@ function ajouter_categorie()
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(50) //cat�gorie ?></span>
+											<span class="titre_admin"><?php echo general("text7")//cat�gorie ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(51) //Ajouter ?></span>
+											<span class="titre_admin"><?php echo general("text6") //Ajouter ?></span>
 										</td>
 									</tr>
 								</table>

@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -25,7 +25,7 @@ function ajouter_versionlinguistique()
 						if ($donneeslg['code']=="fr")
 							{
 							echo '<td width="100" rowspan="3" align="center" valign="middle">';
-								echo '<input type="submit" value="'.versionlinguistique(24).'" name="submitButtonName">'; // Enregistrer
+								echo '<input type="submit" value="'.content("btn2").'" name="submitButtonName">'; // Enregistrer
 							echo '</td>';
 							}
 					}
@@ -58,7 +58,7 @@ function ajouter_versionlinguistique()
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <?php 
 		// Menu des visiteurs non inscrits 
 		include('include/menu_top.inc'); 
@@ -78,16 +78,16 @@ function ajouter_versionlinguistique()
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="versionlinguistique.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //REtour ?></span></a>
+														<a href="versionlinguistique.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //REtour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(45) //versions linguistiques ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text45") //versions linguistiques ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(51) //Ajouter?></span>
+											<span class="titre_admin"><?php echo general("text6") //Ajouter?></span>
 										</td>
 									</tr>
 								</table>
@@ -116,7 +116,7 @@ function ajouter_versionlinguistique()
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

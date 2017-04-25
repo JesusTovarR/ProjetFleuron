@@ -149,7 +149,7 @@ include('include/affichage_ressource.inc'); // affichage des ressources dans une
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="100">
 												<tr>
 													<td align="center">
-														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -166,10 +166,10 @@ include('include/affichage_ressource.inc'); // affichage des ressources dans une
 
 
 <?php if (isset($_GET["action"])) { ?>
-<p><div align="center"><span class="message"><?php echo versionlinguistique(70); // Ressource modifi�e ?></span></div>
+<p><div align="center"><span class="message"><?php echo new_versionlinguistique("text70"); // Ressource modifi�e ?></span></div>
 <?php } ?>
 <?php if (isset($_GET["action2"])) { ?>
-<p><div align="center"><span class="message"><?php echo versionlinguistique(73); // Ressource supprim�e ?></span></div>
+<p><div align="center"><span class="message"><?php echo new_versionlinguistique("text73"); // Ressource supprim�e ?></span></div>
 <?php } ?>
 
 <br>
@@ -177,7 +177,7 @@ include('include/affichage_ressource.inc'); // affichage des ressources dans une
 <?php if ($_SESSION['niveau']>=50) { // Affichage Bouton �dition page ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur fonc�e ?>" width="220">
 												<tr>
-													<td align="center"><a href="ressource_ajouter.php?lg=<?php echo $lg ?>&page=<?php echo $pageencours ?>&categorie=<?php echo $categorie ?>"><span class="texte_info12"><?php echo versionlinguistique(42)// Ajouter une ressource ?></span></a></td>
+													<td align="center"><a href="ressource_ajouter.php?lg=<?php echo $lg ?>&page=<?php echo $pageencours ?>&categorie=<?php echo $categorie ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text42")// Ajouter une ressource ?></span></a></td>
 												</tr>
 											</table>
 <?php } ?>
@@ -205,7 +205,7 @@ include('include/affichage_ressource.inc'); // affichage des ressources dans une
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="100">
 												<tr>
 													<td align="center">
-														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>

@@ -186,10 +186,10 @@ function affichage_commentaire($idressource)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="80" align="center">';
-								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(136).'</span></a>';
+								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.general("text8").'</span></a>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="80" align="center">';
-								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(48).'</span></a>';
+								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.afficher_ressource("option2").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -203,7 +203,7 @@ function affichage_commentaire($idressource)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="100" align="center">';
-								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(48).'</span></a>';
+								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.afficher_ressource("option2").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -215,7 +215,7 @@ function affichage_commentaire($idressource)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="80" align="center">';
-								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(136).'</span></a>';
+								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.general("text8").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -245,10 +245,10 @@ function affichage_reponse1($reponse)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="80" align="center">';
-								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(136).'</span></a>';
+								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.general("text8").'</span></a>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="80" align="center">';
-								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(48).'</span></a>';
+								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.afficher_ressource("option2").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -262,7 +262,7 @@ function affichage_reponse1($reponse)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="100" align="center">';
-								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(48).'</span></a>';
+								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.afficher_ressource("option2").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -274,7 +274,7 @@ function affichage_reponse1($reponse)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="80" align="center">';
-								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(136).'</span></a>';
+								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.general("text8").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -304,10 +304,10 @@ function affichage_reponse2($reponse)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="80" align="center">';
-								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(136).'</span></a>';
+								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.general("text8").'</span></a>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="80" align="center">';
-								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(48).'</span></a>';
+								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.afficher_ressource("option2").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -321,7 +321,7 @@ function affichage_reponse2($reponse)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="100" align="center">';
-								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(48).'</span></a>';
+								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.afficher_ressource("option2").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -333,7 +333,7 @@ function affichage_reponse2($reponse)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="80" align="center">';
-								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(136).'</span></a>';
+								echo '<a href="commentaire_repondre.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.general("text8").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -363,7 +363,7 @@ function affichage_reponse3($reponse)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="80" align="center">';
-								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(48).'</span></a>';
+								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.afficher_ressource("option2").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -377,7 +377,7 @@ function affichage_reponse3($reponse)
 								echo '<span class="Texte_default">'.$data['commentaire'].'</span><br>';
 							echo '</td>';
 							echo '<td bgcolor="'.couleur(1).'" width="100" align="center">';
-								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.versionlinguistique(48).'</span></a>';
+								echo '<a href="commentaire_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$data['id'].'"><span class="texte_menu">'.afficher_ressource("option2").'</span></a>';
 							echo '</td>';
 						echo '</tr>';
 					echo '</table>';
@@ -494,9 +494,9 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 												<tr>
 													<td align="center">
 <?php if ($motcle<>"") { ?>
-														<a href="moteurderecherche.php?lg=<?php echo $lg ?>&motcle=<?php echo $motcle ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="moteurderecherche.php?lg=<?php echo $lg ?>&motcle=<?php echo $motcle ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 	<?php } else { ?>
-														<a href="ressources_list.php?lg=<?php echo $lg ?>&categorie=<?php echo $categorie ?>&refpage=<?php echo $refpage ?>&idprofil=<?php echo $idprofil ?>#<?php echo $idressource ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="ressources_list.php?lg=<?php echo $lg ?>&categorie=<?php echo $categorie ?>&refpage=<?php echo $refpage ?>&idprofil=<?php echo $idprofil ?>#<?php echo $idressource ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 	<?php } ?>
 													</td>
 												</tr>
@@ -560,15 +560,15 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 
 
 ?>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(0);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(81) //Media ?></td>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(1);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(69) //Description ?></td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(0);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text81") //Media ?></td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(1);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo general("text14") //Description ?></td>
 <?php $nbonglet=1 ?>
 <?php if ($nbconseils>0) { $nbonglet=$nbonglet+1 ?>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(93) //Conseils ?></td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text93") //Conseils ?></td>
 
 <?php } else { ?>
 	<?php if ($_SESSION['niveau']>1) { $nbonglet=$nbonglet+1 ?>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(93) //Conseils ?></td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text93") //Conseils ?></td>
 	<?php } else { ?>
 
 	<?php } ?>
@@ -576,21 +576,21 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 
 	<?php if ($_SESSION['niveau']>0) { ?>
 <?php $nbonglet=$nbonglet+1 ?>
-<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(133) //glossaire ?></td>
+<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo tableau_du_bord("btnglossary") //glossaire ?></td>
 <?php } ?>
 
 
 <?php if ($_SESSION['niveau']>0) { $nbonglet=$nbonglet+1 ?>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(82) //Notes ?></td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text82") //Notes ?></td>
 <?php //$nbonglet=$nbonglet+1 ?>
-										<!-- <td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(83) //Commentaires ?></td> -->
+										<!-- <td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo general("text12") //Commentaires ?></td> -->
 <?php } ?>
 <?php if ($_SESSION['niveau']>0) { ?>
 	<?php if ($liens<>"") { $nbonglet=$nbonglet+1 ?>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(138) //Liens ?></td> 
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text138") //Liens ?></td>
 	<?php } else {?>
 		<?php if ($_SESSION['niveau']>=50) { $nbonglet=$nbonglet+1 ?>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(138) //Liens ?></td> 
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nbonglet ?>);" width="<?php echo $valdim ?>" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text138") //Liens ?></td>
 		<?php } ?>
 	<?php } ?>
 <?php } ?>
@@ -622,7 +622,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 <?php if ($soustitre>0) { ?>
 	<!-- Sous-titres-->
 		<div id="subtitres">
-			<button id="buton1" class="stbutton" ><?php echo versionlinguistique(108) //Afficher les sous-titres ?></button>
+			<button id="buton1" class="stbutton" ><?php echo general("text4") //Afficher les sous-titres ?></button>
 			<div id="soustitre">
 				<div>
 					<select  id="lg" name="color1">
@@ -709,10 +709,10 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 			$('#buton1').click(function () {
 				if ($("#soustitre").is(":hidden")) {
 					$("#soustitre").show("slow");
-					document.getElementById('buton1').innerHTML = "<?php echo versionlinguistique(108) //Afficher les sous-titres ?>";
+					document.getElementById('buton1').innerHTML = "<?php echo general("text4") //Afficher les sous-titres ?>";
 				} else {
 					$("#soustitre").slideUp();
-					document.getElementById('buton1').innerHTML = "<?php echo versionlinguistique(107) //Afficher les sous-titres ?>";
+					document.getElementById('buton1').innerHTML = "<?php echo new_versionlinguistique("text107") //Afficher les sous-titres ?>";
 				}
 			});
 
@@ -737,7 +737,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 
 	<!-- Sous-titres-->
 			<div id="subtitres">
-				<button id="buton1" class="stbutton" ><?php echo versionlinguistique(108) //Afficher les sous-titres ?></button>
+				<button id="buton1" class="stbutton" ><?php echo general("text4") //Afficher les sous-titres ?></button>
 				<div id="soustitre">
 					<div>
 						<select  id="lg" name="color1">
@@ -824,10 +824,10 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 			$('#buton1').click(function () {
 						if ($("#soustitre").is(":hidden")) {
 							$("#soustitre").show("slow");
-							document.getElementById('buton1').innerHTML = "<?php echo versionlinguistique(108) //Afficher les sous-titres ?>";
+							document.getElementById('buton1').innerHTML = "<?php echo general("text4") //Afficher les sous-titres ?>";
 						} else {
 							$("#soustitre").slideUp();
-							document.getElementById('buton1').innerHTML = "<?php echo versionlinguistique(107) //Afficher les sous-titres ?>";
+							document.getElementById('buton1').innerHTML = "<?php echo new_versionlinguistique("text107") //Afficher les sous-titres ?>";
 						}
 					});
 					
@@ -852,13 +852,13 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 		<table border="0" cellpadding="2" cellspacing="2">
 			<tr>
 				<td>
-					<p><?php echo versionlinguistique(135); //Faire un commentaire ?></p>
+					<p><?php echo new_versionlinguistique("text135"); //Faire un commentaire ?></p>
 					<p><textarea name="commentaire" cols="54" rows="3"></textarea></p>
 				</td>
 			</tr>
 			<tr>
 				<td align="center">					
-						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo versionlinguistique(112) //publier ?></button>
+						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo general("text9") //publier ?></button>
 				</td>
 			</tr>
 		</table>
@@ -875,7 +875,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 
 if ($num_rows>0) {
 	echo '<div align="left">';
-		echo '<br><span class="Texte_default">'.versionlinguistique(83).' :</span><br>';
+		echo '<br><span class="Texte_default">'.general("text12").' :</span><br>';
 		echo '<table cellpadding="2" width="100%">';
 			affichage_commentaire($idressource);
 		echo '</table>';

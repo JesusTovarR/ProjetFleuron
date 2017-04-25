@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
 
@@ -12,7 +12,7 @@ $page=$_GET["page"];
 
 
 //************************************************************************
-//			Vérification présence fichier
+//			Vï¿½rification prï¿½sence fichier
 //************************************************************************
 
 $nbmedia=0;
@@ -50,16 +50,16 @@ if (file_exists($filename)) {
 
 	} else {
 ?>
-				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 					<tr>
-						<td align="center"><a href="ressources_media_ajouter_video.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&categorie=<?php echo $categorie ?>&page=<?php echo $page ?>"><span class="texte_info12"><?php echo versionlinguistique(97) //Ajouter un fichier video ?></span></a></td>
+						<td align="center"><a href="ressources_media_ajouter_video.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&categorie=<?php echo $categorie ?>&page=<?php echo $page ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text97") //Ajouter un fichier video ?></span></a></td>
 					</tr>
 				</table>
 
 
-				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
+				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" width="220">
 					<tr>
-						<td align="center"><a href="ressources_media_ajouter_audio.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&categorie=<?php echo $categorie ?>&page=<?php echo $page ?>"><span class="texte_info12"><?php echo versionlinguistique(98) //Ajouter un fichier audio ?></span></a></td>
+						<td align="center"><a href="ressources_media_ajouter_audio.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&categorie=<?php echo $categorie ?>&page=<?php echo $page ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text98") //Ajouter un fichier audio ?></span></a></td>
 					</tr>
 				</table>
 <?php

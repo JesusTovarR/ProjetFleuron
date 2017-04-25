@@ -53,16 +53,16 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="profils.php?lg=<?php echo $lg ?>&id=<?php echo $id ?>&niveau=<?php echo $niveau ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="profils.php?lg=<?php echo $lg ?>&id=<?php echo $id ?>&niveau=<?php echo $niveau ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(55) //profils ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text55") //profils ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(51) //Ajouter ?></span>
+											<span class="titre_admin"><?php echo general("text6") //Ajouter ?></span>
 										</td>
 									</tr>
 								</table>
@@ -75,27 +75,27 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 		<form name="FormName" action="profils_ajouter_enre.php" method="post">
 									<table border="0" cellpadding="10" cellspacing="2">
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(8); //Utilisateur ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text8"); //Utilisateur ?> :</span></td>
 											<td><input type="text" name="utilisateur" size="24" value=""></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(9); //Mot de passe ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text9"); //Mot de passe ?> :</span></td>
 											<td><input type="text" name="motdepasse" size="24" value=""></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(18); //Nom ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text18"); //Nom ?> :</span></td>
 											<td><input type="text" name="nom" size="24" value=""></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(19); //Prénom ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text19"); //Prénom ?> :</span></td>
 											<td><input type="text" name="prenom" size="24" value=""></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(20); //E-mail ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text20"); //E-mail ?> :</span></td>
 											<td><input type="text" name="email" size="24" value=""></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(21); //Pays ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text21"); //Pays ?> :</span></td>
 											<td>
 												<select name="pays" size="1">
 <?php
@@ -116,7 +116,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 												</select></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(22); //Langue à utiliser dans Fleuron ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text22"); //Langue à utiliser dans Fleuron ?> :</span></td>
 											<td><select name="langue" size="1">
 <?php
 	// Affichage de la liste des langues disponibles
@@ -135,15 +135,15 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 										</tr>
 										<tr>
 											<td>
-												<span class="texte_default"><?php echo versionlinguistique(62); //Niveau ?> :</span>
+												<span class="texte_default"><?php echo new_versionlinguistique("text62"); //Niveau ?> :</span>
 											</td>
 											<td>
 		<select name="niveau" size="1">
-			<?php echo '<option value="1">'.versionlinguistique(8); ?>
+			<?php echo '<option value="1">'.new_versionlinguistique("text8"); ?>
 
-			<?php echo '<option value="5">'.versionlinguistique(63); ?>
+			<?php echo '<option value="5">'.new_versionlinguistique("text63"); ?>
 
-			<?php echo '<option value="10" >'.versionlinguistique(64); ?>
+			<?php echo '<option value="10" >'.new_versionlinguistique("text64"); ?>
 
 		</select>
 											</td>
@@ -151,7 +151,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 										<tr>
 											<td colspan="2">
 												<center>
-													<input type="submit" value="<?php echo versionlinguistique(24) //S'inscrire ?>" name="submitButtonName"></center>
+													<input type="submit" value="<?php echo content("btn2") //S'inscrire ?>" name="submitButtonName"></center>
 											</td>
 										</tr>
 									</table>

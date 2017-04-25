@@ -51,14 +51,14 @@ echo '<a href="versionlinguistique_edit.php?id='.$donnees['id'].'&lg='.$lg.'"><s
 									if ($action=="ok" AND $donnees['id']==$idvl) {
 										echo '<table border="0" cellpadding="4" cellspacing="2" bgcolor="'.couleur(1).'" width="220">';
 											echo '<tr>';
-												echo '<td align="center"><a href="#"><span class="texte_info12">'.versionlinguistique(74).'</span></a></td>'; // version linguistique modifiée
+												echo '<td align="center"><a href="#"><span class="texte_info12">'.new_versionlinguistique("text74").'</span></a></td>'; // version linguistique modifiée
 											echo '</tr>';
 										echo '</table>';
 									}
 									if ($action2=="ok" AND $donnees['id']==$idvl) {
 										echo '<table border="0" cellpadding="4" cellspacing="2" bgcolor="'.couleur(1).'" width="220">';
 											echo '<tr>';
-												echo '<td align="center"><a href="#"><span class="texte_info12">'.versionlinguistique(76).'</span></a></td>'; // version linguistique modifiée
+												echo '<td align="center"><a href="#"><span class="texte_info12">'.new_versionlinguistique("text76").'</span></a></td>'; // version linguistique modifiée
 											echo '</tr>';
 										echo '</table>';
 									}
@@ -106,7 +106,7 @@ echo '<a href="versionlinguistique_edit.php?id='.$donnees['id'].'&lg='.$lg.'"><s
 
 							<td valign="top">
 
-<center><span class="titre_admin"><?php echo versionlinguistique(45) //Versions linguistiques ?></center>
+<center><span class="titre_admin"><?php echo new_versionlinguistique("text45") //Versions linguistiques ?></center>
 								<table width="100%" border="0">
 									<tr>
 										<td>
@@ -114,13 +114,13 @@ echo '<a href="versionlinguistique_edit.php?id='.$donnees['id'].'&lg='.$lg.'"><s
 			<table>
 				<tr>
 					<td>
-						<input type="text" name="motcle" size="24" value="<?php echo versionlinguistique(13) //Mot clé ?>" onFocus="javascript:this.value=''">
+						<input type="text" name="motcle" size="24" value="<?php echo new_versionlinguistique("text13") //Mot clé ?>" onFocus="javascript:this.value=''">
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<center>
-						<span class="texte_menu"><input type="submit" value="<?php echo versionlinguistique(11) //Rechercher ?>" name="submitButtonName"></span></center>
+						<span class="texte_menu"><input type="submit" value="<?php echo new_versionlinguistique("text11") //Rechercher ?>" name="submitButtonName"></span></center>
 					</td>
 				</tr>
 			</table>
@@ -132,7 +132,7 @@ echo '<a href="versionlinguistique_edit.php?id='.$donnees['id'].'&lg='.$lg.'"><s
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="versionlinguistique_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(51) //Ajouter ?></span></a>
+														<a href="versionlinguistique_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text6") //Ajouter ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -162,19 +162,19 @@ echo '<a href="versionlinguistique_edit.php?id='.$donnees['id'].'&lg='.$lg.'"><s
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="index.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //REtour ?></span></a>
+														<a href="index.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //REtour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(45) //Versions linguistiques ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text45") //Versions linguistiques ?></span>
 										</td>
 										<td width="150" align="center">
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="versionlinguistique_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(51) //Ajouter ?></span></a>
+														<a href="versionlinguistique_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text6") //Ajouter ?></span></a>
 													</td>
 												</tr>
 											</table>

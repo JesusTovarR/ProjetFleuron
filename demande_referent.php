@@ -59,7 +59,7 @@ if (isset($_GET["action"])) {
 											<a href="admin_referent.php"><span class="texte_menu"><?php echo page_modification("line97") //Retour ?></span></a>
 										</td>
 										<td align="center" height="30">
-											<span class="titre"><?php echo versionlinguistique(150); //Reférent ?> Demande Referent</span>
+											<span class="titre"><?php echo page_traducteur("title7"); //Reférent ?> Demande Referent</span>
 										</td>
 									</tr>
 								</table>

@@ -14,13 +14,13 @@ $page=$_GET["page"];
 $pays=$_GET["pays"];
 
 if ($niveau==1) {
-	$nomniveau = versionlinguistique(44);
+	$nomniveau = new_versionlinguistique("text44");
 }
 if ($niveau==5) {
-	$nomniveau = versionlinguistique(56);
+	$nomniveau = new_versionlinguistique("text56");
 }
 if ($niveau==10) {
-	$nomniveau = versionlinguistique(57);
+	$nomniveau = new_versionlinguistique("text57");
 }
 
 // 		Récupération des données du profil
@@ -85,13 +85,13 @@ if ($niveau==10) {
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>&pays=<?php echo $pays ?>&niveau=<?php echo $niveau ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>&pays=<?php echo $pays ?>&niveau=<?php echo $niveau ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(55) //profils ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text55") //profils ?></span>
 										</td>
 										<td width="150" align="center">
 											<span class="titre_admin"><?php echo $nomniveau ?></span>
@@ -107,23 +107,23 @@ if ($niveau==10) {
 		<form name="FormName" action="profils_list_edit_enre.php" method="post">
 									<table border="0" cellpadding="10" cellspacing="2">
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(8); //Utilisateur ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text8"); //Utilisateur ?> :</span></td>
 											<td><span class="texte_default"><?php echo $utilisateur ?></span></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(18); //Nom ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text18"); //Nom ?> :</span></td>
 											<td><span class="texte_default"><?php echo $nom ?></span></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(19); //Prénom ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text19"); //Prénom ?> :</span></td>
 											<td><span class="texte_default"><?php echo $prenom ?></span></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(20); //E-mail ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text20"); //E-mail ?> :</span></td>
 											<td><span class="texte_default"><?php echo $email ?></span></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(21); //Pays ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text21"); //Pays ?> :</span></td>
 											<td>
 
 <?php
@@ -142,7 +142,7 @@ if ($niveau==10) {
 											</td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(22); //Langue à utiliser dans Fleuron ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text22"); //Langue à utiliser dans Fleuron ?> :</span></td>
 											<td>
 <?php
 	// Affichage de la liste des langues disponibles
@@ -162,7 +162,7 @@ if ($niveau==10) {
 										</tr>
 										<tr>
 											<td>
-												<span class="texte_default"><?php echo versionlinguistique(62); //Niveau ?> :</span>
+												<span class="texte_default"><?php echo new_versionlinguistique("text62"); //Niveau ?> :</span>
 											</td>
 											<td>
 		<select name="niveau" size="1">
@@ -171,7 +171,7 @@ if ($niveau==10) {
 											</td>
 											<td>
 												<center>
-													<input type="submit" value="<?php echo versionlinguistique(41) //Modifier ?>" name="submitButtonName"></center>
+													<input type="submit" value="<?php echo new_versionlinguistique("text41") //Modifier ?>" name="submitButtonName"></center>
 											</td>
 										</tr>
 
@@ -183,7 +183,7 @@ if ($niveau==10) {
 <?php
 
 										$jourdef = explode("-", $jour);
-										echo '<br><span class="texte_default">'.versionlinguistique(95).' '.$jourdef[2].'-'.$jourdef[1].'-'.$jourdef[0].'</span></dl>'; // depuis le
+										echo '<br><span class="texte_default">'.new_versionlinguistique("text95").' '.$jourdef[2].'-'.$jourdef[1].'-'.$jourdef[0].'</span></dl>'; // depuis le
 
 ?>
 							</td>

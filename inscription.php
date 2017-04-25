@@ -48,7 +48,7 @@ if (! isset($_SESSION['niveau'])) {
 								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 									<tr>
 										<td align="center" height="30">
-											<span class="titre"><?php echo versionlinguistique(16); //Compléter ce formulaire pour vous inscrire ?></span>
+											<span class="titre"><?php echo new_versionlinguistique("text16"); //Compléter ce formulaire pour vous inscrire ?></span>
 										</td>
 									</tr>
 								</table>
@@ -57,27 +57,27 @@ if (! isset($_SESSION['niveau'])) {
 		<form name="FormName" action="inscription_enre.php" method="post">
 									<table border="0" cellpadding="10" cellspacing="2">
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(8); //Utilisateur ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text8"); //Utilisateur ?> :</span></td>
 											<td><input type="text" name="utilisateur" size="24"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(9); //Mot de passe ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text9"); //Mot de passe ?> :</span></td>
 											<td><input type="text" name="motdepasse" size="24"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(18); //Nom ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text18"); //Nom ?> :</span></td>
 											<td><input type="text" name="nom" size="24"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(19); //Prénom ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text19"); //Prénom ?> :</span></td>
 											<td><input type="text" name="prenom" size="24"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(20); //E-mail ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text20"); //E-mail ?> :</span></td>
 											<td><input type="text" name="email" size="24"></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(21); //Pays ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text21"); //Pays ?> :</span></td>
 											<td><select name="pays" size="1">
 <?php
 	// Affichage de la liste des pays
@@ -96,7 +96,7 @@ if (! isset($_SESSION['niveau'])) {
 												</select></td>
 										</tr>
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(22); //Langue à utiliser dans Fleuron ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text22"); //Langue à utiliser dans Fleuron ?> :</span></td>
 											<td><select name="langue" size="1">
 <?php
 
@@ -120,7 +120,7 @@ if (! isset($_SESSION['niveau'])) {
 										<tr>
 											<td colspan="2">
 												<center>
-													<input type="submit" value="<?php echo versionlinguistique(6) //S'inscrire ?>" name="submitButtonName"></center>
+													<input type="submit" value="<?php echo new_versionlinguistique("text6") //S'inscrire ?>" name="submitButtonName"></center>
 											</td>
 										</tr>
 									</table>
@@ -157,7 +157,7 @@ if (! isset($_SESSION['niveau'])) {
 									<tr>
 										<td>
 											<div align="right">
-												<span class="conseil"><?php echo versionlinguistique(14) //Conseil double clique mot?></span></div>
+												<span class="conseil"><?php echo new_versionlinguistique("text14") //Conseil double clique mot?></span></div>
 										</td>
 									</tr>
 								</table>

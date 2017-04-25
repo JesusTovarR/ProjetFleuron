@@ -1,5 +1,5 @@
-					<table border="0" cellpadding="0" cellspacing="0" width="220" bgcolor="<?php echo couleur(1); //couleur foncée ?>" >
+					<table border="0" cellpadding="0" cellspacing="0" width="220" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" >
 						<tr>
-							<td align="center" valign="middle"><a href="deconnexion.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo versionlinguistique(17) //déconnexion ?></span></a></td>
+							<td align="center" valign="middle"><a href="deconnexion.php?lg=<?php echo $lg; ?>"><span class="texte_menu"><?php echo affichage_menu("logout") //dï¿½connexion ?></span></a></td>
 						</tr>
 					</table>

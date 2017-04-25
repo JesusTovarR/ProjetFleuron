@@ -64,16 +64,16 @@ $recuplg = mysql_query('SELECT * FROM lg WHERE id='.$id);
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="langueutilisation.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //REtour ?></span></a>
+														<a href="langueutilisation.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //REtour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(129) //Langues d'utilisation ?></span>
+											<span class="titre_admin"><?php echo general("text13") //Langues d'utilisation ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(47) //Editer ?></span>
+											<span class="titre_admin"><?php echo content("line205_216") //Editer ?></span>
 										</td>
 									</tr>
 								</table>
@@ -93,7 +93,7 @@ $recuplg = mysql_query('SELECT * FROM lg WHERE id='.$id);
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo versionlinguistique(24) //enregistrer ?></button>
+						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo content("btn2") //enregistrer ?></button>
 				</td>
 			</tr>
 		</table>

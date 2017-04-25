@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -44,7 +44,7 @@ $recuplg = mysql_query('SELECT * FROM lg WHERE id='.$id);
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <?php 
 		// Menu des visiteurs non inscrits 
 		include('include/menu_top.inc'); 
@@ -64,16 +64,16 @@ $recuplg = mysql_query('SELECT * FROM lg WHERE id='.$id);
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="langueutilisation.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //REtour ?></span></a>
+														<a href="langueutilisation.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //REtour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(129) //Langues d'utilisation ?></span>
+											<span class="titre_admin"><?php echo general("text13") //Langues d'utilisation ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(48) //Supprimer ?></span>
+											<span class="titre_admin"><?php echo afficher_ressource("option2") //Supprimer ?></span>
 										</td>
 									</tr>
 								</table>
@@ -93,7 +93,7 @@ $recuplg = mysql_query('SELECT * FROM lg WHERE id='.$id);
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo versionlinguistique(48) //Supprimer ?></button>
+						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo afficher_ressource("option2") //Supprimer ?></button>
 				</td>
 			</tr>
 		</table>
@@ -119,7 +119,7 @@ $recuplg = mysql_query('SELECT * FROM lg WHERE id='.$id);
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

@@ -64,16 +64,16 @@ $page=$_GET["page"];
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26); //Retour ?></span></a>
+														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5"); //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(5); //Liens utiles ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text5"); //Liens utiles ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(48); //Supprimer ?></span>
+											<span class="titre_admin"><?php echo afficher_ressource("option2"); //Supprimer ?></span>
 										</td>
 									</tr>
 								</table>
@@ -120,7 +120,7 @@ $page=$_GET["page"];
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="liens_supprimer_enre.php?lg=<?php echo $lg ?>&id=<?php echo $id ?>"><span class="texte_menu"><?php echo versionlinguistique(48); //Supprimer ?></span></a>
+														<a href="liens_supprimer_enre.php?lg=<?php echo $lg ?>&id=<?php echo $id ?>"><span class="texte_menu"><?php echo afficher_ressource("option2"); //Supprimer ?></span></a>
 													</td>
 												</tr>
 											</table>

@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -30,7 +30,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <?php 
 
 		// Menu des visiteurs non inscrits 
@@ -47,19 +47,19 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 <!-- Partie centrale -->
 							<td valign="top">
 
-<span class="texte_default"><?php echo versionlinguistique(39); //E-mail ?></span><br><br>
+<span class="texte_default"><?php echo new_versionlinguistique("text39"); //E-mail ?></span><br><br>
 <center>
 		<form name="FormName" action="recuplogin_envoie.php" method="post">
 									<table border="0" cellpadding="10" cellspacing="2">
 
 										<tr>
-											<td><span class="texte_default"><?php echo versionlinguistique(20); //E-mail ?> :</span></td>
+											<td><span class="texte_default"><?php echo new_versionlinguistique("text20"); //E-mail ?> :</span></td>
 											<td><input type="text" name="email" size="60"></td>
 										</tr>
 										
 											<td colspan="2">
 												<center>
-													<input type="submit" value="<?php echo versionlinguistique(38) //S'inscrire ?>" name="submitButtonName"></center>
+													<input type="submit" value="<?php echo new_versionlinguistique("text38") //S'inscrire ?>" name="submitButtonName"></center>
 											</td>
 										</tr>
 									</table>
@@ -98,7 +98,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -125,7 +125,7 @@ include('include/initialisation_page.inc'); // initialisation des variables de l
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

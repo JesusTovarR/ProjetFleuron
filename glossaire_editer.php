@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
 
@@ -17,7 +17,7 @@ function glossaire()
 		echo '<form name="FormName" action="glossaire_editer_enre.php" method="post">';
 		echo '<table border="0">';
 					echo '<tr>';
-						echo '<td><span class="texte_defaultgras">'.versionlinguistique(134).' :</span></td>';
+						echo '<td><span class="texte_defaultgras">'.content("text3").' :</span></td>';
 					echo '</tr>';
 					echo '<tr>';
 						echo '<td><input type="text" name="item" size="80" value="'.$data['item'].'"></td>';
@@ -26,7 +26,7 @@ function glossaire()
 						echo '<td align="30">&nbsp;</td>';
 					echo '</tr>';
 					echo '<tr>';
-						echo '<td><span class="texte_defaultgras">'.versionlinguistique(69).' :</span></td>';
+						echo '<td><span class="texte_defaultgras">'.general("text14").' :</span></td>';
 					echo '</tr>';
 
 			$recuplg = mysql_query('SELECT * FROM lg ORDER BY id');
@@ -39,7 +39,7 @@ function glossaire()
 					echo '</tr>';
 					echo '<tr>';
 						echo '<td align="center" >';
-							echo '<input type="submit" value="'.versionlinguistique(24).'" name="submitButtonName">'; // Enregistrer
+							echo '<input type="submit" value="'.content("btn2").'" name="submitButtonName">'; // Enregistrer
 						echo '</td>';
 
 					echo '</tr>';
@@ -77,7 +77,7 @@ function glossaire()
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <?php 
 		// Menu des visiteurs non inscrits 
 		include('include/menu_top.inc'); 
@@ -97,16 +97,16 @@ function glossaire()
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="glossaire.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //REtour ?></span></a>
+														<a href="glossaire.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //REtour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(133) //Glossaire ?></span>
+											<span class="titre_admin"><?php echo tableau_du_bord("btnglossary") //Glossaire ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(47) //Editer?></span>
+											<span class="titre_admin"><?php echo content("line205_216") //Editer?></span>
 										</td>
 									</tr>
 								</table>
@@ -135,7 +135,7 @@ function glossaire()
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

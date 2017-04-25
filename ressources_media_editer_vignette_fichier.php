@@ -34,7 +34,7 @@ include('include/Recup_infosRessource.inc');
 					<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="120">
 						<tr>
 							<td align="center">
-								<a href="ressources_media_editer_vignette.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+								<a href="ressources_media_editer_vignette.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 							</td>
 						</tr>
 					</table>
@@ -45,7 +45,7 @@ include('include/Recup_infosRessource.inc');
 					<table border="0" cellpadding="4" cellspacing="0" bgcolor="<?php echo couleur(1); //gris ?>" width="120">
 						<tr>
 							<td align="center">
-								<a href="ressources_media_editer_vignette_creer.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&categorie=<?php echo $categorie ?>&retour=<?php echo $retour ?>" target="_top"><span class="texte_info12"><?php echo versionlinguistique(110) //Cr�er ?></span></a>
+								<a href="ressources_media_editer_vignette_creer.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&categorie=<?php echo $categorie ?>&retour=<?php echo $retour ?>" target="_top"><span class="texte_info12"><?php echo new_versionlinguistique("text110") //Cr�er ?></span></a>
 							</td>
 						</tr>
 					</table>
@@ -71,7 +71,7 @@ if ($_SESSION['niveau']>0) {
 						<input type="file" name="media">
 					</td>
 					<td align="center">
-						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo versionlinguistique(112) //Publier ?></button>
+						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo general("text9") //Publier ?></button>
 					</td>
 				</tr>
 			</table>

@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique, variable session)
@@ -12,8 +12,8 @@ $email = $_POST["email"];
 
 $lg = $_POST["lg"];
 
-$mess1 = versionlinguistique(142);
-$mess2 = versionlinguistique(143);
+$mess1 = new_versionlinguistique("text142");
+$mess2 = new_versionlinguistique("text143");
 
 			$requete='SELECT * FROM profil WHERE email="'.$email.'"';
 			$recup = mysql_query($requete);
@@ -38,9 +38,9 @@ $mess2 = versionlinguistique(143);
 
 $destinataire = $email; // l'adresse du destinataire
 
-$sujet = versionlinguistique(145);
+$sujet = new_versionlinguistique("text145");
 
-$fromemetteur = "info@fleuron2016.com"; // l'adresse de l'émetteur qui DOIT exister en tant qu'adresse mail ou alias
+$fromemetteur = "info@fleuron2016.com"; // l'adresse de l'ï¿½metteur qui DOIT exister en tant qu'adresse mail ou alias
 
 				$message = $mess1.' '.$utilisateur.'( email : '.$email.')'."<br />";
 				$message .= '&nbsp;'."<br />";

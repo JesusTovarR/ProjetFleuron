@@ -60,10 +60,10 @@ if (recherche($texte)>-1) {
 								if ($data['id']==$profil) {
 									echo '<td align="center">';
 									if ($action=="ok") {
-										echo '<span class="message">'.versionlinguistique(65).'</span>'; // profil modifié
+										echo '<span class="message">'.new_versionlinguistique("text65").'</span>'; // profil modifié
 									}
 									if ($action2=="ok") {
-										echo '<span class="message">'.versionlinguistique(66).'</span>'; // Profil ajouté
+										echo '<span class="message">'.new_versionlinguistique("text66").'</span>'; // Profil ajouté
 									}
 									echo '</td>';
 								} else {
@@ -72,7 +72,7 @@ if (recherche($texte)>-1) {
 									echo '</td>';
 								}
 									echo '<td width="100" align="center" bgcolor="'.couleur(1).'">';
-										echo '<a href="profils_list_supprimer.php?lg='.$lg.'&id='.$data['id'].'&niveau='.$niveau.'"><span class="texte_info12">'.versionlinguistique(48).'</span></a>'; // supprimer
+										echo '<a href="profils_list_supprimer.php?lg='.$lg.'&id='.$data['id'].'&niveau='.$niveau.'"><span class="texte_info12">'.afficher_ressource("option2").'</span></a>'; // supprimer
 									echo '</td>';
 								echo '</tr>';
 							echo '</table>';
@@ -132,13 +132,13 @@ function recherche($texte)
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="profils.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="profils.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(11) //Rechercher ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text11") //Rechercher ?></span>
 										</td>
 										<td width="150" align="center">
 											<span class="titre_admin">'<?php echo $motcle ?>'</span>
@@ -163,7 +163,7 @@ function recherche($texte)
 				<tr>
 					<td>
 							<center>
-							<span class="texte_menu"><input type="submit" value="<?php echo versionlinguistique(11) //Rechercher ?>" name="submitButtonName"></span></center>
+							<span class="texte_menu"><input type="submit" value="<?php echo new_versionlinguistique("text11") //Rechercher ?>" name="submitButtonName"></span></center>
 					</td>
 				</tr>
 			</table>
@@ -173,7 +173,7 @@ function recherche($texte)
 			<td align="right" valign="top">
 				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 					<tr>
-						<td align="center"><a href="profils_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo versionlinguistique(54); // Ajouter un utilisateur ?></span></a></td>
+						<td align="center"><a href="profils_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text54"); // Ajouter un utilisateur ?></span></a></td>
 					</tr>
 				</table>
 			</td>

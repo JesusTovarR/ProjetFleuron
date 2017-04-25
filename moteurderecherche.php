@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
 
@@ -30,7 +30,7 @@ if (! isset($refpage)) {
 	$refpage="";
 }
 
-$avapr = array(".",",",":",";","'"," ",""); // tableau des caractères autorisés avant et près le mot clé
+$avapr = array(".",",",":",";","'"," ",""); // tableau des caractï¿½res autorisï¿½s avant et prï¿½s le mot clï¿½
 
 $taille=40;
 $compteurcon=0;
@@ -50,7 +50,7 @@ compteur_notes($motcleorigine);
 }
 
 //************************************************************************
-//		enregistrement mot recherché (ou compteur) si $compteurcon>0
+//		enregistrement mot recherchï¿½ (ou compteur) si $compteurcon>0
 //************************************************************************
 
 if ($_SESSION['motcle']==$motcle) {
@@ -60,7 +60,7 @@ if ($_SESSION['motcle']==$motcle) {
 	if ($compteurcon>0) {
 
 
-//			vérification si le mot a déjà été recherché
+//			vï¿½rification si le mot a dï¿½jï¿½ ï¿½tï¿½ recherchï¿½
 		$requete = 'SELECT COUNT(mot) AS total FROM recherche WHERE mot="'.$motcle.'"';
 		$recup = mysql_query($requete);
 		$data = mysql_fetch_assoc($recup);
@@ -88,7 +88,7 @@ if ($_SESSION['motcle']==$motcle) {
 		} else {
 
 
-			$requete ='INSERT INTO `recherche` (`id`,`mot`,`visiteur`) VALUES (NULL,'; // début de la composition de la requete de mise à jour
+			$requete ='INSERT INTO `recherche` (`id`,`mot`,`visiteur`) VALUES (NULL,'; // dï¿½but de la composition de la requete de mise ï¿½ jour
 			$requete = $requete.'\''.$motcle.'\',';
 			$requete = $requete.'1)';
 
@@ -121,20 +121,20 @@ function compteur_concordancier($motcle)
 						{
 
 						$lignes = file($fichier);
-						$lignes=str_replace("Ã´","ô",$lignes);
-						$lignes=str_replace("Ã©","é",$lignes);
-						$lignes=str_replace("Ã","à",$lignes);
-						$lignes=str_replace("à¨","è",$lignes);
-						$lignes=str_replace("àª","ê",$lignes);
-						$lignes=str_replace("à§","ç",$lignes);
-						$lignes=str_replace("à»","û",$lignes);
-						$lignes=str_replace("à¢","â",$lignes);
+						$lignes=str_replace("Ã´","ï¿½",$lignes);
+						$lignes=str_replace("Ã©","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
 						$lignes=str_replace(chr(13),"",$lignes);
 						$lignes=str_replace(chr(10),"",$lignes);
-						$lignes=str_replace("  "," ",$lignes);
-						$lignes=str_replace("à ","à",$lignes);
-						$lignes=str_replace("à¹","ù",$lignes);
-						$lignes=str_replace("ù ","ù",$lignes);
+						$lignes=str_replace("ï¿½ "," ",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½ï¿½","ï¿½",$lignes);
 
 						foreach($lignes as $ligne_num => $ligne)
 							{
@@ -146,15 +146,15 @@ function compteur_concordancier($motcle)
 									$position = stripos(strtolower($ligne),strtolower($motcle));
 									if ($position>-1) 
 										{
-											$av = substr($ligne,$position-1,1); // caractère précédent le mot clé
-											$apr = substr($ligne,$position+strlen($motcle),1); // caractère suivant le mot clé
+											$av = substr($ligne,$position-1,1); // caractï¿½re prï¿½cï¿½dent le mot clï¿½
+											$apr = substr($ligne,$position+strlen($motcle),1); // caractï¿½re suivant le mot clï¿½
 
-											if(!in_array($apr, $avapr)) // si le caractère suivant n'est pas autorisé d'après le tableau
+											if(!in_array($apr, $avapr)) // si le caractï¿½re suivant n'est pas autorisï¿½ d'aprï¿½s le tableau
 												{
 												} else {
 													$ok+=1;
 												}
-											if(!in_array($av, $avapr))  // si le caractère précédent n'est pas autorisé d'après le tableau
+											if(!in_array($av, $avapr))  // si le caractï¿½re prï¿½cï¿½dent n'est pas autorisï¿½ d'aprï¿½s le tableau
 												{
 												} else {
 													$ok+=1;
@@ -174,7 +174,7 @@ function compteur_concordancier($motcle)
 	}
 
 //************************************************************************
-//		compteur des ressources trouvées
+//		compteur des ressources trouvï¿½es
 //************************************************************************
 function compteur_ressource($motcle)
 	{
@@ -191,14 +191,14 @@ if ($lg=="") {
 			{
 	$ok=0;
 				$zone = " ".$data['typemedia']." ".$data['nom_'.$lg]." ".$data['nom_fr']." ".$data['description_'.$lg]." ".$data['description_fr']." ";
-				$position = stripos(strtolower($zone),strtolower($motcle)); // position du mot clé
+				$position = stripos(strtolower($zone),strtolower($motcle)); // position du mot clï¿½
 				if ($position>-1) {
-					$av = substr($zone,$position-1,1); // caractère précédent le mot clé
-					$apr = substr($zone,$position+strlen($motcle),1); // caractère suivant le mot clé
+					$av = substr($zone,$position-1,1); // caractï¿½re prï¿½cï¿½dent le mot clï¿½
+					$apr = substr($zone,$position+strlen($motcle),1); // caractï¿½re suivant le mot clï¿½
 //echo '-apr='.$apr.'->';
 
 
-					if(!in_array($apr, $avapr)) // si le caractère suivant n'est pas autorisé d'après le tableau
+					if(!in_array($apr, $avapr)) // si le caractï¿½re suivant n'est pas autorisï¿½ d'aprï¿½s le tableau
 						{
 						} else {
 							$ok+=1;
@@ -208,7 +208,7 @@ if ($lg=="") {
 //echo 'ok1='.$ok.'-';	
 //echo '- av='.$av.'->';
 
-					if(!in_array($av, $avapr))  // si le caractère précédent n'est pas autorisé d'après le tableau
+					if(!in_array($av, $avapr))  // si le caractï¿½re prï¿½cï¿½dent n'est pas autorisï¿½ d'aprï¿½s le tableau
 						{
 						} else {
 							$ok+=1;
@@ -224,7 +224,7 @@ if ($lg=="") {
 
 	}
 //************************************************************************
-//		Compteur des notes trouvées
+//		Compteur des notes trouvï¿½es
 //************************************************************************
 function compteur_notes($motcle)
 	{
@@ -244,12 +244,12 @@ function compteur_notes($motcle)
 
 				$position = stripos(strtolower($zone),strtolower($motcle));
 				if ($position>-1) {
-					$av = substr($zone,$position-1,1); // caractère précédent le mot clé
-					$apr = substr($zone,$position+strlen($motcle),1); // caractère suivant le mot clé
+					$av = substr($zone,$position-1,1); // caractï¿½re prï¿½cï¿½dent le mot clï¿½
+					$apr = substr($zone,$position+strlen($motcle),1); // caractï¿½re suivant le mot clï¿½
 //echo '-apr='.$apr.'->';
 
 
-					if(!in_array($apr, $avapr)) // si le caractère suivant n'est pas autorisé d'après le tableau
+					if(!in_array($apr, $avapr)) // si le caractï¿½re suivant n'est pas autorisï¿½ d'aprï¿½s le tableau
 						{
 						} else {
 							$ok+=1;
@@ -259,7 +259,7 @@ function compteur_notes($motcle)
 //echo 'ok1='.$ok.'-';	
 //echo '- av='.$av.'->';
 
-					if(!in_array($av, $avapr))  // si le caractère précédent n'est pas autorisé d'après le tableau
+					if(!in_array($av, $avapr))  // si le caractï¿½re prï¿½cï¿½dent n'est pas autorisï¿½ d'aprï¿½s le tableau
 						{
 						} else {
 							$ok+=1;
@@ -297,20 +297,20 @@ function affichage_concordancier($motcle)
 						{
 
 						$lignes = file($fichier);
-						$lignes=str_replace("Ã´","ô",$lignes);
-						$lignes=str_replace("Ã©","é",$lignes);
-						$lignes=str_replace("Ã","à",$lignes);
-						$lignes=str_replace("à¨","è",$lignes);
-						$lignes=str_replace("àª","ê",$lignes);
-						$lignes=str_replace("à§","ç",$lignes);
-						$lignes=str_replace("à»","û",$lignes);
-						$lignes=str_replace("à¢","â",$lignes);
+						$lignes=str_replace("Ã´","ï¿½",$lignes);
+						$lignes=str_replace("Ã©","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
 						$lignes=str_replace(chr(13),"",$lignes);
 						$lignes=str_replace(chr(10),"",$lignes);
-						$lignes=str_replace("  "," ",$lignes);
-						$lignes=str_replace("à ","à",$lignes);
-						$lignes=str_replace("à¹","ù",$lignes);
-						$lignes=str_replace("ù ","ù",$lignes);
+						$lignes=str_replace("ï¿½ "," ",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½","ï¿½",$lignes);
+						$lignes=str_replace("ï¿½ï¿½","ï¿½",$lignes);
 
 						foreach($lignes as $ligne_num => $ligne)
 							{
@@ -322,10 +322,10 @@ function affichage_concordancier($motcle)
 								$position = stripos(strtolower($ligne),strtolower($motcle));
 								if ($position>-1) 
 									{
-					$av = substr($ligne,$position-1,1); // caractère précédent le mot clé
-					$apr = substr($ligne,$position+strlen($motcle),1); // caractère suivant le mot clé
+					$av = substr($ligne,$position-1,1); // caractï¿½re prï¿½cï¿½dent le mot clï¿½
+					$apr = substr($ligne,$position+strlen($motcle),1); // caractï¿½re suivant le mot clï¿½
 
-					if(!in_array($apr, $avapr)) // si le caractère suivant n'est pas autorisé d'après le tableau
+					if(!in_array($apr, $avapr)) // si le caractï¿½re suivant n'est pas autorisï¿½ d'aprï¿½s le tableau
 						{
 						} else {
 							$ok+=1;
@@ -335,7 +335,7 @@ function affichage_concordancier($motcle)
 //echo 'ok1='.$ok.'-';	
 //echo '- av='.$av.'->';
 
-					if(!in_array($av, $avapr))  // si le caractère précédent n'est pas autorisé d'après le tableau
+					if(!in_array($av, $avapr))  // si le caractï¿½re prï¿½cï¿½dent n'est pas autorisï¿½ d'aprï¿½s le tableau
 						{
 						} else {
 							$ok+=1;
@@ -380,7 +380,7 @@ function affichage_concordancier($motcle)
 	}
 
 //************************************************************************
-//		Affichage des ressources trouvées
+//		Affichage des ressources trouvï¿½es
 //************************************************************************
 function affichage_ressourcelist($motcleorigine)
 	{ 
@@ -392,14 +392,14 @@ function affichage_ressourcelist($motcleorigine)
 			{
 	$ok=0;
 				$zone = " ".$data['typemedia']." ".$data['nom_'.$lg]." ".$data['nom_fr']." ".$data['description_'.$lg]." ".$data['description_fr']." ";
-				$position = stripos(strtolower($zone),strtolower($motcleorigine)); // position du mot clé
+				$position = stripos(strtolower($zone),strtolower($motcleorigine)); // position du mot clï¿½
 				if ($position>-1) {
 //echo $zone.'<br>';
-					$av = substr($zone,$position-1,1); // caractère précédent le mot clé
-					$apr = substr($zone,$position+strlen($motcleorigine),1); // caractère suivant le mot clé
+					$av = substr($zone,$position-1,1); // caractï¿½re prï¿½cï¿½dent le mot clï¿½
+					$apr = substr($zone,$position+strlen($motcleorigine),1); // caractï¿½re suivant le mot clï¿½
 //echo '-apr='.$apr.'->';
 
-					if(!in_array($apr, $avapr)) // si le caractère suivant n'est pas autorisé d'après le tableau
+					if(!in_array($apr, $avapr)) // si le caractï¿½re suivant n'est pas autorisï¿½ d'aprï¿½s le tableau
 						{
 						} else {
 							$ok+=1;
@@ -409,7 +409,7 @@ function affichage_ressourcelist($motcleorigine)
 //echo 'ok1='.$ok.'-';	
 //echo '- av='.$av.'->';
 
-					if(!in_array($av, $avapr))  // si le caractère précédent n'est pas autorisé d'après le tableau
+					if(!in_array($av, $avapr))  // si le caractï¿½re prï¿½cï¿½dent n'est pas autorisï¿½ d'aprï¿½s le tableau
 						{
 						} else {
 							$ok+=1;
@@ -425,13 +425,13 @@ function affichage_ressourcelist($motcleorigine)
 			}
 					if ($compteurressources==0) {
 						echo'<br><br><br>';
-						echo '<tr><td><span class="texte_defaultGras">Aucun résultat trouvé</span>';
+						echo '<tr><td><span class="texte_defaultGras">Aucun rï¿½sultat trouvï¿½</span>';
 					}
 
 	}
 
 //************************************************************************
-//		Affichage des notes trouvées
+//		Affichage des notes trouvï¿½es
 //************************************************************************
 function affichage_noteslist($motcleorigine)
 	{
@@ -451,11 +451,11 @@ function affichage_noteslist($motcleorigine)
 
 				$position = stripos(strtolower($zone),strtolower($motcleorigine));
 				if ($position>-1) {
-					$av = substr($zone,$position-1,1); // caractère précédent le mot clé
-					$apr = substr($zone,$position+strlen($motcleorigine),1); // caractère suivant le mot clé
+					$av = substr($zone,$position-1,1); // caractï¿½re prï¿½cï¿½dent le mot clï¿½
+					$apr = substr($zone,$position+strlen($motcleorigine),1); // caractï¿½re suivant le mot clï¿½
 //echo '-apr='.$apr.'->';
 
-					if(!in_array($apr, $avapr)) // si le caractère suivant n'est pas autorisé d'après le tableau
+					if(!in_array($apr, $avapr)) // si le caractï¿½re suivant n'est pas autorisï¿½ d'aprï¿½s le tableau
 						{
 						} else {
 							$ok+=1;
@@ -465,7 +465,7 @@ function affichage_noteslist($motcleorigine)
 //echo 'ok1='.$ok.'-';	
 //echo '- av='.$av.'->';
 
-					if(!in_array($av, $avapr))  // si le caractère précédent n'est pas autorisé d'après le tableau
+					if(!in_array($av, $avapr))  // si le caractï¿½re prï¿½cï¿½dent n'est pas autorisï¿½ d'aprï¿½s le tableau
 						{
 						} else {
 							$ok+=1;
@@ -482,7 +482,7 @@ function affichage_noteslist($motcleorigine)
 			}
 					if ($compteurnotes==0) {
 						echo'<br><br><br>';
-						echo '<tr><td><span class="texte_defaultGras">Aucun résultat trouvé</span>';
+						echo '<tr><td><span class="texte_defaultGras">Aucun rï¿½sultat trouvï¿½</span>';
 					}
 	}
 
@@ -495,7 +495,8 @@ include('include/affichage_ressource_notes.inc'); // affichage des ressources da
 		<?php include('include/head.inc');  // header ?>
 		<?php include('include/alexandria.inc');  ?>
 		<link href="styles/styles.css" rel="styleSheet" type="text/css">
-		<?php include('include/style_onglet.inc');  // header ?>
+		<?php include('include/style_onglet.inc');  // header ?>
+
 	</head>
 
 	<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="white" onload="TabClick(0);">
@@ -507,9 +508,9 @@ include('include/affichage_ressource_notes.inc'); // affichage des ressources da
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -526,24 +527,24 @@ include('include/affichage_ressource_notes.inc'); // affichage des ressources da
 				<table border="0" cellpadding="5" cellspacing="2" bgcolor="<?php echo couleur(2); // couleur clair ?>" >
 					<tr>
 						<td colspan="2" align="center">
-							<span class="texte_menu"><?php echo versionlinguistique(124) //Concordancier ?></span>
+							<span class="texte_menu"><?php echo new_versionlinguistique("text124") //Concordancier ?></span>
 						</td>
 						<td colspan="2" align="center">
-							<input type="text" name="motcle" size="24" value="<?php echo $motcleorigine //Mot clé ?>">
+							<input type="text" name="motcle" size="24" value="<?php echo $motcleorigine //Mot clï¿½ ?>">
 						</td>
-						<td colspan="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>">
-								<button id="buton1" class="stbutton" ><?php echo versionlinguistique(11) //Rechercher ?></button>
+						<td colspan="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>">
+								<button id="buton1" class="stbutton" ><?php echo new_versionlinguistique("text11") //Rechercher ?></button>
 						</td>
 					</tr>
 				</table>
 			</form>
 								<table width="850">
 									<tr>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(0);" width="200" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(114) //Concordancier ?> (<?php echo $compteurcon ?>)</td>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(1);" width="200" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(115) //Ressources ?> (<?php echo $compteurressources ?>)</td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(0);" width="200" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text114") //Concordancier ?> (<?php echo $compteurcon ?>)</td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(1);" width="200" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text115") //Ressources ?> (<?php echo $compteurressources ?>)</td>
 									<?php $nb=1 ?>
 									<?php if ($_SESSION['id']>0) { $nb=$nb+1 ?>
-										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nb ?>);" width="200" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo versionlinguistique(117) //Mes notes ?> (<?php echo $compteurnotes ?>)</td>
+										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nb ?>);" width="200" valign="middle" onmouseover="this.style.cursor='pointer';"><?php echo new_versionlinguistique("text117") //Mes notes ?> (<?php echo $compteurnotes ?>)</td>
 									<?php } ?>
 									<?php $nb=$nb+1 ?>
 										<td class="TabBorderBottom TabCommon TabOff" id="tabs" name="tabs" onclick="TabClick(<?php echo $nb ?>);" width="200" valign="middle" onmouseover="this.style.cursor='pointer';">CNRTL</td>
@@ -581,13 +582,13 @@ include('include/affichage_ressource_notes.inc'); // affichage des ressources da
 		<table border="1" class="table" width="880">
 			<tr>
 				<td align="center" class="grise">
-					<span class="texte_defaultGras"><?php echo versionlinguistique(118) //à gauche du mot ?></span>
+					<span class="texte_defaultGras"><?php echo new_versionlinguistique("text118") //ï¿½ gauche du mot ?></span>
 				</td>
 				<td align="center" width="50" class="grise">
-					<span class="texte_defaultGras"><?php echo versionlinguistique(119) //Mot recherché ?></span>
+					<span class="texte_defaultGras"><?php echo new_versionlinguistique("text119") //Mot recherchï¿½ ?></span>
 				</td>
 				<td align="center" class="grise">
-					<span class="texte_defaultGras"><?php echo versionlinguistique(120) //à droite du mot ?></span>
+					<span class="texte_defaultGras"><?php echo new_versionlinguistique("text120") //ï¿½ droite du mot ?></span>
 				</td>
 			</tr>
 				<?php 
@@ -599,7 +600,7 @@ include('include/affichage_ressource_notes.inc'); // affichage des ressources da
 				<?php 
 					if ($compteur==0) {
 						echo'<br><br><br>';
-						echo '<span class="texte_defaultGras">Aucun résultat trouvé</span>';
+						echo '<span class="texte_defaultGras">Aucun rï¿½sultat trouvï¿½</span>';
 					}
 				?>
 		</center><br>
@@ -628,7 +629,7 @@ include('include/affichage_ressource_notes.inc'); // affichage des ressources da
 						<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 							<tr>
 								<td align="center">
-									<a href="#"><span class="texte_menu"><?php echo versionlinguistique(122) //haut de la page ?></span></a>
+									<a href="#"><span class="texte_menu"><?php echo new_versionlinguistique("text122") //haut de la page ?></span></a>
 								</td>
 							</tr>
 						</table>
@@ -638,13 +639,13 @@ include('include/affichage_ressource_notes.inc'); // affichage des ressources da
 				<table border="0" cellpadding="5" cellspacing="2" bgcolor="<?php echo couleur(2); // couleur clair ?>" >
 					<tr>
 						<td colspan="2" align="center">
-							<span class="texte_menu"><?php echo versionlinguistique(124) //Rechercher ?></span>
+							<span class="texte_menu"><?php echo new_versionlinguistique("text124") //Rechercher ?></span>
 						</td>
 						<td colspan="2" align="center">
-							<input type="text" name="motcle" size="24" value="<?php echo $motcleorigine //Mot clé ?>">
+							<input type="text" name="motcle" size="24" value="<?php echo $motcleorigine //Mot clï¿½ ?>">
 						</td>
-						<td colspan="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>">
-								<button id="buton1" class="stbutton" ><?php echo versionlinguistique(11) //Rechercher ?></button>
+						<td colspan="2" bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>">
+								<button id="buton1" class="stbutton" ><?php echo new_versionlinguistique("text11") //Rechercher ?></button>
 						</td>
 					</tr>
 				</table>
@@ -661,7 +662,7 @@ include('include/affichage_ressource_notes.inc'); // affichage des ressources da
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

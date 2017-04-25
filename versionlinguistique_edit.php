@@ -40,7 +40,7 @@ function edition_versionlinguistique()
 						if ($donneeslg['code']=="fr")
 							{
 							echo '<td width="100" rowspan="3" align="center" valign="middle">';
-								echo '<input type="submit" value="'.versionlinguistique(24).'" name="submitButtonName">'; // enregistrer
+								echo '<input type="submit" value="'.content("btn2").'" name="submitButtonName">'; // enregistrer
 							echo '</td>';
 							}
 					}
@@ -93,16 +93,16 @@ function edition_versionlinguistique()
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="versionlinguistique.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //REtour ?></span></a>
+														<a href="versionlinguistique.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //REtour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(45) //Versions linguistiques ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text45") //Versions linguistiques ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(47) //Editer ?></span>
+											<span class="titre_admin"><?php echo content("line205_216") //Editer ?></span>
 										</td>
 									</tr>
 								</table>

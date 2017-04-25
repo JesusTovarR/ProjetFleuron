@@ -50,16 +50,16 @@ $page=$_GET["page"];
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(5) //Liens utiles ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text5") //Liens utiles ?></span>
 										</td>
 										<td width="150" align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(51) //Ajouter ?></span>
+											<span class="titre_admin"><?php echo general("text6") //Ajouter ?></span>
 										</td>
 									</tr>
 								</table>
@@ -69,7 +69,7 @@ $page=$_GET["page"];
 	<table border="0">
 		<tr>
 			<td>
-				<span class="texte_default"><?php echo versionlinguistique(50) //Catégorie ?> :</span>
+				<span class="texte_default"><?php echo general("text7") //Catégorie ?> :</span>
 			</td>
 			<td>
 				<select name="liencategories" size="1">
@@ -90,7 +90,7 @@ $page=$_GET["page"];
 		</tr>
 		<tr>
 			<td>
-				<span class="texte_default"><?php echo versionlinguistique(18) //Nom ?> :</span>
+				<span class="texte_default"><?php echo new_versionlinguistique("text18") //Nom ?> :</span>
 			</td>
 			<td>
 				<input type="text" name="nom" size="80">
@@ -98,14 +98,14 @@ $page=$_GET["page"];
 		</tr>
 		<tr>
 			<td>
-				<span class="texte_default"><?php echo versionlinguistique(53) //Lien ?> :</span>
+				<span class="texte_default"><?php echo new_versionlinguistique("text53") //Lien ?> :</span>
 			</td>
 			<td>
 				<input type="text" name="lien" size="80">
 			</td>
 		</tr>
 	</table>
-		<input type="submit" value="<?php echo versionlinguistique(24) //Enregistrer ?>" name="Valider">
+		<input type="submit" value="<?php echo content("btn2") //Enregistrer ?>" name="Valider">
 	<input type="hidden" value="<?php echo $lg ?>" name="lg">
 	</form>
 </center>

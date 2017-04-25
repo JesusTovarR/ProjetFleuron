@@ -34,7 +34,7 @@ include('include/Recup_infosRessource.inc');
 					<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 						<tr>
 							<td align="center">
-								<a href="ressources_media_editer_media.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+								<a href="ressources_media_editer_media.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 							</td>
 						</tr>
 					</table>
@@ -52,13 +52,13 @@ if ($_SESSION['niveau']>0) {
 				<td align="center" colspan="2">
 <?php // Affichage du nom du media source
 if ($_SESSION['niveau']>0) {
-	if ($sourcemedia<>"") { echo '<span class="Texte_default">'.versionlinguistique(104).' ?</span>'; }
+	if ($sourcemedia<>"") { echo '<span class="Texte_default">'.new_versionlinguistique("text104").' ?</span>'; }
 }
 ?>
 					<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 						<tr>
 							<td align="center">
-								<a href="ressources_media_editer_media_fichier_supprimer_oui.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(103) //oui ?></span></a>
+								<a href="ressources_media_editer_media_fichier_supprimer_oui.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text11") //oui ?></span></a>
 							</td>
 						</tr>
 					</table>

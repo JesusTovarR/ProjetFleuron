@@ -84,12 +84,13 @@ if ($fichierserveur=="") {
 						echo '<table>';
 							echo '<tr>';
 								echo '<td bgcolor="'.couleur(1).'" width="100" align="center">';
-									echo '<a href="commentaire_tous_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$idcommentaire.'&refpage='.$refpage.'"><span class="texte_menu">'.versionlinguistique(48).'</span></a>';
+									echo '<a href="commentaire_tous_supprimer.php?lg='.$lg.'&idressource='.$idressource.'&idcommentaire='.$idcommentaire.'&refpage='.$refpage.'"><span class="texte_menu">'.afficher_ressource("option2").'</span></a>';
 								echo '</td>';
 							echo '</tr>';
 						echo '</table>';
 						echo '</div>';
-													echo '</td>';
+													echo '</td>';
+
 												echo '</tr>';
 											echo '</table>';
 										echo '</td>';

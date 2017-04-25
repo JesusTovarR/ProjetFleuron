@@ -86,7 +86,7 @@ function affichage_utilisateur($utilisateur)
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 												<tr>
 													<td align="center">
-														<a href="commentaires_tous_list.php?lg=<?php echo $lg ?>&refpage=<?php echo $refpage ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="commentaires_tous_list.php?lg=<?php echo $lg ?>&refpage=<?php echo $refpage ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -103,13 +103,13 @@ function affichage_utilisateur($utilisateur)
 								<table width="400" cellpadding="5">
 									<tr>
 										<td>
-											<span class="texte_default"><?php echo versionlinguistique(116) //oui ?></span>
+											<span class="texte_default"><?php echo general("text10") //oui ?></span>
 										</td>
 										<td>
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 												<tr>
 													<td align="center">
-														<a href="commentaire_tous_supprimer_oui.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idcommentaire=<?php echo $idcommentaire ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(103) //oui ?></span></a>
+														<a href="commentaire_tous_supprimer_oui.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idcommentaire=<?php echo $idcommentaire ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text11") //oui ?></span></a>
 													</td>
 												</tr>
 											</table>

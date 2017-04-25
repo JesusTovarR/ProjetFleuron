@@ -12,13 +12,13 @@ $id=$_GET["id"];
 $niveau=$_GET["niveau"];
 
 if ($niveau==1) {
-	$nomniveau = versionlinguistique(44);
+	$nomniveau = new_versionlinguistique("text44");
 }
 if ($niveau==5) {
-	$nomniveau = versionlinguistique(56);
+	$nomniveau = new_versionlinguistique("text56");
 }
 if ($niveau==10) {
-	$nomniveau = versionlinguistique(57);
+	$nomniveau = new_versionlinguistique("text57");
 }
 
 // 		Récupération des données du profil
@@ -82,13 +82,13 @@ if ($niveau==10) {
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="profils_list.php?lg=<?php echo $lg ?>&id=<?php echo $id ?>&niveau=<?php echo $niveau ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="profils_list.php?lg=<?php echo $lg ?>&id=<?php echo $id ?>&niveau=<?php echo $niveau ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(55) //profils ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text55") //profils ?></span>
 										</td>
 										<td width="150" align="center">
 											<span class="titre_admin"><?php echo $nomniveau ?></span>
@@ -99,7 +99,7 @@ if ($niveau==10) {
 
 <br>
 								<center>
-<span class="message"><?php echo versionlinguistique(67) //supprimer ce profil? ?></span>
+<span class="message"><?php echo new_versionlinguistique("text67") //supprimer ce profil? ?></span>
 									<p><span class="texte_default">
 
 									<table border="0" cellpadding="10" cellspacing="2">
@@ -122,7 +122,7 @@ if ($niveau==10) {
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="profils_list_supprimer_enre.php?lg=<?php echo $lg ?>&id=<?php echo $id ?>&niveau=<?php echo $niveau ?>"><span class="texte_menu"><?php echo versionlinguistique(48) //supprimer ?></span></a>
+														<a href="profils_list_supprimer_enre.php?lg=<?php echo $lg ?>&id=<?php echo $id ?>&niveau=<?php echo $niveau ?>"><span class="texte_menu"><?php echo afficher_ressource("option2") //supprimer ?></span></a>
 													</td>
 												</tr>
 											</table>												<center>

@@ -102,13 +102,13 @@ include('include/affichage_ressource_commentaires.inc'); // affichage des ressou
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="100">
 												<tr>
 													<td align="center">
-														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="ressources.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center" bgcolor="<?php echo couleur(2) ?>">
-											<span class="titre"><?php echo versionlinguistique(83); //Commentaires ?></span>
+											<span class="titre"><?php echo general("text12");//Commentaires ?></span>
 										</td>
 									</tr>
 								</table>

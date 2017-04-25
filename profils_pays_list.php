@@ -16,13 +16,13 @@ $niveau=$_GET["niveau"];
 $pays=$_GET["pays"];
 
 if ($niveau==1) {
-	$nomniveau = versionlinguistique(44);
+	$nomniveau = new_versionlinguistique("text44");
 }
 if ($niveau==5) {
-	$nomniveau = versionlinguistique(56);
+	$nomniveau = new_versionlinguistique("text56");
 }
 if ($niveau==10) {
-	$nomniveau = versionlinguistique(57);
+	$nomniveau = new_versionlinguistique("text57");
 }
 
 if (isset($_GET["ordre"])) {
@@ -78,15 +78,15 @@ $chkpays="";
 									echo '<td width="300" align="center" bgcolor="'.couleur(1).'">';
 										echo '<a href="profils_list_edit.php?lg='.$lg.'&id='.$data['id'].'&niveau='.$niveau.'&page='.$pageencours.'&pays='.$datapays['code'].'"><span class="texte_info12">'.$data['utilisateur'].'</span></a>';
 										$jour = explode("-", $data['jour']);
-										echo '<br><span class="Texte_info8">'.versionlinguistique(95).' '.$jour[2].'-'.$jour[1].'-'.$jour[0].'</span></dl>'; // depuis le
+										echo '<br><span class="Texte_info8">'.new_versionlinguistique("text95").' '.$jour[2].'-'.$jour[1].'-'.$jour[0].'</span></dl>'; // depuis le
 									echo '</td>';
 								if ($data['id']==$profil) {
 									echo '<td align="center">';
 									if ($action=="ok") {
-										echo '<span class="message">'.versionlinguistique(65).'</span>'; // profil modifié
+										echo '<span class="message">'.new_versionlinguistique("text65").'</span>'; // profil modifié
 									}
 									if ($action2=="ok") {
-										echo '<span class="message">'.versionlinguistique(66).'</span>'; // Profil ajouté
+										echo '<span class="message">'.new_versionlinguistique("text66").'</span>'; // Profil ajouté
 									}
 									echo '</td>';
 								} else {
@@ -95,7 +95,7 @@ $chkpays="";
 									echo '</td>';
 								}
 									echo '<td width="100" align="center" bgcolor="'.couleur(1).'">';
-										echo '<a href="profils_pays_list_supprimer.php?lg='.$lg.'&id='.$data['id'].'&niveau='.$niveau.'&pays='.$pays.'"><span class="texte_info12">'.versionlinguistique(48).'</span></a>'; // supprimer
+										echo '<a href="profils_pays_list_supprimer.php?lg='.$lg.'&id='.$data['id'].'&niveau='.$niveau.'&pays='.$pays.'"><span class="texte_info12">'.afficher_ressource("option2").'</span></a>'; // supprimer
 									echo '</td>';
 								echo '</tr>';
 							echo '</table>';
@@ -146,13 +146,13 @@ $chkpays="";
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="profils_pays.php?lg=<?php echo $lg ?>&niveau=<?php echo $niveau ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="profils_pays.php?lg=<?php echo $lg ?>&niveau=<?php echo $niveau ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(55) //profils ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text55") //profils ?></span>
 										</td>
 										<td width="150" align="center">
 											<span class="titre_admin"><?php echo $nomniveau ?></span>
@@ -170,13 +170,13 @@ $chkpays="";
 
 				<table border="0" cellpadding="4" cellspacing="2" width="220">
 					<tr>
-						<td align="center"><span class="message"><?php echo versionlinguistique(59) //ordre alphabétique ?></span></td>
+						<td align="center"><span class="message"><?php echo new_versionlinguistique("text59") //ordre alphabétique ?></span></td>
 					</tr>
 				</table>
 <?php } else { ?>
 				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 					<tr>
-						<td align="center"><a href="profils_pays_list.php?lg=<?php echo $lg ?>&ordre=alpha&niveau=<?php echo $niveau ?>&pays=<?php echo $pays ?>"><span class="texte_info12"><?php echo versionlinguistique(59) //ordre alphabétique ?></span></a></td>
+						<td align="center"><a href="profils_pays_list.php?lg=<?php echo $lg ?>&ordre=alpha&niveau=<?php echo $niveau ?>&pays=<?php echo $pays ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text59") //ordre alphabétique ?></span></a></td>
 					</tr>
 				</table>
 <?php } ?>
@@ -185,13 +185,13 @@ $chkpays="";
 <?php if ($ordre=="dernier") { ?>
 				<table border="0" cellpadding="4" cellspacing="2" width="220">
 					<tr>
-						<td align="center"><span class="message"><?php echo versionlinguistique(61) //dernier ?></span></td>
+						<td align="center"><span class="message"><?php echo new_versionlinguistique("text61") //dernier ?></span></td>
 					</tr>
 				</table>
 <?php } else { ?>
 				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 					<tr>
-						<td align="center"><a href="profils_pays_list.php?lg=<?php echo $lg ?>&ordre=dernier&niveau=<?php echo $niveau ?>&pays=<?php echo $pays ?>"><span class="texte_info12"><?php echo versionlinguistique(61) //dernier ?></span></a></td>
+						<td align="center"><a href="profils_pays_list.php?lg=<?php echo $lg ?>&ordre=dernier&niveau=<?php echo $niveau ?>&pays=<?php echo $pays ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text61") //dernier ?></span></a></td>
 					</tr>
 				</table>
 <?php } ?>
@@ -200,13 +200,13 @@ $chkpays="";
 <?php if ($ordre=="premier") { ?>
 				<table border="0" cellpadding="4" cellspacing="2" width="220">
 					<tr>
-						<td align="center"><span class="message"><?php echo versionlinguistique(60) //premier ?></span></td>
+						<td align="center"><span class="message"><?php echo new_versionlinguistique("text60") //premier ?></span></td>
 					</tr>
 				</table>
 <?php } else { ?>
 				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 					<tr>
-						<td align="center"><a href="profils_pays_list.php?lg=<?php echo $lg ?>&ordre=premier&niveau=<?php echo $niveau ?>&pays=<?php echo $pays ?>"><span class="texte_info12"><?php echo versionlinguistique(60) //premier ?></span></a></td>
+						<td align="center"><a href="profils_pays_list.php?lg=<?php echo $lg ?>&ordre=premier&niveau=<?php echo $niveau ?>&pays=<?php echo $pays ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text60") //premier ?></span></a></td>
 					</tr>
 				</table>
 <?php } ?>
@@ -221,13 +221,13 @@ $chkpays="";
 			<table>
 				<tr>
 					<td>
-						<input type="text" name="motcle" size="24" value="<?php echo versionlinguistique(13) //Mot clé ?>" onFocus="javascript:this.value=''">
+						<input type="text" name="motcle" size="24" value="<?php echo new_versionlinguistique("text13") //Mot clé ?>" onFocus="javascript:this.value=''">
 					</td>
 				</tr>
 				<tr>
 					<td>
 							<center>
-							<span class="texte_menu"><input type="submit" value="<?php echo versionlinguistique(11) //Rechercher ?>" name="submitButtonName"></span></center>
+							<span class="texte_menu"><input type="submit" value="<?php echo new_versionlinguistique("text11") //Rechercher ?>" name="submitButtonName"></span></center>
 					</td>
 				</tr>
 			</table>
@@ -237,7 +237,7 @@ $chkpays="";
 			<td align="right" valign="top">
 				<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur foncée ?>" width="220">
 					<tr>
-						<td align="center"><a href="profils_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo versionlinguistique(54); // Ajouter un utilisateur ?></span></a></td>
+						<td align="center"><a href="profils_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_info12"><?php echo new_versionlinguistique("text54"); // Ajouter un utilisateur ?></span></a></td>
 					</tr>
 				</table>
 			</td>

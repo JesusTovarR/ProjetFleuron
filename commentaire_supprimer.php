@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -35,7 +35,7 @@ function affichage_commentaire($idcommentaire)
 	}
 
 //************************************************************************
-//		Récupération nom utilisateur
+//		Rï¿½cupï¿½ration nom utilisateur
 //************************************************************************
 function affichage_utilisateur($utilisateur)
 	{
@@ -65,9 +65,9 @@ function affichage_utilisateur($utilisateur)
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 					<?php 
-						// Menu Supérieur 
+						// Menu Supï¿½rieur 
 						include('include/menu_top.inc'); 
 
 					?>
@@ -85,7 +85,7 @@ function affichage_utilisateur($utilisateur)
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 												<tr>
 													<td align="center">
-														<a href="ressources_media.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="ressources_media.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -102,13 +102,13 @@ function affichage_utilisateur($utilisateur)
 								<table width="400" cellpadding="5">
 									<tr>
 										<td>
-											<span class="texte_default"><?php echo versionlinguistique(116) //oui ?></span>
+											<span class="texte_default"><?php echo general("text10")//oui ?></span>
 										</td>
 										<td>
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="4" cellspacing="0" width="80">
 												<tr>
 													<td align="center">
-														<a href="commentaire_supprimer_oui.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idcommentaire=<?php echo $idcommentaire ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo versionlinguistique(103) //oui ?></span></a>
+														<a href="commentaire_supprimer_oui.php?lg=<?php echo $lg ?>&idressource=<?php echo $idressource ?>&idcommentaire=<?php echo $idcommentaire ?>&idprofil=<?php echo $idprofil ?>"><span class="texte_menu"><?php echo general("text11")//oui ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -140,7 +140,7 @@ function affichage_utilisateur($utilisateur)
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-					<!-- Module d'affichage du dernier media publié  -->
+					<!-- Module d'affichage du dernier media publiï¿½  -->
 					<?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

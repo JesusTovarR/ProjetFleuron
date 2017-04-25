@@ -91,7 +91,7 @@ if ($motcle<>"") {
 													}
 													if ($regarder<>'') {
 														echo '<br><br>';
-														echo '<span class="Texte_defaultGras">'.versionlinguistique(85).'</span>';
+														echo '<span class="Texte_defaultGras">'.new_versionlinguistique("text85").'</span>';
 if ($motcle<>"") {
 	$regarder = str_ireplace($motcle, '<b>'.$motcle.'</b>', $regarder);
 }
@@ -99,7 +99,7 @@ if ($motcle<>"") {
 													}
 													if ($comprendre<>'') {
 														echo '<br><br>';
-														echo '<span class="Texte_defaultGras">'.versionlinguistique(86).'</span>';
+														echo '<span class="Texte_defaultGras">'.new_versionlinguistique("text86").'</span>';
 if ($motcle<>"") {
 	$comprendre = str_ireplace($motcle, '<b>'.$motcle.'</b>', $comprendre);
 }
@@ -107,7 +107,7 @@ if ($motcle<>"") {
 													}
 													if ($aimer<>'') {
 														echo '<br><br>';
-														echo '<span class="Texte_defaultGras">'.versionlinguistique(87).'</span>';
+														echo '<span class="Texte_defaultGras">'.new_versionlinguistique("text87").'</span>';
 if ($motcle<>"") {
 	$aimer = str_ireplace($motcle, '<b>'.$motcle.'</b>', $aimer);
 }
@@ -115,13 +115,14 @@ if ($motcle<>"") {
 													}
 													if ($aimer<>'') {
 														echo '<br><br>';
-														echo '<span class="Texte_defaultGras">'.versionlinguistique(88).'</span>';
+														echo '<span class="Texte_defaultGras">'.new_versionlinguistique("text88").'</span>';
 if ($motcle<>"") {
 	$suivre = str_ireplace($motcle, '<b>'.$motcle.'</b>', $suivre);
 }
 														echo '<br><span class="Texte_default">'.$suivre.'</span>';
 													}
-													echo '</td>';
+													echo '</td>';
+
 												echo '</tr>';
 											echo '</table>';
 										echo '</td>';

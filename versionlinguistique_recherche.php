@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 
 
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
@@ -10,7 +10,7 @@ $motcle=$_POST["motcle"];
 
 function affichageversionlinguistique()
 	{
-		global $lg; // récupération variables de connexion
+		global $lg; // rï¿½cupï¿½ration variables de connexion
 
 		$recup = mysql_query('SELECT * FROM versionlinguistique ORDER BY fr');
 		while($donnees = mysql_fetch_assoc($recup)) 
@@ -53,7 +53,7 @@ echo '<a href="versionlinguistique_edit.php?id='.$donnees['id'].'&lg='.$lg.'"><s
 
 function recherche($texte)
 {
-	global $lg,$motcle; // récupération variable langue
+	global $lg,$motcle; // rï¿½cupï¿½ration variable langue
 
 	return stripos($texte, $motcle);
 }
@@ -77,7 +77,7 @@ function recherche($texte)
 				</td>
 			</tr>
 			<tr height="40">
-				<td bgcolor="<?php echo couleur(1); //couleur foncée ?>" height="40" align="center">
+				<td bgcolor="<?php echo couleur(1); //couleur foncï¿½e ?>" height="40" align="center">
 <?php 
 
 		// Menu des visiteurs non inscrits 
@@ -99,19 +99,19 @@ function recherche($texte)
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="versionlinguistique.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //REtour ?></span></a>
+														<a href="versionlinguistique.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //REtour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(45) //Versions linguistiques ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text45") //Versions linguistiques ?></span>
 										</td>
 										<td width="150" align="center">
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="versionlinguistique_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(51) //Ajouter ?></span></a>
+														<a href="versionlinguistique_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text6") //Ajouter ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -126,13 +126,13 @@ function recherche($texte)
 			<table>
 				<tr>
 					<td>
-						<input type="text" name="motcle" size="24" value="<?php echo $motcle //Mot clé ?>" onFocus="javascript:this.value=''">
+						<input type="text" name="motcle" size="24" value="<?php echo $motcle //Mot clï¿½ ?>" onFocus="javascript:this.value=''">
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<center>
-						<span class="texte_menu"><input type="submit" value="<?php echo versionlinguistique(11) //Rechercher ?>" name="submitButtonName"></span></center>
+						<span class="texte_menu"><input type="submit" value="<?php echo new_versionlinguistique("text11") //Rechercher ?>" name="submitButtonName"></span></center>
 					</td>
 				</tr>
 			</table>
@@ -155,19 +155,19 @@ function recherche($texte)
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="versionlinguistique.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //REtour ?></span></a>
+														<a href="versionlinguistique.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text5") //REtour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="titre_admin"><?php echo versionlinguistique(45) //Versions linguistiques ?></span>
+											<span class="titre_admin"><?php echo new_versionlinguistique("text45") //Versions linguistiques ?></span>
 										</td>
 										<td width="150" align="center">
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="150">
 												<tr>
 													<td align="center">
-														<a href="versionlinguistique_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo versionlinguistique(51) //Ajouter ?></span></a>
+														<a href="versionlinguistique_ajouter.php?lg=<?php echo $lg ?>"><span class="texte_menu"><?php echo general("text6") //Ajouter ?></span></a>
 													</td>
 												</tr>
 											</table>
@@ -206,7 +206,7 @@ function recherche($texte)
 									</tr>
 									<tr>
 										<td align="right">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/derniermedia.inc');  ?>
 										</td>
 									</tr>
@@ -233,7 +233,7 @@ function recherche($texte)
 			</tr>
 			<tr height="150">
 				<td height="150" align="center">
-<!-- Module d'affichage du dernier media publié  -->
+<!-- Module d'affichage du dernier media publiï¿½  -->
 <?php include('include/logo_basdepage.inc');  ?>
 				</td>
 			</tr>

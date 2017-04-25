@@ -35,7 +35,7 @@ function afficher_versionlinguistique($id) // Affichage des champs du formulaire
 						echo '<table width="100%" border="0" cellpadding="5">';
 							echo '<tr>';
 								echo '<td>';
-									echo '<span class="texte_default">'. versionlinguistique(68).':</span>'; // Titre
+									echo '<span class="texte_default">'. new_versionlinguistique("text68").':</span>'; // Titre
 								echo '</td>';
 								echo '<td>';
 									echo '<input type="text" name="nom_'.$donneeslg['code'].'" size="64" value="'.$data['nom_'.$donneeslg['code']].'">';
@@ -43,7 +43,7 @@ function afficher_versionlinguistique($id) // Affichage des champs du formulaire
 							echo '</tr>';
 							echo '<tr>';
 								echo '<td valign="top">';
-									echo '<span class="texte_default">'.versionlinguistique(69).'&nbsp;:</span>'; // description
+									echo '<span class="texte_default">'.general("text14").'&nbsp;:</span>'; // description
 								echo '</td>';
 								echo '<td>';
 									echo '<textarea name="description_'.$donneeslg['code'].'" cols="58" rows="6">'.$data['description_'.$donneeslg['code']].'</textarea>';
@@ -51,7 +51,7 @@ function afficher_versionlinguistique($id) // Affichage des champs du formulaire
 							echo '</tr>';
 							echo '<tr>';
 								echo '<td colspan="2" align="center">';
-									echo '<input type="submit" value="'.versionlinguistique(24) .'" name="Valider">'; // enregistrer
+									echo '<input type="submit" value="'.content("btn2") .'" name="Valider">'; // enregistrer
 								echo '</td>';
 							echo '</tr>';
 						echo '</table>';
@@ -107,13 +107,13 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 											<table border="0"  bgcolor="<?php echo couleur(1) ?>" cellpadding="5" cellspacing="0" width="100">
 												<tr>
 													<td align="center">
-														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>&idprofil=<?php echo $idprofil ?>&categorie=<?php echo $categorie ?>"><span class="texte_menu"><?php echo versionlinguistique(26) //Retour ?></span></a>
+														<a href="<?php echo $page ?>?lg=<?php echo $lg ?>&idprofil=<?php echo $idprofil ?>&categorie=<?php echo $categorie ?>"><span class="texte_menu"><?php echo general("text5") //Retour ?></span></a>
 													</td>
 												</tr>
 											</table>
 										</td>
 										<td align="center">
-											<span class="texte_default"><?php echo versionlinguistique(47); //Editer ?></span>
+											<span class="texte_default"><?php echo content("line205_216"); //Editer ?></span>
 										</td>
 										<td width="150">
 											&nbsp;
@@ -133,7 +133,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 												<table>
 													<tr>
 														<td>
-															<span class="texte_default"><?php echo versionlinguistique(50); //Cat�gorie ?> :</span>
+															<span class="texte_default"><?php echo general("text7"); //Cat�gorie ?> :</span>
 														</td>
 														<td>
 															<select name="categorie" size="1">
@@ -157,7 +157,7 @@ include('include/recuperation_nom_categorie.inc'); // Routines d'affichage du no
 										</tr>
 										<tr>
 											<td align="center">
-												<input type="submit" value="<?php echo versionlinguistique(24) //Enregistrer ?>" name="Valider">
+												<input type="submit" value="<?php echo content("btn2") //Enregistrer ?>" name="Valider">
 											</td>
 										</tr>
 									</table>

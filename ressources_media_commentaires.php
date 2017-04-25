@@ -1,7 +1,7 @@
 <?php
 
 
-include('include/open_connectionBase.inc'); // connection à la base MYSQL
+include('include/open_connectionBase.inc'); // connection ï¿½ la base MYSQL
 include('include/initialisation_page.inc'); // initialisation des variables de la page (page encours,lg,couleur, version linguistique)
 
 
@@ -9,7 +9,7 @@ $idressource=$_GET["idressource"];
 $idprofil=$_GET["idprofil"];
 
 //************************************************************************
-//			Récupération notes
+//			Rï¿½cupï¿½ration notes
 //************************************************************************
 	$requete = 'SELECT * FROM commentaires WHERE ressource='.$idressource.' AND profil='.$idprofil;
 	$recup2 = mysql_query($requete);
@@ -36,13 +36,13 @@ if ($id>0) {
 		<table border="0" cellpadding="2" cellspacing="2">
 			<tr>
 				<td>
-					<p><?php echo versionlinguistique(91); //Votre commentaire ?> :</p>
+					<p><?php echo new_versionlinguistique("text91"); //Votre commentaire ?> :</p>
 					<p><textarea name="commentaire" cols="54" rows="10"><?php echo $commentaire ?></textarea></p>
 				</td>
 			</tr>
 			<tr>
 				<td align="center">					
-						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo versionlinguistique(112) //publier ?></button>
+						<button id="buton1"  type="submit" class="stbuttonImp" ><?php echo general("text9") //publier ?></button>
 				</td>
 			</tr>
 		</table>

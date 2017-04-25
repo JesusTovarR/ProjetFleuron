@@ -48,14 +48,14 @@ function affichage_glossaire()
 									echo '<td width="50">';
 										echo '<table border="0" cellpadding="6" cellspacing="2" bgcolor="'.couleur(1).'">';
 											echo '<tr>';
-												echo '<td colspan="2"><a href="glossaire_editer.php?lg='.$lg.'&id='.$data['id'].'&page='.$pageencours.'"><span class="texte_info12">'.versionlinguistique(47).'</span></a></td>'; // Editer
+												echo '<td colspan="2"><a href="glossaire_editer.php?lg='.$lg.'&id='.$data['id'].'&page='.$pageencours.'"><span class="texte_info12">'.content("line205_216").'</span></a></td>'; // Editer
 											echo '</tr>';
 										echo '</table>';
 									echo '</td>';
 									echo '<td width="100">';
 										echo '<table border="0" cellpadding="6" cellspacing="2" bgcolor="'.couleur(1).'">';
 											echo '<tr>';
-												echo '<td colspan="2"><a href="?lg='.$lg.'&id='.$data['id'].'&page='.$pageencours.'"><span class="texte_info12">'.versionlinguistique(48).'</span></a></td>'; // Supprimer
+												echo '<td colspan="2"><a href="?lg='.$lg.'&id='.$data['id'].'&page='.$pageencours.'"><span class="texte_info12">'.afficher_ressource("option2").'</span></a></td>'; // Supprimer
 											echo '</tr>';
 										echo '</table>';
 									echo '</td>';
@@ -109,7 +109,7 @@ function affichage_glossaire()
 								<table width="100%" cellpadding="0" cellspacing="0" bgcolor="<?php echo couleur(2); //couleur claire ?>" width="220">
 									<tr>
 										<td align="center" height="30">
-											<span class="titre"><?php echo versionlinguistique(133); //glossaire ?></span>
+											<span class="titre"><?php echo tableau_du_bord("btnglossary");//glossaire ?></span>
 										</td>
 									</tr>
 								</table>
@@ -121,7 +121,7 @@ function affichage_glossaire()
 <?php if ($_SESSION['niveau']>=50) { // Affichage Bouton �dition page ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur fonc�e ?>" width="220">
 												<tr>
-													<td align="center"><a href="glossaire_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(51) //Ajouter ?></span></a></td>
+													<td align="center"><a href="glossaire_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo general("text6") //Ajouter ?></span></a></td>
 												</tr>
 											</table>
 <?php } ?>
@@ -136,7 +136,7 @@ function affichage_glossaire()
 <?php if ($_SESSION['niveau']>=50) { // Affichage Bouton �dition page ?>
 											<table border="0" cellpadding="4" cellspacing="2" bgcolor="<?php echo couleur(1); //couleur fonc�e ?>" width="220">
 												<tr>
-													<td align="center"><a href="glossaire_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo versionlinguistique(51) //Ajouter ?></span></a></td>
+													<td align="center"><a href="glossaire_ajouter.php?lg=<?php echo $lg ?>&id=1&page=<?php echo $pageencours ?>"><span class="texte_info12"><?php echo general("text6") //Ajouter ?></span></a></td>
 												</tr>
 											</table>
 <?php } ?>

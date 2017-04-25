@@ -310,5 +310,25 @@ function general($val)//$val contient le nom de la colonne dans la table
     }
 }
 
+function new_versionlinguistique($val)//$val contient le nom de la colonne dans la table
+{
+
+
+    global $lg; // récupération variable langue
+
+    $requete='SELECT '.$val.', status FROM new_versionlinguistique WHERE code="'.$lg.'" && status=1';
+    $recup = mysql_query($requete);
+    while ($data = mysql_fetch_assoc($recup))
+    {
+        //vérification du statut du contenu
+        if($data['status']==1){
+            return $data[$val];
+        }else if($data['status']==2){
+            return "texte en revision";
+        }
+
+    }
+}
+
 
 ?>
