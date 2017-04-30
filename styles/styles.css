@@ -127,6 +127,17 @@ div#soustitre380 {
 	cursor:pointer;
 	}
 
+btnsoustitre {
+	width:90px;
+	height:24px;
+	background-color:#621d1d;
+	color:white;
+	font: 10pt Arial;
+	padding: 0px;
+	border-radius: 0px;
+	border: 0px;
+	cursor:pointer;
+}
 /*+++++++++++Menu desplegable+++++++++++++++*/
 
 ul, ol {

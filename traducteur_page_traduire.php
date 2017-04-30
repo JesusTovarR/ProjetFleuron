@@ -29,19 +29,139 @@ function edition_page()
 {
 	//Formulaire pour la table soustitres
 	if($_SESSION['formulaire']==5){
+        echo '<form style="display: none" name="FormName" action="traducteur_soustitre_enre.php" method="post">';
 		//requête pour récupérer les sosutitres
 		$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE id_resource='. $_SESSION['id_res'].' AND code="'.$_SESSION['code_lg'].'" AND id_user='.$_SESSION['id'];
 		$recupcont = mysql_query($requete);
+        $fichier="";
 		while ($data= mysql_fetch_assoc($recupcont)){
-				echo '<tr>';
-				echo '<td align="center">';
-				echo '<textarea class="matextarea" name="text" cols="60" rows="25">'.$data['text'].'</textarea>';//affichage du soustitres
-				echo '</td>';
-				echo '</tr>';
+            $nombre_archivo = "ressources/".$_SESSION['id_res'].$_SESSION['code_lg'].$_SESSION['id'].".srt";
+            $fichier=$nombre_archivo;
+            if(file_exists($nombre_archivo))
+            {
+                $mensaje =$data['text'];
+            }
+
+            else
+            {
+                $mensaje =$data['text'];
+            }
+
+            if($archivo = fopen($nombre_archivo, "w"))
+            {
+                if(fwrite($archivo,   $mensaje))
+                {
+                    echo "";//Cambiar
+                }
+                else
+                {
+                    echo "";//Cambiar
+                }
+
+                fclose($archivo);
+            }
 		}
-		echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';//nom de la table où les soustitres appartient
-		echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';//code de la langue des soustitres
-		echo '<input type="hidden" value="4" name="formulaire">';
+
+        $num=0;
+        $nombre=0;
+//        $fichier = 'ressources/20fr.srt'; // fichier
+        if (file_exists($fichier)) {
+
+            $lignes = file($fichier);
+           /* $lignes=str_replace("Ã´","ô",$lignes);
+            $lignes=str_replace("Ã©","é",$lignes);
+            $lignes=str_replace("Ã","à",$lignes);
+            $lignes=str_replace("à¨","è",$lignes);
+            $lignes=str_replace("àª","ê",$lignes);
+            $lignes=str_replace("à§","ç",$lignes);
+            $lignes=str_replace("à»","û",$lignes);
+            $lignes=str_replace("à¢","â",$lignes);
+            $lignes=str_replace(chr(13),"",$lignes);
+            $lignes=str_replace(chr(10),"",$lignes);
+            $lignes=str_replace("  "," ",$lignes);
+            $lignes=str_replace("à ","à",$lignes);
+            $lignes=str_replace("à¹","ù",$lignes);
+            $lignes=str_replace("ù ","ù",$lignes);
+            $lignes=str_replace("î ","î",$lignes);
+            $lignes=str_replace("ï ","ï",$lignes);
+            $lignes=str_replace("â ","â",$lignes);*/
+
+
+            $Assembleligne="";
+            foreach($lignes as $ligne_num => $ligne) { // on lit le fichier de fa�on s�quentielle
+
+                $ligne = str_replace(",000",",010",$ligne);
+                if (strlen($ligne)>5) {
+                    if (substr($ligne,0,1)=="0") {
+                        $nombre=$nombre+1;
+                        $element = explode(" --> ", $ligne);
+
+                        echo '<tr>';
+                        echo '<td align="left" colspan"2">';
+                        $num=$num+1;
+                        echo '<a name="'.$num.'"></a>';
+//                        echo '<input type="hidden" value="'.$num.'" name="num'.$num.'">';
+                        echo '<span class="texte_note">'.$num.'</span>';
+                        echo '</td>';
+                        echo '</tr>';
+                        echo '<tr>';
+                        echo '<td align="left">';
+
+                        if ($_SESSION['niveau']<40) {
+                            echo '<div class="stbuttonpublierST" >'.$element[0].'</div>';
+                            echo '<input type="hidden" value="'.$element[0].'" name="in'.$num.'">';
+                        } else {
+                            echo '<input type="text" name="in'.$num.'" value="'.$element[0].'" size="12">';
+                        }
+                        echo '</td>';
+                        echo '<td align="center">';
+                        echo '<button id="buton1"  type="submit" class="btnsoustitre" >'.general("text9").'</button>'; // Publier
+                        echo '</td>';
+                        echo '<td align="right">';
+                        if ($_SESSION['niveau']<40) {
+                            echo '<div class="stbuttonpublierST" >'.$element[1].'</div>';
+                            echo '<input type="hidden" value="'.$element[1].'" name="out'.$num.'">';
+                        } else {
+                            echo '<input type="text" name="out'.$num.'" value="'.$element[1].'" size="12">';
+                        }
+
+                        echo '</td>';
+                        echo '<tr>';
+                    } else {
+                        if (strlen($ligne)>2) {
+                            $Assembleligne = $Assembleligne.chr(10).$ligne;
+
+                        }
+                    }
+
+                } else {
+                    if ($Assembleligne<>"") {
+                        echo '<tr>';
+                        echo '<td colspan="3">';
+                        echo '<center>';
+                        echo '<textarea name="texte'.$num.'" cols="36" rows="5">'.$Assembleligne.'</textarea>';
+                        echo '</center>';
+                        echo '</td>';
+                        echo '<tr>';
+
+                        echo '<tr>';
+
+                        echo '<td colspan="3">';
+                        echo '&nbsp;';
+                        echo '</td>';
+
+                        echo '</tr>';
+                        $Assembleligne="";
+                    }
+                }
+            }
+        }
+
+        echo '<input type="hidden" value="'.$num.'" name="total">';
+        echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';//nom de la table où les soustitres appartient
+        echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';//code de la langue des soustitres
+        echo '<input type="hidden" value="'.$_SESSION['id_res'].'" name="id_res">';//id du soustitre
+        echo '</form>';
 
 	}else{
 		//Formulaire pour tous les tables sauf soustitres, categorie_traduction, ressources_traduction
@@ -152,18 +272,128 @@ function edition_page_type2()
 function edition_page_fr()
 {
 	if($_SESSION['formulaire']==5){
-		$requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE id_resource='. $_SESSION['id_res'].' AND code="fr" AND status=1 AND ap_ref=1';
-		$recupcont = mysql_query($requete);
-		while ($data= mysql_fetch_assoc($recupcont)){
-			echo '<tr>';
-			echo '<td align="center">';
-			echo '<textarea class="matextarea" name="text" cols="60" rows="25" disabled>'.$data['text'].'</textarea>';
-			echo '</td>';
-			echo '</tr>';
-		}
-		echo '<input type="hidden" value="'.$_SESSION['table'].'" name="table">';
-		echo '<input type="hidden" value="'.$_SESSION['code_lg'].'" name="code_lg">';
-		echo '<input type="hidden" value="4" name="formulaire">';
+        $requete = 'SELECT * FROM '.$_SESSION['table'].' WHERE id_resource='. $_SESSION['id_res'].' AND code="fr" AND status=1';
+        $recupcont = mysql_query($requete);
+        $fichier="";
+        while ($data= mysql_fetch_assoc($recupcont)){
+            $nombre_archivo = "ressources/".$_SESSION['id_res']."_".$_SESSION['id'].".srt";
+            $fichier=$nombre_archivo;
+            if(file_exists($nombre_archivo))
+            {
+                $mensaje =$data['text'];
+            }
+
+            else
+            {
+                $mensaje =$data['text'];
+            }
+
+            if($archivo = fopen($nombre_archivo, "w"))
+            {
+                if(fwrite($archivo,   $mensaje))
+                {
+                    echo "";//Cambiar
+                }
+                else
+                {
+                    echo "";//Cambiar
+                }
+
+                fclose($archivo);
+            }
+        }
+
+        $num=0;
+        $nombre=0;
+
+        if (file_exists($fichier)) {
+
+            $lignes = file($fichier);
+             /*$lignes=str_replace("Ã´","ô",$lignes);
+             $lignes=str_replace("Ã©","é",$lignes);
+             $lignes=str_replace("Ã","à",$lignes);
+             $lignes=str_replace("à¨","è",$lignes);
+             $lignes=str_replace("àª","ê",$lignes);
+             $lignes=str_replace("à§","ç",$lignes);
+             $lignes=str_replace("à»","û",$lignes);
+             $lignes=str_replace("à¢","â",$lignes);
+             $lignes=str_replace(chr(13),"",$lignes);
+             $lignes=str_replace(chr(10),"",$lignes);
+             $lignes=str_replace("  "," ",$lignes);
+             $lignes=str_replace("à ","à",$lignes);
+             $lignes=str_replace("à¹","ù",$lignes);
+             $lignes=str_replace("ù ","ù",$lignes);
+             $lignes=str_replace("î ","î",$lignes);
+             $lignes=str_replace("ï ","ï",$lignes);
+             $lignes=str_replace("â ","â",$lignes);*/
+
+
+            $Assembleligne="";
+            foreach($lignes as $ligne_num => $ligne) { // on lit le fichier de fa�on s�quentielle
+
+                $ligne = str_replace(",000",",010",$ligne);
+                if (strlen($ligne)>5) {
+                    if (substr($ligne,0,1)=="0") {
+                        $nombre=$nombre+1;
+                        $element = explode(" --> ", $ligne);
+
+                        echo '<tr>';
+                        echo '<td align="left" colspan"2">';
+                        $num=$num+1;
+                        echo '<a name="'.$num.'"></a>';
+                        echo '<span class="texte_note">'.$num.'</span>';
+                        echo '</td>';
+                        echo '</tr>';
+                        echo '<tr>';
+                        echo '<td align="left">';
+
+                        if ($_SESSION['niveau']<40) {
+                            echo '<div class="stbuttonpublierST" >'.$element[0].'</div>';
+                        } else {
+                            echo '<input type="text" name="in'.$num.'" value="'.$element[0].'" size="12"  disabled>';
+                        }
+                        echo '</td>';
+                        echo '<td align="center">';
+                        echo '</td>';
+                        echo '<td align="right">';
+                        if ($_SESSION['niveau']<40) {
+                            echo '<div class="stbuttonpublierST" >'.$element[1].'</div>';
+                        } else {
+                            echo '<input type="text" name="out'.$num.'" value="'.$element[1].'" size="12"  disabled>';
+                        }
+
+                        echo '</td>';
+                        echo '<tr>';
+                    } else {
+                        if (strlen($ligne)>2) {
+                            $Assembleligne = $Assembleligne.chr(10).$ligne;
+
+                        }
+                    }
+
+                } else {
+                    if ($Assembleligne<>"") {
+                        echo '<tr>';
+                        echo '<td colspan="3">';
+                        echo '<center>';
+                        echo '<textarea name="texte'.$num.'" cols="36" rows="5"  disabled>'.$Assembleligne.'</textarea>';
+                        echo '</center>';
+                        echo '</td>';
+                        echo '<tr>';
+
+                        echo '<tr>';
+
+                        echo '<td colspan="3">';
+                        echo '&nbsp;';
+                        echo '</td>';
+
+                        echo '</tr>';
+                        $Assembleligne="";
+                    }
+                }
+            }
+        }
+        unlink($fichier);
 
 	}else {
 		$requete = 'SELECT * FROM ' . $_SESSION['table'] . ' WHERE status=1 AND ap_ref=1  AND code="fr"';
@@ -353,7 +583,9 @@ function edition_page_type2_fr()
 																			<?php if($_SESSION['formulaire']==3||$_SESSION['formulaire']==4){
 																				edition_page_type2();
 																			}else{
-																				echo '<form style="display: none" FormName="" action="traducteur_update.php" method="post">';
+																			    if($_SESSION['formulaire']!=5){
+                                                                                    echo '<form style="display: none" FormName="" action="traducteur_update.php" method="post">';
+                                                                                }
 																				edition_page();
 																			}?>
 																		</td><!--Cambiar-->
@@ -367,7 +599,7 @@ function edition_page_type2_fr()
 										</table>
 								<center>
 									<?php
-										if($_SESSION['formulaire']!=4) {
+										if($_SESSION['formulaire']!=4||$_SESSION['formulaire']!=5) {
 									?>
 											<input class="btn3" type="submit" value="<?php echo content("btn2");?>" name="submitButtonName"><!--Cambiar-->
 											</form>
